@@ -543,50 +543,147 @@ showrooms.forEach(s => {
 });
 
 // -----------------------------------------------------------------------------
-// 2. GENERATE 420 MOTORCYCLES DISTRIBUTED ACROSS 80 SHOWROOMS
+// 2. GENERATE 420 MOTORCYCLES DISTRIBUTED REALISTICALLY ACROSS 80 SHOWROOMS
 // -----------------------------------------------------------------------------
+const FLAGSHIP_SHOWROOM_IDS = new Set([
+  'shw-vms-06-01', // Oued Ghir Siège & Usine
+  'shw-vms-48-04', // Relizane Pôle Logistique & Showroom
+  'shw-vms-16-06', // Alger Bouzaréah
+  'shw-vms-16-07', // Alger Hussein Dey
+  'shw-vms-16-08', // Alger Dar El Beïda
+  'shw-vms-16-09', // Alger Chéraga
+  'shw-vms-16-10', // Alger Kouba
+  'shw-vms-31-16', // Oran Es-Senia
+  'shw-vms-31-17', // Oran Bir El Djir
+  'shw-vms-25-20', // Constantine Ali Mendjeli
+  'shw-vms-19-23', // Sétif Ville
+  'shw-vms-23-30', // Annaba Centre
+]);
+
+const SOUTHERN_WILAYAS = new Set(['01', '08', '11', '30', '32', '33', '37', '39', '45', '47', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58']);
+
+// Quotas per showroom
+const showroomQuotas = {};
+showrooms.forEach(s => {
+  if (s.id === 'shw-vms-06-01') showroomQuotas[s.id] = 11;
+  else if (s.id === 'shw-vms-48-04') showroomQuotas[s.id] = 10;
+  else if (['shw-vms-16-06', 'shw-vms-16-07', 'shw-vms-16-08', 'shw-vms-31-16'].includes(s.id)) showroomQuotas[s.id] = 9;
+  else if (FLAGSHIP_SHOWROOM_IDS.has(s.id)) showroomQuotas[s.id] = 8;
+  else if (SOUTHERN_WILAYAS.has(s.wilaya_code)) showroomQuotas[s.id] = 4;
+  else showroomQuotas[s.id] = 5;
+});
+
+// Fine-tune to exactly 420
+let totalQuotas = Object.values(showroomQuotas).reduce((a, b) => a + b, 0);
+const nonFlagships = showrooms.filter(s => !FLAGSHIP_SHOWROOM_IDS.has(s.id));
+let tuneIdx = 0;
+while (totalQuotas < 420) {
+  const shw = nonFlagships[tuneIdx % nonFlagships.length];
+  if (showroomQuotas[shw.id] < 6) {
+    showroomQuotas[shw.id]++;
+    totalQuotas++;
+  }
+  tuneIdx++;
+}
+while (totalQuotas > 420) {
+  const shw = nonFlagships[tuneIdx % nonFlagships.length];
+  if (showroomQuotas[shw.id] > 3) {
+    showroomQuotas[shw.id]--;
+    totalQuotas--;
+  }
+  tuneIdx++;
+}
+
 const COLORS = ['Noir Mat', 'Blanc Nacre', 'Gris Titane', 'Bleu Nuit', 'Rouge VMS Racing', 'Jaune Sport'];
 const motorcycles = [];
+const NOW = new Date(); // Dynamic real-time date
+let motoCounter = 1;
 
-const NOW = new Date(); // Dynamic real-time date (relative to current date)
+showrooms.forEach((shw, sIdx) => {
+  const quota = showroomQuotas[shw.id];
+  const isFlagship = FLAGSHIP_SHOWROOM_IDS.has(shw.id);
+  const isSouthern = SOUTHERN_WILAYAS.has(shw.wilaya_code);
 
-for (let i = 1; i <= 420; i++) {
-  const model = MODELS[i % MODELS.length];
-  const showroom = showrooms[i % showrooms.length];
-  const color = COLORS[i % COLORS.length];
+  // Determine models for this showroom
+  let chosenModels = [];
+  if (isFlagship) {
+    // Flagship gets ALL 8 models & categories
+    chosenModels = [...MODELS];
+    // Any remaining quota filled with top-sellers (Driver 125, Driver 150)
+    for (let e = 0; e < quota - 8; e++) {
+      chosenModels.push(MODELS[e % 2]);
+    }
+  } else if (quota >= 5) {
+    // Urban showrooms: Essential commuter trio + rotating specialized models
+    chosenModels = [MODELS[0], MODELS[1], MODELS[2]]; // Driver 125, Driver 150, Cuxi 110
+    const specialized = [MODELS[3], MODELS[4], MODELS[5], MODELS[6], MODELS[7]];
+    for (let r = 0; r < quota - 3; r++) {
+      chosenModels.push(specialized[(sIdx + r) % specialized.length]);
+    }
+  } else {
+    // Proximity / South: Essential commuter duo/trio + terrain adapted model
+    chosenModels = [MODELS[0], MODELS[2], MODELS[1]]; // Driver 125, Cuxi 110, Driver 150
+    if (quota >= 4) {
+      if (isSouthern) {
+        chosenModels.push((sIdx % 2 === 0) ? MODELS[7] : MODELS[6]); // Benelli TRK 502 or Keeway RKF 125
+      } else {
+        chosenModels.push(MODELS[3 + (sIdx % 3)]); // Estate 125, Victoria 200, or Alpha 150
+      }
+    }
+  }
 
-  // Distribute stock age: ~24% aging > 90 days (between 95 and 180 days) for Compte Global
-  const isAging = (i % 4 === 0);
-  const daysInStock = isAging ? 95 + (i % 85) : 5 + (i % 75);
+  // Assign distinct colors and realistic stock age
+  const usedModelColors = new Set();
+  chosenModels.forEach((mod, mIdx) => {
+    // Pick color avoiding duplicate (model_id + color) in the same showroom
+    let colorIdx = (sIdx * 3 + mIdx) % COLORS.length;
+    let color = COLORS[colorIdx];
+    let attempts = 0;
+    while (usedModelColors.has(`${mod.id}-${color}`) && attempts < COLORS.length) {
+      colorIdx = (colorIdx + 1) % COLORS.length;
+      color = COLORS[colorIdx];
+      attempts++;
+    }
+    usedModelColors.add(`${mod.id}-${color}`);
 
-  const arrivalDate = new Date(NOW.getTime() - daysInStock * 24 * 60 * 60 * 1000);
-  const acquisitionDate = new Date(arrivalDate.getTime() - 14 * 24 * 60 * 60 * 1000);
+    // Stock aging: ~28% dormant (>90 days, between 92 and 180 days) for Compte Global
+    // Premium/specialized models or remote showrooms tend to have slightly older stock
+    const isSpecialized = ['mod-benelli-trk-502', 'mod-vms-victoria-200', 'mod-keeway-rkf-125'].includes(mod.id);
+    const isAging = isSpecialized ? (mIdx % 2 === 0) : ((sIdx + mIdx) % 4 === 0);
+    const daysInStock = isAging ? (95 + ((sIdx * 7 + mIdx * 13) % 80)) : (6 + ((sIdx * 5 + mIdx * 11) % 72));
 
-  // Statuses: 78% available, 10% reserved, 6% in_transfer, 6% sold
-  let status = 'available';
-  if (i % 15 === 0) status = 'reserved';
-  else if (i % 17 === 0) status = 'in_transfer';
-  else if (i % 19 === 0) status = 'sold';
+    const arrivalDate = new Date(NOW.getTime() - daysInStock * 24 * 60 * 60 * 1000);
+    const acquisitionDate = new Date(arrivalDate.getTime() - 14 * 24 * 60 * 60 * 1000);
 
-  const vin = `VMS2026DZ${String(i).padStart(6, '0')}`;
+    // Realistic statuses:
+    // ~78% available, ~10% reserved, ~6% in_transfer, ~6% sold
+    let status = 'available';
+    if ((sIdx + mIdx) % 17 === 0) status = 'reserved';
+    else if ((sIdx + mIdx) % 19 === 0) status = 'in_transfer';
+    else if ((sIdx + mIdx) % 23 === 0) status = 'sold';
 
-  motorcycles.push({
-    id: `moto-${String(i).padStart(4, '0')}`,
-    model_id: model.id,
-    showroom_id: showroom.id,
-    vin,
-    color,
-    engine_specs: `${model.engine_cc}cc • ${model.cooling} • ${model.fuel_system}`,
-    acquisition_date: acquisitionDate.toISOString().split('T')[0],
-    arrival_date: arrivalDate.toISOString().split('T')[0],
-    status,
-    notes: isAging ? 'Stock dormant éligible Compte Global (>90j)' : 'Contrôle qualité VMS usine validé',
-    sale_date: status === 'sold' ? new Date(NOW.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] : undefined,
-    created_at: arrivalDate.toISOString(),
-    days_in_stock: daysInStock,
-    is_aging: daysInStock >= 90
+    const vin = `VMS2026DZ${String(motoCounter).padStart(6, '0')}`;
+
+    motorcycles.push({
+      id: `moto-${String(motoCounter).padStart(4, '0')}`,
+      model_id: mod.id,
+      showroom_id: shw.id,
+      vin,
+      color,
+      engine_specs: `${mod.engine_cc}cc • ${mod.cooling} • ${mod.fuel_system}`,
+      acquisition_date: acquisitionDate.toISOString().split('T')[0],
+      arrival_date: arrivalDate.toISOString().split('T')[0],
+      status,
+      notes: isAging ? 'Stock dormant éligible Compte Global (>90j)' : 'Contrôle qualité VMS usine validé',
+      sale_date: status === 'sold' ? new Date(NOW.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] : undefined,
+      created_at: arrivalDate.toISOString(),
+      days_in_stock: daysInStock,
+      is_aging: daysInStock >= 90
+    });
+
+    motoCounter++;
   });
-}
+});
 
 // -----------------------------------------------------------------------------
 // 3. GENERATE 260 CUSTOMER REQUESTS (HUNDREDS OF REQUESTS ACROSS 58 WILAYAS)
