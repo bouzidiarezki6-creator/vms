@@ -3,6 +3,8 @@ import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { signToken, verifyToken, redactEmail, redactPhone, createRateLimiter } from './utils/auth.js';
+import { mutex } from './utils/mutex.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,11 +15,51 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Request logger
+// Enterprise Security Rate Limiters
+const authLimiter = createRateLimiter({ windowMs: 60000, max: 20, message: 'Trop de tentatives d\'authentification. Veuillez patienter 1 minute.' });
+const requestLimiter = createRateLimiter({ windowMs: 60000, max: 15, message: 'Fréquence de requêtes trop élevée. Veuillez patienter.' });
+
+// Authentication & Session Extraction Middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) {
+    req.user = null;
+    return next();
+  }
+  const payload = verifyToken(token);
+  if (!payload) {
+    return res.status(401).json({ error: 'Session invalide ou expirée.' });
+  }
+  if (payload.isLegacy) {
+    const user = db?.profiles?.find(p => p.id === payload.id);
+    req.user = user || { id: payload.id, role: 'customer' };
+  } else {
+    req.user = payload;
+  }
+  next();
+}
+
+// Role Enforcement Guard Middleware
+function requireRole(roles) {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ error: 'Authentification requise pour cette opération.' });
+    }
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({ error: 'Accès non autorisé pour ce profil.' });
+    }
+    next();
+  };
+}
+
+// Request logger with PII masking
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+app.use(authenticateToken);
 
 // Path to persistent data
 const DATA_DIR = path.join(__dirname, 'data');
@@ -435,16 +477,22 @@ function saveStore() {
 // Initialize database
 loadStore();
 
-// Helper to log audit
+// Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
+  // Sanitize details to prevent logging raw PII
+  const sanitizedDetails = { ...details };
+  if (sanitizedDetails.phone) sanitizedDetails.phone = redactPhone(sanitizedDetails.phone);
+  if (sanitizedDetails.customer_phone) sanitizedDetails.customer_phone = redactPhone(sanitizedDetails.customer_phone);
+  if (sanitizedDetails.password) delete sanitizedDetails.password;
+
   const log = {
     id: `aud-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     user_id: userId || 'anonymous',
-    user_email: userEmail || 'system',
+    user_email: redactEmail(userEmail || 'system'),
     action_type: actionType,
     entity_type: entityType,
     entity_id: entityId,
-    details: details || {},
+    details: sanitizedDetails || {},
     created_at: new Date().toISOString()
   };
   db.audit_logs.unshift(log);
@@ -461,7 +509,8 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
     platform: 'QUICK by VMS',
-    version: '2.0.0',
+    version: '2.1.0',
+    phase: 'Phase 1 - Enterprise Secured & Concurrent Protected',
     timestamp: new Date().toISOString(),
     stats: {
       models: db.models.length,
@@ -473,37 +522,55 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Authentication routes
-app.post('/api/auth/login', (req, res) => {
+// Authentication routes (Hardened with rate limiter & cryptographic JWT)
+app.post('/api/auth/login', authLimiter, (req, res) => {
   const { email } = req.body;
-  if (!email) {
-    return res.status(400).json({ error: 'Email obligatoire' });
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({ error: 'Adresse email obligatoire et valide requise.' });
   }
-  const user = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  const cleanEmail = email.trim().toLowerCase();
+  const user = db.profiles.find(p => p.email.toLowerCase() === cleanEmail);
   if (!user) {
-    return res.status(404).json({ error: 'Utilisateur introuvable' });
+    return res.status(404).json({ error: 'Identifiants introuvables. Vérifiez votre adresse email.' });
   }
-  logAudit(user.id, user.email, 'AUTH_LOGIN', 'profiles', user.id, { role: user.role });
-  res.json({ user, token: `vms-jwt-token-${user.id}` });
+
+  // Generate cryptographically signed JWT token
+  const token = signToken({
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    wilaya_code: user.wilaya_code
+  });
+
+  logAudit(user.id, user.email, 'AUTH_LOGIN_SECURE', 'profiles', user.id, { role: user.role });
+
+  // Return both signed token and legacy compatibility
+  res.json({
+    user,
+    token,
+    tokenType: 'Bearer',
+    expiresIn: 86400
+  });
 });
 
-app.post('/api/auth/register', (req, res) => {
+app.post('/api/auth/register', authLimiter, (req, res) => {
   const { first_name, last_name, phone, email, wilaya_code } = req.body;
   if (!first_name || !last_name || !phone || !email) {
     return res.status(400).json({ error: 'Tous les champs requis doivent être remplis' });
   }
-  const existing = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  const cleanEmail = email.trim().toLowerCase();
+  const existing = db.profiles.find(p => p.email.toLowerCase() === cleanEmail);
   if (existing) {
     return res.status(409).json({ error: 'Un compte avec cette adresse email existe déjà' });
   }
 
   const newUser = {
     id: `usr-cust-${Date.now()}`,
-    email,
+    email: cleanEmail,
     role: 'customer',
-    first_name,
-    last_name,
-    phone,
+    first_name: first_name.trim(),
+    last_name: last_name.trim(),
+    phone: phone.trim(),
     wilaya_code: wilaya_code || '16',
     is_active: true,
     created_at: new Date().toISOString()
@@ -511,8 +578,16 @@ app.post('/api/auth/register', (req, res) => {
 
   db.profiles.push(newUser);
   saveStore();
-  logAudit(newUser.id, newUser.email, 'AUTH_REGISTER', 'profiles', newUser.id, { role: 'customer' });
-  res.status(201).json({ user: newUser, token: `vms-jwt-token-${newUser.id}` });
+
+  const token = signToken({
+    id: newUser.id,
+    email: newUser.email,
+    role: newUser.role,
+    wilaya_code: newUser.wilaya_code
+  });
+
+  logAudit(newUser.id, newUser.email, 'AUTH_REGISTER_SECURE', 'profiles', newUser.id, { role: 'customer' });
+  res.status(201).json({ user: newUser, token, tokenType: 'Bearer' });
 });
 
 app.get('/api/auth/users', (req, res) => {
@@ -603,38 +678,47 @@ app.get('/api/motorcycles', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/motorcycles', (req, res) => {
+app.post('/api/motorcycles', async (req, res) => {
   const { model_id, showroom_id, vin, color, arrival_date, notes } = req.body;
   if (!model_id || !showroom_id || !vin || !color) {
     return res.status(400).json({ error: 'Modèle, Showroom, VIN et Couleur sont requis' });
   }
 
   const cleanVin = vin.trim().toUpperCase();
-  if (db.motorcycles.some(m => m.vin.toUpperCase() === cleanVin)) {
-    return res.status(409).json({ error: `Le numéro de châssis / VIN "${cleanVin}" existe déjà` });
+
+  try {
+    const newMoto = await mutex.runExclusive(`vin:${cleanVin}`, async () => {
+      if (db.motorcycles.some(m => m.vin.toUpperCase() === cleanVin)) {
+        throw new Error(`Le numéro de châssis / VIN "${cleanVin}" existe déjà`);
+      }
+
+      const moto = {
+        id: `moto-${Date.now()}`,
+        model_id,
+        showroom_id,
+        vin: cleanVin,
+        color,
+        acquisition_date: arrival_date || new Date().toISOString().split('T')[0],
+        arrival_date: arrival_date || new Date().toISOString().split('T')[0],
+        status: 'available',
+        notes: notes || '',
+        created_at: new Date().toISOString()
+      };
+
+      db.motorcycles.push(moto);
+      saveStore();
+
+      // Check if this stock arrival matches any pending customer request!
+      matchPendingRequestsForStock(moto);
+
+      logAudit(req.body.user_id || req.user?.id || 'staff', 'Showroom Staff', 'STOCK_CREATE_SECURE', 'motorcycles', moto.id, { vin: cleanVin });
+      return moto;
+    });
+
+    res.status(201).json(newMoto);
+  } catch (err) {
+    res.status(409).json({ error: err.message });
   }
-
-  const newMoto = {
-    id: `moto-${Date.now()}`,
-    model_id,
-    showroom_id,
-    vin: cleanVin,
-    color,
-    acquisition_date: arrival_date || new Date().toISOString().split('T')[0],
-    arrival_date: arrival_date || new Date().toISOString().split('T')[0],
-    status: 'available',
-    notes: notes || '',
-    created_at: new Date().toISOString()
-  };
-
-  db.motorcycles.push(newMoto);
-  saveStore();
-
-  // Check if this stock arrival matches any pending customer request!
-  matchPendingRequestsForStock(newMoto);
-
-  logAudit(req.body.user_id || 'staff', 'Showroom Staff', 'STOCK_CREATE', 'motorcycles', newMoto.id, { vin: cleanVin });
-  res.status(201).json(newMoto);
 });
 
 app.put('/api/motorcycles/:id', (req, res) => {
@@ -735,7 +819,7 @@ app.get('/api/requests', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/requests', (req, res) => {
+app.post('/api/requests', requestLimiter, (req, res) => {
   const { first_name, last_name, phone, email, motorcycle_model_id, wilaya_code, city, user_id } = req.body;
 
   if (!first_name || !last_name || !phone || !email || !motorcycle_model_id || !wilaya_code) {
@@ -918,84 +1002,111 @@ app.get('/api/transfers', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/transfers', (req, res) => {
+app.post('/api/transfers', async (req, res) => {
   const { motorcycle_id, source_showroom_id, destination_showroom_id, reason, user_id } = req.body;
   if (!motorcycle_id || !source_showroom_id || !destination_showroom_id) {
     return res.status(400).json({ error: 'Paramètres de transfert incomplets.' });
   }
 
-  const moto = db.motorcycles.find(m => m.id === motorcycle_id);
-  if (!moto || moto.status !== 'available') {
-    return res.status(400).json({ error: 'La moto n\'est pas disponible pour un transfert.' });
-  }
-
-  const ref = `TRF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  const newTransfer = {
-    id: `trf-${Date.now()}`,
-    reference: ref,
-    motorcycle_id,
-    source_showroom_id,
-    destination_showroom_id,
-    requested_by: user_id || 'operator',
-    status: 'pending',
-    reason: reason || 'Rééquilibrage Compte Global',
-    created_at: new Date().toISOString(),
-    history: [
-      {
-        id: `th-${Date.now()}`,
-        to_status: 'pending',
-        changed_by: user_id || 'operator',
-        comment: reason || 'Initiation de la demande de transfert',
-        created_at: new Date().toISOString()
+  try {
+    const result = await mutex.runExclusive(`moto:${motorcycle_id}`, async () => {
+      const moto = db.motorcycles.find(m => m.id === motorcycle_id);
+      if (!moto) {
+        throw new Error('Moto introuvable.');
       }
-    ]
-  };
+      if (moto.status !== 'available') {
+        throw new Error(`La moto n'est pas disponible pour un transfert (statut actuel: ${moto.status}).`);
+      }
 
-  db.transfers.unshift(newTransfer);
-  saveStore();
-  logAudit(user_id || 'operator', 'Compte Global', 'TRANSFER_REQUEST', 'transfers', newTransfer.id, { ref });
-  res.status(201).json(newTransfer);
+      // Check if motorcycle is already in an active transfer
+      const activeTransfer = db.transfers.find(
+        t => t.motorcycle_id === motorcycle_id && ['pending', 'approved', 'in_preparation', 'in_transit'].includes(t.status)
+      );
+      if (activeTransfer) {
+        throw new Error(`Cette moto fait déjà l'objet du transfert actif ${activeTransfer.reference}.`);
+      }
+
+      const ref = `TRF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      const newTransfer = {
+        id: `trf-${Date.now()}`,
+        reference: ref,
+        motorcycle_id,
+        source_showroom_id,
+        destination_showroom_id,
+        requested_by: user_id || req.user?.id || 'operator',
+        status: 'pending',
+        reason: reason || 'Rééquilibrage Compte Global',
+        created_at: new Date().toISOString(),
+        history: [
+          {
+            id: `th-${Date.now()}`,
+            to_status: 'pending',
+            changed_by: user_id || req.user?.id || 'operator',
+            comment: reason || 'Initiation de la demande de transfert atomique',
+            created_at: new Date().toISOString()
+          }
+        ]
+      };
+
+      db.transfers.unshift(newTransfer);
+      saveStore();
+      logAudit(user_id || req.user?.id || 'operator', 'Compte Global', 'TRANSFER_REQUEST_SECURE', 'transfers', newTransfer.id, { ref, vin: moto.vin });
+      return newTransfer;
+    });
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
-app.put('/api/transfers/:id/status', (req, res) => {
+app.put('/api/transfers/:id/status', async (req, res) => {
   const { status, user_id, comment } = req.body;
   const trf = db.transfers.find(t => t.id === req.params.id);
   if (!trf) return res.status(404).json({ error: 'Transfert introuvable' });
 
-  const motoIdx = db.motorcycles.findIndex(m => m.id === trf.motorcycle_id);
-  const oldStatus = trf.status;
+  try {
+    const updated = await mutex.runExclusive(`moto:${trf.motorcycle_id}`, async () => {
+      const motoIdx = db.motorcycles.findIndex(m => m.id === trf.motorcycle_id);
+      const oldStatus = trf.status;
 
-  if (status === 'approved' || status === 'in_transit') {
-    if (motoIdx !== -1) db.motorcycles[motoIdx].status = 'in_transfer';
-  } else if (status === 'received') {
-    // Atomic reception: assign new showroom, reset arrival date to today, set available
-    if (motoIdx !== -1) {
-      db.motorcycles[motoIdx].showroom_id = trf.destination_showroom_id;
-      db.motorcycles[motoIdx].status = 'available';
-      db.motorcycles[motoIdx].arrival_date = new Date().toISOString().split('T')[0];
-      db.motorcycles[motoIdx].notes = `Transféré via ${trf.reference} le ${new Date().toLocaleDateString('fr-FR')}.`;
-      matchPendingRequestsForStock(db.motorcycles[motoIdx]);
-    }
-  } else if (status === 'rejected' || status === 'cancelled') {
-    if (motoIdx !== -1 && db.motorcycles[motoIdx].status === 'in_transfer') {
-      db.motorcycles[motoIdx].status = 'available';
-    }
+      if (status === 'approved' || status === 'in_transit') {
+        if (motoIdx !== -1) db.motorcycles[motoIdx].status = 'in_transfer';
+      } else if (status === 'received') {
+        // Atomic reception: assign new showroom, reset arrival date to today, set available
+        if (motoIdx !== -1) {
+          db.motorcycles[motoIdx].showroom_id = trf.destination_showroom_id;
+          db.motorcycles[motoIdx].status = 'available';
+          db.motorcycles[motoIdx].arrival_date = new Date().toISOString().split('T')[0];
+          db.motorcycles[motoIdx].notes = `Transféré via ${trf.reference} le ${new Date().toLocaleDateString('fr-FR')}.`;
+          matchPendingRequestsForStock(db.motorcycles[motoIdx]);
+        }
+      } else if (status === 'rejected' || status === 'cancelled') {
+        if (motoIdx !== -1 && db.motorcycles[motoIdx].status === 'in_transfer') {
+          db.motorcycles[motoIdx].status = 'available';
+        }
+      }
+
+      trf.status = status;
+      if (!trf.history) trf.history = [];
+      trf.history.push({
+        id: `th-${Date.now()}`,
+        from_status: oldStatus,
+        to_status: status,
+        changed_by: user_id || req.user?.id || 'operator',
+        comment: comment || `Statut passé à ${status}`,
+        created_at: new Date().toISOString()
+      });
+
+      saveStore();
+      logAudit(user_id || req.user?.id || 'operator', 'Operator', `TRANSFER_${status.toUpperCase()}_SECURE`, 'transfers', trf.id, { ref: trf.reference });
+      return trf;
+    });
+
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
-
-  trf.status = status;
-  if (!trf.history) trf.history = [];
-  trf.history.push({
-    id: `th-${Date.now()}`,
-    from_status: oldStatus,
-    to_status: status,
-    changed_by: user_id || 'operator',
-    comment: comment || `Statut passé à ${status}`,
-    created_at: new Date().toISOString()
-  });
-
-  saveStore();
-  logAudit(user_id || 'operator', 'Operator', `TRANSFER_${status.toUpperCase()}`, 'transfers', trf.id, { ref: trf.reference });
-  res.json(trf);
 });
 
 // Sales
@@ -1010,33 +1121,59 @@ app.get('/api/sales', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/sales', (req, res) => {
-  const { motorcycle_id, showroom_id, customer_name, customer_phone, sale_price, payment_method, user_id } = req.body;
-  const motoIdx = db.motorcycles.findIndex(m => m.id === motorcycle_id);
-  if (motoIdx === -1) return res.status(404).json({ error: 'Moto introuvable' });
+app.post('/api/sales', async (req, res) => {
+  const { motorcycle_id, showroom_id, customer_name, customer_phone, sale_price, payment_method, user_id, notes } = req.body;
+  if (!motorcycle_id || !showroom_id || !customer_name || !customer_phone || !sale_price) {
+    return res.status(400).json({ error: 'Champs obligatoires manquants pour l\'enregistrement de la vente.' });
+  }
 
-  const ref = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  db.motorcycles[motoIdx].status = 'sold';
-  db.motorcycles[motoIdx].sale_date = new Date().toISOString().split('T')[0];
+  try {
+    const sale = await mutex.runExclusive(`moto:${motorcycle_id}`, async () => {
+      const motoIdx = db.motorcycles.findIndex(m => m.id === motorcycle_id);
+      if (motoIdx === -1) throw new Error('Moto introuvable.');
 
-  const newSale = {
-    id: `sal-${Date.now()}`,
-    reference: ref,
-    motorcycle_id,
-    showroom_id,
-    customer_name,
-    customer_phone,
-    sale_price: Number(sale_price),
-    payment_method: payment_method || 'CASH',
-    sale_date: new Date().toISOString().split('T')[0],
-    sold_by: user_id || 'seller',
-    created_at: new Date().toISOString()
-  };
+      const moto = db.motorcycles[motoIdx];
+      if (moto.status !== 'available' && moto.status !== 'reserved') {
+        throw new Error(`La moto n'est pas disponible pour la vente (statut actuel: ${moto.status}).`);
+      }
 
-  db.sales.unshift(newSale);
-  saveStore();
-  logAudit(user_id || 'seller', 'Showroom Seller', 'SALE_CREATE', 'sales', newSale.id, { ref, vin: db.motorcycles[motoIdx].vin });
-  res.status(201).json(newSale);
+      const ref = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      db.motorcycles[motoIdx].status = 'sold';
+      db.motorcycles[motoIdx].sale_date = new Date().toISOString().split('T')[0];
+
+      const newSale = {
+        id: `sal-${Date.now()}`,
+        reference: ref,
+        motorcycle_id,
+        showroom_id,
+        customer_name,
+        customer_phone,
+        sale_price: Number(sale_price),
+        payment_method: payment_method || 'CASH',
+        sale_date: new Date().toISOString().split('T')[0],
+        sold_by: user_id || req.user?.id || 'seller',
+        notes: notes || 'Vente showroom enregistrée avec garantie VMS 2 ans',
+        created_at: new Date().toISOString()
+      };
+
+      db.sales.unshift(newSale);
+      saveStore();
+
+      // Log with sanitized PII
+      logAudit(user_id || req.user?.id || 'seller', 'Showroom Seller', 'SALE_CREATE_SECURE', 'sales', newSale.id, {
+        ref,
+        vin: db.motorcycles[motoIdx].vin,
+        sale_price: Number(sale_price),
+        customer_phone_redacted: redactPhone(customer_phone)
+      });
+
+      return newSale;
+    });
+
+    res.status(201).json(sale);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 // KPIs

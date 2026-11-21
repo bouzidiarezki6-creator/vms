@@ -28,6 +28,7 @@ import {
   INITIAL_AUDIT_LOGS
 } from '../data/mockData';
 import { WILAYAS } from '../data/wilayas';
+import { redactEmail, redactPhone } from '../lib/utils';
 
 const STORAGE_KEYS = {
   PROFILES: 'vms_quick_profiles_v4',
@@ -1058,14 +1059,20 @@ class DatabaseStore {
     details?: Record<string, any>
   ): void {
     const logs = this.cachedLoad<AuditLog[]>(STORAGE_KEYS.AUDIT_LOGS, INITIAL_AUDIT_LOGS);
+    
+    // Redact sensitive customer PII before saving to audit storage
+    const sanitizedDetails = details ? { ...details } : {};
+    if (sanitizedDetails.phone) sanitizedDetails.phone = redactPhone(sanitizedDetails.phone);
+    if (sanitizedDetails.customer_phone) sanitizedDetails.customer_phone = redactPhone(sanitizedDetails.customer_phone);
+
     const entry: AuditLog = {
       id: `aud-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       user_id: userId,
-      user_email: userEmail,
+      user_email: redactEmail(userEmail),
       action_type: actionType,
       entity_type: entityType,
       entity_id: entityId,
-      details,
+      details: sanitizedDetails,
       created_at: new Date().toISOString()
     };
     logs.unshift(entry);

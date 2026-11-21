@@ -40,3 +40,17 @@ export function calculateDaysInStock(arrivalDate: string | Date): number {
   const diffDays = Math.floor((now - arrival) / (1000 * 60 * 60 * 24));
   return Math.max(0, diffDays);
 }
+
+export function redactPhone(phone: string | null | undefined): string {
+  if (!phone) return '';
+  const str = String(phone).trim();
+  if (str.length < 6) return '******';
+  return str.slice(0, 4) + '****' + str.slice(-2);
+}
+
+export function redactEmail(email: string | null | undefined): string {
+  if (!email || !email.includes('@')) return '******';
+  const [user, domain] = email.split('@');
+  const redactedUser = user.length <= 2 ? user[0] + '***' : user[0] + '***' + user[user.length - 1];
+  return `${redactedUser}@${domain}`;
+}
