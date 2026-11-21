@@ -1,4 +1,5 @@
 import { dbStore } from './dbStore';
+import { ClientBiService } from './clientBiService';
 import {
   Profile,
   Showroom,
@@ -48,6 +49,11 @@ class ApiService {
 
   constructor() {
     this.checkHealth();
+    if (typeof window !== 'undefined') {
+      setInterval(() => {
+        this.checkHealth();
+      }, 4000);
+    }
   }
 
   public subscribeStatus(cb: (online: boolean) => void): () => void {
@@ -422,20 +428,24 @@ class ApiService {
   // BUSINESS INTELLIGENCE & ANALYTICS (PHASE 4)
   // ---------------------------------------------------------------------------
   public async getBiOverview(filters: BiFilterOptions = {}): Promise<BiExecutiveOverview | null> {
-    if (this.isOnline) {
-      try {
-        const q = new URLSearchParams();
-        if (filters.startDate) q.set('startDate', filters.startDate);
-        if (filters.endDate) q.set('endDate', filters.endDate);
-        if (filters.period) q.set('period', filters.period);
-        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
-        const res = await fetch(`${API_BASE_URL}/bi/overview?${q.toString()}`);
-        if (res.ok) return await res.json();
-      } catch (err) {
-        console.warn('BI overview fetch error:', err);
+    try {
+      const q = new URLSearchParams();
+      if (filters.startDate) q.set('startDate', filters.startDate);
+      if (filters.endDate) q.set('endDate', filters.endDate);
+      if (filters.period) q.set('period', filters.period);
+      if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+      const res = await fetch(`${API_BASE_URL}/bi/overview?${q.toString()}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        if (!this.isOnline) {
+          this.isOnline = true;
+          this.listeners.forEach(cb => cb(true));
+        }
+        return await res.json();
       }
+    } catch (err) {
+      // Fallback seamlessly to client-side computation from dbStore
     }
-    return null;
+    return ClientBiService.getExecutiveOverview(filters);
   }
 
   public async getBiSalesTrends(
@@ -443,53 +453,71 @@ class ApiService {
     range: string = '12m',
     region?: string
   ): Promise<BiSalesTrendsResponse | null> {
-    if (this.isOnline) {
-      try {
-        const q = new URLSearchParams();
-        if (typeof paramsOrGranularity === 'object') {
-          if (paramsOrGranularity.granularity) q.set('granularity', paramsOrGranularity.granularity);
-          if (paramsOrGranularity.range) q.set('range', paramsOrGranularity.range);
-          if (paramsOrGranularity.region && paramsOrGranularity.region !== 'ALL') q.set('region', paramsOrGranularity.region);
-        } else {
-          q.set('granularity', paramsOrGranularity);
-          q.set('range', range);
-          if (region && region !== 'ALL') q.set('region', region);
-        }
-        const res = await fetch(`${API_BASE_URL}/bi/sales-trends?${q.toString()}`);
-        if (res.ok) return await res.json();
-      } catch (err) {
-        console.warn('BI sales trends fetch error:', err);
-      }
+    let granularityVal = 'monthly';
+    let rangeVal = range;
+    let regionVal = region;
+
+    if (typeof paramsOrGranularity === 'object') {
+      granularityVal = paramsOrGranularity.granularity || 'monthly';
+      rangeVal = paramsOrGranularity.range || '12m';
+      regionVal = paramsOrGranularity.region;
+    } else {
+      granularityVal = paramsOrGranularity;
     }
-    return null;
+
+    try {
+      const q = new URLSearchParams();
+      q.set('granularity', granularityVal);
+      q.set('range', rangeVal);
+      if (regionVal && regionVal !== 'ALL') q.set('region', regionVal);
+      const res = await fetch(`${API_BASE_URL}/bi/sales-trends?${q.toString()}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        if (!this.isOnline) {
+          this.isOnline = true;
+          this.listeners.forEach(cb => cb(true));
+        }
+        return await res.json();
+      }
+    } catch (err) {
+      // Fallback seamlessly to client-side computation from dbStore
+    }
+    return ClientBiService.getSalesTrends(granularityVal, rangeVal, regionVal);
   }
 
   public async getBiShowroomRankings(filters: { region?: string } = {}): Promise<BiShowroomRankingsResponse | null> {
-    if (this.isOnline) {
-      try {
-        const q = new URLSearchParams();
-        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
-        const res = await fetch(`${API_BASE_URL}/bi/showroom-performance?${q.toString()}`);
-        if (res.ok) return await res.json();
-      } catch (err) {
-        console.warn('BI showroom rankings fetch error:', err);
+    try {
+      const q = new URLSearchParams();
+      if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+      const res = await fetch(`${API_BASE_URL}/bi/showroom-performance?${q.toString()}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        if (!this.isOnline) {
+          this.isOnline = true;
+          this.listeners.forEach(cb => cb(true));
+        }
+        return await res.json();
       }
+    } catch (err) {
+      // Fallback seamlessly to client-side computation from dbStore
     }
-    return null;
+    return ClientBiService.getShowroomRankings(filters);
   }
 
   public async getBiDemandIntelligence(filters: { region?: string } = {}): Promise<BiDemandIntelligenceResponse | null> {
-    if (this.isOnline) {
-      try {
-        const q = new URLSearchParams();
-        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
-        const res = await fetch(`${API_BASE_URL}/bi/demand-intelligence?${q.toString()}`);
-        if (res.ok) return await res.json();
-      } catch (err) {
-        console.warn('BI demand intelligence fetch error:', err);
+    try {
+      const q = new URLSearchParams();
+      if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+      const res = await fetch(`${API_BASE_URL}/bi/demand-intelligence?${q.toString()}`, { signal: AbortSignal.timeout(2000) });
+      if (res.ok) {
+        if (!this.isOnline) {
+          this.isOnline = true;
+          this.listeners.forEach(cb => cb(true));
+        }
+        return await res.json();
       }
+    } catch (err) {
+      // Fallback seamlessly to client-side computation from dbStore
     }
-    return null;
+    return ClientBiService.getDemandIntelligence(filters);
   }
 
   public getBiExportUrl(format: 'csv' | 'json' = 'csv', period?: string, region?: string): string {
