@@ -90,7 +90,7 @@ The flagship feature is **Compte Global** — an intelligent engine that detects
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/bouzidiarezki6/vms.git
+git clone https://github.com/bouzidiarezki6-creator/vms.git
 cd vms
 ```
 
