@@ -5,7 +5,8 @@ import { Navbar } from './components/layout/Navbar';
 import { CustomerAuthModal } from './components/auth/CustomerAuthModal';
 import { ToastProvider } from './components/ui/Toast';
 import { PageSkeleton } from './components/ui/Skeleton';
-import { Bike, Database, Layers, ExternalLink } from 'lucide-react';
+import { Logo } from './components/ui/Logo';
+import { Bike, Database, Layers, ExternalLink, Server } from 'lucide-react';
 
 // ── Lazy-load the four heavy portals so each is in its own JS chunk ──────────
 // This cuts the initial bundle from ~860 KB to ~200 KB (gzip ~55 KB).
@@ -92,24 +93,14 @@ export function App() {
         {/* Enterprise SaaS Footer */}
         <footer className="border-t border-slate-200 bg-white py-8 text-xs text-slate-500">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2.5">
-              <div className="h-7 w-7 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-                <Bike className="h-4 w-4" />
-              </div>
-              <div>
-                <p className="font-bold text-slate-900">
-                  QUICK — Plateforme VMS Algérie
-                </p>
-                <p className="text-[11px] text-slate-400">
-                  Gestion Centralisée des Disponibilités Motos & Showrooms
-                </p>
-              </div>
+            <div className="flex items-center gap-3">
+              <Logo size="sm" variant="badge" />
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-slate-600">
               <button
                 onClick={() => setActiveTab('compte-global')}
-                className="hover:text-blue-600 flex items-center gap-1"
+                className="hover:text-red-600 flex items-center gap-1 font-medium transition-colors"
               >
                 <Layers className="h-3.5 w-3.5" />
                 <span>Compte Global Réseau</span>
@@ -132,8 +123,8 @@ export function App() {
               </a>
               <span>•</span>
               <span className="flex items-center gap-1 text-slate-400">
-                <Database className="h-3.5 w-3.5" />
-                <span>PostgreSQL / Supabase RLS</span>
+                <Server className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Backend Express REST API (Port 5000)</span>
               </span>
             </div>
 

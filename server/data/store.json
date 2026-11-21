@@ -1,0 +1,390 @@
+{
+  "profiles": [
+    {
+      "id": "usr-admin-1",
+      "email": "admin@vms.dz",
+      "role": "super_admin",
+      "first_name": "Karim",
+      "last_name": "Bensalem",
+      "phone": "+213550112233",
+      "wilaya_code": "16",
+      "is_active": true,
+      "created_at": "2026-01-01T08:00:00Z"
+    },
+    {
+      "id": "usr-owner-alger",
+      "email": "alger@vms.dz",
+      "role": "showroom_owner",
+      "first_name": "Amine",
+      "last_name": "Larbi",
+      "phone": "+213550223344",
+      "wilaya_code": "16",
+      "is_active": true,
+      "created_at": "2026-01-05T09:00:00Z"
+    },
+    {
+      "id": "usr-owner-oran",
+      "email": "oran@vms.dz",
+      "role": "showroom_owner",
+      "first_name": "Tarek",
+      "last_name": "Mansouri",
+      "phone": "+213550334455",
+      "wilaya_code": "31",
+      "is_active": true,
+      "created_at": "2026-01-05T09:30:00Z"
+    },
+    {
+      "id": "usr-owner-bejaia",
+      "email": "bejaia@vms.dz",
+      "role": "showroom_owner",
+      "first_name": "Sofiane",
+      "last_name": "Boudiaf",
+      "phone": "+213550667788",
+      "wilaya_code": "06",
+      "is_active": true,
+      "created_at": "2026-01-07T08:30:00Z"
+    },
+    {
+      "id": "usr-customer-1",
+      "email": "customer@example.com",
+      "role": "customer",
+      "first_name": "Yacine",
+      "last_name": "Hamidi",
+      "phone": "+213661889900",
+      "wilaya_code": "16",
+      "is_active": true,
+      "created_at": "2026-02-10T14:20:00Z"
+    }
+  ],
+  "showrooms": [
+    {
+      "id": "shw-alger-centre",
+      "name": "VMS Showroom Alger — Sidi Yahia",
+      "wilaya_code": "16",
+      "city": "Hydra",
+      "address": "14 Boulevard Sidi Yahia, Hydra, Alger",
+      "phone": "+213 23 48 11 22",
+      "email": "alger@vms.dz",
+      "owner_id": "usr-owner-alger",
+      "is_active": true,
+      "created_at": "2026-01-05T09:00:00Z"
+    },
+    {
+      "id": "shw-oran-maraval",
+      "name": "VMS Showroom Oran — Maraval",
+      "wilaya_code": "31",
+      "city": "Oran",
+      "address": "Route Nationale 11, Maraval, Oran",
+      "phone": "+213 41 33 44 55",
+      "email": "oran@vms.dz",
+      "owner_id": "usr-owner-oran",
+      "is_active": true,
+      "created_at": "2026-01-05T09:30:00Z"
+    },
+    {
+      "id": "shw-constantine",
+      "name": "VMS Showroom Constantine — Ville Nouvelle",
+      "wilaya_code": "25",
+      "city": "Ali Mendjeli",
+      "address": "UV 05, Ville Nouvelle Ali Mendjeli, Constantine",
+      "phone": "+213 31 66 77 88",
+      "email": "constantine@vms.dz",
+      "is_active": true,
+      "created_at": "2026-01-06T10:00:00Z"
+    },
+    {
+      "id": "shw-bejaia-usine",
+      "name": "VMS Flagship & Usine Béjaïa",
+      "wilaya_code": "06",
+      "city": "Amizour",
+      "address": "Zone Industrielle Oued Ghir / Amizour, Béjaïa",
+      "phone": "+213 34 21 00 11",
+      "email": "bejaia@vms.dz",
+      "owner_id": "usr-owner-bejaia",
+      "is_active": true,
+      "created_at": "2026-01-07T08:30:00Z"
+    },
+    {
+      "id": "shw-setif",
+      "name": "VMS Showroom Sétif — Bel Air",
+      "wilaya_code": "19",
+      "city": "Sétif",
+      "address": "Boulevard 08 Mai 1945, Sétif",
+      "phone": "+213 36 84 99 00",
+      "email": "setif@vms.dz",
+      "is_active": true,
+      "created_at": "2026-01-08T11:00:00Z"
+    },
+    {
+      "id": "shw-blida",
+      "name": "VMS Showroom Blida — Centre",
+      "wilaya_code": "09",
+      "city": "Blida",
+      "address": "Boulevard Mohamed Boudiaf, Blida",
+      "phone": "+213 25 31 22 33",
+      "email": "blida@vms.dz",
+      "is_active": true,
+      "created_at": "2026-01-09T14:00:00Z"
+    }
+  ],
+  "models": [
+    {
+      "id": "mod-vms-ckee-125",
+      "name": "VMS C-Kee 125",
+      "brand": "VMS",
+      "category": "Scooter",
+      "displacement": "124.6 cc",
+      "price": 245000,
+      "image_url": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80",
+      "description": "Le scooter urbain par excellence. Économique, agile et robuste pour le quotidien.",
+      "colors": [
+        "Noir Mat",
+        "Blanc Brillant",
+        "Gris Nardo"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-vms-driver-150",
+      "name": "VMS Driver 150",
+      "brand": "VMS",
+      "category": "Scooter",
+      "displacement": "149.6 cc",
+      "price": 310000,
+      "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80",
+      "description": "Polyvalence et dynamisme. Moteur 150cc puissant avec freinage CBS combiné.",
+      "colors": [
+        "Bleu Électrique",
+        "Noir Titane",
+        "Rouge Course"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-vms-estate-125",
+      "name": "VMS Estate 125",
+      "brand": "VMS",
+      "category": "Scooter",
+      "displacement": "124.6 cc",
+      "price": 260000,
+      "image_url": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80",
+      "description": "Design rétro-moderne européen avec finitions chromées et selle surpiquée.",
+      "colors": [
+        "Brun Havane",
+        "Crème Vintage",
+        "Vert Anglais"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-vms-victoria-200",
+      "name": "VMS Victoria 200",
+      "brand": "VMS",
+      "category": "Maxi Scooter",
+      "displacement": "171 cc",
+      "price": 435000,
+      "image_url": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80",
+      "description": "Maxi scooter confortable avec éclairage Full LED, coffre spacieux et ABS avant.",
+      "colors": [
+        "Gris Anthracite",
+        "Bleu Nuit",
+        "Noir Satin"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-vms-alpha-150",
+      "name": "VMS Alpha 150",
+      "brand": "VMS",
+      "category": "Roadster",
+      "displacement": "149 cc",
+      "price": 330000,
+      "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80",
+      "description": "Moto Roadster sportive avec tableau de bord digital et suspensions renforcées.",
+      "colors": [
+        "Rouge Racing",
+        "Noir & Jaune Fluo"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-keeway-rkf-125",
+      "name": "Keeway RKF 125",
+      "brand": "Keeway",
+      "category": "Roadster",
+      "displacement": "124.8 cc",
+      "price": 395000,
+      "image_url": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80",
+      "description": "Moteur 4 soupapes refroidissement liquide, look agressif et cadre treillis tubulaire.",
+      "colors": [
+        "Blanc Perle",
+        "Noir Mat",
+        "Rouge Sport"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-benelli-trk-502",
+      "name": "Benelli TRK 502 X",
+      "brand": "Benelli",
+      "category": "Trail Adventure",
+      "displacement": "500 cc",
+      "price": 1350000,
+      "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80",
+      "description": "Le trail routier référence. Bicomposant 500cc, roues à rayons, réservoir 20L.",
+      "colors": [
+        "Blanc Glacier",
+        "Gris Anthracite",
+        "Jaune Dune"
+      ],
+      "is_active": true
+    },
+    {
+      "id": "mod-benelli-leoncino-500",
+      "name": "Benelli Leoncino 500",
+      "brand": "Benelli",
+      "category": "Roadster",
+      "displacement": "500 cc",
+      "price": 1220000,
+      "image_url": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80",
+      "description": "Scrambler au charme italien légendaire. Moteur bicylindre 48ch et finitions premium.",
+      "colors": [
+        "Rouge Leoncino",
+        "Noir Mat",
+        "Vert Forêt"
+      ],
+      "is_active": true
+    }
+  ],
+  "motorcycles": [
+    {
+      "id": "moto-101",
+      "model_id": "mod-vms-ckee-125",
+      "showroom_id": "shw-alger-centre",
+      "vin": "VMS2026CK12500101",
+      "color": "Noir Mat",
+      "arrival_date": "2026-02-01",
+      "acquisition_date": "2026-01-20",
+      "status": "available",
+      "created_at": "2026-02-01T10:00:00Z"
+    },
+    {
+      "id": "moto-102",
+      "model_id": "mod-vms-driver-150",
+      "showroom_id": "shw-alger-centre",
+      "vin": "VMS2026DR15000102",
+      "color": "Bleu Électrique",
+      "arrival_date": "2026-01-15",
+      "acquisition_date": "2026-01-10",
+      "status": "available",
+      "created_at": "2026-01-15T11:00:00Z"
+    },
+    {
+      "id": "moto-103",
+      "model_id": "mod-vms-victoria-200",
+      "showroom_id": "shw-oran-maraval",
+      "vin": "VMS2025VC20000088",
+      "color": "Gris Anthracite",
+      "arrival_date": "2025-10-25",
+      "acquisition_date": "2025-10-15",
+      "status": "available",
+      "notes": "Unité éligible Compte Global (dormante depuis >110 jours)",
+      "created_at": "2025-10-25T14:00:00Z"
+    },
+    {
+      "id": "moto-104",
+      "model_id": "mod-keeway-rkf-125",
+      "showroom_id": "shw-constantine",
+      "vin": "KW2026RK12500204",
+      "color": "Rouge Sport",
+      "arrival_date": "2026-01-20",
+      "acquisition_date": "2026-01-10",
+      "status": "available",
+      "created_at": "2026-01-20T09:00:00Z"
+    },
+    {
+      "id": "moto-105",
+      "model_id": "mod-benelli-trk-502",
+      "showroom_id": "shw-bejaia-usine",
+      "vin": "BN2026TK50200505",
+      "color": "Blanc Glacier",
+      "arrival_date": "2026-02-05",
+      "acquisition_date": "2026-01-25",
+      "status": "available",
+      "created_at": "2026-02-05T16:00:00Z"
+    },
+    {
+      "id": "moto-106",
+      "model_id": "mod-vms-estate-125",
+      "showroom_id": "shw-setif",
+      "vin": "VMS2025ES12500072",
+      "color": "Brun Havane",
+      "arrival_date": "2025-11-05",
+      "acquisition_date": "2025-10-28",
+      "status": "available",
+      "notes": "Eligible transfert inter-showroom",
+      "created_at": "2025-11-05T12:00:00Z"
+    },
+    {
+      "id": "moto-107",
+      "model_id": "mod-vms-alpha-150",
+      "showroom_id": "shw-blida",
+      "vin": "VMS2026AL15000707",
+      "color": "Noir & Jaune Fluo",
+      "arrival_date": "2026-02-08",
+      "acquisition_date": "2026-01-30",
+      "status": "available",
+      "created_at": "2026-02-08T13:00:00Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "req-2026-1001",
+      "reference": "REQ-2026-1001",
+      "user_id": "usr-customer-1",
+      "first_name": "Yacine",
+      "last_name": "Hamidi",
+      "phone": "+213661889900",
+      "phone_normalized": "+213661889900",
+      "email": "customer@example.com",
+      "motorcycle_model_id": "mod-vms-victoria-200",
+      "wilaya_code": "16",
+      "city": "Alger Centre",
+      "status": "pending",
+      "notes": "Client intéressé par la Victoria 200 à Alger. Stock local = 0 mais unité disponible à Oran (>115j).",
+      "created_at": "2026-02-18T10:15:00Z"
+    }
+  ],
+  "transfers": [],
+  "notifications": [],
+  "sales": [
+    {
+      "id": "sal-1",
+      "reference": "FAC-2026-1001",
+      "motorcycle_id": "moto-101",
+      "showroom_id": "shw-alger-centre",
+      "customer_name": "Farid Mebarki",
+      "customer_phone": "+213550119988",
+      "sale_price": 245000,
+      "payment_method": "CASH",
+      "sale_date": "2026-02-15",
+      "sold_by": "usr-owner-alger",
+      "created_at": "2026-02-15T15:30:00Z"
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "aud-init-1",
+      "user_id": "system",
+      "user_email": "system@vms.dz",
+      "action_type": "SYSTEM_BOOTSTRAP",
+      "entity_type": "system",
+      "details": {
+        "platform": "QUICK by VMS",
+        "version": "2.0.0"
+      },
+      "created_at": "2026-02-21T00:00:00Z"
+    }
+  ],
+  "preorders": []
+}

@@ -115,12 +115,12 @@ export const CustomerAuthModal: React.FC<CustomerAuthModalProps> = ({
       onClose={onClose}
       title={
         mode === 'login'
-          ? 'Connexion à votre Espace QUICK'
+          ? 'Connexion à QUICK by VMS'
           : mode === 'register'
-          ? 'Création de Compte Client VMS'
+          ? 'Création de Compte Client QUICK by VMS'
           : 'Récupération de Mot de Passe'
       }
-      subtitle="Accédez à la gestion centralisée de vos demandes et stocks motos"
+      subtitle="Accédez à la plateforme officielle des disponibilités et showrooms VMS"
       maxWidth="md"
     >
       <div className="space-y-4">

@@ -1,0 +1,1106 @@
+import express from 'express';
+import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+// Request logger
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Path to persistent data
+const DATA_DIR = path.join(__dirname, 'data');
+const STORE_FILE = path.join(DATA_DIR, 'store.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
+// Phone normalization helper (+213...)
+export function normalizePhone(phone) {
+  if (!phone) return '';
+  let cleaned = String(phone).replace(/\D/g, '');
+  if (cleaned.startsWith('213')) {
+    cleaned = '+' + cleaned;
+  } else if (cleaned.startsWith('0')) {
+    cleaned = '+213' + cleaned.substring(1);
+  } else if (!cleaned.startsWith('+')) {
+    cleaned = '+213' + cleaned;
+  }
+  return cleaned;
+}
+
+// -----------------------------------------------------------------------------
+// Seed Data Initialization
+// -----------------------------------------------------------------------------
+const INITIAL_DATA = {
+  profiles: [
+    {
+      id: 'usr-admin-1',
+      email: 'admin@vms.dz',
+      role: 'super_admin',
+      first_name: 'Karim',
+      last_name: 'Bensalem',
+      phone: '+213550112233',
+      wilaya_code: '16',
+      is_active: true,
+      created_at: '2026-01-01T08:00:00Z'
+    },
+    {
+      id: 'usr-owner-alger',
+      email: 'alger@vms.dz',
+      role: 'showroom_owner',
+      first_name: 'Amine',
+      last_name: 'Larbi',
+      phone: '+213550223344',
+      wilaya_code: '16',
+      is_active: true,
+      created_at: '2026-01-05T09:00:00Z'
+    },
+    {
+      id: 'usr-owner-oran',
+      email: 'oran@vms.dz',
+      role: 'showroom_owner',
+      first_name: 'Tarek',
+      last_name: 'Mansouri',
+      phone: '+213550334455',
+      wilaya_code: '31',
+      is_active: true,
+      created_at: '2026-01-05T09:30:00Z'
+    },
+    {
+      id: 'usr-owner-bejaia',
+      email: 'bejaia@vms.dz',
+      role: 'showroom_owner',
+      first_name: 'Sofiane',
+      last_name: 'Boudiaf',
+      phone: '+213550667788',
+      wilaya_code: '06',
+      is_active: true,
+      created_at: '2026-01-07T08:30:00Z'
+    },
+    {
+      id: 'usr-customer-1',
+      email: 'customer@example.com',
+      role: 'customer',
+      first_name: 'Yacine',
+      last_name: 'Hamidi',
+      phone: '+213661889900',
+      wilaya_code: '16',
+      is_active: true,
+      created_at: '2026-02-10T14:20:00Z'
+    }
+  ],
+  showrooms: [
+    {
+      id: 'shw-alger-centre',
+      name: 'VMS Showroom Alger — Sidi Yahia',
+      wilaya_code: '16',
+      city: 'Hydra',
+      address: '14 Boulevard Sidi Yahia, Hydra, Alger',
+      phone: '+213 23 48 11 22',
+      email: 'alger@vms.dz',
+      owner_id: 'usr-owner-alger',
+      is_active: true,
+      created_at: '2026-01-05T09:00:00Z'
+    },
+    {
+      id: 'shw-oran-maraval',
+      name: 'VMS Showroom Oran — Maraval',
+      wilaya_code: '31',
+      city: 'Oran',
+      address: 'Route Nationale 11, Maraval, Oran',
+      phone: '+213 41 33 44 55',
+      email: 'oran@vms.dz',
+      owner_id: 'usr-owner-oran',
+      is_active: true,
+      created_at: '2026-01-05T09:30:00Z'
+    },
+    {
+      id: 'shw-constantine',
+      name: 'VMS Showroom Constantine — Ville Nouvelle',
+      wilaya_code: '25',
+      city: 'Ali Mendjeli',
+      address: 'UV 05, Ville Nouvelle Ali Mendjeli, Constantine',
+      phone: '+213 31 66 77 88',
+      email: 'constantine@vms.dz',
+      is_active: true,
+      created_at: '2026-01-06T10:00:00Z'
+    },
+    {
+      id: 'shw-bejaia-usine',
+      name: 'VMS Flagship & Usine Béjaïa',
+      wilaya_code: '06',
+      city: 'Amizour',
+      address: 'Zone Industrielle Oued Ghir / Amizour, Béjaïa',
+      phone: '+213 34 21 00 11',
+      email: 'bejaia@vms.dz',
+      owner_id: 'usr-owner-bejaia',
+      is_active: true,
+      created_at: '2026-01-07T08:30:00Z'
+    },
+    {
+      id: 'shw-setif',
+      name: 'VMS Showroom Sétif — Bel Air',
+      wilaya_code: '19',
+      city: 'Sétif',
+      address: 'Boulevard 08 Mai 1945, Sétif',
+      phone: '+213 36 84 99 00',
+      email: 'setif@vms.dz',
+      is_active: true,
+      created_at: '2026-01-08T11:00:00Z'
+    },
+    {
+      id: 'shw-blida',
+      name: 'VMS Showroom Blida — Centre',
+      wilaya_code: '09',
+      city: 'Blida',
+      address: 'Boulevard Mohamed Boudiaf, Blida',
+      phone: '+213 25 31 22 33',
+      email: 'blida@vms.dz',
+      is_active: true,
+      created_at: '2026-01-09T14:00:00Z'
+    }
+  ],
+  models: [
+    {
+      id: 'mod-vms-ckee-125',
+      name: 'VMS C-Kee 125',
+      brand: 'VMS',
+      category: 'Scooter',
+      displacement: '124.6 cc',
+      price: 245000,
+      image_url: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80',
+      description: 'Le scooter urbain par excellence. Économique, agile et robuste pour le quotidien.',
+      colors: ['Noir Mat', 'Blanc Brillant', 'Gris Nardo'],
+      is_active: true
+    },
+    {
+      id: 'mod-vms-driver-150',
+      name: 'VMS Driver 150',
+      brand: 'VMS',
+      category: 'Scooter',
+      displacement: '149.6 cc',
+      price: 310000,
+      image_url: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80',
+      description: 'Polyvalence et dynamisme. Moteur 150cc puissant avec freinage CBS combiné.',
+      colors: ['Bleu Électrique', 'Noir Titane', 'Rouge Course'],
+      is_active: true
+    },
+    {
+      id: 'mod-vms-estate-125',
+      name: 'VMS Estate 125',
+      brand: 'VMS',
+      category: 'Scooter',
+      displacement: '124.6 cc',
+      price: 260000,
+      image_url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80',
+      description: 'Design rétro-moderne européen avec finitions chromées et selle surpiquée.',
+      colors: ['Brun Havane', 'Crème Vintage', 'Vert Anglais'],
+      is_active: true
+    },
+    {
+      id: 'mod-vms-victoria-200',
+      name: 'VMS Victoria 200',
+      brand: 'VMS',
+      category: 'Maxi Scooter',
+      displacement: '171 cc',
+      price: 435000,
+      image_url: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80',
+      description: 'Maxi scooter confortable avec éclairage Full LED, coffre spacieux et ABS avant.',
+      colors: ['Gris Anthracite', 'Bleu Nuit', 'Noir Satin'],
+      is_active: true
+    },
+    {
+      id: 'mod-vms-alpha-150',
+      name: 'VMS Alpha 150',
+      brand: 'VMS',
+      category: 'Roadster',
+      displacement: '149 cc',
+      price: 330000,
+      image_url: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80',
+      description: 'Moto Roadster sportive avec tableau de bord digital et suspensions renforcées.',
+      colors: ['Rouge Racing', 'Noir & Jaune Fluo'],
+      is_active: true
+    },
+    {
+      id: 'mod-keeway-rkf-125',
+      name: 'Keeway RKF 125',
+      brand: 'Keeway',
+      category: 'Roadster',
+      displacement: '124.8 cc',
+      price: 395000,
+      image_url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800&auto=format&fit=crop&q=80',
+      description: 'Moteur 4 soupapes refroidissement liquide, look agressif et cadre treillis tubulaire.',
+      colors: ['Blanc Perle', 'Noir Mat', 'Rouge Sport'],
+      is_active: true
+    },
+    {
+      id: 'mod-benelli-trk-502',
+      name: 'Benelli TRK 502 X',
+      brand: 'Benelli',
+      category: 'Trail Adventure',
+      displacement: '500 cc',
+      price: 1350000,
+      image_url: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&auto=format&fit=crop&q=80',
+      description: 'Le trail routier référence. Bicomposant 500cc, roues à rayons, réservoir 20L.',
+      colors: ['Blanc Glacier', 'Gris Anthracite', 'Jaune Dune'],
+      is_active: true
+    },
+    {
+      id: 'mod-benelli-leoncino-500',
+      name: 'Benelli Leoncino 500',
+      brand: 'Benelli',
+      category: 'Roadster',
+      displacement: '500 cc',
+      price: 1220000,
+      image_url: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=800&auto=format&fit=crop&q=80',
+      description: 'Scrambler au charme italien légendaire. Moteur bicylindre 48ch et finitions premium.',
+      colors: ['Rouge Leoncino', 'Noir Mat', 'Vert Forêt'],
+      is_active: true
+    }
+  ],
+  motorcycles: [
+    {
+      id: 'moto-101',
+      model_id: 'mod-vms-ckee-125',
+      showroom_id: 'shw-alger-centre',
+      vin: 'VMS2026CK12500101',
+      color: 'Noir Mat',
+      arrival_date: '2026-02-01',
+      acquisition_date: '2026-01-20',
+      status: 'available',
+      created_at: '2026-02-01T10:00:00Z'
+    },
+    {
+      id: 'moto-102',
+      model_id: 'mod-vms-driver-150',
+      showroom_id: 'shw-alger-centre',
+      vin: 'VMS2026DR15000102',
+      color: 'Bleu Électrique',
+      arrival_date: '2026-01-15',
+      acquisition_date: '2026-01-10',
+      status: 'available',
+      created_at: '2026-01-15T11:00:00Z'
+    },
+    {
+      id: 'moto-103',
+      model_id: 'mod-vms-victoria-200',
+      showroom_id: 'shw-oran-maraval',
+      vin: 'VMS2025VC20000088',
+      color: 'Gris Anthracite',
+      arrival_date: '2025-10-25', // Stock > 115 days dormant!
+      acquisition_date: '2025-10-15',
+      status: 'available',
+      notes: 'Unité éligible Compte Global (dormante depuis >110 jours)',
+      created_at: '2025-10-25T14:00:00Z'
+    },
+    {
+      id: 'moto-104',
+      model_id: 'mod-keeway-rkf-125',
+      showroom_id: 'shw-constantine',
+      vin: 'KW2026RK12500204',
+      color: 'Rouge Sport',
+      arrival_date: '2026-01-20',
+      acquisition_date: '2026-01-10',
+      status: 'available',
+      created_at: '2026-01-20T09:00:00Z'
+    },
+    {
+      id: 'moto-105',
+      model_id: 'mod-benelli-trk-502',
+      showroom_id: 'shw-bejaia-usine',
+      vin: 'BN2026TK50200505',
+      color: 'Blanc Glacier',
+      arrival_date: '2026-02-05',
+      acquisition_date: '2026-01-25',
+      status: 'available',
+      created_at: '2026-02-05T16:00:00Z'
+    },
+    {
+      id: 'moto-106',
+      model_id: 'mod-vms-estate-125',
+      showroom_id: 'shw-setif',
+      vin: 'VMS2025ES12500072',
+      color: 'Brun Havane',
+      arrival_date: '2025-11-05', // Stock > 105 days dormant!
+      acquisition_date: '2025-10-28',
+      status: 'available',
+      notes: 'Eligible transfert inter-showroom',
+      created_at: '2025-11-05T12:00:00Z'
+    },
+    {
+      id: 'moto-107',
+      model_id: 'mod-vms-alpha-150',
+      showroom_id: 'shw-blida',
+      vin: 'VMS2026AL15000707',
+      color: 'Noir & Jaune Fluo',
+      arrival_date: '2026-02-08',
+      acquisition_date: '2026-01-30',
+      status: 'available',
+      created_at: '2026-02-08T13:00:00Z'
+    }
+  ],
+  requests: [
+    {
+      id: 'req-2026-1001',
+      reference: 'REQ-2026-1001',
+      user_id: 'usr-customer-1',
+      first_name: 'Yacine',
+      last_name: 'Hamidi',
+      phone: '+213661889900',
+      phone_normalized: '+213661889900',
+      email: 'customer@example.com',
+      motorcycle_model_id: 'mod-vms-victoria-200',
+      wilaya_code: '16',
+      city: 'Alger Centre',
+      status: 'pending',
+      notes: 'Client intéressé par la Victoria 200 à Alger. Stock local = 0 mais unité disponible à Oran (>115j).',
+      created_at: '2026-02-18T10:15:00Z'
+    }
+  ],
+  transfers: [],
+  notifications: [],
+  sales: [
+    {
+      id: 'sal-1',
+      reference: 'FAC-2026-1001',
+      motorcycle_id: 'moto-101',
+      showroom_id: 'shw-alger-centre',
+      customer_name: 'Farid Mebarki',
+      customer_phone: '+213550119988',
+      sale_price: 245000,
+      payment_method: 'CASH',
+      sale_date: '2026-02-15',
+      sold_by: 'usr-owner-alger',
+      created_at: '2026-02-15T15:30:00Z'
+    }
+  ],
+  audit_logs: [
+    {
+      id: 'aud-init-1',
+      user_id: 'system',
+      user_email: 'system@vms.dz',
+      action_type: 'SYSTEM_BOOTSTRAP',
+      entity_type: 'system',
+      details: { platform: 'QUICK by VMS', version: '2.0.0' },
+      created_at: '2026-02-21T00:00:00Z'
+    }
+  ],
+  preorders: []
+};
+
+// -----------------------------------------------------------------------------
+// Database In-Memory Cache & Persistence Engine
+// -----------------------------------------------------------------------------
+let db = null;
+
+function loadStore() {
+  if (db) return db;
+  try {
+    if (fs.existsSync(STORE_FILE)) {
+      const raw = fs.readFileSync(STORE_FILE, 'utf-8');
+      db = JSON.parse(raw);
+    } else {
+      db = JSON.parse(JSON.stringify(INITIAL_DATA));
+      saveStore();
+    }
+  } catch (err) {
+    console.error('Error loading store, falling back to initial data:', err);
+    db = JSON.parse(JSON.stringify(INITIAL_DATA));
+  }
+  return db;
+}
+
+function saveStore() {
+  try {
+    fs.writeFileSync(STORE_FILE, JSON.stringify(db, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Error writing store to disk:', err);
+  }
+}
+
+// Initialize database
+loadStore();
+
+// Helper to log audit
+function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
+  const log = {
+    id: `aud-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+    user_id: userId || 'anonymous',
+    user_email: userEmail || 'system',
+    action_type: actionType,
+    entity_type: entityType,
+    entity_id: entityId,
+    details: details || {},
+    created_at: new Date().toISOString()
+  };
+  db.audit_logs.unshift(log);
+  if (db.audit_logs.length > 500) db.audit_logs.pop();
+  saveStore();
+}
+
+// -----------------------------------------------------------------------------
+// API ROUTES
+// -----------------------------------------------------------------------------
+
+// Health check
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'online',
+    platform: 'QUICK by VMS',
+    version: '2.0.0',
+    timestamp: new Date().toISOString(),
+    stats: {
+      models: db.models.length,
+      showrooms: db.showrooms.length,
+      motorcycles: db.motorcycles.length,
+      requests: db.requests.length,
+      transfers: db.transfers.length
+    }
+  });
+});
+
+// Authentication routes
+app.post('/api/auth/login', (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ error: 'Email obligatoire' });
+  }
+  const user = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  if (!user) {
+    return res.status(404).json({ error: 'Utilisateur introuvable' });
+  }
+  logAudit(user.id, user.email, 'AUTH_LOGIN', 'profiles', user.id, { role: user.role });
+  res.json({ user, token: `vms-jwt-token-${user.id}` });
+});
+
+app.post('/api/auth/register', (req, res) => {
+  const { first_name, last_name, phone, email, wilaya_code } = req.body;
+  if (!first_name || !last_name || !phone || !email) {
+    return res.status(400).json({ error: 'Tous les champs requis doivent être remplis' });
+  }
+  const existing = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  if (existing) {
+    return res.status(409).json({ error: 'Un compte avec cette adresse email existe déjà' });
+  }
+
+  const newUser = {
+    id: `usr-cust-${Date.now()}`,
+    email,
+    role: 'customer',
+    first_name,
+    last_name,
+    phone,
+    wilaya_code: wilaya_code || '16',
+    is_active: true,
+    created_at: new Date().toISOString()
+  };
+
+  db.profiles.push(newUser);
+  saveStore();
+  logAudit(newUser.id, newUser.email, 'AUTH_REGISTER', 'profiles', newUser.id, { role: 'customer' });
+  res.status(201).json({ user: newUser, token: `vms-jwt-token-${newUser.id}` });
+});
+
+app.get('/api/auth/users', (req, res) => {
+  res.json(db.profiles);
+});
+
+// Models Catalog
+app.get('/api/models', (req, res) => {
+  let list = db.models.filter(m => m.is_active);
+  const { category, search } = req.query;
+  if (category && category !== 'Tous') {
+    list = list.filter(m => m.category.toLowerCase().includes(category.toLowerCase()));
+  }
+  if (search) {
+    const q = search.toLowerCase();
+    list = list.filter(m =>
+      m.name.toLowerCase().includes(q) ||
+      m.brand.toLowerCase().includes(q) ||
+      m.description.toLowerCase().includes(q)
+    );
+  }
+  res.json(list);
+});
+
+app.get('/api/models/:id', (req, res) => {
+  const model = db.models.find(m => m.id === req.params.id);
+  if (!model) return res.status(404).json({ error: 'Modèle introuvable' });
+  res.json(model);
+});
+
+// Showrooms
+app.get('/api/showrooms', (req, res) => {
+  const enriched = db.showrooms.map(s => {
+    const stockCount = db.motorcycles.filter(m => m.showroom_id === s.id && m.status === 'available').length;
+    const owner = db.profiles.find(p => p.id === s.owner_id);
+    return { ...s, available_stock_count: stockCount, owner_name: owner ? `${owner.first_name} ${owner.last_name}` : null };
+  });
+  res.json(enriched);
+});
+
+app.post('/api/showrooms', (req, res) => {
+  const { name, wilaya_code, city, address, phone, email, owner_id } = req.body;
+  if (!name || !wilaya_code || !city) {
+    return res.status(400).json({ error: 'Nom, Wilaya et Ville obligatoires' });
+  }
+  const newShowroom = {
+    id: `shw-${Date.now()}`,
+    name,
+    wilaya_code,
+    city,
+    address: address || '',
+    phone: phone || '',
+    email: email || '',
+    owner_id: owner_id || null,
+    is_active: true,
+    created_at: new Date().toISOString()
+  };
+  db.showrooms.push(newShowroom);
+  saveStore();
+  logAudit('admin', 'Super Admin', 'SHOWROOM_CREATE', 'showrooms', newShowroom.id, { name });
+  res.status(201).json(newShowroom);
+});
+
+// Inventory / Motorcycles
+app.get('/api/motorcycles', (req, res) => {
+  const { showroom_id, status, is_aging, model_id } = req.query;
+  const now = Date.now();
+
+  let list = db.motorcycles.map(m => {
+    const model = db.models.find(mod => mod.id === m.model_id);
+    const showroom = db.showrooms.find(sh => sh.id === m.showroom_id);
+    const arrival = new Date(m.arrival_date).getTime();
+    const daysInStock = Math.max(0, Math.floor((now - arrival) / (1000 * 60 * 60 * 24)));
+    return {
+      ...m,
+      model,
+      showroom,
+      days_in_stock: daysInStock,
+      is_aging: daysInStock >= 90
+    };
+  });
+
+  if (showroom_id) list = list.filter(m => m.showroom_id === showroom_id);
+  if (status) list = list.filter(m => m.status === status);
+  if (is_aging === 'true') list = list.filter(m => m.is_aging);
+  if (model_id) list = list.filter(m => m.model_id === model_id);
+
+  res.json(list);
+});
+
+app.post('/api/motorcycles', (req, res) => {
+  const { model_id, showroom_id, vin, color, arrival_date, notes } = req.body;
+  if (!model_id || !showroom_id || !vin || !color) {
+    return res.status(400).json({ error: 'Modèle, Showroom, VIN et Couleur sont requis' });
+  }
+
+  const cleanVin = vin.trim().toUpperCase();
+  if (db.motorcycles.some(m => m.vin.toUpperCase() === cleanVin)) {
+    return res.status(409).json({ error: `Le numéro de châssis / VIN "${cleanVin}" existe déjà` });
+  }
+
+  const newMoto = {
+    id: `moto-${Date.now()}`,
+    model_id,
+    showroom_id,
+    vin: cleanVin,
+    color,
+    acquisition_date: arrival_date || new Date().toISOString().split('T')[0],
+    arrival_date: arrival_date || new Date().toISOString().split('T')[0],
+    status: 'available',
+    notes: notes || '',
+    created_at: new Date().toISOString()
+  };
+
+  db.motorcycles.push(newMoto);
+  saveStore();
+
+  // Check if this stock arrival matches any pending customer request!
+  matchPendingRequestsForStock(newMoto);
+
+  logAudit(req.body.user_id || 'staff', 'Showroom Staff', 'STOCK_CREATE', 'motorcycles', newMoto.id, { vin: cleanVin });
+  res.status(201).json(newMoto);
+});
+
+app.put('/api/motorcycles/:id', (req, res) => {
+  const idx = db.motorcycles.findIndex(m => m.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: 'Moto introuvable' });
+
+  const oldStatus = db.motorcycles[idx].status;
+  db.motorcycles[idx] = { ...db.motorcycles[idx], ...req.body };
+  saveStore();
+
+  if (req.body.status === 'available' && oldStatus !== 'available') {
+    matchPendingRequestsForStock(db.motorcycles[idx]);
+  }
+
+  res.json(db.motorcycles[idx]);
+});
+
+// -----------------------------------------------------------------------------
+// Anti-Abuse Checking & Customer Requests
+// -----------------------------------------------------------------------------
+function checkLimit(userId, phone) {
+  const normPhone = phone ? normalizePhone(phone) : null;
+  const now = Date.now();
+  const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+  const windowStart = now - sevenDaysMs;
+
+  const recent = db.requests.filter(r => {
+    const match = (userId && r.user_id === userId) || (normPhone && r.phone_normalized === normPhone);
+    if (!match) return false;
+    return new Date(r.created_at).getTime() >= windowStart;
+  });
+
+  recent.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+
+  if (recent.length >= 2) {
+    const oldest = new Date(recent[0].created_at).getTime();
+    const canSubmitAt = new Date(oldest + sevenDaysMs).toISOString();
+    return {
+      allowed: false,
+      current_count: recent.length,
+      max_allowed: 2,
+      can_submit_at: canSubmitAt,
+      message: 'Limite de 2 demandes par période glissante de 7 jours atteinte.'
+    };
+  }
+
+  return {
+    allowed: true,
+    current_count: recent.length,
+    max_allowed: 2,
+    remaining: 2 - recent.length,
+    message: `Il vous reste ${2 - recent.length} demande(s) disponible(s) cette semaine.`
+  };
+}
+
+app.get('/api/requests/check-limit', (req, res) => {
+  const { user_id, phone } = req.query;
+  const result = checkLimit(user_id, phone);
+  res.json(result);
+});
+
+// Dynamic Request Tracker by Reference or Phone
+app.get('/api/requests/track/:query', (req, res) => {
+  const query = req.params.query.trim().toUpperCase();
+  const normQuery = normalizePhone(query);
+
+  const found = db.requests.filter(r =>
+    r.reference.toUpperCase() === query ||
+    (normQuery && r.phone_normalized === normQuery) ||
+    r.phone.includes(query)
+  );
+
+  if (!found || found.length === 0) {
+    return res.status(404).json({ error: 'Aucune demande trouvée avec cette référence ou ce numéro.' });
+  }
+
+  const enriched = found.map(r => {
+    const model = db.models.find(m => m.id === r.motorcycle_model_id);
+    const showroom = r.matched_showroom_id ? db.showrooms.find(s => s.id === r.matched_showroom_id) : null;
+    return { ...r, model, matched_showroom: showroom };
+  });
+
+  res.json(enriched);
+});
+
+app.get('/api/requests', (req, res) => {
+  const { user_id, status, wilaya_code } = req.query;
+  let list = db.requests.map(r => {
+    const model = db.models.find(m => m.id === r.motorcycle_model_id);
+    const showroom = r.matched_showroom_id ? db.showrooms.find(s => s.id === r.matched_showroom_id) : null;
+    return { ...r, model, matched_showroom: showroom };
+  });
+
+  if (user_id) list = list.filter(r => r.user_id === user_id);
+  if (status) list = list.filter(r => r.status === status);
+  if (wilaya_code) list = list.filter(r => r.wilaya_code === wilaya_code);
+
+  res.json(list);
+});
+
+app.post('/api/requests', (req, res) => {
+  const { first_name, last_name, phone, email, motorcycle_model_id, wilaya_code, city, user_id } = req.body;
+
+  if (!first_name || !last_name || !phone || !email || !motorcycle_model_id || !wilaya_code) {
+    return res.status(400).json({ error: 'Tous les champs obligatoires doivent être renseignés.' });
+  }
+
+  const normPhone = normalizePhone(phone);
+  const limitCheck = checkLimit(user_id, normPhone);
+  if (!limitCheck.allowed) {
+    return res.status(429).json({ error: limitCheck.message, limitCheck });
+  }
+
+  // Check if motorcycle is already available in the customer's region
+  const regionalShowrooms = db.showrooms.filter(s => s.wilaya_code === wilaya_code && s.is_active);
+  const regionalIds = regionalShowrooms.map(s => s.id);
+
+  const availableUnit = db.motorcycles.find(
+    m => m.model_id === motorcycle_model_id && regionalIds.includes(m.showroom_id) && m.status === 'available'
+  );
+
+  const ref = `REQ-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+  const newRequest = {
+    id: `req-${Date.now()}`,
+    reference: ref,
+    user_id: user_id || null,
+    first_name,
+    last_name,
+    phone,
+    phone_normalized: normPhone,
+    email,
+    motorcycle_model_id,
+    wilaya_code,
+    city: city || '',
+    status: availableUnit ? 'available_notified' : 'pending',
+    matched_showroom_id: availableUnit ? availableUnit.showroom_id : null,
+    notified_at: availableUnit ? new Date().toISOString() : null,
+    notes: availableUnit
+      ? 'Disponibilité immédiate trouvée au showroom régional lors de la soumission.'
+      : 'Demande enregistrée en attente d\'arrivage ou de transfert Compte Global.',
+    created_at: new Date().toISOString()
+  };
+
+  db.requests.unshift(newRequest);
+  saveStore();
+
+  logAudit(user_id || 'customer', email, 'CUSTOMER_REQUEST_CREATE', 'customer_requests', newRequest.id, {
+    reference: ref,
+    model_id: motorcycle_model_id,
+    immediate_match: Boolean(availableUnit)
+  });
+
+  const model = db.models.find(m => m.id === motorcycle_model_id);
+  const showroom = availableUnit ? db.showrooms.find(s => s.id === availableUnit.showroom_id) : null;
+
+  res.status(201).json({
+    request: { ...newRequest, model, matched_showroom: showroom },
+    immediateMatch: Boolean(availableUnit),
+    message: availableUnit
+      ? `Excellente nouvelle ! Le modèle ${model?.name || ''} est disponible immédiatement au showroom ${showroom?.name}.`
+      : `Demande enregistrée avec succès sous la référence ${ref}.`
+  });
+});
+
+// Automatic stock matching engine
+function matchPendingRequestsForStock(moto) {
+  if (moto.status !== 'available') return;
+  const showroom = db.showrooms.find(s => s.id === moto.showroom_id);
+  if (!showroom) return;
+
+  const pendingIdx = db.requests.findIndex(
+    r => r.motorcycle_model_id === moto.model_id &&
+         r.wilaya_code === showroom.wilaya_code &&
+         r.status === 'pending'
+  );
+
+  if (pendingIdx !== -1) {
+    const req = db.requests[pendingIdx];
+    req.status = 'available_notified';
+    req.matched_showroom_id = showroom.id;
+    req.notified_at = new Date().toISOString();
+    saveStore();
+
+    logAudit('system', 'QUICK Engine', 'STOCK_AUTO_MATCHED', 'customer_requests', req.id, {
+      vin: moto.vin,
+      reference: req.reference,
+      showroom: showroom.name
+    });
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Compte Global & Inter-Showroom Transfers
+// -----------------------------------------------------------------------------
+app.get('/api/compte-global/aging', (req, res) => {
+  const now = Date.now();
+  const aging = db.motorcycles
+    .filter(m => m.status === 'available')
+    .map(m => {
+      const arrival = new Date(m.arrival_date).getTime();
+      const days = Math.max(0, Math.floor((now - arrival) / (1000 * 60 * 60 * 24)));
+      return {
+        ...m,
+        model: db.models.find(mod => mod.id === m.model_id),
+        showroom: db.showrooms.find(s => s.id === m.showroom_id),
+        days_in_stock: days,
+        is_aging: days >= 90
+      };
+    })
+    .filter(m => m.is_aging)
+    .sort((a, b) => b.days_in_stock - a.days_in_stock);
+
+  res.json(aging);
+});
+
+app.get('/api/compte-global/opportunities', (req, res) => {
+  const now = Date.now();
+  const opportunities = [];
+
+  const agingMotos = db.motorcycles
+    .filter(m => m.status === 'available')
+    .map(m => {
+      const arrival = new Date(m.arrival_date).getTime();
+      const days = Math.max(0, Math.floor((now - arrival) / (1000 * 60 * 60 * 24)));
+      return { ...m, days_in_stock: days, is_aging: days >= 90 };
+    })
+    .filter(m => m.is_aging);
+
+  const pendingRequests = db.requests.filter(r => r.status === 'pending');
+
+  agingMotos.forEach(moto => {
+    const model = db.models.find(m => m.id === moto.model_id);
+    const sourceShowroom = db.showrooms.find(s => s.id === moto.showroom_id);
+
+    db.showrooms.forEach(targetShowroom => {
+      if (targetShowroom.id === moto.showroom_id) return;
+
+      const demand = pendingRequests.filter(
+        r => r.motorcycle_model_id === moto.model_id && r.wilaya_code === targetShowroom.wilaya_code
+      ).length;
+
+      const localStock = db.motorcycles.filter(
+        m => m.showroom_id === targetShowroom.id && m.model_id === moto.model_id && m.status === 'available'
+      ).length;
+
+      if (demand > 0 || localStock === 0) {
+        opportunities.push({
+          model,
+          sourceShowroom,
+          destinationShowroom: targetShowroom,
+          motorcycle: moto,
+          daysInStock: moto.days_in_stock,
+          priority: demand > 0 ? 'Haute' : 'Moyenne',
+          pendingDemandCount: demand,
+          reason: demand > 0
+            ? `${demand} client(s) en attente à ${targetShowroom.city}; stock dormant de ${moto.days_in_stock}j à ${sourceShowroom?.city}.`
+            : `Rupture de stock à ${targetShowroom.city} et sur-stockage (${moto.days_in_stock}j) à ${sourceShowroom?.city}.`
+        });
+      }
+    });
+  });
+
+  res.json(opportunities.sort((a, b) => b.daysInStock - a.daysInStock));
+});
+
+// Transfers
+app.get('/api/transfers', (req, res) => {
+  const list = db.transfers.map(t => {
+    const moto = db.motorcycles.find(m => m.id === t.motorcycle_id);
+    const model = moto ? db.models.find(mod => mod.id === moto.model_id) : null;
+    const source = db.showrooms.find(s => s.id === t.source_showroom_id);
+    const dest = db.showrooms.find(s => s.id === t.destination_showroom_id);
+    return {
+      ...t,
+      motorcycle: moto ? { ...moto, model } : null,
+      source_showroom: source,
+      destination_showroom: dest
+    };
+  });
+  res.json(list);
+});
+
+app.post('/api/transfers', (req, res) => {
+  const { motorcycle_id, source_showroom_id, destination_showroom_id, reason, user_id } = req.body;
+  if (!motorcycle_id || !source_showroom_id || !destination_showroom_id) {
+    return res.status(400).json({ error: 'Paramètres de transfert incomplets.' });
+  }
+
+  const moto = db.motorcycles.find(m => m.id === motorcycle_id);
+  if (!moto || moto.status !== 'available') {
+    return res.status(400).json({ error: 'La moto n\'est pas disponible pour un transfert.' });
+  }
+
+  const ref = `TRF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+  const newTransfer = {
+    id: `trf-${Date.now()}`,
+    reference: ref,
+    motorcycle_id,
+    source_showroom_id,
+    destination_showroom_id,
+    requested_by: user_id || 'operator',
+    status: 'pending',
+    reason: reason || 'Rééquilibrage Compte Global',
+    created_at: new Date().toISOString(),
+    history: [
+      {
+        id: `th-${Date.now()}`,
+        to_status: 'pending',
+        changed_by: user_id || 'operator',
+        comment: reason || 'Initiation de la demande de transfert',
+        created_at: new Date().toISOString()
+      }
+    ]
+  };
+
+  db.transfers.unshift(newTransfer);
+  saveStore();
+  logAudit(user_id || 'operator', 'Compte Global', 'TRANSFER_REQUEST', 'transfers', newTransfer.id, { ref });
+  res.status(201).json(newTransfer);
+});
+
+app.put('/api/transfers/:id/status', (req, res) => {
+  const { status, user_id, comment } = req.body;
+  const trf = db.transfers.find(t => t.id === req.params.id);
+  if (!trf) return res.status(404).json({ error: 'Transfert introuvable' });
+
+  const motoIdx = db.motorcycles.findIndex(m => m.id === trf.motorcycle_id);
+  const oldStatus = trf.status;
+
+  if (status === 'approved' || status === 'in_transit') {
+    if (motoIdx !== -1) db.motorcycles[motoIdx].status = 'in_transfer';
+  } else if (status === 'received') {
+    // Atomic reception: assign new showroom, reset arrival date to today, set available
+    if (motoIdx !== -1) {
+      db.motorcycles[motoIdx].showroom_id = trf.destination_showroom_id;
+      db.motorcycles[motoIdx].status = 'available';
+      db.motorcycles[motoIdx].arrival_date = new Date().toISOString().split('T')[0];
+      db.motorcycles[motoIdx].notes = `Transféré via ${trf.reference} le ${new Date().toLocaleDateString('fr-FR')}.`;
+      matchPendingRequestsForStock(db.motorcycles[motoIdx]);
+    }
+  } else if (status === 'rejected' || status === 'cancelled') {
+    if (motoIdx !== -1 && db.motorcycles[motoIdx].status === 'in_transfer') {
+      db.motorcycles[motoIdx].status = 'available';
+    }
+  }
+
+  trf.status = status;
+  if (!trf.history) trf.history = [];
+  trf.history.push({
+    id: `th-${Date.now()}`,
+    from_status: oldStatus,
+    to_status: status,
+    changed_by: user_id || 'operator',
+    comment: comment || `Statut passé à ${status}`,
+    created_at: new Date().toISOString()
+  });
+
+  saveStore();
+  logAudit(user_id || 'operator', 'Operator', `TRANSFER_${status.toUpperCase()}`, 'transfers', trf.id, { ref: trf.reference });
+  res.json(trf);
+});
+
+// Sales
+app.get('/api/sales', (req, res) => {
+  const { showroom_id } = req.query;
+  let list = db.sales.map(s => {
+    const moto = db.motorcycles.find(m => m.id === s.motorcycle_id);
+    const showroom = db.showrooms.find(sh => sh.id === s.showroom_id);
+    return { ...s, motorcycle: moto, showroom };
+  });
+  if (showroom_id) list = list.filter(s => s.showroom_id === showroom_id);
+  res.json(list);
+});
+
+app.post('/api/sales', (req, res) => {
+  const { motorcycle_id, showroom_id, customer_name, customer_phone, sale_price, payment_method, user_id } = req.body;
+  const motoIdx = db.motorcycles.findIndex(m => m.id === motorcycle_id);
+  if (motoIdx === -1) return res.status(404).json({ error: 'Moto introuvable' });
+
+  const ref = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+  db.motorcycles[motoIdx].status = 'sold';
+  db.motorcycles[motoIdx].sale_date = new Date().toISOString().split('T')[0];
+
+  const newSale = {
+    id: `sal-${Date.now()}`,
+    reference: ref,
+    motorcycle_id,
+    showroom_id,
+    customer_name,
+    customer_phone,
+    sale_price: Number(sale_price),
+    payment_method: payment_method || 'CASH',
+    sale_date: new Date().toISOString().split('T')[0],
+    sold_by: user_id || 'seller',
+    created_at: new Date().toISOString()
+  };
+
+  db.sales.unshift(newSale);
+  saveStore();
+  logAudit(user_id || 'seller', 'Showroom Seller', 'SALE_CREATE', 'sales', newSale.id, { ref, vin: db.motorcycles[motoIdx].vin });
+  res.status(201).json(newSale);
+});
+
+// KPIs
+app.get('/api/kpis/global', (req, res) => {
+  const now = Date.now();
+  const agingUnits = db.motorcycles.filter(m => {
+    if (m.status !== 'available') return false;
+    const diff = (now - new Date(m.arrival_date).getTime()) / (1000 * 60 * 60 * 24);
+    return diff >= 90;
+  }).length;
+
+  const available = db.motorcycles.filter(m => m.status === 'available').length;
+  const totalSalesVal = db.sales.reduce((sum, s) => sum + Number(s.sale_price || 0), 0);
+
+  res.json({
+    totalMotorcycles: db.motorcycles.length,
+    availableMotorcycles: available,
+    totalShowrooms: db.showrooms.length,
+    totalCustomers: db.profiles.filter(p => p.role === 'customer').length,
+    totalRequests: db.requests.length,
+    pendingRequests: db.requests.filter(r => r.status === 'pending').length,
+    fulfilledRequests: db.requests.filter(r => r.status === 'available_notified').length,
+    agingStockCount: agingUnits,
+    agingPercentage: available > 0 ? Math.round((agingUnits / available) * 100) : 0,
+    activeTransfers: db.transfers.filter(t => ['pending', 'approved', 'in_transit'].includes(t.status)).length,
+    totalSalesVolume: db.sales.length,
+    totalSalesValue: totalSalesVal
+  });
+});
+
+// Audit logs
+app.get('/api/audit-logs', (req, res) => {
+  res.json(db.audit_logs);
+});
+
+// Factory Reset
+app.post('/api/reset-factory', (req, res) => {
+  db = JSON.parse(JSON.stringify(INITIAL_DATA));
+  saveStore();
+  res.json({ message: 'Données réinitialisées avec succès aux valeurs de démonstration VMS.' });
+});
+
+// Preorder tracking
+app.post('/api/preorder-redirect', (req, res) => {
+  const { user_id, model_id, wilaya_code } = req.body;
+  const record = {
+    id: `po-${Date.now()}`,
+    user_id,
+    model_id,
+    wilaya_code,
+    target_url: 'https://motobladi.dz/',
+    created_at: new Date().toISOString()
+  };
+  db.preorders.unshift(record);
+  saveStore();
+  logAudit(user_id || 'guest', 'Customer', 'PREORDER_REDIRECT', 'preorders', record.id, { target: 'https://motobladi.dz/' });
+  res.status(201).json(record);
+});
+
+// Start Express server
+app.listen(PORT, () => {
+  console.log(`====================================================`);
+  console.log(`🚀 QUICK by VMS — Express Backend Server running!`);
+  console.log(`📡 URL: http://localhost:${PORT}`);
+  console.log(`📦 Data storage: ${STORE_FILE}`);
+  console.log(`====================================================`);
+});

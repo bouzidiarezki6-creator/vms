@@ -203,7 +203,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             <span>Direction Générale VMS Industrie</span>
           </div>
           <h1 className="text-2xl font-black tracking-tight text-white">
-            Portail Super Administrateur QUICK
+            Portail Super Administrateur QUICK by VMS
           </h1>
           <p className="text-xs text-slate-400">
             Supervision centralisée du réseau national de distribution et intelligence d'affaires

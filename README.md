@@ -1,14 +1,14 @@
 <div align="center">
 
-# 🏍️ QUICK — VMS Industrie Algérie
+# 🏍️ QUICK by VMS — Industrie Algérie
 
-**Plateforme centralisée de gestion des disponibilités motos & showrooms**
+**Plateforme centralisée de gestion des disponibilités motos, showrooms & Compte Global**
 
+[![Express](https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white)](https://expressjs.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Supabase](https://img.shields.io/badge/Supabase-Ready-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [🚀 Getting Started](#-getting-started) · [📸 Screenshots](#-screenshots) · [🗄️ Database](#️-database-schema) · [🏗️ Architecture](#️-architecture)
@@ -115,13 +115,25 @@ VITE_SUPABASE_ANON_KEY=your-anon-key-here
 
 > **Without Supabase credentials** the platform runs fully in **demo mode** using localStorage as a database. All features work including the anti-abuse engine, transfer workflow, and BI analytics — with pre-seeded realistic Algerian showroom data.
 
-### 4. Start the development server
+### 4. Start the application (Frontend + Express Backend)
+
+To launch both the Vite frontend and Express REST API concurrently:
 
 ```bash
+npm run dev:all
+```
+
+Or run them individually in separate terminals:
+
+```bash
+# Terminal 1 — Express REST API (Port 5000)
+npm run server
+
+# Terminal 2 — Vite Frontend (Port 5173)
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser. The Express API will be running at [http://localhost:5000/api](http://localhost:5000/api).
 
 ### 5. Build for production
 
