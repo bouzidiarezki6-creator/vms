@@ -25,7 +25,13 @@ import {
   BiSalesTrendsResponse,
   BiShowroomRankingsResponse,
   BiDemandIntelligenceResponse,
-  BiFilterOptions
+  BiFilterOptions,
+  PredictiveExecutiveOverview,
+  SalesForecastResponse,
+  ModelForecastsResponse,
+  ShowroomProjectionsResponse,
+  AlgerianSeasonalityFactor,
+  BacktestAccuracyScorecard
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -486,6 +492,85 @@ class ApiService {
     if (period) q.set('period', period);
     if (region && region !== 'ALL') q.set('region', region);
     return `${API_BASE_URL}/bi/reports/export?${q.toString()}`;
+  }
+
+  // ---------------------------------------------------------------------------
+  // PREDICTIVE ANALYTICS & DEMAND FORECASTING (PHASE 5)
+  // ---------------------------------------------------------------------------
+  public async getPredictiveOverview(): Promise<PredictiveExecutiveOverview | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/predictive/overview`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive overview fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getPredictiveSalesForecasts(options: { horizon?: number } = {}): Promise<SalesForecastResponse | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (options.horizon) q.set('horizon', options.horizon.toString());
+        const res = await fetch(`${API_BASE_URL}/predictive/sales-forecasts?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive sales forecasts fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getPredictiveModels(): Promise<ModelForecastsResponse | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/predictive/models`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive models fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getPredictiveShowrooms(options: { region?: string } = {}): Promise<ShowroomProjectionsResponse | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (options.region && options.region !== 'ALL') q.set('region', options.region);
+        const res = await fetch(`${API_BASE_URL}/predictive/showrooms?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive showrooms fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getPredictiveSeasonality(): Promise<AlgerianSeasonalityFactor[] | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/predictive/seasonality`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive seasonality fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getPredictiveBacktest(): Promise<BacktestAccuracyScorecard | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/predictive/backtest`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Predictive backtest fetch error:', err);
+      }
+    }
+    return null;
   }
 }
 

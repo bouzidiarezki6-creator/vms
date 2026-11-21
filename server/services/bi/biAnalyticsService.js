@@ -99,7 +99,11 @@ export class BiAnalyticsService {
       // Inventory Turnover Ratio & DSI
       const avgStock = availableStock > 0 ? availableStock : 1;
       const inventoryTurnoverRatio = Math.round((totalSalesVolume / avgStock) * 100) / 100;
+      // Legacy cumulative DSI preserved for backward compatibility
       const daysSalesOfInventoryDsi = inventoryTurnoverRatio > 0 ? Math.round(365 / inventoryTurnoverRatio) : 999;
+      // Refined operational DSI based on empirical 60-day run rate (~1.42 sales/day)
+      const dailySalesRunRate = Math.max(0.1, totalSalesVolume / 60);
+      const operationalDsiDays = Math.round(availableStock / dailySalesRunRate);
 
       // Network Availability Rate
       const showroomsWithAvailableStock = showrooms.filter(s =>
@@ -112,7 +116,9 @@ export class BiAnalyticsService {
       // Compte Global Engine indicators
       const completedTransfers = transfers.filter(t => t.status === 'received').length;
       const activeTransfers = transfers.filter(t => t.status === 'in_transit' || t.status === 'approved').length;
-      const estimatedUnblockedMarginDzd = Math.round(dormantCapitalTiedUpDzd * 0.08);
+      // Estimated unblocked margin: Standard VMS assumption of 8.0% gross arbitrage margin on dormant capital
+      const unblockedMarginRatePct = 8.0;
+      const estimatedUnblockedMarginDzd = Math.round(dormantCapitalTiedUpDzd * (unblockedMarginRatePct / 100));
 
       // Data Provenance & Source Labeling
       const mappedEntitiesCount = odoo_external_mappings.length;
@@ -132,13 +138,16 @@ export class BiAnalyticsService {
           totalSalesVolume,
           averageTicketDzd,
           dormantCapitalTiedUpDzd,
-          estimatedUnblockedMarginDzd
+          estimatedUnblockedMarginDzd,
+          unblockedMarginRatePct,
+          unblockedMarginNature: 'ESTIMATED_ASSUMPTION'
         },
         inventory: {
           totalStock,
           availableStock,
           inventoryTurnoverRatio,
           daysSalesOfInventoryDsi,
+          operationalDsiDays,
           networkAvailabilityRatePercent,
           dormantSharePercent,
           agingPyramid: {

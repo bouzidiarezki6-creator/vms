@@ -27,10 +27,12 @@ import {
   Sparkles,
   PieChart as PieIcon,
   BarChart3,
-  Server
+  Server,
+  Cpu
 } from 'lucide-react';
 import { OdooIntegrationView } from './OdooIntegrationView';
 import { AdvancedBiDashboard } from './AdvancedBiDashboard';
+import { PredictiveDashboard } from './PredictiveDashboard';
 import { dbStore } from '../../services/dbStore';
 import {
   GlobalKPIs,
@@ -68,7 +70,7 @@ import {
 } from 'recharts';
 
 interface AdminDashboardProps {
-  initialSubTab?: 'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo';
+  initialSubTab?: 'bi' | 'predictive' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo';
   onNavigateToCompteGlobal?: () => void;
 }
 
@@ -78,7 +80,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 }) => {
   const toast = useToast();
   const currentUser = dbStore.getCurrentUser();
-  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo'>(initialSubTab);
+  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'predictive' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo'>(initialSubTab);
 
   useEffect(() => {
     if (initialSubTab) {
@@ -374,6 +376,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
 
         <button
+          onClick={() => setActiveSubTab('predictive')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            activeSubTab === 'predictive'
+              ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+              : 'text-indigo-700 bg-indigo-50/80 hover:bg-indigo-100 border border-indigo-200'
+          }`}
+        >
+          <Cpu className="h-4 w-4" />
+          <span>Analytique Prédictive & IA</span>
+        </button>
+
+        <button
           onClick={() => setActiveSubTab('showrooms')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 ${
             activeSubTab === 'showrooms'
@@ -450,6 +464,17 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           onNavigateToCompteGlobal={onNavigateToCompteGlobal}
           onNavigateToShowrooms={() => setActiveSubTab('showrooms')}
           onNavigateToRequests={() => setActiveSubTab('requests')}
+          onNavigateToInventory={() => setActiveSubTab('inventory')}
+        />
+      )}
+
+      {/* ==================================================================== */}
+      {/* PREDICTIVE ANALYTICS & DEMAND FORECASTING (Phase 5 Enterprise Suite)*/}
+      {/* ==================================================================== */}
+      {activeSubTab === 'predictive' && (
+        <PredictiveDashboard
+          onNavigateToCompteGlobal={onNavigateToCompteGlobal}
+          onNavigateToShowrooms={() => setActiveSubTab('showrooms')}
           onNavigateToInventory={() => setActiveSubTab('inventory')}
         />
       )}

@@ -545,3 +545,131 @@ export interface BiFilterOptions {
   region?: 'ALL' | 'CENTRE' | 'EST' | 'OUEST' | 'SUD';
   granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
 }
+
+// -----------------------------------------------------------------------------
+// PREDICTIVE ANALYTICS & DEMAND FORECASTING (PHASE 5)
+// -----------------------------------------------------------------------------
+export interface ForecastHorizon {
+  horizonDays: number;
+  horizonLabel: string;
+  projectedVolume: number;
+  projectedRevenueDzd: number;
+  lowerBoundVolume80: number;
+  upperBoundVolume80: number;
+  confidencePct: number;
+}
+
+export interface ModelComparisonResult {
+  name: string;
+  mae: number;
+  rmse: number;
+  smape: number;
+}
+
+export interface BacktestAccuracyScorecard {
+  bestModel: string;
+  mae: number;
+  rmse: number;
+  smape: number;
+  confidenceScore: number;
+  modelsComparison: ModelComparisonResult[];
+}
+
+export interface DailyProjectionPoint {
+  day: number;
+  date: string;
+  predictedSales: number;
+  lowerBound80: number;
+  upperBound80: number;
+  lowerBound95: number;
+  upperBound95: number;
+}
+
+export interface SalesForecastResponse {
+  baselineDays: number;
+  totalHistoricalSales: number;
+  averageDailySalesRate: number;
+  averageTicketDzd: number;
+  seasonalityMultiplierApplied: number;
+  backtestAccuracy: BacktestAccuracyScorecard;
+  horizons: ForecastHorizon[];
+  dailyProjections: DailyProjectionPoint[];
+}
+
+export interface ModelSalesForecast {
+  modelId: string;
+  modelName: string;
+  brand: string;
+  category: string;
+  priceDzd: number;
+  availableStock: number;
+  dormantStock: number;
+  historicalSales: number;
+  pendingDemand: number;
+  projectedDailyVelocity: number;
+  projectedSales30d: number;
+  projectedSales60d: number;
+  projectedSales90d: number;
+  daysUntilDepletion: number;
+  riskLevel: 'OUT_OF_STOCK' | 'CRITICAL' | 'WARNING' | 'SUFFICIENT';
+  recommendedReorderQty: number;
+}
+
+export interface ModelForecastsResponse {
+  totalModels: number;
+  models: ModelSalesForecast[];
+  criticalModelsCount: number;
+  totalRecommendedReorderQty: number;
+}
+
+export interface ShowroomDepletionRisk {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  availableStock: number;
+  dormantStock: number;
+  recentSalesVolume: number;
+  pendingDemand: number;
+  dailyRate: number;
+  daysToDepletion: number;
+  status: 'DEPLETED_STOCKOUT' | 'CRITICAL_STOCKOUT' | 'REPLENISHMENT_NEEDED' | 'BALANCED' | 'EXCESS_DORMANT';
+  recommendedStockAddition: number;
+}
+
+export interface ShowroomProjectionsResponse {
+  totalShowrooms: number;
+  showrooms: ShowroomDepletionRisk[];
+  urgentReplenishmentCount: number;
+  dormantExcessCount: number;
+}
+
+export interface AlgerianSeasonalityFactor {
+  id: string;
+  name: string;
+  period: string;
+  multiplier: number;
+  nature: 'EMPIRICAL_OBSERVED' | 'ASSUMPTION_VMS_MARKET';
+  notes: string;
+}
+
+export interface PredictiveExecutiveOverview {
+  generatedAt: string;
+  forecastHorizon30d: ForecastHorizon;
+  forecastHorizon60d: ForecastHorizon;
+  forecastHorizon90d: ForecastHorizon;
+  accuracyScorecard: BacktestAccuracyScorecard;
+  inventoryAlerts: {
+    criticalModelsCount: number;
+    urgentShowroomsCount: number;
+    totalRecommendedReplenishmentUnits: number;
+  };
+  seasonalityActive?: AlgerianSeasonalityFactor;
+  dataValidationNotice: {
+    historicalBaselineDays: number;
+    historicalSalesSample: number;
+    isSampleSufficientForNationalSeries: boolean;
+    modelSparsityProtection: string;
+    actualVsEstimatedMarginNotice: string;
+  };
+}

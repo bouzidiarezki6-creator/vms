@@ -14,6 +14,7 @@ import {
 } from './services/globalAccountEngine.js';
 import { OdooSyncService } from './services/odoo/odooSyncService.js';
 import { BiAnalyticsService } from './services/bi/biAnalyticsService.js';
+import { PredictiveAnalyticsService } from './services/predictive/predictiveAnalyticsService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -496,6 +497,9 @@ export const odooSyncService = new OdooSyncService(db);
 
 // Phase 4: Business Intelligence & Analytics Engine
 export const biAnalyticsService = new BiAnalyticsService(db);
+
+// Phase 5: Predictive Analytics & Demand Forecasting Engine
+export const predictiveAnalyticsService = new PredictiveAnalyticsService(db);
 
 // Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
@@ -1472,6 +1476,59 @@ app.get('/api/bi/reports/export', async (req, res) => {
     res.setHeader('Content-Type', 'text/csv; charset=utf-8');
     res.setHeader('Content-Disposition', `attachment; filename="vms_bi_executive_report_${Date.now()}.csv"`);
     res.send(csv);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// =============================================================================
+// PREDICTIVE ANALYTICS & DEMAND FORECASTING (PHASE 5)
+// =============================================================================
+app.get('/api/predictive/overview', async (req, res) => {
+  try {
+    const overview = await predictiveAnalyticsService.getExecutiveOverview();
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/sales-forecasts', async (req, res) => {
+  try {
+    const forecasts = await predictiveAnalyticsService.getSalesForecasts(req.query);
+    res.json(forecasts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/models', async (req, res) => {
+  try {
+    const models = await predictiveAnalyticsService.getModelForecasts();
+    res.json(models);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/showrooms', async (req, res) => {
+  try {
+    const showrooms = await predictiveAnalyticsService.getShowroomProjections(req.query);
+    res.json(showrooms);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/seasonality', (req, res) => {
+  res.json(predictiveAnalyticsService.getAlgerianSeasonality());
+});
+
+app.get('/api/predictive/backtest', (req, res) => {
+  try {
+    const series = predictiveAnalyticsService.extractDailySeries();
+    const backtest = predictiveAnalyticsService.evaluateModelsBacktest(series, 14);
+    res.json(backtest);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
