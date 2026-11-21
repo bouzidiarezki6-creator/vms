@@ -26,8 +26,10 @@ import {
   RefreshCw,
   Sparkles,
   PieChart as PieIcon,
-  BarChart3
+  BarChart3,
+  Server
 } from 'lucide-react';
+import { OdooIntegrationView } from './OdooIntegrationView';
 import { dbStore } from '../../services/dbStore';
 import {
   GlobalKPIs,
@@ -65,7 +67,7 @@ import {
 } from 'recharts';
 
 interface AdminDashboardProps {
-  initialSubTab?: 'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub';
+  initialSubTab?: 'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo';
   onNavigateToCompteGlobal?: () => void;
 }
 
@@ -75,7 +77,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 }) => {
   const toast = useToast();
   const currentUser = dbStore.getCurrentUser();
-  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub'>(initialSubTab);
+  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo'>(initialSubTab);
 
   useEffect(() => {
     if (initialSubTab) {
@@ -419,11 +421,23 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
 
         <button
+          onClick={() => setActiveSubTab('odoo')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            activeSubTab === 'odoo'
+              ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
+              : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
+          }`}
+        >
+          <Server className="h-4 w-4" />
+          <span>Passerelle Odoo ERP</span>
+        </button>
+
+        <button
           onClick={() => setIsDataHubOpen(true)}
-          className="px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200"
+          className="px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200"
         >
           <Database className="h-4 w-4 text-purple-600" />
-          <span>Data Hub : SQL & Odoo & Power BI</span>
+          <span>Data Hub : SQL & CSV</span>
         </button>
       </div>
 
@@ -1520,6 +1534,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             </table>
           </div>
         </Card>
+      )}
+
+      {/* ==================================================================== */}
+      {/* 6. ODOO ERP INTEGRATION & SYNCHRONIZATION (PHASE 3) */}
+      {/* ==================================================================== */}
+      {activeSubTab === 'odoo' && (
+        <OdooIntegrationView />
       )}
 
       {/* Modals */}

@@ -13,7 +13,14 @@ import {
   TransferOpportunity,
   StockoutRisk,
   DormantInventorySummary,
-  GlobalAccountConfig
+  GlobalAccountConfig,
+  OdooConnectionStatus,
+  OdooSyncStats,
+  OdooSyncSchedulerConfig,
+  OdooSyncHistoryItem,
+  OdooConflictItem,
+  OdooSyncSummary,
+  OdooIntegrationState
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -279,6 +286,120 @@ class ApiService {
       }
     }
     return dbStore.getGlobalKPIs();
+  }
+
+  // ---------------------------------------------------------------------------
+  // ODOO ERP INTEGRATION & SYNCHRONIZATION (PHASE 3)
+  // ---------------------------------------------------------------------------
+  public async getOdooStatus(): Promise<OdooIntegrationState | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/odoo/status`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Odoo API unavailable:', err);
+      }
+    }
+    return null;
+  }
+
+  public async testOdooConnection(): Promise<{ connected: boolean; mode?: string; version?: string; message: string; error?: string }> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/odoo/test-connection`, { method: 'POST' });
+        if (res.ok) return await res.json();
+      } catch (err: any) {
+        return { connected: false, message: err.message };
+      }
+    }
+    return { connected: false, message: 'Serveur API backend hors-ligne' };
+  }
+
+  public async syncOdoo(options: { dryRun?: boolean; entities?: string[] } = {}): Promise<OdooSyncSummary> {
+    if (this.isOnline) {
+      const res = await fetch(`${API_BASE_URL}/odoo/sync`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(options)
+      });
+      if (res.ok) return await res.json();
+      const err = await res.json();
+      throw new Error(err.error || 'Erreur lors de la synchronisation Odoo');
+    }
+    throw new Error('API backend hors-ligne. Impossible de synchroniser avec Odoo.');
+  }
+
+  public async getOdooHistory(params: { limit?: number; offset?: number; entity_type?: string; status?: string } = {}): Promise<{ total: number; items: OdooSyncHistoryItem[] }> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (params.limit) q.set('limit', String(params.limit));
+        if (params.offset) q.set('offset', String(params.offset));
+        if (params.entity_type) q.set('entity_type', params.entity_type);
+        if (params.status) q.set('status', params.status);
+        const res = await fetch(`${API_BASE_URL}/odoo/history?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Odoo history fetch error:', err);
+      }
+    }
+    return { total: 0, items: [] };
+  }
+
+  public async retryOdooHistory(id: string): Promise<{ success: boolean; item?: OdooSyncHistoryItem; error?: string }> {
+    if (this.isOnline) {
+      const res = await fetch(`${API_BASE_URL}/odoo/history/${id}/retry`, { method: 'POST' });
+      return await res.json();
+    }
+    return { success: false, error: 'Serveur API backend hors-ligne' };
+  }
+
+  public async getOdooConflicts(): Promise<OdooConflictItem[]> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/odoo/conflicts`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Odoo conflicts fetch error:', err);
+      }
+    }
+    return [];
+  }
+
+  public async resolveOdooConflict(id: string, resolution: string, notes: string = ''): Promise<OdooConflictItem> {
+    if (this.isOnline) {
+      const res = await fetch(`${API_BASE_URL}/odoo/conflicts/${id}/resolve`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ resolution, notes })
+      });
+      if (res.ok) return await res.json();
+    }
+    throw new Error('Impossible de résoudre le conflit en mode hors-ligne');
+  }
+
+  public async getOdooConfig(): Promise<{ client: OdooConnectionStatus; scheduler: OdooSyncSchedulerConfig } | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/odoo/config`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Odoo config fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async updateOdooConfig(config: { client?: Partial<OdooConnectionStatus>; scheduler?: Partial<OdooSyncSchedulerConfig> }): Promise<any> {
+    if (this.isOnline) {
+      const res = await fetch(`${API_BASE_URL}/odoo/config`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(config)
+      });
+      if (res.ok) return await res.json();
+    }
+    throw new Error('Impossible de mettre à jour la configuration en mode hors-ligne');
   }
 }
 

@@ -12,6 +12,7 @@ import {
   globalAccountConfig,
   updateAlgorithmConfig
 } from './services/globalAccountEngine.js';
+import { OdooSyncService } from './services/odoo/odooSyncService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -483,6 +484,14 @@ function saveStore() {
 
 // Initialize database
 loadStore();
+
+// Ensure Phase 3 Odoo collections exist
+if (!db.odoo_sync_history) db.odoo_sync_history = [];
+if (!db.odoo_external_mappings) db.odoo_external_mappings = [];
+if (!db.odoo_sync_conflicts) db.odoo_sync_conflicts = [];
+
+// Phase 3: Odoo ERP Integration Service
+export const odooSyncService = new OdooSyncService(db);
 
 // Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
@@ -1247,6 +1256,106 @@ app.get('/api/export/odoo', (req, res) => {
   res.setHeader('Content-Type', 'text/csv');
   res.setHeader('Content-Disposition', `attachment; filename="vms_odoo_crm_${Date.now()}.csv"`);
   res.send(csv);
+});
+
+// -----------------------------------------------------------------------------
+// Odoo ERP Integration API (Phase 3)
+// -----------------------------------------------------------------------------
+app.get('/api/odoo/status', async (req, res) => {
+  const status = await odooSyncService.getStatus();
+  res.json(status);
+});
+
+app.post('/api/odoo/test-connection', async (req, res) => {
+  const result = await odooSyncService.testConnection();
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_TEST_CONNECTION', 'system', null, { connected: result.connected, mode: result.mode });
+  res.json(result);
+});
+
+app.post('/api/odoo/sync', async (req, res) => {
+  const { dryRun, entities } = req.body;
+  try {
+    const summary = await odooSyncService.synchronizeAll({
+      dryRun: Boolean(dryRun),
+      entities: Array.isArray(entities) ? entities : null,
+      triggeredBy: req.user?.email || 'admin'
+    });
+    saveStore();
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', dryRun ? 'ODOO_SYNC_DRY_RUN' : 'ODOO_SYNC_EXECUTE', 'odoo', null, {
+      dryRun,
+      totalSuccess: summary.totalSuccess,
+      totalFailed: summary.totalFailed,
+      conflictsCount: summary.conflictsCount
+    });
+    res.json(summary);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/history', (req, res) => {
+  const { limit, offset, entity_type, status } = req.query;
+  const history = odooSyncService.logger.getHistory({
+    limit: parseInt(limit || '50', 10),
+    offset: parseInt(offset || '0', 10),
+    entityType: entity_type || null,
+    status: status || null
+  });
+  res.json(history);
+});
+
+app.post('/api/odoo/history/:id/retry', async (req, res) => {
+  try {
+    const result = await odooSyncService.retryOperation(req.params.id);
+    saveStore();
+    res.json(result);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/conflicts', (req, res) => {
+  res.json(db.odoo_sync_conflicts || []);
+});
+
+app.post('/api/odoo/conflicts/:id/resolve', (req, res) => {
+  const { resolution, notes } = req.body;
+  try {
+    const resolved = odooSyncService.logger.resolveConflict(
+      req.params.id,
+      resolution,
+      notes,
+      req.user?.id || 'admin'
+    );
+    saveStore();
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_CONFLICT_RESOLVED', 'conflict', req.params.id, { resolution });
+    res.json(resolved);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/config', (req, res) => {
+  res.json({
+    client: odooSyncService.apiClient.getStatus(),
+    scheduler: odooSyncService.scheduler.getConfig()
+  });
+});
+
+app.put('/api/odoo/config', (req, res) => {
+  const { client, scheduler } = req.body;
+  if (client) {
+    odooSyncService.apiClient.updateConfig(client);
+  }
+  if (scheduler) {
+    odooSyncService.scheduler.updateConfig(scheduler);
+  }
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_CONFIG_UPDATED', 'system', null, { hasClientUpdates: Boolean(client), hasSchedulerUpdates: Boolean(scheduler) });
+  res.json({
+    success: true,
+    client: odooSyncService.apiClient.getStatus(),
+    scheduler: odooSyncService.scheduler.getConfig()
+  });
 });
 
 // Preorder tracking

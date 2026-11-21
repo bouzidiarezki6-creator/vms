@@ -329,3 +329,97 @@ export interface DormantInventorySummary {
   totalCapitalTiedUpDzd: number;
   topDormantShowrooms: Array<{ showroom: Showroom; count: number; totalValueDzd: number }>;
 }
+
+// -----------------------------------------------------------------------------
+// ODOO ERP INTEGRATION & SYNCHRONIZATION (PHASE 3)
+// -----------------------------------------------------------------------------
+export interface OdooConnectionStatus {
+  configured: boolean;
+  mode: 'SANDBOX_SIMULATION' | 'LIVE_PRODUCTION';
+  url: string;
+  db: string;
+  username: string;
+  authenticated: boolean;
+  timeoutMs: number;
+}
+
+export interface OdooSyncStats {
+  totalOperations: number;
+  successCount: number;
+  failedCount: number;
+  dryRunCount: number;
+  pendingCount: number;
+  unresolvedConflictsCount: number;
+  totalMappings: number;
+  lastSyncAt: string | null;
+}
+
+export interface OdooSyncSchedulerConfig {
+  enabled: boolean;
+  intervalMinutes: number;
+  entities: string[];
+  dryRunDefault: boolean;
+  lastRunAt: string | null;
+  nextRunAt: string | null;
+  isCurrentlyRunning: boolean;
+}
+
+export interface OdooSyncHistoryItem {
+  id: string;
+  entity_type: string;
+  quick_record_id: string;
+  odoo_record_id: number | null;
+  operation: 'EXPORT_CREATE' | 'EXPORT_UPDATE' | 'IMPORT_CREATE' | 'IMPORT_UPDATE' | 'DRY_RUN';
+  sync_status: 'SUCCESS' | 'FAILED' | 'PENDING' | 'DRY_RUN' | 'CONFLICT';
+  details?: Record<string, any>;
+  error_details?: string | null;
+  retry_count: number;
+  checksum?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface OdooConflictItem {
+  id: string;
+  entity_type: string;
+  quick_id: string;
+  odoo_id?: number | null;
+  field_name: string;
+  quick_value: string;
+  odoo_value: string;
+  status: 'UNRESOLVED' | 'RESOLVED_QUICK' | 'RESOLVED_ODOO' | 'IGNORED';
+  resolution_notes?: string;
+  resolved_by?: string;
+  resolved_at?: string;
+  created_at: string;
+}
+
+export interface OdooSyncSummary {
+  dryRun: boolean;
+  triggeredBy: string;
+  startedAt: string;
+  completedAt: string;
+  entities: Record<string, {
+    processed: number;
+    success: number;
+    failed: number;
+    skipped: number;
+    conflicts: number;
+    items?: any[];
+  }>;
+  totalProcessed: number;
+  totalSuccess: number;
+  totalFailed: number;
+  totalSkipped: number;
+  conflictsCount: number;
+}
+
+export interface OdooIntegrationState {
+  connection: OdooConnectionStatus;
+  stats: OdooSyncStats;
+  scheduler: OdooSyncSchedulerConfig;
+  dataOwnership: Record<string, {
+    sourceOfTruth: string;
+    conflictStrategy: string;
+  }>;
+}
