@@ -1,5 +1,5 @@
 BEGIN;
-ALTER TABLE motorcycles DISABLE TRIGGER ALL;
+ALTER TABLE motorcycles DISABLE TRIGGER after_motorcycle_status_available;
 INSERT INTO motorcycles (id, model_id, showroom_id, vin, color, engine_specs, acquisition_date, arrival_date, status, notes, sale_date, created_at)
 VALUES ('3a58e854-13ac-4cb0-a5d1-16a23ebddb3c', '1cb3c954-cce8-4a24-a4d7-13ccc2022428', '4123be06-d726-48d3-a1e9-880e315bb8ce', 'VMS2026DZ000211', 'Blanc Nacre', '125cc • Air • Carburateur', '2026-09-02', '2026-09-16', 'available', 'Contrôle qualité VMS usine validé', NULL, '2026-09-16T14:48:55.983Z')
 ON CONFLICT (vin) DO NOTHING;
@@ -630,5 +630,5 @@ ON CONFLICT (vin) DO NOTHING;
 INSERT INTO motorcycles (id, model_id, showroom_id, vin, color, engine_specs, acquisition_date, arrival_date, status, notes, sale_date, created_at)
 VALUES ('7a18c05c-0586-4860-acf1-8351623416f4', '6e9fb6d7-fae5-4c4c-aa98-22723f9a733a', 'bc78aed8-b4b8-4716-abf9-2cd78cdb1660', 'VMS2026DZ000420', 'Noir Mat', '175cc • Liquide • EFI Bosch', '2026-05-16', '2026-05-30', 'reserved', 'Stock dormant éligible Compte Global (>90j)', NULL, '2026-05-30T14:48:55.983Z')
 ON CONFLICT (vin) DO NOTHING;
-ALTER TABLE motorcycles ENABLE TRIGGER ALL;
+ALTER TABLE motorcycles ENABLE TRIGGER after_motorcycle_status_available;
 COMMIT;

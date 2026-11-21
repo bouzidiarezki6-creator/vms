@@ -1,5 +1,5 @@
 BEGIN;
-ALTER TABLE customer_requests DISABLE TRIGGER ALL;
+ALTER TABLE customer_requests DISABLE TRIGGER check_customer_request_limit;
 INSERT INTO customer_requests (id, reference, first_name, last_name, phone, phone_normalized, email, motorcycle_model_id, wilaya_code, city, status, matched_showroom_id, notified_at, fulfilled_at, notes, created_at)
 VALUES ('eec63fb8-47c5-4051-a316-3a74004dde4d', 'REQ-2026-0001', 'Amine', 'Khelifi', '0551100739', '+213551100739', 'amine.khelifi1@gmail.com', 'd6fc9248-c0f0-453b-a919-2ac81f7615a1', '02', 'Ténès', 'pending', NULL, NULL, NULL, NULL, '2026-11-08T13:48:55.983Z')
 ON CONFLICT (reference) DO NOTHING;
@@ -780,5 +780,5 @@ ON CONFLICT (reference) DO NOTHING;
 INSERT INTO customer_requests (id, reference, first_name, last_name, phone, phone_normalized, email, motorcycle_model_id, wilaya_code, city, status, matched_showroom_id, notified_at, fulfilled_at, notes, created_at)
 VALUES ('864d7850-ff0c-4600-a0fd-a831b41eddaa', 'REQ-2026-0260', 'Oussama', 'Mebarki', '0550292140', '+213550292140', 'oussama.mebarki10@gmail.com', '6a3c1ffa-2d7d-4809-a675-14cb75d4033f', '29', 'Sig', 'preorder_redirected', NULL, NULL, NULL, 'Redirigé vers motobladi.dz pour précommande', '2026-10-31T18:48:55.983Z')
 ON CONFLICT (reference) DO NOTHING;
-ALTER TABLE customer_requests ENABLE TRIGGER ALL;
+ALTER TABLE customer_requests ENABLE TRIGGER check_customer_request_limit;
 COMMIT;
