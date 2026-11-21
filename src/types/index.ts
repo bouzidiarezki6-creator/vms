@@ -423,3 +423,125 @@ export interface OdooIntegrationState {
     conflictStrategy: string;
   }>;
 }
+
+// -----------------------------------------------------------------------------
+// BUSINESS INTELLIGENCE & ANALYTICS (PHASE 4)
+// -----------------------------------------------------------------------------
+export interface BiExecutiveOverview {
+  financials: {
+    totalSalesRevenue: number;
+    totalSalesVolume: number;
+    averageTicketDzd: number;
+    dormantCapitalTiedUpDzd: number;
+    estimatedUnblockedMarginDzd: number;
+  };
+  inventory: {
+    totalStock: number;
+    availableStock: number;
+    inventoryTurnoverRatio: number;
+    daysSalesOfInventoryDsi: number;
+    networkAvailabilityRatePercent: number;
+    dormantSharePercent: number;
+    agingPyramid: {
+      freshUnder30d: number;
+      normal30to60d: number;
+      warning60to90d: number;
+      dormantOver90d: number;
+      criticalOver130d: number;
+    };
+  };
+  demand: {
+    totalRequests: number;
+    pendingRequests: number;
+    availableNotifiedRequests: number;
+    fulfilledRequests: number;
+    conversionRatePercent: number;
+  };
+  transfers: {
+    activeTransfers: number;
+    completedTransfers: number;
+  };
+  dataProvenance: {
+    primarySource: string;
+    isSandboxActive: boolean;
+    odooMappingsCount: number;
+    confidenceLevel: string;
+    provenanceNotice: string;
+  };
+  generatedAt: string;
+}
+
+export interface BiTemporalSalesPoint {
+  period: string;
+  salesVolume: number;
+  salesRevenue: number;
+  requestsCount: number;
+  averageTicketDzd: number;
+}
+
+export interface BiSalesTrendsResponse {
+  granularity: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+  points: BiTemporalSalesPoint[];
+  paymentSplit: Record<string, number>;
+  totalPeriods: number;
+}
+
+export interface BiShowroomRanking {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  region?: string;
+  rank?: number;
+  availableStock: number;
+  dormantStock: number;
+  salesVolume: number;
+  salesRevenue: number;
+  pendingDemand: number;
+  absorptionRatio: number;
+  normalizedScore: number;
+  tier: 'Top Performer' | 'Équilibré' | 'Rupture Critique' | 'Sur-Stock Dormant' | 'Standard';
+}
+
+export interface BiShowroomRankingsResponse {
+  totalShowrooms: number;
+  rankings: BiShowroomRanking[];
+  topPerformersCount: number;
+  stockoutRiskCount: number;
+  dormantRiskCount: number;
+}
+
+export interface BiModelDemandPerformance {
+  modelId: string;
+  name: string;
+  brand: string;
+  category: string;
+  priceDzd: number;
+  totalRequests: number;
+  pendingDemand: number;
+  salesVolume: number;
+  salesRevenue: number;
+  availableStock: number;
+  tensionIndex: number;
+  tensionStatus: 'TENSION_RUPTURE' | 'SUR_STOCK' | 'EQUILIBRE';
+}
+
+export interface BiDemandIntelligenceResponse {
+  modelStats: BiModelDemandPerformance[];
+  funnel: {
+    stage1_collected: number;
+    stage2_availableNotified: number;
+    stage3_salesFulfilled: number;
+    stage4_pendingAwaitingStock: number;
+  };
+  mostPopularModel: string;
+  highestTensionModel: string;
+}
+
+export interface BiFilterOptions {
+  startDate?: string;
+  endDate?: string;
+  period?: '7d' | '30d' | '90d' | 'ytd' | '12m' | 'all';
+  region?: 'ALL' | 'CENTRE' | 'EST' | 'OUEST' | 'SUD';
+  granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+}

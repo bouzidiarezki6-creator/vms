@@ -20,7 +20,12 @@ import {
   OdooSyncHistoryItem,
   OdooConflictItem,
   OdooSyncSummary,
-  OdooIntegrationState
+  OdooIntegrationState,
+  BiExecutiveOverview,
+  BiSalesTrendsResponse,
+  BiShowroomRankingsResponse,
+  BiDemandIntelligenceResponse,
+  BiFilterOptions
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -400,6 +405,87 @@ class ApiService {
       if (res.ok) return await res.json();
     }
     throw new Error('Impossible de mettre à jour la configuration en mode hors-ligne');
+  }
+
+  // ---------------------------------------------------------------------------
+  // BUSINESS INTELLIGENCE & ANALYTICS (PHASE 4)
+  // ---------------------------------------------------------------------------
+  public async getBiOverview(filters: BiFilterOptions = {}): Promise<BiExecutiveOverview | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (filters.startDate) q.set('startDate', filters.startDate);
+        if (filters.endDate) q.set('endDate', filters.endDate);
+        if (filters.period) q.set('period', filters.period);
+        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+        const res = await fetch(`${API_BASE_URL}/bi/overview?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('BI overview fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getBiSalesTrends(
+    paramsOrGranularity: { granularity?: string; range?: string; region?: string } | string = 'monthly',
+    range: string = '12m',
+    region?: string
+  ): Promise<BiSalesTrendsResponse | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (typeof paramsOrGranularity === 'object') {
+          if (paramsOrGranularity.granularity) q.set('granularity', paramsOrGranularity.granularity);
+          if (paramsOrGranularity.range) q.set('range', paramsOrGranularity.range);
+          if (paramsOrGranularity.region && paramsOrGranularity.region !== 'ALL') q.set('region', paramsOrGranularity.region);
+        } else {
+          q.set('granularity', paramsOrGranularity);
+          q.set('range', range);
+          if (region && region !== 'ALL') q.set('region', region);
+        }
+        const res = await fetch(`${API_BASE_URL}/bi/sales-trends?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('BI sales trends fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getBiShowroomRankings(filters: { region?: string } = {}): Promise<BiShowroomRankingsResponse | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+        const res = await fetch(`${API_BASE_URL}/bi/showroom-performance?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('BI showroom rankings fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getBiDemandIntelligence(filters: { region?: string } = {}): Promise<BiDemandIntelligenceResponse | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (filters.region && filters.region !== 'ALL') q.set('region', filters.region);
+        const res = await fetch(`${API_BASE_URL}/bi/demand-intelligence?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('BI demand intelligence fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public getBiExportUrl(format: 'csv' | 'json' = 'csv', period?: string, region?: string): string {
+    const q = new URLSearchParams({ format });
+    if (period) q.set('period', period);
+    if (region && region !== 'ALL') q.set('region', region);
+    return `${API_BASE_URL}/bi/reports/export?${q.toString()}`;
   }
 }
 

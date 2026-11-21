@@ -13,6 +13,7 @@ import {
   updateAlgorithmConfig
 } from './services/globalAccountEngine.js';
 import { OdooSyncService } from './services/odoo/odooSyncService.js';
+import { BiAnalyticsService } from './services/bi/biAnalyticsService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -492,6 +493,9 @@ if (!db.odoo_sync_conflicts) db.odoo_sync_conflicts = [];
 
 // Phase 3: Odoo ERP Integration Service
 export const odooSyncService = new OdooSyncService(db);
+
+// Phase 4: Business Intelligence & Analytics Engine
+export const biAnalyticsService = new BiAnalyticsService(db);
 
 // Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
@@ -1373,6 +1377,104 @@ app.post('/api/preorder-redirect', (req, res) => {
   saveStore();
   logAudit(user_id || 'guest', 'Customer', 'PREORDER_REDIRECT', 'preorders', record.id, { target: 'https://motobladi.dz/' });
   res.status(201).json(record);
+});
+
+// -----------------------------------------------------------------------------
+// Business Intelligence & Advanced Analytics (Phase 4)
+// -----------------------------------------------------------------------------
+app.get('/api/bi/overview', async (req, res) => {
+  try {
+    const { startDate, endDate, region } = req.query;
+    const overview = await biAnalyticsService.getExecutiveOverview({ startDate, endDate, region });
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/sales-trends', async (req, res) => {
+  try {
+    const { granularity = 'monthly', range = '12m' } = req.query;
+    const trends = await biAnalyticsService.getSalesTrends(granularity, range);
+    res.json(trends);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/showroom-performance', async (req, res) => {
+  try {
+    const { region } = req.query;
+    const rankings = await biAnalyticsService.getShowroomRankings({ region });
+    res.json(rankings);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/demand-intelligence', async (req, res) => {
+  try {
+    const intelligence = await biAnalyticsService.getDemandIntelligence();
+    res.json(intelligence);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/reports/export', async (req, res) => {
+  try {
+    const { format = 'csv' } = req.query;
+    const overview = await biAnalyticsService.getExecutiveOverview({});
+    const rankings = await biAnalyticsService.getShowroomRankings({});
+    const demand = await biAnalyticsService.getDemandIntelligence();
+
+    if (format === 'json') {
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_bi_executive_report_${Date.now()}.json"`);
+      return res.json({
+        overview,
+        rankings,
+        demand,
+        showroomRankings: rankings,
+        demandIntelligence: demand
+      });
+    }
+
+    // Default CSV report
+    let csv = `RAPPORT EXECUTIF DE BUSINESS INTELLIGENCE — QUICK BY VMS\n`;
+    csv += `Généré le: ${new Date().toISOString()}\n\n`;
+
+    csv += `1. INDICATEURS CLÉS DE PERFORMANCE (KPIS)\n`;
+    csv += `Métrique,Valeur\n`;
+    csv += `Chiffre d'Affaires Réalisé (DZD),${overview.financials.totalSalesRevenue}\n`;
+    csv += `Volume de Ventes (Motos),${overview.financials.totalSalesVolume}\n`;
+    csv += `Ticket Moyen par Moto (DZD),${overview.financials.averageTicketDzd}\n`;
+    csv += `Taux de Conversion Demandes (%),${overview.demand.conversionRatePercent}%\n`;
+    csv += `Rotation des Stocks (Turnover Ratio),${overview.inventory.inventoryTurnoverRatio}\n`;
+    csv += `Délai Moyen d'Écoulement (DSI Jours),${overview.inventory.daysSalesOfInventoryDsi}\n`;
+    csv += `Stock Dormant >90j (Unités),${overview.inventory.agingPyramid.dormantOver90d}\n`;
+    csv += `Capital Immobilisé en Stock Dormant (DZD),${overview.financials.dormantCapitalTiedUpDzd}\n`;
+    csv += `Taux de Disponibilité Réseau (%),${overview.inventory.networkAvailabilityRatePercent}%\n\n`;
+
+    csv += `2. BENCHMARKING DES SHOWROOMS (TOP 20)\n`;
+    csv += `Showroom,Ville,Wilaya,Ventes (Volume),Stock Dispo,Stock Dormant,Demande En Attente,Score Efficience Normalisé,Catégorie\n`;
+    rankings.rankings.slice(0, 20).forEach(r => {
+      csv += `"${r.showroomName}","${r.city}","${r.wilayaCode}",${r.salesVolume},${r.availableStock},${r.dormantStock},${r.pendingDemand},${r.normalizedScore}/100,"${r.tier}"\n`;
+    });
+    csv += `\n`;
+
+    csv += `3. ANALYSE DE LA DEMANDE PAR MODÈLE\n`;
+    csv += `Modèle,Catégorie,Prix Catalogue (DZD),Demandes Clients,Demandes En Attente,Ventes,Stock Dispo,Indice de Tension\n`;
+    demand.modelStats.forEach(m => {
+      csv += `"${m.name}","${m.category}",${m.priceDzd},${m.totalRequests},${m.pendingDemand},${m.salesVolume},${m.availableStock},${m.tensionIndex}\n`;
+    });
+
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="vms_bi_executive_report_${Date.now()}.csv"`);
+    res.send(csv);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Start Express server
