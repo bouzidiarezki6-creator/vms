@@ -269,6 +269,46 @@ export const Navbar: React.FC<NavbarProps> = ({
                       Tableau de Bord
                     </button>
                     <button
+                      onClick={() => setActiveTab('showroom-stock')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'showroom-stock'
+                          ? 'bg-red-50 text-red-700 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Stock & VIN
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('showroom-transfers')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'showroom-transfers'
+                          ? 'bg-red-50 text-red-700 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Transferts
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('showroom-sales')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'showroom-sales'
+                          ? 'bg-red-50 text-red-700 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Ventes & Factures
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('showroom-dormant')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'showroom-dormant'
+                          ? 'bg-amber-50 text-amber-800 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Stock Dormant (&gt;90j)
+                    </button>
+                    <button
                       onClick={() => setActiveTab('compte-global')}
                       className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1.5 ${
                         activeTab === 'compte-global'
@@ -277,13 +317,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }`}
                     >
                       <Layers className="h-4 w-4" />
-                      <span>Compte Global Réseau</span>
-                    </button>
-                    <button
-                      onClick={() => setIsShowroomsModalOpen(true)}
-                      className="px-3 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50"
-                    >
-                      Réseau VMS
+                      <span>Compte Global</span>
                     </button>
                   </>
                 )}
@@ -300,17 +334,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }`}
                     >
                       Supervision BI
-                    </button>
-                    <button
-                      onClick={() => setActiveTab('compte-global')}
-                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1.5 ${
-                        activeTab === 'compte-global'
-                          ? 'bg-red-600 text-white font-bold'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                      }`}
-                    >
-                      <Layers className="h-4 w-4" />
-                      <span>Compte Global</span>
                     </button>
                     <button
                       onClick={() => setActiveTab('admin-showrooms')}
@@ -331,6 +354,37 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }`}
                     >
                       Stock Global
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('admin-requests')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'admin-requests'
+                          ? 'bg-red-50 text-red-700 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Demandes Clients
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('admin-audit')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                        activeTab === 'admin-audit'
+                          ? 'bg-red-50 text-red-700 font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      Audit & Sécurité
+                    </button>
+                    <button
+                      onClick={() => setActiveTab('compte-global')}
+                      className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1.5 ${
+                        activeTab === 'compte-global'
+                          ? 'bg-red-600 text-white font-bold'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      <Layers className="h-4 w-4" />
+                      <span>Compte Global</span>
                     </button>
                   </>
                 )}

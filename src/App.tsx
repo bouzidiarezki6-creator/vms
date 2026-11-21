@@ -59,8 +59,26 @@ export function App() {
             )}
 
             {/* Showroom Dashboard */}
-            {(activeTab === 'showroom-dashboard' || activeTab === 'showroom-stock' || activeTab === 'showroom-transfers' || activeTab === 'showroom-sales') && (
+            {(activeTab === 'showroom-dashboard' ||
+              activeTab === 'showroom-stock' ||
+              activeTab === 'showroom-transfers' ||
+              activeTab === 'showroom-sales' ||
+              activeTab === 'showroom-dormant' ||
+              activeTab === 'showroom-requests') && (
               <ShowroomDashboard
+                initialSubTab={
+                  activeTab === 'showroom-stock'
+                    ? 'inventory'
+                    : activeTab === 'showroom-transfers'
+                    ? 'transfers'
+                    : activeTab === 'showroom-sales'
+                    ? 'sales'
+                    : activeTab === 'showroom-dormant'
+                    ? 'dormant'
+                    : activeTab === 'showroom-requests'
+                    ? 'requests'
+                    : 'overview'
+                }
                 onNavigateToCompteGlobal={() => setActiveTab('compte-global')}
               />
             )}

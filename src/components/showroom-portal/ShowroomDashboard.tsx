@@ -18,12 +18,20 @@ import {
   Trash2,
   Eye,
   ShieldCheck,
-  MapPin
+  MapPin,
+  Users,
+  Phone,
+  Mail,
+  Calendar,
+  Layers
 } from 'lucide-react';
 import { dbStore } from '../../services/dbStore';
-import { Showroom, Motorcycle, ShowroomKPIs, Transfer } from '../../types';
+import { Showroom, Motorcycle, ShowroomKPIs, Transfer, Sale, CustomerRequest } from '../../types';
 import { AddMotorcycleModal } from './AddMotorcycleModal';
 import { RecordSaleModal } from './RecordSaleModal';
+import { PortalNavbar, ShowroomSubTab } from './PortalNavbar';
+import { DormantStockSection } from './DormantStockSection';
+import { ReorderHistoryView } from './ReorderHistoryView';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
@@ -42,10 +50,12 @@ import {
 } from 'recharts';
 
 interface ShowroomDashboardProps {
+  initialSubTab?: ShowroomSubTab;
   onNavigateToCompteGlobal?: () => void;
 }
 
 export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
+  initialSubTab = 'overview',
   onNavigateToCompteGlobal
 }) => {
   const toast = useToast();
@@ -55,12 +65,21 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
   // If user is showroom owner, pick their showroom; else pick first showroom (Alger or Oran)
   const defaultShowroomId = showrooms.find(s => s.owner_id === currentUser?.id)?.id || showrooms[0]?.id || '';
   const [selectedShowroomId, setSelectedShowroomId] = useState<string>(defaultShowroomId);
+  const [activeSubTab, setActiveSubTab] = useState<ShowroomSubTab>(initialSubTab);
+
+  useEffect(() => {
+    if (initialSubTab) {
+      setActiveSubTab(initialSubTab);
+    }
+  }, [initialSubTab]);
 
   const [kpis, setKpis] = useState<ShowroomKPIs | null>(null);
   const [motorcycles, setMotorcycles] = useState<Motorcycle[]>([]);
   const [transfers, setTransfers] = useState<Transfer[]>([]);
+  const [sales, setSales] = useState<Sale[]>([]);
+  const [regionalRequests, setRegionalRequests] = useState<CustomerRequest[]>([]);
 
-  // Filters
+  // Filters for inventory tab
   const [statusFilter, setStatusFilter] = useState<string>('ALL');
   const [modelFilter, setModelFilter] = useState<string>('ALL');
   const [onlyAgingFilter, setOnlyAgingFilter] = useState(false);
@@ -71,20 +90,27 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
   const [isSaleModalOpen, setIsSaleModalOpen] = useState(false);
   const [selectedMotorcycleForSale, setSelectedMotorcycleForSale] = useState<Motorcycle | undefined>(undefined);
 
+  const activeShowroom = showrooms.find(s => s.id === selectedShowroomId);
+  const models = dbStore.getModels();
+
   const refreshData = () => {
     if (!selectedShowroomId) return;
     setKpis(dbStore.getShowroomKPIs(selectedShowroomId));
     setMotorcycles(dbStore.getMotorcycles(selectedShowroomId));
     setTransfers(dbStore.getTransfers());
+    setSales(dbStore.getSales(selectedShowroomId));
+
+    // Regional customer requests for this showroom's wilaya
+    if (activeShowroom) {
+      const allReqs = dbStore.getCustomerRequests();
+      setRegionalRequests(allReqs.filter(r => r.wilaya_code === activeShowroom.wilaya_code));
+    }
   };
 
   useEffect(() => {
     refreshData();
     return dbStore.subscribe(refreshData);
   }, [selectedShowroomId]);
-
-  const activeShowroom = showrooms.find(s => s.id === selectedShowroomId);
-  const models = dbStore.getModels();
 
   // Filtered motorcycles
   const filteredMotos = motorcycles.filter(m => {
@@ -93,7 +119,7 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
     const matchesAging = !onlyAgingFilter || m.is_aging;
     const matchesSearch = !searchVin || m.vin.toLowerCase().includes(searchVin.toLowerCase()) ||
                           m.color.toLowerCase().includes(searchVin.toLowerCase()) ||
-                          m.model?.name.toLowerCase().includes(searchVin.toLowerCase());
+                          (m.model?.name && m.model.name.toLowerCase().includes(searchVin.toLowerCase()));
     return matchesStatus && matchesModel && matchesAging && matchesSearch;
   });
 
@@ -189,16 +215,18 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
   ].filter(d => d.value > 0);
 
   return (
-    <div className="space-y-8 pb-16">
+    <div className="space-y-6 pb-16">
       {/* Showroom Header & Switcher */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
         <div className="flex items-center gap-4">
-          <div className="h-12 w-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md">
+          <div className="h-12 w-12 rounded-2xl bg-red-600 text-white flex items-center justify-center shadow-md shadow-red-600/30">
             <Building className="h-6 w-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold text-slate-900">{activeShowroom?.name}</h1>
+              <h1 className="text-xl font-black text-slate-900 font-sans tracking-tight">
+                {activeShowroom?.name}
+              </h1>
               <Badge variant="success">Actif</Badge>
             </div>
             <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1.5">
@@ -219,7 +247,7 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
             <select
               value={selectedShowroomId}
               onChange={e => setSelectedShowroomId(e.target.value)}
-              className="w-full text-xs rounded-lg border border-slate-300 py-1.5 px-2.5 font-semibold text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-600"
+              className="w-full text-xs rounded-xl border border-slate-300 py-2 px-2.5 font-semibold text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-red-600"
             >
               {showrooms.map(s => (
                 <option key={s.id} value={s.id}>
@@ -228,442 +256,589 @@ export const ShowroomDashboard: React.FC<ShowroomDashboardProps> = ({
               ))}
             </select>
           </div>
-
-          <div className="flex items-center gap-2 pt-4">
-            <Button
-              onClick={() => setIsAddModalOpen(true)}
-              className="gap-1.5 text-xs font-bold"
-            >
-              <Plus className="h-4 w-4" />
-              <span>Ajouter une Moto</span>
-            </Button>
-            <Button
-              variant="success"
-              onClick={() => {
-                setSelectedMotorcycleForSale(undefined);
-                setIsSaleModalOpen(true);
-              }}
-              className="gap-1.5 text-xs font-bold"
-            >
-              <DollarSign className="h-4 w-4" />
-              <span>Enregistrer Vente</span>
-            </Button>
-          </div>
         </div>
       </div>
 
-      {/* Aging Stock Alert Banner if any (>90 days) */}
-      {kpis && kpis.agingStockCount > 0 && (
-        <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-in fade-in">
-          <div className="flex items-start gap-3">
-            <div className="h-9 w-9 rounded-xl bg-amber-200 text-amber-800 flex items-center justify-center flex-shrink-0">
-              <AlertTriangle className="h-5 w-5" />
+      {/* Showroom Portal Sub-Navbar */}
+      <PortalNavbar
+        activeSubTab={activeSubTab}
+        setActiveSubTab={setActiveSubTab}
+        onOpenAddModal={() => setIsAddModalOpen(true)}
+        onOpenSaleModal={() => {
+          setSelectedMotorcycleForSale(undefined);
+          setIsSaleModalOpen(true);
+        }}
+        totalStockCount={motorcycles.length}
+        activeTransfersCount={incomingTransfers.length + outgoingTransfers.length}
+        dormantStockCount={kpis?.agingStockCount || 0}
+        pendingRequestsCount={regionalRequests.filter(r => r.status === 'pending').length}
+      />
+
+      {/* ================================================================= */}
+      {/* SUB-TAB 1: OVERVIEW / KPIS / CHARTS                               */}
+      {/* ================================================================= */}
+      {activeSubTab === 'overview' && (
+        <div className="space-y-6">
+          {/* Aging Stock Alert Banner if any (>90 days) */}
+          {kpis && kpis.agingStockCount > 0 && (
+            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-in fade-in">
+              <div className="flex items-start gap-3">
+                <div className="h-9 w-9 rounded-xl bg-amber-200 text-amber-800 flex items-center justify-center shrink-0">
+                  <AlertTriangle className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-sm">
+                    Détection Stock Dormant — Compte Global ({kpis.agingStockCount} moto(s) &gt; 90 jours)
+                  </p>
+                  <p className="text-xs text-amber-800 mt-0.5">
+                    Certains exemplaires dépassent les 90 jours d'ancienneté. Le système Compte Global propose de les transférer vers des showrooms en rupture ou à forte demande.
+                  </p>
+                </div>
+              </div>
+              <Button
+                size="sm"
+                onClick={() => setActiveSubTab('dormant')}
+                className="bg-amber-600 hover:bg-amber-700 text-white font-bold whitespace-nowrap text-xs gap-1.5 self-start sm:self-auto shadow-sm"
+              >
+                <span>Examiner le stock dormant ({kpis.agingStockCount})</span>
+                <ArrowRightLeft className="h-3.5 w-3.5" />
+              </Button>
             </div>
-            <div>
-              <p className="font-bold text-sm">
-                Détection Stock Dormant — Compte Global ({kpis.agingStockCount} moto(s) &gt; 90 jours)
-              </p>
-              <p className="text-xs text-amber-800 mt-0.5">
-                Certains exemplaires présents dans ce showroom dépassent les 90 jours d'ancienneté. Le système Compte Global propose de les transférer vers des showrooms en rupture ou à forte demande.
-              </p>
+          )}
+
+          {/* KPI Statistic Cards */}
+          {kpis && (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              <Card className="p-4">
+                <div className="flex items-center justify-between text-slate-500 text-xs">
+                  <span>Stock Total</span>
+                  <Bike className="h-4 w-4 text-red-600" />
+                </div>
+                <p className="text-2xl font-black text-slate-900 mt-2">{kpis.totalStock}</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Unités affectées</p>
+              </Card>
+
+              <Card className="p-4">
+                <div className="flex items-center justify-between text-slate-500 text-xs">
+                  <span>Disponibles</span>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                </div>
+                <p className="text-2xl font-black text-emerald-600 mt-2">{kpis.availableStock}</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Prêtes à la vente</p>
+              </Card>
+
+              <Card className="p-4">
+                <div className="flex items-center justify-between text-slate-500 text-xs">
+                  <span>Réservées</span>
+                  <Clock className="h-4 w-4 text-amber-600" />
+                </div>
+                <p className="text-2xl font-black text-amber-600 mt-2">{kpis.reservedStock}</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Acomptes versés</p>
+              </Card>
+
+              <Card className="p-4">
+                <div className="flex items-center justify-between text-slate-500 text-xs">
+                  <span>Stock Dormant &gt;90j</span>
+                  <AlertTriangle className="h-4 w-4 text-orange-600" />
+                </div>
+                <p className="text-2xl font-black text-orange-600 mt-2">{kpis.agingStockCount}</p>
+                <p className="text-[11px] text-orange-600/80 font-semibold mt-0.5">Compte Global</p>
+              </Card>
+
+              <Card className="p-4">
+                <div className="flex items-center justify-between text-slate-500 text-xs">
+                  <span>Taux Disponibilité</span>
+                  <TrendingUp className="h-4 w-4 text-purple-600" />
+                </div>
+                <p className="text-2xl font-black text-purple-600 mt-2">{kpis.availabilityRate}%</p>
+                <p className="text-[11px] text-slate-400 mt-0.5">Ratio stock dispo</p>
+              </Card>
             </div>
+          )}
+
+          {/* Interactive Charts: Stock by Model & Stock Age */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <Card className="lg:col-span-2 p-5">
+              <CardHeader className="p-0 pb-4 mb-4 border-b border-slate-100 flex items-center justify-between">
+                <div>
+                  <CardTitle>Disponibilité Réelle par Modèle</CardTitle>
+                  <p className="text-xs text-slate-500">Motos immédiatement livrables dans ce showroom</p>
+                </div>
+                <Badge variant="info">{kpis?.availableStock || 0} disponibles</Badge>
+              </CardHeader>
+              <div className="h-64 w-full">
+                {modelStockData.length > 0 ? (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={modelStockData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
+                      <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-20} textAnchor="end" />
+                      <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
+                      <Tooltip />
+                      <Bar dataKey="disponibles" fill="#dc2626" radius={[6, 6, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <div className="h-full flex items-center justify-center text-xs text-slate-400">
+                    Aucune moto disponible actuellement dans ce showroom.
+                  </div>
+                )}
+              </div>
+            </Card>
+
+            <Card className="p-5">
+              <CardHeader className="p-0 pb-4 mb-4 border-b border-slate-100">
+                <CardTitle>Ancienneté du Stock (Jours)</CardTitle>
+                <p className="text-xs text-slate-500">Calcul automatique depuis la date d'arrivée</p>
+              </CardHeader>
+              <div className="h-64 w-full flex items-center justify-center">
+                {ageData.length > 0 ? (
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={ageData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={50}
+                        outerRadius={80}
+                        paddingAngle={3}
+                        dataKey="value"
+                      >
+                        {ageData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                ) : (
+                  <p className="text-xs text-slate-400">Aucune donnée d'âge.</p>
+                )}
+              </div>
+              <div className="grid grid-cols-2 gap-2 mt-2 pt-3 border-t border-slate-100 text-[10px]">
+                {ageData.map(d => (
+                  <div key={d.name} className="flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: d.color }} />
+                    <span className="text-slate-600">{d.name} ({d.value})</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
-          <Button
-            size="sm"
-            onClick={onNavigateToCompteGlobal}
-            className="bg-amber-600 hover:bg-amber-700 text-white font-bold whitespace-nowrap text-xs gap-1.5 self-start sm:self-auto"
-          >
-            <span>Voir opportunités Compte Global</span>
-            <ArrowRightLeft className="h-3.5 w-3.5" />
-          </Button>
         </div>
       )}
 
-      {/* KPI Statistic Cards (Section 4.2) */}
-      {kpis && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          <Card className="p-4">
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-              <span>Stock Total</span>
-              <Bike className="h-4 w-4 text-blue-600" />
-            </div>
-            <p className="text-2xl font-black text-slate-900 mt-2">{kpis.totalStock}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Unités affectées</p>
-          </Card>
-
-          <Card className="p-4">
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-              <span>Disponibles</span>
-              <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-            </div>
-            <p className="text-2xl font-black text-emerald-600 mt-2">{kpis.availableStock}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Prêtes à la vente</p>
-          </Card>
-
-          <Card className="p-4">
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-              <span>Réservées</span>
-              <Clock className="h-4 w-4 text-amber-600" />
-            </div>
-            <p className="text-2xl font-black text-amber-600 mt-2">{kpis.reservedStock}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Acomptes versés</p>
-          </Card>
-
-          <Card className="p-4">
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-              <span>Stock Dormant &gt;90j</span>
-              <AlertTriangle className="h-4 w-4 text-orange-600" />
-            </div>
-            <p className="text-2xl font-black text-orange-600 mt-2">{kpis.agingStockCount}</p>
-            <p className="text-[11px] text-orange-600/80 font-semibold mt-0.5">Compte Global</p>
-          </Card>
-
-          <Card className="p-4">
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-              <span>Taux Disponibilité</span>
-              <TrendingUp className="h-4 w-4 text-purple-600" />
-            </div>
-            <p className="text-2xl font-black text-purple-600 mt-2">{kpis.availabilityRate}%</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">Ratio stock dispo</p>
-          </Card>
-        </div>
-      )}
-
-      {/* Interactive Charts: Stock by Model & Stock Age */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 p-5">
-          <CardHeader className="p-0 pb-4 mb-4 border-b border-slate-100 flex items-center justify-between">
+      {/* ================================================================= */}
+      {/* SUB-TAB 2: INVENTORY & CHASSIS / VIN                              */}
+      {/* ================================================================= */}
+      {activeSubTab === 'inventory' && (
+        <Card className="overflow-hidden">
+          <CardHeader className="p-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <CardTitle>Disponibilité Réelle par Modèle</CardTitle>
-              <p className="text-xs text-slate-500">Motos immédiatement livrables dans ce showroom</p>
+              <CardTitle>Inventaire Physique & Suivi du Stock</CardTitle>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Contrôle des numéros de châssis (VIN), statut de vente et gestion du parc moto
+              </p>
             </div>
-            <Badge variant="info">{kpis?.availableStock || 0} disponibles</Badge>
-          </CardHeader>
-          <div className="h-64 w-full">
-            {modelStockData.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={modelStockData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                  <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-20} textAnchor="end" />
-                  <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
-                  <Tooltip />
-                  <Bar dataKey="disponibles" fill="#026fc7" radius={[6, 6, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            ) : (
-              <div className="h-full flex items-center justify-center text-xs text-slate-400">
-                Aucune moto disponible actuellement dans ce showroom.
+
+            {/* Quick Filters */}
+            <div className="flex flex-wrap items-center gap-2.5">
+              <div className="relative">
+                <Search className="absolute left-2.5 top-2.5 h-3.5 w-3.5 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Chercher VIN / Modèle / Couleur..."
+                  value={searchVin}
+                  onChange={e => setSearchVin(e.target.value)}
+                  className="pl-8 pr-3 py-1.5 text-xs rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-red-600"
+                />
               </div>
-            )}
-          </div>
-        </Card>
 
-        <Card className="p-5">
-          <CardHeader className="p-0 pb-4 mb-4 border-b border-slate-100">
-            <CardTitle>Ancienneté du Stock (Jours)</CardTitle>
-            <p className="text-xs text-slate-500">Calcul automatique depuis la date d'arrivée</p>
-          </CardHeader>
-          <div className="h-64 w-full flex items-center justify-center">
-            {ageData.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={ageData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={50}
-                    outerRadius={80}
-                    paddingAngle={3}
-                    dataKey="value"
-                  >
-                    {ageData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            ) : (
-              <p className="text-xs text-slate-400">Aucune donnée d'âge.</p>
-            )}
-          </div>
-          <div className="grid grid-cols-2 gap-2 mt-2 pt-3 border-t border-slate-100 text-[10px]">
-            {ageData.map(d => (
-              <div key={d.name} className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: d.color }} />
-                <span className="text-slate-600">{d.name} ({d.value})</span>
-              </div>
-            ))}
-          </div>
-        </Card>
-      </div>
-
-      {/* Incoming / Outgoing Inter-Showroom Transfers Section */}
-      {(incomingTransfers.length > 0 || outgoingTransfers.length > 0) && (
-        <Card className="p-5 border-blue-200 bg-blue-50/20">
-          <CardHeader className="p-0 pb-3 mb-3 border-b border-blue-100 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Truck className="h-5 w-5 text-blue-600" />
-              <CardTitle className="text-sm">Transferts Inter-Showrooms en Cours</CardTitle>
-            </div>
-            <span className="text-xs text-blue-700 font-semibold">
-              {incomingTransfers.length} entrant(s) • {outgoingTransfers.length} sortant(s)
-            </span>
-          </CardHeader>
-
-          <div className="space-y-3">
-            {/* Incoming */}
-            {incomingTransfers.map(trf => (
-              <div
-                key={trf.id}
-                className="bg-white p-3.5 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-sm"
+              <select
+                value={statusFilter}
+                onChange={e => setStatusFilter(e.target.value)}
+                className="text-xs rounded-xl border border-slate-300 py-1.5 px-2.5 font-medium text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-red-600"
               >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-blue-700">{trf.reference}</span>
-                    <Badge variant={trf.status === 'in_transit' ? 'info' : 'warning'}>
-                      {trf.status === 'in_transit' ? 'En camion de transport' : trf.status}
-                    </Badge>
-                  </div>
-                  <p className="font-bold text-slate-900 mt-1">
-                    {trf.motorcycle?.model?.name} (Châssis: {trf.motorcycle?.vin})
-                  </p>
-                  <p className="text-slate-500 text-[11px]">
-                    Provenant de : <strong className="text-slate-700">{trf.source_showroom?.name}</strong> • Âge au départ: {trf.stock_age_at_request}j
-                  </p>
-                </div>
+                <option value="ALL">Tous les statuts</option>
+                <option value="available">Disponible</option>
+                <option value="reserved">Réservé</option>
+                <option value="in_transfer">En transfert</option>
+                <option value="sold">Vendu</option>
+              </select>
 
-                <div className="flex items-center gap-2">
-                  <Button
-                    size="sm"
-                    variant="success"
-                    onClick={() => handleConfirmReception(trf.id)}
-                    className="gap-1.5 text-xs font-bold"
-                  >
-                    <CheckCircle2 className="h-3.5 w-3.5" />
-                    <span>Confirmer Réception en Showroom</span>
-                  </Button>
-                </div>
-              </div>
-            ))}
-
-            {/* Outgoing */}
-            {outgoingTransfers.map(trf => (
-              <div
-                key={trf.id}
-                className="bg-white p-3.5 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs shadow-sm"
+              <button
+                onClick={() => setOnlyAgingFilter(!onlyAgingFilter)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors border flex items-center gap-1.5 ${
+                  onlyAgingFilter
+                    ? 'bg-amber-100 text-amber-900 border-amber-300 shadow-sm'
+                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                }`}
               >
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-slate-700">{trf.reference}</span>
-                    <Badge variant="purple">Demande sortante</Badge>
-                    <span className="text-slate-400">• Statut : {trf.status}</span>
-                  </div>
-                  <p className="font-bold text-slate-900 mt-1">
-                    {trf.motorcycle?.model?.name} (Châssis: {trf.motorcycle?.vin})
-                  </p>
-                  <p className="text-slate-500 text-[11px]">
-                    Destination : <strong className="text-slate-700">{trf.destination_showroom?.name}</strong>
-                  </p>
-                </div>
+                <AlertTriangle className="h-3 w-3 text-amber-600" />
+                <span>Dormant (&gt;90j)</span>
+              </button>
 
-                <div className="flex items-center gap-2">
-                  {trf.status === 'pending' && (
-                    <Button
-                      size="sm"
-                      onClick={() => handleApproveTransfer(trf.id)}
-                      className="text-xs"
-                    >
-                      Approuver le départ
-                    </Button>
-                  )}
-                  {trf.status === 'approved' && (
-                    <Button
-                      size="sm"
-                      variant="primary"
-                      onClick={() => handleShipTransfer(trf.id)}
-                      className="text-xs gap-1"
-                    >
-                      <Truck className="h-3.5 w-3.5" />
-                      <span>Confirmer Expédition (En transit)</span>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-      )}
-
-      {/* Complete Stock Inventory Management Table (Section 4.3) */}
-      <Card className="overflow-hidden">
-        <CardHeader className="p-5 border-b border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <CardTitle>Inventaire Physique & Suivi du Stock</CardTitle>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Historique complet, détection de stock dormant (&gt;90j) et contrôle des numéros de châssis
-            </p>
-          </div>
-
-          {/* Quick Filters */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-2 h-3.5 w-3.5 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Chercher VIN / Couleur..."
-                value={searchVin}
-                onChange={e => setSearchVin(e.target.value)}
-                className="pl-8 pr-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-1 focus:ring-blue-600"
-              />
+              <Button
+                size="sm"
+                onClick={() => setIsAddModalOpen(true)}
+                className="bg-red-600 hover:bg-red-700 text-white text-xs font-bold gap-1.5"
+              >
+                <Plus className="h-4 w-4" />
+                <span>Nouvelle Moto</span>
+              </Button>
             </div>
+          </CardHeader>
 
-            <select
-              value={statusFilter}
-              onChange={e => setStatusFilter(e.target.value)}
-              className="text-xs rounded-lg border border-slate-300 py-1.5 px-2.5 font-medium text-slate-700 focus:outline-none focus:ring-1 focus:ring-blue-600"
-            >
-              <option value="ALL">Tous les statuts</option>
-              <option value="available">Disponible</option>
-              <option value="reserved">Réservé</option>
-              <option value="in_transfer">En transfert</option>
-              <option value="sold">Vendu</option>
-            </select>
-
-            <button
-              onClick={() => setOnlyAgingFilter(!onlyAgingFilter)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors border flex items-center gap-1.5 ${
-                onlyAgingFilter
-                  ? 'bg-amber-100 text-amber-900 border-amber-300 shadow-sm'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              <AlertTriangle className="h-3 w-3 text-amber-600" />
-              <span>Dormant (&gt;90j)</span>
-            </button>
-          </div>
-        </CardHeader>
-
-        {/* Inventory Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-600">
-            <thead className="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
-              <tr>
-                <th className="px-5 py-3">Modèle / Marque</th>
-                <th className="px-5 py-3">Numéro Châssis (VIN)</th>
-                <th className="px-5 py-3">Couleur</th>
-                <th className="px-5 py-3">Date Arrivée</th>
-                <th className="px-5 py-3">Durée en Stock</th>
-                <th className="px-5 py-3">Statut</th>
-                <th className="px-5 py-3 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {filteredMotos.length === 0 ? (
+          {/* Inventory Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs text-slate-600">
+              <thead className="bg-slate-50 text-[10px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200">
                 <tr>
-                  <td colSpan={7} className="text-center py-8 text-slate-400">
-                    Aucune moto trouvée pour ces critères de recherche.
-                  </td>
+                  <th className="px-5 py-3">Modèle / Marque</th>
+                  <th className="px-5 py-3">Numéro Châssis (VIN)</th>
+                  <th className="px-5 py-3">Couleur</th>
+                  <th className="px-5 py-3">Date Arrivée</th>
+                  <th className="px-5 py-3">Durée en Stock</th>
+                  <th className="px-5 py-3">Statut</th>
+                  <th className="px-5 py-3 text-right">Actions</th>
                 </tr>
-              ) : (
-                filteredMotos.map(moto => (
-                  <tr key={moto.id} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="px-5 py-3.5">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={moto.model?.image_url}
-                          alt={moto.model?.name}
-                          className="h-9 w-9 rounded-lg object-cover bg-slate-100 flex-shrink-0"
-                        />
-                        <div>
-                          <p className="font-bold text-slate-900">{moto.model?.name}</p>
-                          <p className="text-[10px] text-slate-400">{moto.model?.category}</p>
-                        </div>
-                      </div>
-                    </td>
-
-                    <td className="px-5 py-3.5 font-mono font-semibold text-slate-800">
-                      {moto.vin}
-                    </td>
-
-                    <td className="px-5 py-3.5">
-                      <span className="font-medium text-slate-700">{moto.color}</span>
-                    </td>
-
-                    <td className="px-5 py-3.5 text-slate-600">
-                      {formatDate(moto.arrival_date)}
-                    </td>
-
-                    <td className="px-5 py-3.5">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-slate-900">{moto.days_in_stock} jours</span>
-                        {moto.is_aging && moto.status === 'available' && (
-                          <Badge variant="aging">
-                            &gt;90j Éligible Transfert
-                          </Badge>
-                        )}
-                      </div>
-                    </td>
-
-                    <td className="px-5 py-3.5">
-                      {moto.status === 'available' && <Badge variant="success">Disponible</Badge>}
-                      {moto.status === 'reserved' && <Badge variant="warning">Réservé</Badge>}
-                      {moto.status === 'in_transfer' && <Badge variant="info">En Transfert</Badge>}
-                      {moto.status === 'sold' && <Badge variant="default">Vendu le {formatDate(moto.sale_date)}</Badge>}
-                    </td>
-
-                    <td className="px-5 py-3.5 text-right">
-                      <div className="flex items-center justify-end gap-1.5">
-                        {moto.status === 'available' && (
-                          <button
-                            onClick={() => {
-                              setSelectedMotorcycleForSale(moto);
-                              setIsSaleModalOpen(true);
-                            }}
-                            title="Vendre"
-                            className="p-1 rounded text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
-                          >
-                            <DollarSign className="h-4 w-4" />
-                          </button>
-                        )}
-
-                        {moto.status === 'available' && (
-                          <button
-                            onClick={() => handleChangeStatus(moto.id, 'reserved')}
-                            title="Marquer Réservé"
-                            className="p-1 rounded text-amber-600 hover:bg-amber-50 hover:text-amber-700"
-                          >
-                            <Clock className="h-4 w-4" />
-                          </button>
-                        )}
-
-                        {moto.status === 'reserved' && (
-                          <button
-                            onClick={() => handleChangeStatus(moto.id, 'available')}
-                            title="Remettre Disponible"
-                            className="p-1 rounded text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                          >
-                            <CheckCircle2 className="h-4 w-4" />
-                          </button>
-                        )}
-
-                        {moto.status !== 'in_transfer' && (
-                          <button
-                            onClick={() => handleDeleteMotorcycle(moto.id)}
-                            title="Supprimer du stock"
-                            className="p-1 rounded text-slate-400 hover:bg-red-50 hover:text-red-600"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </button>
-                        )}
-                      </div>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {filteredMotos.length === 0 ? (
+                  <tr>
+                    <td colSpan={7} className="text-center py-8 text-slate-400">
+                      Aucune moto trouvée pour ces critères de recherche.
                     </td>
                   </tr>
-                ))
+                ) : (
+                  filteredMotos.map(moto => (
+                    <tr key={moto.id} className="hover:bg-slate-50/80 transition-colors">
+                      <td className="px-5 py-3.5">
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={moto.model?.image_url}
+                            alt={moto.model?.name}
+                            className="h-9 w-9 rounded-lg object-cover bg-slate-100 shrink-0"
+                          />
+                          <div>
+                            <p className="font-bold text-slate-900">{moto.model?.name}</p>
+                            <p className="text-[10px] text-slate-400">{moto.model?.category}</p>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td className="px-5 py-3.5 font-mono font-semibold text-slate-800">
+                        {moto.vin}
+                      </td>
+
+                      <td className="px-5 py-3.5">
+                        <span className="font-medium text-slate-700">{moto.color}</span>
+                      </td>
+
+                      <td className="px-5 py-3.5 text-slate-600">
+                        {formatDate(moto.arrival_date)}
+                      </td>
+
+                      <td className="px-5 py-3.5">
+                        <div className="flex items-center gap-2">
+                          <span className="font-bold text-slate-900">{moto.days_in_stock} jours</span>
+                          {moto.is_aging && moto.status === 'available' && (
+                            <Badge variant="aging">
+                              &gt;90j Éligible Transfert
+                            </Badge>
+                          )}
+                        </div>
+                      </td>
+
+                      <td className="px-5 py-3.5">
+                        {moto.status === 'available' && <Badge variant="success">Disponible</Badge>}
+                        {moto.status === 'reserved' && <Badge variant="warning">Réservé</Badge>}
+                        {moto.status === 'in_transfer' && <Badge variant="info">En Transfert</Badge>}
+                        {moto.status === 'sold' && <Badge variant="default">Vendu le {formatDate(moto.sale_date)}</Badge>}
+                      </td>
+
+                      <td className="px-5 py-3.5 text-right">
+                        <div className="flex items-center justify-end gap-1.5">
+                          {moto.status === 'available' && (
+                            <button
+                              onClick={() => {
+                                setSelectedMotorcycleForSale(moto);
+                                setIsSaleModalOpen(true);
+                              }}
+                              title="Enregistrer la Vente"
+                              className="p-1 rounded text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700"
+                            >
+                              <DollarSign className="h-4 w-4" />
+                            </button>
+                          )}
+
+                          {moto.status === 'available' && (
+                            <button
+                              onClick={() => handleChangeStatus(moto.id, 'reserved')}
+                              title="Marquer Réservé"
+                              className="p-1 rounded text-amber-600 hover:bg-amber-50 hover:text-amber-700"
+                            >
+                              <Clock className="h-4 w-4" />
+                            </button>
+                          )}
+
+                          {moto.status === 'reserved' && (
+                            <button
+                              onClick={() => handleChangeStatus(moto.id, 'available')}
+                              title="Remettre Disponible"
+                              className="p-1 rounded text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+                            >
+                              <CheckCircle2 className="h-4 w-4" />
+                            </button>
+                          )}
+
+                          {moto.status !== 'in_transfer' && (
+                            <button
+                              onClick={() => handleDeleteMotorcycle(moto.id)}
+                              title="Supprimer du stock"
+                              className="p-1 rounded text-slate-400 hover:bg-red-50 hover:text-red-600"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      )}
+
+      {/* ================================================================= */}
+      {/* SUB-TAB 3: INTER-SHOWROOM TRANSFERS                               */}
+      {/* ================================================================= */}
+      {activeSubTab === 'transfers' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Incoming Transfers */}
+            <Card className="p-5 border-emerald-200 bg-emerald-50/20">
+              <CardHeader className="p-0 pb-3 mb-3 border-b border-emerald-100 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Truck className="h-5 w-5 text-emerald-600" />
+                  <CardTitle className="text-sm font-bold text-slate-900">
+                    Transferts Entrants (Destination : ce showroom)
+                  </CardTitle>
+                </div>
+                <Badge variant="success">{incomingTransfers.length} en cours</Badge>
+              </CardHeader>
+
+              {incomingTransfers.length === 0 ? (
+                <p className="text-center py-8 text-xs text-slate-400">
+                  Aucun transfert entrant actuellement vers ce showroom.
+                </p>
+              ) : (
+                <div className="space-y-3">
+                  {incomingTransfers.map(trf => (
+                    <div
+                      key={trf.id}
+                      className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2 text-xs shadow-sm"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono font-bold text-slate-800">{trf.reference}</span>
+                        <Badge variant={trf.status === 'in_transit' ? 'info' : 'warning'}>
+                          {trf.status === 'in_transit' ? 'En camion de transport' : trf.status}
+                        </Badge>
+                      </div>
+
+                      <p className="font-bold text-slate-900">
+                        {trf.motorcycle?.model?.name} (Châssis : {trf.motorcycle?.vin})
+                      </p>
+                      <p className="text-[11px] text-slate-500">
+                        Showroom Expéditeur : <strong className="text-slate-800">{trf.source_showroom?.name}</strong>
+                      </p>
+
+                      <div className="pt-2 flex justify-end">
+                        <Button
+                          size="sm"
+                          onClick={() => handleConfirmReception(trf.id)}
+                          className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold gap-1.5"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          <span>Confirmer Réception en Showroom</span>
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               )}
-            </tbody>
-          </table>
+            </Card>
+
+            {/* Outgoing Transfers */}
+            <Card className="p-5 border-blue-200 bg-blue-50/20">
+              <CardHeader className="p-0 pb-3 mb-3 border-b border-blue-100 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ArrowRightLeft className="h-5 w-5 text-blue-600" />
+                  <CardTitle className="text-sm font-bold text-slate-900">
+                    Transferts Sortants (Expédiés depuis ce showroom)
+                  </CardTitle>
+                </div>
+                <Badge variant="info">{outgoingTransfers.length} en cours</Badge>
+              </CardHeader>
+
+              {outgoingTransfers.length === 0 ? (
+                <p className="text-center py-8 text-xs text-slate-400">
+                  Aucun transfert sortant actif.
+                </p>
+              ) : (
+                <div className="space-y-3">
+                  {outgoingTransfers.map(trf => (
+                    <div
+                      key={trf.id}
+                      className="bg-white p-3.5 rounded-xl border border-slate-200 space-y-2 text-xs shadow-sm"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono font-bold text-slate-800">{trf.reference}</span>
+                        <Badge variant="purple">{trf.status}</Badge>
+                      </div>
+
+                      <p className="font-bold text-slate-900">
+                        {trf.motorcycle?.model?.name} (Châssis : {trf.motorcycle?.vin})
+                      </p>
+                      <p className="text-[11px] text-slate-500">
+                        Showroom Destinataire : <strong className="text-slate-800">{trf.destination_showroom?.name}</strong>
+                      </p>
+
+                      <div className="pt-2 flex justify-end gap-2">
+                        {trf.status === 'pending' && (
+                          <Button
+                            size="sm"
+                            onClick={() => handleApproveTransfer(trf.id)}
+                            className="text-xs bg-slate-900 text-white font-bold"
+                          >
+                            Approuver le départ
+                          </Button>
+                        )}
+                        {trf.status === 'approved' && (
+                          <Button
+                            size="sm"
+                            onClick={() => handleShipTransfer(trf.id)}
+                            className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold gap-1"
+                          >
+                            <Truck className="h-3.5 w-3.5" />
+                            <span>Confirmer Expédition (En transit)</span>
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </Card>
+          </div>
         </div>
-      </Card>
+      )}
+
+      {/* ================================================================= */}
+      {/* SUB-TAB 4: SALES & INVOICES                                       */}
+      {/* ================================================================= */}
+      {activeSubTab === 'sales' && (
+        <ReorderHistoryView
+          sales={sales}
+          showroomId={selectedShowroomId}
+          onOpenSaleModal={() => {
+            setSelectedMotorcycleForSale(undefined);
+            setIsSaleModalOpen(true);
+          }}
+          onRefresh={refreshData}
+        />
+      )}
+
+      {/* ================================================================= */}
+      {/* SUB-TAB 5: DORMANT STOCK (>90 DAYS)                               */}
+      {/* ================================================================= */}
+      {activeSubTab === 'dormant' && (
+        <DormantStockSection
+          motorcycles={motorcycles}
+          currentShowroom={activeShowroom}
+          onRefresh={refreshData}
+          onNavigateToCompteGlobal={onNavigateToCompteGlobal}
+        />
+      )}
+
+      {/* ================================================================= */}
+      {/* SUB-TAB 6: REGIONAL CUSTOMER DEMAND                               */}
+      {/* ================================================================= */}
+      {activeSubTab === 'requests' && (
+        <Card>
+          <CardHeader className="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div>
+              <CardTitle>Demandes Clients de la Région ({activeShowroom?.city}, Wilaya {activeShowroom?.wilaya_code})</CardTitle>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Clients ayant soumis une demande de disponibilité pour votre zone géographique
+              </p>
+            </div>
+            <Badge variant="info">{regionalRequests.length} demande(s)</Badge>
+          </CardHeader>
+
+          <CardContent className="p-0">
+            {regionalRequests.length === 0 ? (
+              <div className="p-8 text-center text-xs text-slate-400">
+                Aucune demande client enregistrée dans cette wilaya pour le moment.
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-slate-50 text-[10px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-100">
+                    <tr>
+                      <th className="py-3 px-4">Réf. Demande</th>
+                      <th className="py-3 px-4">Client</th>
+                      <th className="py-3 px-4">Téléphone</th>
+                      <th className="py-3 px-4">Modèle Demandé</th>
+                      <th className="py-3 px-4">Date Demande</th>
+                      <th className="py-3 px-4">Statut</th>
+                      <th className="py-3 px-4 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {regionalRequests.map(r => (
+                      <tr key={r.id} className="hover:bg-slate-50 transition-colors">
+                        <td className="py-3 px-4 font-mono font-bold text-red-600">
+                          {r.reference}
+                        </td>
+                        <td className="py-3 px-4 font-semibold text-slate-900">
+                          {r.first_name} {r.last_name}
+                        </td>
+                        <td className="py-3 px-4 font-mono text-slate-600">
+                          <a href={`tel:${r.phone}`} className="flex items-center gap-1 hover:text-red-600 hover:underline">
+                            <Phone className="h-3 w-3" />
+                            <span>{r.phone}</span>
+                          </a>
+                        </td>
+                        <td className="py-3 px-4 font-bold text-slate-800">
+                          {r.model?.name || 'Moto VMS'}
+                        </td>
+                        <td className="py-3 px-4 text-slate-500">
+                          {formatDate(r.created_at)}
+                        </td>
+                        <td className="py-3 px-4">
+                          {r.status === 'available_notified' && <Badge variant="success">Disponible notifié</Badge>}
+                          {r.status === 'pending' && <Badge variant="warning">En attente</Badge>}
+                          {r.status === 'fulfilled' && <Badge variant="info">Traité</Badge>}
+                        </td>
+                        <td className="py-3 px-4 text-right">
+                          <a
+                            href={`tel:${r.phone}`}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 text-[11px] font-bold transition-colors"
+                          >
+                            <Phone className="h-3 w-3" />
+                            <span>Appeler</span>
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       {/* Add Motorcycle Modal */}
       <AddMotorcycleModal
