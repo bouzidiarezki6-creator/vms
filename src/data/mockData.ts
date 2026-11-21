@@ -2277,11 +2277,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000001",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-31",
-    "arrival_date": "2026-02-14",
+    "acquisition_date": "2026-11-01",
+    "arrival_date": "2026-11-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-14T23:00:00.000Z",
+    "created_at": "2026-11-15T14:48:55.983Z",
     "days_in_stock": 6,
     "is_aging": false
   },
@@ -2292,11 +2292,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000002",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-30",
-    "arrival_date": "2026-02-13",
+    "acquisition_date": "2026-10-31",
+    "arrival_date": "2026-11-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-13T23:00:00.000Z",
+    "created_at": "2026-11-14T14:48:55.983Z",
     "days_in_stock": 7,
     "is_aging": false
   },
@@ -2307,11 +2307,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000003",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-29",
-    "arrival_date": "2026-02-12",
+    "acquisition_date": "2026-10-30",
+    "arrival_date": "2026-11-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-12T23:00:00.000Z",
+    "created_at": "2026-11-13T14:48:55.983Z",
     "days_in_stock": 8,
     "is_aging": false
   },
@@ -2322,13 +2322,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000004",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-28",
-    "arrival_date": "2026-02-11",
+    "acquisition_date": "2026-07-31",
+    "arrival_date": "2026-08-14",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-11T23:00:00.000Z",
-    "days_in_stock": 9,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-14T14:48:55.983Z",
+    "days_in_stock": 99,
+    "is_aging": true
   },
   {
     "id": "moto-0005",
@@ -2337,11 +2337,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000005",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-10-28",
+    "arrival_date": "2026-11-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-10T23:00:00.000Z",
+    "created_at": "2026-11-11T14:48:55.983Z",
     "days_in_stock": 10,
     "is_aging": false
   },
@@ -2352,11 +2352,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000006",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-26",
-    "arrival_date": "2026-02-09",
+    "acquisition_date": "2026-10-27",
+    "arrival_date": "2026-11-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-09T23:00:00.000Z",
+    "created_at": "2026-11-10T14:48:55.983Z",
     "days_in_stock": 11,
     "is_aging": false
   },
@@ -2367,13 +2367,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000007",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-10-30",
-    "arrival_date": "2025-11-13",
+    "acquisition_date": "2026-10-26",
+    "arrival_date": "2026-11-09",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-13T23:00:00.000Z",
-    "days_in_stock": 99,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-09T14:48:55.983Z",
+    "days_in_stock": 12,
+    "is_aging": false
   },
   {
     "id": "moto-0008",
@@ -2382,13 +2382,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000008",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-24",
-    "arrival_date": "2026-02-07",
+    "acquisition_date": "2026-07-27",
+    "arrival_date": "2026-08-10",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-07T23:00:00.000Z",
-    "days_in_stock": 13,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-10T14:48:55.983Z",
+    "days_in_stock": 103,
+    "is_aging": true
   },
   {
     "id": "moto-0009",
@@ -2397,13 +2397,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000009",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-10-28",
-    "arrival_date": "2025-11-11",
+    "acquisition_date": "2026-10-24",
+    "arrival_date": "2026-11-07",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-11T23:00:00.000Z",
-    "days_in_stock": 101,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-07T14:48:55.983Z",
+    "days_in_stock": 14,
+    "is_aging": false
   },
   {
     "id": "moto-0010",
@@ -2412,11 +2412,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000010",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-22",
-    "arrival_date": "2026-02-05",
+    "acquisition_date": "2026-10-23",
+    "arrival_date": "2026-11-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-05T23:00:00.000Z",
+    "created_at": "2026-11-06T14:48:55.983Z",
     "days_in_stock": 15,
     "is_aging": false
   },
@@ -2427,11 +2427,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000011",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-21",
-    "arrival_date": "2026-02-04",
+    "acquisition_date": "2026-10-22",
+    "arrival_date": "2026-11-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-04T23:00:00.000Z",
+    "created_at": "2026-11-05T14:48:55.983Z",
     "days_in_stock": 16,
     "is_aging": false
   },
@@ -2442,13 +2442,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000012",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-20",
-    "arrival_date": "2026-02-03",
+    "acquisition_date": "2026-07-23",
+    "arrival_date": "2026-08-06",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-03T23:00:00.000Z",
-    "days_in_stock": 17,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-06T14:48:55.983Z",
+    "days_in_stock": 107,
+    "is_aging": true
   },
   {
     "id": "moto-0013",
@@ -2457,11 +2457,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000013",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-19",
-    "arrival_date": "2026-02-02",
+    "acquisition_date": "2026-10-20",
+    "arrival_date": "2026-11-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-02T23:00:00.000Z",
+    "created_at": "2026-11-03T14:48:55.983Z",
     "days_in_stock": 18,
     "is_aging": false
   },
@@ -2472,13 +2472,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000014",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-10-23",
-    "arrival_date": "2025-11-06",
+    "acquisition_date": "2026-10-19",
+    "arrival_date": "2026-11-02",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-06T23:00:00.000Z",
-    "days_in_stock": 106,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-02T14:48:55.983Z",
+    "days_in_stock": 19,
+    "is_aging": false
   },
   {
     "id": "moto-0015",
@@ -2487,11 +2487,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000015",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-17",
-    "arrival_date": "2026-01-31",
+    "acquisition_date": "2026-10-18",
+    "arrival_date": "2026-11-01",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-31T23:00:00.000Z",
+    "created_at": "2026-11-01T14:48:55.983Z",
     "days_in_stock": 20,
     "is_aging": false
   },
@@ -2502,13 +2502,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000016",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-16",
-    "arrival_date": "2026-01-30",
+    "acquisition_date": "2026-07-19",
+    "arrival_date": "2026-08-02",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-30T23:00:00.000Z",
-    "days_in_stock": 21,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-02T14:48:55.983Z",
+    "days_in_stock": 111,
+    "is_aging": true
   },
   {
     "id": "moto-0017",
@@ -2517,11 +2517,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000017",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-15",
-    "arrival_date": "2026-01-29",
+    "acquisition_date": "2026-10-16",
+    "arrival_date": "2026-10-30",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-29T23:00:00.000Z",
+    "created_at": "2026-10-30T14:48:55.983Z",
     "days_in_stock": 22,
     "is_aging": false
   },
@@ -2532,13 +2532,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000018",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-10-19",
-    "arrival_date": "2025-11-02",
+    "acquisition_date": "2026-10-15",
+    "arrival_date": "2026-10-29",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-02T23:00:00.000Z",
-    "days_in_stock": 110,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-29T14:48:55.983Z",
+    "days_in_stock": 23,
+    "is_aging": false
   },
   {
     "id": "moto-0019",
@@ -2547,12 +2547,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000019",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-10-14",
+    "arrival_date": "2026-10-28",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-27T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-28T14:48:55.983Z",
     "days_in_stock": 24,
     "is_aging": false
   },
@@ -2563,13 +2563,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000020",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-12",
-    "arrival_date": "2026-01-26",
+    "acquisition_date": "2026-07-15",
+    "arrival_date": "2026-07-29",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-26T23:00:00.000Z",
-    "days_in_stock": 25,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-29T14:48:55.983Z",
+    "days_in_stock": 115,
+    "is_aging": true
   },
   {
     "id": "moto-0021",
@@ -2578,13 +2578,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000021",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-10-16",
-    "arrival_date": "2025-10-30",
+    "acquisition_date": "2026-10-12",
+    "arrival_date": "2026-10-26",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-30T23:00:00.000Z",
-    "days_in_stock": 113,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-26T14:48:55.983Z",
+    "days_in_stock": 26,
+    "is_aging": false
   },
   {
     "id": "moto-0022",
@@ -2593,11 +2593,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000022",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-10",
-    "arrival_date": "2026-01-24",
+    "acquisition_date": "2026-10-11",
+    "arrival_date": "2026-10-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-24T23:00:00.000Z",
+    "created_at": "2026-10-25T14:48:55.983Z",
     "days_in_stock": 27,
     "is_aging": false
   },
@@ -2608,11 +2608,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000023",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-09",
-    "arrival_date": "2026-01-23",
+    "acquisition_date": "2026-10-10",
+    "arrival_date": "2026-10-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-23T23:00:00.000Z",
+    "created_at": "2026-10-24T14:48:55.983Z",
     "days_in_stock": 28,
     "is_aging": false
   },
@@ -2623,13 +2623,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000024",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-08",
-    "arrival_date": "2026-01-22",
+    "acquisition_date": "2026-07-11",
+    "arrival_date": "2026-07-25",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-22T23:00:00.000Z",
-    "days_in_stock": 29,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-25T14:48:55.983Z",
+    "days_in_stock": 119,
+    "is_aging": true
   },
   {
     "id": "moto-0025",
@@ -2638,11 +2638,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000025",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-07",
-    "arrival_date": "2026-01-21",
+    "acquisition_date": "2026-10-08",
+    "arrival_date": "2026-10-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-21T23:00:00.000Z",
+    "created_at": "2026-10-22T14:48:55.983Z",
     "days_in_stock": 30,
     "is_aging": false
   },
@@ -2653,11 +2653,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000026",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-10-07",
+    "arrival_date": "2026-10-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
+    "created_at": "2026-10-21T14:48:55.983Z",
     "days_in_stock": 31,
     "is_aging": false
   },
@@ -2668,13 +2668,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000027",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-10-10",
-    "arrival_date": "2025-10-24",
+    "acquisition_date": "2026-10-06",
+    "arrival_date": "2026-10-20",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-24T23:00:00.000Z",
-    "days_in_stock": 119,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-20T14:48:55.983Z",
+    "days_in_stock": 32,
+    "is_aging": false
   },
   {
     "id": "moto-0028",
@@ -2683,12 +2683,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000028",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-10-09",
-    "arrival_date": "2025-10-23",
+    "acquisition_date": "2026-07-07",
+    "arrival_date": "2026-07-21",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-23T23:00:00.000Z",
-    "days_in_stock": 120,
+    "created_at": "2026-07-21T14:48:55.983Z",
+    "days_in_stock": 123,
     "is_aging": true
   },
   {
@@ -2698,11 +2698,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000029",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-03",
-    "arrival_date": "2026-01-17",
+    "acquisition_date": "2026-10-04",
+    "arrival_date": "2026-10-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-17T23:00:00.000Z",
+    "created_at": "2026-10-18T14:48:55.983Z",
     "days_in_stock": 34,
     "is_aging": false
   },
@@ -2713,11 +2713,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000030",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-02",
-    "arrival_date": "2026-01-16",
+    "acquisition_date": "2026-10-03",
+    "arrival_date": "2026-10-17",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-16T23:00:00.000Z",
+    "created_at": "2026-10-17T14:48:55.983Z",
     "days_in_stock": 35,
     "is_aging": false
   },
@@ -2728,11 +2728,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000031",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-01",
-    "arrival_date": "2026-01-15",
+    "acquisition_date": "2026-10-02",
+    "arrival_date": "2026-10-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-15T23:00:00.000Z",
+    "created_at": "2026-10-16T14:48:55.983Z",
     "days_in_stock": 36,
     "is_aging": false
   },
@@ -2743,13 +2743,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000032",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-31",
-    "arrival_date": "2026-01-14",
+    "acquisition_date": "2026-07-03",
+    "arrival_date": "2026-07-17",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-14T23:00:00.000Z",
-    "days_in_stock": 37,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-17T14:48:55.983Z",
+    "days_in_stock": 127,
+    "is_aging": true
   },
   {
     "id": "moto-0033",
@@ -2758,11 +2758,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000033",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-30",
-    "arrival_date": "2026-01-13",
+    "acquisition_date": "2026-09-30",
+    "arrival_date": "2026-10-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-13T23:00:00.000Z",
+    "created_at": "2026-10-14T14:48:55.983Z",
     "days_in_stock": 38,
     "is_aging": false
   },
@@ -2773,11 +2773,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000034",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-29",
-    "arrival_date": "2026-01-12",
+    "acquisition_date": "2026-09-29",
+    "arrival_date": "2026-10-13",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-12T23:00:00.000Z",
+    "created_at": "2026-10-13T14:48:55.983Z",
     "days_in_stock": 39,
     "is_aging": false
   },
@@ -2788,13 +2788,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000035",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-10-02",
-    "arrival_date": "2025-10-16",
+    "acquisition_date": "2026-09-28",
+    "arrival_date": "2026-10-12",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-16T23:00:00.000Z",
-    "days_in_stock": 127,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-12T14:48:55.983Z",
+    "days_in_stock": 40,
+    "is_aging": false
   },
   {
     "id": "moto-0036",
@@ -2803,12 +2803,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000036",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-10-01",
-    "arrival_date": "2025-10-15",
+    "acquisition_date": "2026-06-29",
+    "arrival_date": "2026-07-13",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-15T23:00:00.000Z",
-    "days_in_stock": 128,
+    "created_at": "2026-07-13T14:48:55.983Z",
+    "days_in_stock": 131,
     "is_aging": true
   },
   {
@@ -2818,11 +2818,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000037",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-26",
-    "arrival_date": "2026-01-09",
+    "acquisition_date": "2026-09-26",
+    "arrival_date": "2026-10-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-09T23:00:00.000Z",
+    "created_at": "2026-10-10T14:48:55.983Z",
     "days_in_stock": 42,
     "is_aging": false
   },
@@ -2833,12 +2833,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000038",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-25",
-    "arrival_date": "2026-01-08",
+    "acquisition_date": "2026-09-25",
+    "arrival_date": "2026-10-09",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-08T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-09T14:48:55.983Z",
     "days_in_stock": 43,
     "is_aging": false
   },
@@ -2849,11 +2849,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000039",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-24",
-    "arrival_date": "2026-01-07",
+    "acquisition_date": "2026-09-24",
+    "arrival_date": "2026-10-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-07T23:00:00.000Z",
+    "created_at": "2026-10-08T14:48:55.983Z",
     "days_in_stock": 44,
     "is_aging": false
   },
@@ -2864,13 +2864,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000040",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-06-25",
+    "arrival_date": "2026-07-09",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-06T23:00:00.000Z",
-    "days_in_stock": 45,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-09T14:48:55.983Z",
+    "days_in_stock": 135,
+    "is_aging": true
   },
   {
     "id": "moto-0041",
@@ -2879,11 +2879,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000041",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-22",
-    "arrival_date": "2026-01-05",
+    "acquisition_date": "2026-09-22",
+    "arrival_date": "2026-10-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-05T23:00:00.000Z",
+    "created_at": "2026-10-06T14:48:55.983Z",
     "days_in_stock": 46,
     "is_aging": false
   },
@@ -2894,13 +2894,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000042",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-09-25",
-    "arrival_date": "2025-10-09",
+    "acquisition_date": "2026-09-21",
+    "arrival_date": "2026-10-05",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-09T23:00:00.000Z",
-    "days_in_stock": 134,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-05T14:48:55.983Z",
+    "days_in_stock": 47,
+    "is_aging": false
   },
   {
     "id": "moto-0043",
@@ -2909,11 +2909,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000043",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-20",
-    "arrival_date": "2026-01-03",
+    "acquisition_date": "2026-09-20",
+    "arrival_date": "2026-10-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-03T23:00:00.000Z",
+    "created_at": "2026-10-04T14:48:55.983Z",
     "days_in_stock": 48,
     "is_aging": false
   },
@@ -2924,13 +2924,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000044",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-19",
-    "arrival_date": "2026-01-02",
+    "acquisition_date": "2026-06-21",
+    "arrival_date": "2026-07-05",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-02T23:00:00.000Z",
-    "days_in_stock": 49,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-05T14:48:55.983Z",
+    "days_in_stock": 139,
+    "is_aging": true
   },
   {
     "id": "moto-0045",
@@ -2939,13 +2939,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000045",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-09-22",
-    "arrival_date": "2025-10-06",
+    "acquisition_date": "2026-09-18",
+    "arrival_date": "2026-10-02",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-06T23:00:00.000Z",
-    "days_in_stock": 137,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-02T14:48:55.983Z",
+    "days_in_stock": 50,
+    "is_aging": false
   },
   {
     "id": "moto-0046",
@@ -2954,11 +2954,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000046",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-17",
-    "arrival_date": "2025-12-31",
+    "acquisition_date": "2026-09-17",
+    "arrival_date": "2026-10-01",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-31T23:00:00.000Z",
+    "created_at": "2026-10-01T14:48:55.983Z",
     "days_in_stock": 51,
     "is_aging": false
   },
@@ -2969,11 +2969,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000047",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-16",
-    "arrival_date": "2025-12-30",
+    "acquisition_date": "2026-09-16",
+    "arrival_date": "2026-09-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-30T23:00:00.000Z",
+    "created_at": "2026-09-30T14:48:55.983Z",
     "days_in_stock": 52,
     "is_aging": false
   },
@@ -2984,13 +2984,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000048",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-15",
-    "arrival_date": "2025-12-29",
+    "acquisition_date": "2026-06-17",
+    "arrival_date": "2026-07-01",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-29T23:00:00.000Z",
-    "days_in_stock": 53,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-01T14:48:55.983Z",
+    "days_in_stock": 143,
+    "is_aging": true
   },
   {
     "id": "moto-0049",
@@ -2999,13 +2999,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000049",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-09-18",
-    "arrival_date": "2025-10-02",
+    "acquisition_date": "2026-09-14",
+    "arrival_date": "2026-09-28",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-02T23:00:00.000Z",
-    "days_in_stock": 141,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-28T14:48:55.983Z",
+    "days_in_stock": 54,
+    "is_aging": false
   },
   {
     "id": "moto-0050",
@@ -3014,11 +3014,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000050",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-13",
-    "arrival_date": "2025-12-27",
+    "acquisition_date": "2026-09-13",
+    "arrival_date": "2026-09-27",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-27T23:00:00.000Z",
+    "created_at": "2026-09-27T14:48:55.983Z",
     "days_in_stock": 55,
     "is_aging": false
   },
@@ -3029,11 +3029,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000051",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-12",
-    "arrival_date": "2025-12-26",
+    "acquisition_date": "2026-09-12",
+    "arrival_date": "2026-09-26",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-26T23:00:00.000Z",
+    "created_at": "2026-09-26T14:48:55.983Z",
     "days_in_stock": 56,
     "is_aging": false
   },
@@ -3044,13 +3044,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000052",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-11",
-    "arrival_date": "2025-12-25",
+    "acquisition_date": "2026-06-13",
+    "arrival_date": "2026-06-27",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-25T23:00:00.000Z",
-    "days_in_stock": 57,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-27T14:48:55.983Z",
+    "days_in_stock": 147,
+    "is_aging": true
   },
   {
     "id": "moto-0053",
@@ -3059,11 +3059,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000053",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-10",
-    "arrival_date": "2025-12-24",
+    "acquisition_date": "2026-09-10",
+    "arrival_date": "2026-09-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-24T23:00:00.000Z",
+    "created_at": "2026-09-24T14:48:55.983Z",
     "days_in_stock": 58,
     "is_aging": false
   },
@@ -3074,13 +3074,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000054",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-09-13",
-    "arrival_date": "2025-09-27",
+    "acquisition_date": "2026-09-09",
+    "arrival_date": "2026-09-23",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-27T23:00:00.000Z",
-    "days_in_stock": 146,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-23T14:48:55.983Z",
+    "days_in_stock": 59,
+    "is_aging": false
   },
   {
     "id": "moto-0055",
@@ -3089,11 +3089,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000055",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-08",
-    "arrival_date": "2025-12-22",
+    "acquisition_date": "2026-09-08",
+    "arrival_date": "2026-09-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-22T23:00:00.000Z",
+    "created_at": "2026-09-22T14:48:55.983Z",
     "days_in_stock": 60,
     "is_aging": false
   },
@@ -3104,12 +3104,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000056",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-09-11",
-    "arrival_date": "2025-09-25",
+    "acquisition_date": "2026-06-09",
+    "arrival_date": "2026-06-23",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-25T23:00:00.000Z",
-    "days_in_stock": 148,
+    "created_at": "2026-06-23T14:48:55.983Z",
+    "days_in_stock": 151,
     "is_aging": true
   },
   {
@@ -3119,12 +3119,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000057",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-06",
-    "arrival_date": "2025-12-20",
+    "acquisition_date": "2026-09-06",
+    "arrival_date": "2026-09-20",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-12-20T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-09-20T14:48:55.983Z",
     "days_in_stock": 62,
     "is_aging": false
   },
@@ -3135,11 +3135,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000058",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-05",
-    "arrival_date": "2025-12-19",
+    "acquisition_date": "2026-09-05",
+    "arrival_date": "2026-09-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-19T23:00:00.000Z",
+    "created_at": "2026-09-19T14:48:55.983Z",
     "days_in_stock": 63,
     "is_aging": false
   },
@@ -3150,11 +3150,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000059",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-04",
-    "arrival_date": "2025-12-18",
+    "acquisition_date": "2026-09-04",
+    "arrival_date": "2026-09-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-18T23:00:00.000Z",
+    "created_at": "2026-09-18T14:48:55.983Z",
     "days_in_stock": 64,
     "is_aging": false
   },
@@ -3165,13 +3165,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000060",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-03",
-    "arrival_date": "2025-12-17",
+    "acquisition_date": "2026-06-05",
+    "arrival_date": "2026-06-19",
     "status": "reserved",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-17T23:00:00.000Z",
-    "days_in_stock": 65,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-19T14:48:55.983Z",
+    "days_in_stock": 155,
+    "is_aging": true
   },
   {
     "id": "moto-0061",
@@ -3180,11 +3180,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000061",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-02",
-    "arrival_date": "2025-12-16",
+    "acquisition_date": "2026-09-02",
+    "arrival_date": "2026-09-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-16T23:00:00.000Z",
+    "created_at": "2026-09-16T14:48:55.983Z",
     "days_in_stock": 66,
     "is_aging": false
   },
@@ -3195,11 +3195,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000062",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-01",
-    "arrival_date": "2025-12-15",
+    "acquisition_date": "2026-09-01",
+    "arrival_date": "2026-09-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-15T23:00:00.000Z",
+    "created_at": "2026-09-15T14:48:55.983Z",
     "days_in_stock": 67,
     "is_aging": false
   },
@@ -3210,13 +3210,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000063",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-09-04",
-    "arrival_date": "2025-09-18",
+    "acquisition_date": "2026-08-31",
+    "arrival_date": "2026-09-14",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-18T23:00:00.000Z",
-    "days_in_stock": 155,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-14T14:48:55.983Z",
+    "days_in_stock": 68,
+    "is_aging": false
   },
   {
     "id": "moto-0064",
@@ -3225,13 +3225,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000064",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-11-29",
-    "arrival_date": "2025-12-13",
+    "acquisition_date": "2026-06-01",
+    "arrival_date": "2026-06-15",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-13T23:00:00.000Z",
-    "days_in_stock": 69,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-15T14:48:55.983Z",
+    "days_in_stock": 159,
+    "is_aging": true
   },
   {
     "id": "moto-0065",
@@ -3240,11 +3240,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000065",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-11-28",
-    "arrival_date": "2025-12-12",
+    "acquisition_date": "2026-08-29",
+    "arrival_date": "2026-09-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-12T23:00:00.000Z",
+    "created_at": "2026-09-12T14:48:55.983Z",
     "days_in_stock": 70,
     "is_aging": false
   },
@@ -3255,11 +3255,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000066",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-27",
-    "arrival_date": "2025-12-11",
+    "acquisition_date": "2026-08-28",
+    "arrival_date": "2026-09-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-11T23:00:00.000Z",
+    "created_at": "2026-09-11T14:48:55.983Z",
     "days_in_stock": 71,
     "is_aging": false
   },
@@ -3270,11 +3270,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000067",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-26",
-    "arrival_date": "2025-12-10",
+    "acquisition_date": "2026-08-27",
+    "arrival_date": "2026-09-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-10T23:00:00.000Z",
+    "created_at": "2026-09-10T14:48:55.983Z",
     "days_in_stock": 72,
     "is_aging": false
   },
@@ -3285,13 +3285,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000068",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-25",
-    "arrival_date": "2025-12-09",
+    "acquisition_date": "2026-05-28",
+    "arrival_date": "2026-06-11",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-09T23:00:00.000Z",
-    "days_in_stock": 73,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-11T14:48:55.983Z",
+    "days_in_stock": 163,
+    "is_aging": true
   },
   {
     "id": "moto-0069",
@@ -3300,11 +3300,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000069",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-24",
-    "arrival_date": "2025-12-08",
+    "acquisition_date": "2026-08-25",
+    "arrival_date": "2026-09-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-08T23:00:00.000Z",
+    "created_at": "2026-09-08T14:48:55.983Z",
     "days_in_stock": 74,
     "is_aging": false
   },
@@ -3315,13 +3315,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000070",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-08-28",
-    "arrival_date": "2025-09-11",
+    "acquisition_date": "2026-08-24",
+    "arrival_date": "2026-09-07",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-11T23:00:00.000Z",
-    "days_in_stock": 162,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-07T14:48:55.983Z",
+    "days_in_stock": 75,
+    "is_aging": false
   },
   {
     "id": "moto-0071",
@@ -3330,11 +3330,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000071",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-22",
-    "arrival_date": "2025-12-06",
+    "acquisition_date": "2026-08-23",
+    "arrival_date": "2026-09-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-06T23:00:00.000Z",
+    "created_at": "2026-09-06T14:48:55.983Z",
     "days_in_stock": 76,
     "is_aging": false
   },
@@ -3345,12 +3345,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000072",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-08-26",
-    "arrival_date": "2025-09-09",
+    "acquisition_date": "2026-05-24",
+    "arrival_date": "2026-06-07",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-09T23:00:00.000Z",
-    "days_in_stock": 164,
+    "created_at": "2026-06-07T14:48:55.983Z",
+    "days_in_stock": 167,
     "is_aging": true
   },
   {
@@ -3360,11 +3360,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000073",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-11-20",
-    "arrival_date": "2025-12-04",
+    "acquisition_date": "2026-08-21",
+    "arrival_date": "2026-09-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-04T23:00:00.000Z",
+    "created_at": "2026-09-04T14:48:55.983Z",
     "days_in_stock": 78,
     "is_aging": false
   },
@@ -3375,11 +3375,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000074",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-19",
-    "arrival_date": "2025-12-03",
+    "acquisition_date": "2026-08-20",
+    "arrival_date": "2026-09-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-03T23:00:00.000Z",
+    "created_at": "2026-09-03T14:48:55.983Z",
     "days_in_stock": 79,
     "is_aging": false
   },
@@ -3390,11 +3390,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000075",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-02-01",
-    "arrival_date": "2026-02-15",
+    "acquisition_date": "2026-11-02",
+    "arrival_date": "2026-11-16",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-15T23:00:00.000Z",
+    "created_at": "2026-11-16T14:48:55.983Z",
     "days_in_stock": 5,
     "is_aging": false
   },
@@ -3405,14 +3405,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000076",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-31",
-    "arrival_date": "2026-02-14",
+    "acquisition_date": "2026-05-20",
+    "arrival_date": "2026-06-03",
     "status": "sold",
-    "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-02-14T23:00:00.000Z",
-    "days_in_stock": 6,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-06-03T14:48:55.983Z",
+    "days_in_stock": 171,
+    "is_aging": true
   },
   {
     "id": "moto-0077",
@@ -3421,13 +3421,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000077",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-08-21",
-    "arrival_date": "2025-09-04",
+    "acquisition_date": "2026-10-31",
+    "arrival_date": "2026-11-14",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-04T23:00:00.000Z",
-    "days_in_stock": 169,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-14T14:48:55.983Z",
+    "days_in_stock": 7,
+    "is_aging": false
   },
   {
     "id": "moto-0078",
@@ -3436,11 +3436,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000078",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-29",
-    "arrival_date": "2026-02-12",
+    "acquisition_date": "2026-10-30",
+    "arrival_date": "2026-11-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-12T23:00:00.000Z",
+    "created_at": "2026-11-13T14:48:55.983Z",
     "days_in_stock": 8,
     "is_aging": false
   },
@@ -3451,11 +3451,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000079",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-28",
-    "arrival_date": "2026-02-11",
+    "acquisition_date": "2026-10-29",
+    "arrival_date": "2026-11-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-11T23:00:00.000Z",
+    "created_at": "2026-11-12T14:48:55.983Z",
     "days_in_stock": 9,
     "is_aging": false
   },
@@ -3466,13 +3466,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000080",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-05-16",
+    "arrival_date": "2026-05-30",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-10T23:00:00.000Z",
-    "days_in_stock": 10,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-05-30T14:48:55.983Z",
+    "days_in_stock": 175,
+    "is_aging": true
   },
   {
     "id": "moto-0081",
@@ -3481,13 +3481,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000081",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-08-17",
-    "arrival_date": "2025-08-31",
+    "acquisition_date": "2026-10-27",
+    "arrival_date": "2026-11-10",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-31T23:00:00.000Z",
-    "days_in_stock": 173,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-10T14:48:55.983Z",
+    "days_in_stock": 11,
+    "is_aging": false
   },
   {
     "id": "moto-0082",
@@ -3496,11 +3496,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000082",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-25",
-    "arrival_date": "2026-02-08",
+    "acquisition_date": "2026-10-26",
+    "arrival_date": "2026-11-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-08T23:00:00.000Z",
+    "created_at": "2026-11-09T14:48:55.983Z",
     "days_in_stock": 12,
     "is_aging": false
   },
@@ -3511,11 +3511,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000083",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-24",
-    "arrival_date": "2026-02-07",
+    "acquisition_date": "2026-10-25",
+    "arrival_date": "2026-11-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-07T23:00:00.000Z",
+    "created_at": "2026-11-08T14:48:55.983Z",
     "days_in_stock": 13,
     "is_aging": false
   },
@@ -3526,12 +3526,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000084",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-08-14",
-    "arrival_date": "2025-08-28",
+    "acquisition_date": "2026-05-12",
+    "arrival_date": "2026-05-26",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-28T23:00:00.000Z",
-    "days_in_stock": 176,
+    "created_at": "2026-05-26T14:48:55.983Z",
+    "days_in_stock": 179,
     "is_aging": true
   },
   {
@@ -3541,11 +3541,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000085",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-22",
-    "arrival_date": "2026-02-05",
+    "acquisition_date": "2026-10-23",
+    "arrival_date": "2026-11-06",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-05T23:00:00.000Z",
+    "created_at": "2026-11-06T14:48:55.983Z",
     "days_in_stock": 15,
     "is_aging": false
   },
@@ -3556,11 +3556,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000086",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-21",
-    "arrival_date": "2026-02-04",
+    "acquisition_date": "2026-10-22",
+    "arrival_date": "2026-11-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-04T23:00:00.000Z",
+    "created_at": "2026-11-05T14:48:55.983Z",
     "days_in_stock": 16,
     "is_aging": false
   },
@@ -3571,11 +3571,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000087",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-20",
-    "arrival_date": "2026-02-03",
+    "acquisition_date": "2026-10-21",
+    "arrival_date": "2026-11-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-03T23:00:00.000Z",
+    "created_at": "2026-11-04T14:48:55.983Z",
     "days_in_stock": 17,
     "is_aging": false
   },
@@ -3586,13 +3586,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000088",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-19",
-    "arrival_date": "2026-02-02",
+    "acquisition_date": "2026-08-01",
+    "arrival_date": "2026-08-15",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-02T23:00:00.000Z",
-    "days_in_stock": 18,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-15T14:48:55.983Z",
+    "days_in_stock": 98,
+    "is_aging": true
   },
   {
     "id": "moto-0089",
@@ -3601,11 +3601,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000089",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-18",
-    "arrival_date": "2026-02-01",
+    "acquisition_date": "2026-10-19",
+    "arrival_date": "2026-11-02",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-01T23:00:00.000Z",
+    "created_at": "2026-11-02T14:48:55.983Z",
     "days_in_stock": 19,
     "is_aging": false
   },
@@ -3616,13 +3616,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000090",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-08-08",
-    "arrival_date": "2025-08-22",
+    "acquisition_date": "2026-10-18",
+    "arrival_date": "2026-11-01",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-22T23:00:00.000Z",
-    "days_in_stock": 182,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-01T14:48:55.983Z",
+    "days_in_stock": 20,
+    "is_aging": false
   },
   {
     "id": "moto-0091",
@@ -3631,13 +3631,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000091",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-08-07",
-    "arrival_date": "2025-08-21",
+    "acquisition_date": "2026-10-17",
+    "arrival_date": "2026-10-31",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-21T23:00:00.000Z",
-    "days_in_stock": 183,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-31T14:48:55.983Z",
+    "days_in_stock": 21,
+    "is_aging": false
   },
   {
     "id": "moto-0092",
@@ -3646,13 +3646,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000092",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-15",
-    "arrival_date": "2026-01-29",
+    "acquisition_date": "2026-07-28",
+    "arrival_date": "2026-08-11",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-29T23:00:00.000Z",
-    "days_in_stock": 22,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-11T14:48:55.983Z",
+    "days_in_stock": 102,
+    "is_aging": true
   },
   {
     "id": "moto-0093",
@@ -3661,11 +3661,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000093",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-14",
-    "arrival_date": "2026-01-28",
+    "acquisition_date": "2026-10-15",
+    "arrival_date": "2026-10-29",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-28T23:00:00.000Z",
+    "created_at": "2026-10-29T14:48:55.983Z",
     "days_in_stock": 23,
     "is_aging": false
   },
@@ -3676,11 +3676,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000094",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-10-14",
+    "arrival_date": "2026-10-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-27T23:00:00.000Z",
+    "created_at": "2026-10-28T14:48:55.983Z",
     "days_in_stock": 24,
     "is_aging": false
   },
@@ -3691,12 +3691,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000095",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-12",
-    "arrival_date": "2026-01-26",
+    "acquisition_date": "2026-10-13",
+    "arrival_date": "2026-10-27",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-26T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-27T14:48:55.983Z",
     "days_in_stock": 25,
     "is_aging": false
   },
@@ -3707,13 +3707,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000096",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-11",
-    "arrival_date": "2026-01-25",
+    "acquisition_date": "2026-07-24",
+    "arrival_date": "2026-08-07",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-25T23:00:00.000Z",
-    "days_in_stock": 26,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-07T14:48:55.983Z",
+    "days_in_stock": 106,
+    "is_aging": true
   },
   {
     "id": "moto-0097",
@@ -3722,11 +3722,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000097",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-10",
-    "arrival_date": "2026-01-24",
+    "acquisition_date": "2026-10-11",
+    "arrival_date": "2026-10-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-24T23:00:00.000Z",
+    "created_at": "2026-10-25T14:48:55.983Z",
     "days_in_stock": 27,
     "is_aging": false
   },
@@ -3737,13 +3737,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000098",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-07-31",
-    "arrival_date": "2025-08-14",
+    "acquisition_date": "2026-10-10",
+    "arrival_date": "2026-10-24",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-14T23:00:00.000Z",
-    "days_in_stock": 190,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-24T14:48:55.983Z",
+    "days_in_stock": 28,
+    "is_aging": false
   },
   {
     "id": "moto-0099",
@@ -3752,13 +3752,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000099",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-07-30",
-    "arrival_date": "2025-08-13",
+    "acquisition_date": "2026-10-09",
+    "arrival_date": "2026-10-23",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-13T23:00:00.000Z",
-    "days_in_stock": 191,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-23T14:48:55.983Z",
+    "days_in_stock": 29,
+    "is_aging": false
   },
   {
     "id": "moto-0100",
@@ -3767,13 +3767,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000100",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-07",
-    "arrival_date": "2026-01-21",
+    "acquisition_date": "2026-07-20",
+    "arrival_date": "2026-08-03",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-21T23:00:00.000Z",
-    "days_in_stock": 30,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-03T14:48:55.983Z",
+    "days_in_stock": 110,
+    "is_aging": true
   },
   {
     "id": "moto-0101",
@@ -3782,11 +3782,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000101",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-10-07",
+    "arrival_date": "2026-10-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
+    "created_at": "2026-10-21T14:48:55.983Z",
     "days_in_stock": 31,
     "is_aging": false
   },
@@ -3797,11 +3797,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000102",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-05",
-    "arrival_date": "2026-01-19",
+    "acquisition_date": "2026-10-06",
+    "arrival_date": "2026-10-20",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-19T23:00:00.000Z",
+    "created_at": "2026-10-20T14:48:55.983Z",
     "days_in_stock": 32,
     "is_aging": false
   },
@@ -3812,11 +3812,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000103",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-04",
-    "arrival_date": "2026-01-18",
+    "acquisition_date": "2026-10-05",
+    "arrival_date": "2026-10-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-18T23:00:00.000Z",
+    "created_at": "2026-10-19T14:48:55.983Z",
     "days_in_stock": 33,
     "is_aging": false
   },
@@ -3827,13 +3827,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000104",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-03",
-    "arrival_date": "2026-01-17",
+    "acquisition_date": "2026-07-16",
+    "arrival_date": "2026-07-30",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-17T23:00:00.000Z",
-    "days_in_stock": 34,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-30T14:48:55.983Z",
+    "days_in_stock": 114,
+    "is_aging": true
   },
   {
     "id": "moto-0105",
@@ -3842,13 +3842,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000105",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-07-24",
-    "arrival_date": "2025-08-07",
+    "acquisition_date": "2026-10-03",
+    "arrival_date": "2026-10-17",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-07T23:00:00.000Z",
-    "days_in_stock": 197,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-17T14:48:55.983Z",
+    "days_in_stock": 35,
+    "is_aging": false
   },
   {
     "id": "moto-0106",
@@ -3857,11 +3857,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000106",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-01",
-    "arrival_date": "2026-01-15",
+    "acquisition_date": "2026-10-02",
+    "arrival_date": "2026-10-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-15T23:00:00.000Z",
+    "created_at": "2026-10-16T14:48:55.983Z",
     "days_in_stock": 36,
     "is_aging": false
   },
@@ -3872,11 +3872,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000107",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-31",
-    "arrival_date": "2026-01-14",
+    "acquisition_date": "2026-10-01",
+    "arrival_date": "2026-10-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-14T23:00:00.000Z",
+    "created_at": "2026-10-15T14:48:55.983Z",
     "days_in_stock": 37,
     "is_aging": false
   },
@@ -3887,12 +3887,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000108",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-07-21",
-    "arrival_date": "2025-08-04",
+    "acquisition_date": "2026-07-12",
+    "arrival_date": "2026-07-26",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-04T23:00:00.000Z",
-    "days_in_stock": 200,
+    "created_at": "2026-07-26T14:48:55.983Z",
+    "days_in_stock": 118,
     "is_aging": true
   },
   {
@@ -3902,11 +3902,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000109",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-29",
-    "arrival_date": "2026-01-12",
+    "acquisition_date": "2026-09-29",
+    "arrival_date": "2026-10-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-12T23:00:00.000Z",
+    "created_at": "2026-10-13T14:48:55.983Z",
     "days_in_stock": 39,
     "is_aging": false
   },
@@ -3917,11 +3917,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000110",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-28",
-    "arrival_date": "2026-01-11",
+    "acquisition_date": "2026-09-28",
+    "arrival_date": "2026-10-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-11T23:00:00.000Z",
+    "created_at": "2026-10-12T14:48:55.983Z",
     "days_in_stock": 40,
     "is_aging": false
   },
@@ -3932,11 +3932,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000111",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-27",
-    "arrival_date": "2026-01-10",
+    "acquisition_date": "2026-09-27",
+    "arrival_date": "2026-10-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-10T23:00:00.000Z",
+    "created_at": "2026-10-11T14:48:55.983Z",
     "days_in_stock": 41,
     "is_aging": false
   },
@@ -3947,12 +3947,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000112",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-07-17",
-    "arrival_date": "2025-07-31",
+    "acquisition_date": "2026-07-08",
+    "arrival_date": "2026-07-22",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-31T23:00:00.000Z",
-    "days_in_stock": 204,
+    "created_at": "2026-07-22T14:48:55.983Z",
+    "days_in_stock": 122,
     "is_aging": true
   },
   {
@@ -3962,11 +3962,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000113",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-25",
-    "arrival_date": "2026-01-08",
+    "acquisition_date": "2026-09-25",
+    "arrival_date": "2026-10-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-08T23:00:00.000Z",
+    "created_at": "2026-10-09T14:48:55.983Z",
     "days_in_stock": 43,
     "is_aging": false
   },
@@ -3977,12 +3977,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000114",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-24",
-    "arrival_date": "2026-01-07",
+    "acquisition_date": "2026-09-24",
+    "arrival_date": "2026-10-08",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-07T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-08T14:48:55.983Z",
     "days_in_stock": 44,
     "is_aging": false
   },
@@ -3993,11 +3993,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000115",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-09-23",
+    "arrival_date": "2026-10-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-06T23:00:00.000Z",
+    "created_at": "2026-10-07T14:48:55.983Z",
     "days_in_stock": 45,
     "is_aging": false
   },
@@ -4008,13 +4008,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000116",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-22",
-    "arrival_date": "2026-01-05",
+    "acquisition_date": "2026-07-04",
+    "arrival_date": "2026-07-18",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-05T23:00:00.000Z",
-    "days_in_stock": 46,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-18T14:48:55.983Z",
+    "days_in_stock": 126,
+    "is_aging": true
   },
   {
     "id": "moto-0117",
@@ -4023,13 +4023,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000117",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-07-12",
-    "arrival_date": "2025-07-26",
+    "acquisition_date": "2026-09-21",
+    "arrival_date": "2026-10-05",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-26T23:00:00.000Z",
-    "days_in_stock": 209,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-05T14:48:55.983Z",
+    "days_in_stock": 47,
+    "is_aging": false
   },
   {
     "id": "moto-0118",
@@ -4038,11 +4038,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000118",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-20",
-    "arrival_date": "2026-01-03",
+    "acquisition_date": "2026-09-20",
+    "arrival_date": "2026-10-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-03T23:00:00.000Z",
+    "created_at": "2026-10-04T14:48:55.983Z",
     "days_in_stock": 48,
     "is_aging": false
   },
@@ -4053,13 +4053,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000119",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-07-10",
-    "arrival_date": "2025-07-24",
+    "acquisition_date": "2026-09-19",
+    "arrival_date": "2026-10-03",
     "status": "in_transfer",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-24T23:00:00.000Z",
-    "days_in_stock": 211,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-03T14:48:55.983Z",
+    "days_in_stock": 49,
+    "is_aging": false
   },
   {
     "id": "moto-0120",
@@ -4068,13 +4068,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000120",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-18",
-    "arrival_date": "2026-01-01",
+    "acquisition_date": "2026-06-30",
+    "arrival_date": "2026-07-14",
     "status": "reserved",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-01T23:00:00.000Z",
-    "days_in_stock": 50,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-14T14:48:55.983Z",
+    "days_in_stock": 130,
+    "is_aging": true
   },
   {
     "id": "moto-0121",
@@ -4083,11 +4083,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000121",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-17",
-    "arrival_date": "2025-12-31",
+    "acquisition_date": "2026-09-17",
+    "arrival_date": "2026-10-01",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-31T23:00:00.000Z",
+    "created_at": "2026-10-01T14:48:55.983Z",
     "days_in_stock": 51,
     "is_aging": false
   },
@@ -4098,11 +4098,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000122",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-16",
-    "arrival_date": "2025-12-30",
+    "acquisition_date": "2026-09-16",
+    "arrival_date": "2026-09-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-30T23:00:00.000Z",
+    "created_at": "2026-09-30T14:48:55.983Z",
     "days_in_stock": 52,
     "is_aging": false
   },
@@ -4113,11 +4113,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000123",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-15",
-    "arrival_date": "2025-12-29",
+    "acquisition_date": "2026-09-15",
+    "arrival_date": "2026-09-29",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-29T23:00:00.000Z",
+    "created_at": "2026-09-29T14:48:55.983Z",
     "days_in_stock": 53,
     "is_aging": false
   },
@@ -4128,13 +4128,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000124",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-14",
-    "arrival_date": "2025-12-28",
+    "acquisition_date": "2026-06-26",
+    "arrival_date": "2026-07-10",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-28T23:00:00.000Z",
-    "days_in_stock": 54,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-10T14:48:55.983Z",
+    "days_in_stock": 134,
+    "is_aging": true
   },
   {
     "id": "moto-0125",
@@ -4143,11 +4143,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000125",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-13",
-    "arrival_date": "2025-12-27",
+    "acquisition_date": "2026-09-13",
+    "arrival_date": "2026-09-27",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-27T23:00:00.000Z",
+    "created_at": "2026-09-27T14:48:55.983Z",
     "days_in_stock": 55,
     "is_aging": false
   },
@@ -4158,13 +4158,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000126",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-07-03",
-    "arrival_date": "2025-07-17",
+    "acquisition_date": "2026-09-12",
+    "arrival_date": "2026-09-26",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-17T23:00:00.000Z",
-    "days_in_stock": 218,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-26T14:48:55.983Z",
+    "days_in_stock": 56,
+    "is_aging": false
   },
   {
     "id": "moto-0127",
@@ -4173,11 +4173,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000127",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-11",
-    "arrival_date": "2025-12-25",
+    "acquisition_date": "2026-09-11",
+    "arrival_date": "2026-09-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-25T23:00:00.000Z",
+    "created_at": "2026-09-25T14:48:55.983Z",
     "days_in_stock": 57,
     "is_aging": false
   },
@@ -4188,13 +4188,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000128",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-10",
-    "arrival_date": "2025-12-24",
+    "acquisition_date": "2026-06-22",
+    "arrival_date": "2026-07-06",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-24T23:00:00.000Z",
-    "days_in_stock": 58,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-06T14:48:55.983Z",
+    "days_in_stock": 138,
+    "is_aging": true
   },
   {
     "id": "moto-0129",
@@ -4203,11 +4203,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000129",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-09",
-    "arrival_date": "2025-12-23",
+    "acquisition_date": "2026-09-09",
+    "arrival_date": "2026-09-23",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-23T23:00:00.000Z",
+    "created_at": "2026-09-23T14:48:55.983Z",
     "days_in_stock": 59,
     "is_aging": false
   },
@@ -4218,11 +4218,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000130",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-08",
-    "arrival_date": "2025-12-22",
+    "acquisition_date": "2026-09-08",
+    "arrival_date": "2026-09-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-22T23:00:00.000Z",
+    "created_at": "2026-09-22T14:48:55.983Z",
     "days_in_stock": 60,
     "is_aging": false
   },
@@ -4233,11 +4233,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000131",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-07",
-    "arrival_date": "2025-12-21",
+    "acquisition_date": "2026-09-07",
+    "arrival_date": "2026-09-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-21T23:00:00.000Z",
+    "created_at": "2026-09-21T14:48:55.983Z",
     "days_in_stock": 61,
     "is_aging": false
   },
@@ -4248,13 +4248,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000132",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-06",
-    "arrival_date": "2025-12-20",
+    "acquisition_date": "2026-06-18",
+    "arrival_date": "2026-07-02",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-20T23:00:00.000Z",
-    "days_in_stock": 62,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-02T14:48:55.983Z",
+    "days_in_stock": 142,
+    "is_aging": true
   },
   {
     "id": "moto-0133",
@@ -4263,14 +4263,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000133",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-06-26",
-    "arrival_date": "2025-07-10",
+    "acquisition_date": "2026-09-05",
+    "arrival_date": "2026-09-19",
     "status": "sold",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-07-10T23:00:00.000Z",
-    "days_in_stock": 225,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-09-19T14:48:55.983Z",
+    "days_in_stock": 63,
+    "is_aging": false
   },
   {
     "id": "moto-0134",
@@ -4279,11 +4279,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000134",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-04",
-    "arrival_date": "2025-12-18",
+    "acquisition_date": "2026-09-04",
+    "arrival_date": "2026-09-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-18T23:00:00.000Z",
+    "created_at": "2026-09-18T14:48:55.983Z",
     "days_in_stock": 64,
     "is_aging": false
   },
@@ -4294,13 +4294,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000135",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-06-24",
-    "arrival_date": "2025-07-08",
+    "acquisition_date": "2026-09-03",
+    "arrival_date": "2026-09-17",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-08T23:00:00.000Z",
-    "days_in_stock": 227,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-17T14:48:55.983Z",
+    "days_in_stock": 65,
+    "is_aging": false
   },
   {
     "id": "moto-0136",
@@ -4309,13 +4309,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000136",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-02",
-    "arrival_date": "2025-12-16",
+    "acquisition_date": "2026-06-14",
+    "arrival_date": "2026-06-28",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-16T23:00:00.000Z",
-    "days_in_stock": 66,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-28T14:48:55.983Z",
+    "days_in_stock": 146,
+    "is_aging": true
   },
   {
     "id": "moto-0137",
@@ -4324,11 +4324,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000137",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-01",
-    "arrival_date": "2025-12-15",
+    "acquisition_date": "2026-09-01",
+    "arrival_date": "2026-09-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-15T23:00:00.000Z",
+    "created_at": "2026-09-15T14:48:55.983Z",
     "days_in_stock": 67,
     "is_aging": false
   },
@@ -4339,11 +4339,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000138",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-30",
-    "arrival_date": "2025-12-14",
+    "acquisition_date": "2026-08-31",
+    "arrival_date": "2026-09-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-14T23:00:00.000Z",
+    "created_at": "2026-09-14T14:48:55.983Z",
     "days_in_stock": 68,
     "is_aging": false
   },
@@ -4354,11 +4354,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000139",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-29",
-    "arrival_date": "2025-12-13",
+    "acquisition_date": "2026-08-30",
+    "arrival_date": "2026-09-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-13T23:00:00.000Z",
+    "created_at": "2026-09-13T14:48:55.983Z",
     "days_in_stock": 69,
     "is_aging": false
   },
@@ -4369,12 +4369,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000140",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-06",
-    "arrival_date": "2025-11-20",
+    "acquisition_date": "2026-06-10",
+    "arrival_date": "2026-06-24",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-20T23:00:00.000Z",
-    "days_in_stock": 92,
+    "created_at": "2026-06-24T14:48:55.983Z",
+    "days_in_stock": 150,
     "is_aging": true
   },
   {
@@ -4384,11 +4384,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000141",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-27",
-    "arrival_date": "2025-12-11",
+    "acquisition_date": "2026-08-28",
+    "arrival_date": "2026-09-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-11T23:00:00.000Z",
+    "created_at": "2026-09-11T14:48:55.983Z",
     "days_in_stock": 71,
     "is_aging": false
   },
@@ -4399,11 +4399,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000142",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-11-26",
-    "arrival_date": "2025-12-10",
+    "acquisition_date": "2026-08-27",
+    "arrival_date": "2026-09-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-10T23:00:00.000Z",
+    "created_at": "2026-09-10T14:48:55.983Z",
     "days_in_stock": 72,
     "is_aging": false
   },
@@ -4414,11 +4414,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000143",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-25",
-    "arrival_date": "2025-12-09",
+    "acquisition_date": "2026-08-26",
+    "arrival_date": "2026-09-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-09T23:00:00.000Z",
+    "created_at": "2026-09-09T14:48:55.983Z",
     "days_in_stock": 73,
     "is_aging": false
   },
@@ -4429,12 +4429,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000144",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-11-02",
-    "arrival_date": "2025-11-16",
+    "acquisition_date": "2026-06-06",
+    "arrival_date": "2026-06-20",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-16T23:00:00.000Z",
-    "days_in_stock": 96,
+    "created_at": "2026-06-20T14:48:55.983Z",
+    "days_in_stock": 154,
     "is_aging": true
   },
   {
@@ -4444,11 +4444,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000145",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-11-23",
-    "arrival_date": "2025-12-07",
+    "acquisition_date": "2026-08-24",
+    "arrival_date": "2026-09-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-07T23:00:00.000Z",
+    "created_at": "2026-09-07T14:48:55.983Z",
     "days_in_stock": 75,
     "is_aging": false
   },
@@ -4459,11 +4459,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000146",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-22",
-    "arrival_date": "2025-12-06",
+    "acquisition_date": "2026-08-23",
+    "arrival_date": "2026-09-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-06T23:00:00.000Z",
+    "created_at": "2026-09-06T14:48:55.983Z",
     "days_in_stock": 76,
     "is_aging": false
   },
@@ -4474,13 +4474,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000147",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-10-30",
-    "arrival_date": "2025-11-13",
+    "acquisition_date": "2026-08-22",
+    "arrival_date": "2026-09-05",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-13T23:00:00.000Z",
-    "days_in_stock": 99,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-05T14:48:55.983Z",
+    "days_in_stock": 77,
+    "is_aging": false
   },
   {
     "id": "moto-0148",
@@ -4489,13 +4489,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000148",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-20",
-    "arrival_date": "2025-12-04",
+    "acquisition_date": "2026-06-02",
+    "arrival_date": "2026-06-16",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-04T23:00:00.000Z",
-    "days_in_stock": 78,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-16T14:48:55.983Z",
+    "days_in_stock": 158,
+    "is_aging": true
   },
   {
     "id": "moto-0149",
@@ -4504,11 +4504,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000149",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-19",
-    "arrival_date": "2025-12-03",
+    "acquisition_date": "2026-08-20",
+    "arrival_date": "2026-09-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-03T23:00:00.000Z",
+    "created_at": "2026-09-03T14:48:55.983Z",
     "days_in_stock": 79,
     "is_aging": false
   },
@@ -4519,11 +4519,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000150",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-02-01",
-    "arrival_date": "2026-02-15",
+    "acquisition_date": "2026-11-02",
+    "arrival_date": "2026-11-16",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-15T23:00:00.000Z",
+    "created_at": "2026-11-16T14:48:55.983Z",
     "days_in_stock": 5,
     "is_aging": false
   },
@@ -4534,11 +4534,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000151",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-31",
-    "arrival_date": "2026-02-14",
+    "acquisition_date": "2026-11-01",
+    "arrival_date": "2026-11-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-14T23:00:00.000Z",
+    "created_at": "2026-11-15T14:48:55.983Z",
     "days_in_stock": 6,
     "is_aging": false
   },
@@ -4549,14 +4549,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000152",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-30",
-    "arrival_date": "2026-02-13",
+    "acquisition_date": "2026-05-29",
+    "arrival_date": "2026-06-12",
     "status": "sold",
-    "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-02-13T23:00:00.000Z",
-    "days_in_stock": 7,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-06-12T14:48:55.983Z",
+    "days_in_stock": 162,
+    "is_aging": true
   },
   {
     "id": "moto-0153",
@@ -4565,13 +4565,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000153",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-10-24",
-    "arrival_date": "2025-11-07",
+    "acquisition_date": "2026-10-30",
+    "arrival_date": "2026-11-13",
     "status": "in_transfer",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-07T23:00:00.000Z",
-    "days_in_stock": 105,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-13T14:48:55.983Z",
+    "days_in_stock": 8,
+    "is_aging": false
   },
   {
     "id": "moto-0154",
@@ -4580,13 +4580,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000154",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-10-23",
-    "arrival_date": "2025-11-06",
+    "acquisition_date": "2026-10-29",
+    "arrival_date": "2026-11-12",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-06T23:00:00.000Z",
-    "days_in_stock": 106,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-12T14:48:55.983Z",
+    "days_in_stock": 9,
+    "is_aging": false
   },
   {
     "id": "moto-0155",
@@ -4595,11 +4595,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000155",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-10-28",
+    "arrival_date": "2026-11-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-10T23:00:00.000Z",
+    "created_at": "2026-11-11T14:48:55.983Z",
     "days_in_stock": 10,
     "is_aging": false
   },
@@ -4610,13 +4610,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000156",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-26",
-    "arrival_date": "2026-02-09",
+    "acquisition_date": "2026-05-25",
+    "arrival_date": "2026-06-08",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-09T23:00:00.000Z",
-    "days_in_stock": 11,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-08T14:48:55.983Z",
+    "days_in_stock": 166,
+    "is_aging": true
   },
   {
     "id": "moto-0157",
@@ -4625,11 +4625,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000157",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-25",
-    "arrival_date": "2026-02-08",
+    "acquisition_date": "2026-10-26",
+    "arrival_date": "2026-11-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-08T23:00:00.000Z",
+    "created_at": "2026-11-09T14:48:55.983Z",
     "days_in_stock": 12,
     "is_aging": false
   },
@@ -4640,11 +4640,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000158",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-24",
-    "arrival_date": "2026-02-07",
+    "acquisition_date": "2026-10-25",
+    "arrival_date": "2026-11-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-07T23:00:00.000Z",
+    "created_at": "2026-11-08T14:48:55.983Z",
     "days_in_stock": 13,
     "is_aging": false
   },
@@ -4655,11 +4655,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000159",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-23",
-    "arrival_date": "2026-02-06",
+    "acquisition_date": "2026-10-24",
+    "arrival_date": "2026-11-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-06T23:00:00.000Z",
+    "created_at": "2026-11-07T14:48:55.983Z",
     "days_in_stock": 14,
     "is_aging": false
   },
@@ -4670,13 +4670,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000160",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-22",
-    "arrival_date": "2026-02-05",
+    "acquisition_date": "2026-05-21",
+    "arrival_date": "2026-06-04",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-05T23:00:00.000Z",
-    "days_in_stock": 15,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-04T14:48:55.983Z",
+    "days_in_stock": 170,
+    "is_aging": true
   },
   {
     "id": "moto-0161",
@@ -4685,13 +4685,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000161",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-10-16",
-    "arrival_date": "2025-10-30",
+    "acquisition_date": "2026-10-22",
+    "arrival_date": "2026-11-05",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-30T23:00:00.000Z",
-    "days_in_stock": 113,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-05T14:48:55.983Z",
+    "days_in_stock": 16,
+    "is_aging": false
   },
   {
     "id": "moto-0162",
@@ -4700,13 +4700,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000162",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-10-15",
-    "arrival_date": "2025-10-29",
+    "acquisition_date": "2026-10-21",
+    "arrival_date": "2026-11-04",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-29T23:00:00.000Z",
-    "days_in_stock": 114,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-04T14:48:55.983Z",
+    "days_in_stock": 17,
+    "is_aging": false
   },
   {
     "id": "moto-0163",
@@ -4715,11 +4715,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000163",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-19",
-    "arrival_date": "2026-02-02",
+    "acquisition_date": "2026-10-20",
+    "arrival_date": "2026-11-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-02T23:00:00.000Z",
+    "created_at": "2026-11-03T14:48:55.983Z",
     "days_in_stock": 18,
     "is_aging": false
   },
@@ -4730,13 +4730,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000164",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-18",
-    "arrival_date": "2026-02-01",
+    "acquisition_date": "2026-05-17",
+    "arrival_date": "2026-05-31",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-01T23:00:00.000Z",
-    "days_in_stock": 19,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-05-31T14:48:55.983Z",
+    "days_in_stock": 174,
+    "is_aging": true
   },
   {
     "id": "moto-0165",
@@ -4745,11 +4745,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000165",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-17",
-    "arrival_date": "2026-01-31",
+    "acquisition_date": "2026-10-18",
+    "arrival_date": "2026-11-01",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-31T23:00:00.000Z",
+    "created_at": "2026-11-01T14:48:55.983Z",
     "days_in_stock": 20,
     "is_aging": false
   },
@@ -4760,11 +4760,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000166",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-16",
-    "arrival_date": "2026-01-30",
+    "acquisition_date": "2026-10-17",
+    "arrival_date": "2026-10-31",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-30T23:00:00.000Z",
+    "created_at": "2026-10-31T14:48:55.983Z",
     "days_in_stock": 21,
     "is_aging": false
   },
@@ -4775,11 +4775,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000167",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-15",
-    "arrival_date": "2026-01-29",
+    "acquisition_date": "2026-10-16",
+    "arrival_date": "2026-10-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-29T23:00:00.000Z",
+    "created_at": "2026-10-30T14:48:55.983Z",
     "days_in_stock": 22,
     "is_aging": false
   },
@@ -4790,12 +4790,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000168",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-10-09",
-    "arrival_date": "2025-10-23",
+    "acquisition_date": "2026-05-13",
+    "arrival_date": "2026-05-27",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-23T23:00:00.000Z",
-    "days_in_stock": 120,
+    "created_at": "2026-05-27T14:48:55.983Z",
+    "days_in_stock": 178,
     "is_aging": true
   },
   {
@@ -4805,11 +4805,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000169",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-10-14",
+    "arrival_date": "2026-10-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-27T23:00:00.000Z",
+    "created_at": "2026-10-28T14:48:55.983Z",
     "days_in_stock": 24,
     "is_aging": false
   },
@@ -4820,11 +4820,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000170",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-12",
-    "arrival_date": "2026-01-26",
+    "acquisition_date": "2026-10-13",
+    "arrival_date": "2026-10-27",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-26T23:00:00.000Z",
+    "created_at": "2026-10-27T14:48:55.983Z",
     "days_in_stock": 25,
     "is_aging": false
   },
@@ -4835,14 +4835,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000171",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-10-06",
-    "arrival_date": "2025-10-20",
+    "acquisition_date": "2026-10-12",
+    "arrival_date": "2026-10-26",
     "status": "sold",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-10-20T23:00:00.000Z",
-    "days_in_stock": 123,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-26T14:48:55.983Z",
+    "days_in_stock": 26,
+    "is_aging": false
   },
   {
     "id": "moto-0172",
@@ -4851,13 +4851,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000172",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-10",
-    "arrival_date": "2026-01-24",
+    "acquisition_date": "2026-08-02",
+    "arrival_date": "2026-08-16",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-24T23:00:00.000Z",
-    "days_in_stock": 27,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-16T14:48:55.983Z",
+    "days_in_stock": 97,
+    "is_aging": true
   },
   {
     "id": "moto-0173",
@@ -4866,11 +4866,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000173",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-09",
-    "arrival_date": "2026-01-23",
+    "acquisition_date": "2026-10-10",
+    "arrival_date": "2026-10-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-23T23:00:00.000Z",
+    "created_at": "2026-10-24T14:48:55.983Z",
     "days_in_stock": 28,
     "is_aging": false
   },
@@ -4881,11 +4881,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000174",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-08",
-    "arrival_date": "2026-01-22",
+    "acquisition_date": "2026-10-09",
+    "arrival_date": "2026-10-23",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-22T23:00:00.000Z",
+    "created_at": "2026-10-23T14:48:55.983Z",
     "days_in_stock": 29,
     "is_aging": false
   },
@@ -4896,13 +4896,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000175",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-10-02",
-    "arrival_date": "2025-10-16",
+    "acquisition_date": "2026-10-08",
+    "arrival_date": "2026-10-22",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-16T23:00:00.000Z",
-    "days_in_stock": 127,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-22T14:48:55.983Z",
+    "days_in_stock": 30,
+    "is_aging": false
   },
   {
     "id": "moto-0176",
@@ -4911,13 +4911,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000176",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-07-29",
+    "arrival_date": "2026-08-12",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
-    "days_in_stock": 31,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-12T14:48:55.983Z",
+    "days_in_stock": 101,
+    "is_aging": true
   },
   {
     "id": "moto-0177",
@@ -4926,11 +4926,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000177",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-05",
-    "arrival_date": "2026-01-19",
+    "acquisition_date": "2026-10-06",
+    "arrival_date": "2026-10-20",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-19T23:00:00.000Z",
+    "created_at": "2026-10-20T14:48:55.983Z",
     "days_in_stock": 32,
     "is_aging": false
   },
@@ -4941,11 +4941,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000178",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-04",
-    "arrival_date": "2026-01-18",
+    "acquisition_date": "2026-10-05",
+    "arrival_date": "2026-10-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-18T23:00:00.000Z",
+    "created_at": "2026-10-19T14:48:55.983Z",
     "days_in_stock": 33,
     "is_aging": false
   },
@@ -4956,11 +4956,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000179",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-03",
-    "arrival_date": "2026-01-17",
+    "acquisition_date": "2026-10-04",
+    "arrival_date": "2026-10-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-17T23:00:00.000Z",
+    "created_at": "2026-10-18T14:48:55.983Z",
     "days_in_stock": 34,
     "is_aging": false
   },
@@ -4971,12 +4971,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000180",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-09-27",
-    "arrival_date": "2025-10-11",
+    "acquisition_date": "2026-07-25",
+    "arrival_date": "2026-08-08",
     "status": "reserved",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-11T23:00:00.000Z",
-    "days_in_stock": 132,
+    "created_at": "2026-08-08T14:48:55.983Z",
+    "days_in_stock": 105,
     "is_aging": true
   },
   {
@@ -4986,11 +4986,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000181",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-01",
-    "arrival_date": "2026-01-15",
+    "acquisition_date": "2026-10-02",
+    "arrival_date": "2026-10-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-15T23:00:00.000Z",
+    "created_at": "2026-10-16T14:48:55.983Z",
     "days_in_stock": 36,
     "is_aging": false
   },
@@ -5001,13 +5001,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000182",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-09-25",
-    "arrival_date": "2025-10-09",
+    "acquisition_date": "2026-10-01",
+    "arrival_date": "2026-10-15",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-09T23:00:00.000Z",
-    "days_in_stock": 134,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-15T14:48:55.983Z",
+    "days_in_stock": 37,
+    "is_aging": false
   },
   {
     "id": "moto-0183",
@@ -5016,11 +5016,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000183",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-30",
-    "arrival_date": "2026-01-13",
+    "acquisition_date": "2026-09-30",
+    "arrival_date": "2026-10-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-13T23:00:00.000Z",
+    "created_at": "2026-10-14T14:48:55.983Z",
     "days_in_stock": 38,
     "is_aging": false
   },
@@ -5031,13 +5031,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000184",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-29",
-    "arrival_date": "2026-01-12",
+    "acquisition_date": "2026-07-21",
+    "arrival_date": "2026-08-04",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-12T23:00:00.000Z",
-    "days_in_stock": 39,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-04T14:48:55.983Z",
+    "days_in_stock": 109,
+    "is_aging": true
   },
   {
     "id": "moto-0185",
@@ -5046,11 +5046,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000185",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-28",
-    "arrival_date": "2026-01-11",
+    "acquisition_date": "2026-09-28",
+    "arrival_date": "2026-10-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-11T23:00:00.000Z",
+    "created_at": "2026-10-12T14:48:55.983Z",
     "days_in_stock": 40,
     "is_aging": false
   },
@@ -5061,11 +5061,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000186",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-27",
-    "arrival_date": "2026-01-10",
+    "acquisition_date": "2026-09-27",
+    "arrival_date": "2026-10-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-10T23:00:00.000Z",
+    "created_at": "2026-10-11T14:48:55.983Z",
     "days_in_stock": 41,
     "is_aging": false
   },
@@ -5076,11 +5076,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000187",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-26",
-    "arrival_date": "2026-01-09",
+    "acquisition_date": "2026-09-26",
+    "arrival_date": "2026-10-10",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-09T23:00:00.000Z",
+    "created_at": "2026-10-10T14:48:55.983Z",
     "days_in_stock": 42,
     "is_aging": false
   },
@@ -5091,13 +5091,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000188",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-25",
-    "arrival_date": "2026-01-08",
+    "acquisition_date": "2026-07-17",
+    "arrival_date": "2026-07-31",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-08T23:00:00.000Z",
-    "days_in_stock": 43,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-31T14:48:55.983Z",
+    "days_in_stock": 113,
+    "is_aging": true
   },
   {
     "id": "moto-0189",
@@ -5106,13 +5106,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000189",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-09-18",
-    "arrival_date": "2025-10-02",
+    "acquisition_date": "2026-09-24",
+    "arrival_date": "2026-10-08",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-02T23:00:00.000Z",
-    "days_in_stock": 141,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-08T14:48:55.983Z",
+    "days_in_stock": 44,
+    "is_aging": false
   },
   {
     "id": "moto-0190",
@@ -5121,12 +5121,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000190",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-09-23",
+    "arrival_date": "2026-10-07",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-06T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-07T14:48:55.983Z",
     "days_in_stock": 45,
     "is_aging": false
   },
@@ -5137,11 +5137,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000191",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-22",
-    "arrival_date": "2026-01-05",
+    "acquisition_date": "2026-09-22",
+    "arrival_date": "2026-10-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-05T23:00:00.000Z",
+    "created_at": "2026-10-06T14:48:55.983Z",
     "days_in_stock": 46,
     "is_aging": false
   },
@@ -5152,13 +5152,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000192",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-21",
-    "arrival_date": "2026-01-04",
+    "acquisition_date": "2026-07-13",
+    "arrival_date": "2026-07-27",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-04T23:00:00.000Z",
-    "days_in_stock": 47,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-27T14:48:55.983Z",
+    "days_in_stock": 117,
+    "is_aging": true
   },
   {
     "id": "moto-0193",
@@ -5167,11 +5167,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000193",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-20",
-    "arrival_date": "2026-01-03",
+    "acquisition_date": "2026-09-20",
+    "arrival_date": "2026-10-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-03T23:00:00.000Z",
+    "created_at": "2026-10-04T14:48:55.983Z",
     "days_in_stock": 48,
     "is_aging": false
   },
@@ -5182,11 +5182,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000194",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-19",
-    "arrival_date": "2026-01-02",
+    "acquisition_date": "2026-09-19",
+    "arrival_date": "2026-10-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-02T23:00:00.000Z",
+    "created_at": "2026-10-03T14:48:55.983Z",
     "days_in_stock": 49,
     "is_aging": false
   },
@@ -5197,11 +5197,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000195",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-18",
-    "arrival_date": "2026-01-01",
+    "acquisition_date": "2026-09-18",
+    "arrival_date": "2026-10-02",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-01T23:00:00.000Z",
+    "created_at": "2026-10-02T14:48:55.983Z",
     "days_in_stock": 50,
     "is_aging": false
   },
@@ -5212,12 +5212,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000196",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-09-11",
-    "arrival_date": "2025-09-25",
+    "acquisition_date": "2026-07-09",
+    "arrival_date": "2026-07-23",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-25T23:00:00.000Z",
-    "days_in_stock": 148,
+    "created_at": "2026-07-23T14:48:55.983Z",
+    "days_in_stock": 121,
     "is_aging": true
   },
   {
@@ -5227,11 +5227,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000197",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-16",
-    "arrival_date": "2025-12-30",
+    "acquisition_date": "2026-09-16",
+    "arrival_date": "2026-09-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-30T23:00:00.000Z",
+    "created_at": "2026-09-30T14:48:55.983Z",
     "days_in_stock": 52,
     "is_aging": false
   },
@@ -5242,13 +5242,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000198",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-09-09",
-    "arrival_date": "2025-09-23",
+    "acquisition_date": "2026-09-15",
+    "arrival_date": "2026-09-29",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-23T23:00:00.000Z",
-    "days_in_stock": 150,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-29T14:48:55.983Z",
+    "days_in_stock": 53,
+    "is_aging": false
   },
   {
     "id": "moto-0199",
@@ -5257,11 +5257,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000199",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-14",
-    "arrival_date": "2025-12-28",
+    "acquisition_date": "2026-09-14",
+    "arrival_date": "2026-09-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-28T23:00:00.000Z",
+    "created_at": "2026-09-28T14:48:55.983Z",
     "days_in_stock": 54,
     "is_aging": false
   },
@@ -5272,13 +5272,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000200",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-13",
-    "arrival_date": "2025-12-27",
+    "acquisition_date": "2026-07-05",
+    "arrival_date": "2026-07-19",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-27T23:00:00.000Z",
-    "days_in_stock": 55,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-19T14:48:55.983Z",
+    "days_in_stock": 125,
+    "is_aging": true
   },
   {
     "id": "moto-0201",
@@ -5287,11 +5287,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000201",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-12",
-    "arrival_date": "2025-12-26",
+    "acquisition_date": "2026-09-12",
+    "arrival_date": "2026-09-26",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-26T23:00:00.000Z",
+    "created_at": "2026-09-26T14:48:55.983Z",
     "days_in_stock": 56,
     "is_aging": false
   },
@@ -5302,11 +5302,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000202",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-11",
-    "arrival_date": "2025-12-25",
+    "acquisition_date": "2026-09-11",
+    "arrival_date": "2026-09-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-25T23:00:00.000Z",
+    "created_at": "2026-09-25T14:48:55.983Z",
     "days_in_stock": 57,
     "is_aging": false
   },
@@ -5317,13 +5317,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000203",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-09-04",
-    "arrival_date": "2025-09-18",
+    "acquisition_date": "2026-09-10",
+    "arrival_date": "2026-09-24",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-18T23:00:00.000Z",
-    "days_in_stock": 155,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-24T14:48:55.983Z",
+    "days_in_stock": 58,
+    "is_aging": false
   },
   {
     "id": "moto-0204",
@@ -5332,13 +5332,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000204",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-09",
-    "arrival_date": "2025-12-23",
+    "acquisition_date": "2026-07-01",
+    "arrival_date": "2026-07-15",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-23T23:00:00.000Z",
-    "days_in_stock": 59,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-15T14:48:55.983Z",
+    "days_in_stock": 129,
+    "is_aging": true
   },
   {
     "id": "moto-0205",
@@ -5347,11 +5347,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000205",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-08",
-    "arrival_date": "2025-12-22",
+    "acquisition_date": "2026-09-08",
+    "arrival_date": "2026-09-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-22T23:00:00.000Z",
+    "created_at": "2026-09-22T14:48:55.983Z",
     "days_in_stock": 60,
     "is_aging": false
   },
@@ -5362,11 +5362,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000206",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-07",
-    "arrival_date": "2025-12-21",
+    "acquisition_date": "2026-09-07",
+    "arrival_date": "2026-09-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-21T23:00:00.000Z",
+    "created_at": "2026-09-21T14:48:55.983Z",
     "days_in_stock": 61,
     "is_aging": false
   },
@@ -5377,13 +5377,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000207",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-08-31",
-    "arrival_date": "2025-09-14",
+    "acquisition_date": "2026-09-06",
+    "arrival_date": "2026-09-20",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-14T23:00:00.000Z",
-    "days_in_stock": 159,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-20T14:48:55.983Z",
+    "days_in_stock": 62,
+    "is_aging": false
   },
   {
     "id": "moto-0208",
@@ -5392,13 +5392,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000208",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-05",
-    "arrival_date": "2025-12-19",
+    "acquisition_date": "2026-06-27",
+    "arrival_date": "2026-07-11",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-19T23:00:00.000Z",
-    "days_in_stock": 63,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-11T14:48:55.983Z",
+    "days_in_stock": 133,
+    "is_aging": true
   },
   {
     "id": "moto-0209",
@@ -5407,12 +5407,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000209",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-04",
-    "arrival_date": "2025-12-18",
+    "acquisition_date": "2026-09-04",
+    "arrival_date": "2026-09-18",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-12-18T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-09-18T14:48:55.983Z",
     "days_in_stock": 64,
     "is_aging": false
   },
@@ -5423,13 +5423,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000210",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-08-28",
-    "arrival_date": "2025-09-11",
+    "acquisition_date": "2026-09-03",
+    "arrival_date": "2026-09-17",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-11T23:00:00.000Z",
-    "days_in_stock": 162,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-17T14:48:55.983Z",
+    "days_in_stock": 65,
+    "is_aging": false
   },
   {
     "id": "moto-0211",
@@ -5438,11 +5438,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000211",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-02",
-    "arrival_date": "2025-12-16",
+    "acquisition_date": "2026-09-02",
+    "arrival_date": "2026-09-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-16T23:00:00.000Z",
+    "created_at": "2026-09-16T14:48:55.983Z",
     "days_in_stock": 66,
     "is_aging": false
   },
@@ -5453,13 +5453,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000212",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-01",
-    "arrival_date": "2025-12-15",
+    "acquisition_date": "2026-06-23",
+    "arrival_date": "2026-07-07",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-15T23:00:00.000Z",
-    "days_in_stock": 67,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-07T14:48:55.983Z",
+    "days_in_stock": 137,
+    "is_aging": true
   },
   {
     "id": "moto-0213",
@@ -5468,11 +5468,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000213",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-30",
-    "arrival_date": "2025-12-14",
+    "acquisition_date": "2026-08-31",
+    "arrival_date": "2026-09-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-14T23:00:00.000Z",
+    "created_at": "2026-09-14T14:48:55.983Z",
     "days_in_stock": 68,
     "is_aging": false
   },
@@ -5483,11 +5483,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000214",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-11-29",
-    "arrival_date": "2025-12-13",
+    "acquisition_date": "2026-08-30",
+    "arrival_date": "2026-09-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-13T23:00:00.000Z",
+    "created_at": "2026-09-13T14:48:55.983Z",
     "days_in_stock": 69,
     "is_aging": false
   },
@@ -5498,11 +5498,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000215",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-28",
-    "arrival_date": "2025-12-12",
+    "acquisition_date": "2026-08-29",
+    "arrival_date": "2026-09-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-12T23:00:00.000Z",
+    "created_at": "2026-09-12T14:48:55.983Z",
     "days_in_stock": 70,
     "is_aging": false
   },
@@ -5513,12 +5513,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000216",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-08-22",
-    "arrival_date": "2025-09-05",
+    "acquisition_date": "2026-06-19",
+    "arrival_date": "2026-07-03",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-05T23:00:00.000Z",
-    "days_in_stock": 168,
+    "created_at": "2026-07-03T14:48:55.983Z",
+    "days_in_stock": 141,
     "is_aging": true
   },
   {
@@ -5528,13 +5528,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000217",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-08-21",
-    "arrival_date": "2025-09-04",
+    "acquisition_date": "2026-08-27",
+    "arrival_date": "2026-09-10",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-04T23:00:00.000Z",
-    "days_in_stock": 169,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-10T14:48:55.983Z",
+    "days_in_stock": 72,
+    "is_aging": false
   },
   {
     "id": "moto-0218",
@@ -5543,11 +5543,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000218",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-25",
-    "arrival_date": "2025-12-09",
+    "acquisition_date": "2026-08-26",
+    "arrival_date": "2026-09-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-09T23:00:00.000Z",
+    "created_at": "2026-09-09T14:48:55.983Z",
     "days_in_stock": 73,
     "is_aging": false
   },
@@ -5558,11 +5558,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000219",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-24",
-    "arrival_date": "2025-12-08",
+    "acquisition_date": "2026-08-25",
+    "arrival_date": "2026-09-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-08T23:00:00.000Z",
+    "created_at": "2026-09-08T14:48:55.983Z",
     "days_in_stock": 74,
     "is_aging": false
   },
@@ -5573,13 +5573,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000220",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-23",
-    "arrival_date": "2025-12-07",
+    "acquisition_date": "2026-06-15",
+    "arrival_date": "2026-06-29",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-07T23:00:00.000Z",
-    "days_in_stock": 75,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-29T14:48:55.983Z",
+    "days_in_stock": 145,
+    "is_aging": true
   },
   {
     "id": "moto-0221",
@@ -5588,11 +5588,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000221",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-22",
-    "arrival_date": "2025-12-06",
+    "acquisition_date": "2026-08-23",
+    "arrival_date": "2026-09-06",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-06T23:00:00.000Z",
+    "created_at": "2026-09-06T14:48:55.983Z",
     "days_in_stock": 76,
     "is_aging": false
   },
@@ -5603,11 +5603,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000222",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-11-21",
-    "arrival_date": "2025-12-05",
+    "acquisition_date": "2026-08-22",
+    "arrival_date": "2026-09-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-05T23:00:00.000Z",
+    "created_at": "2026-09-05T14:48:55.983Z",
     "days_in_stock": 77,
     "is_aging": false
   },
@@ -5618,11 +5618,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000223",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-20",
-    "arrival_date": "2025-12-04",
+    "acquisition_date": "2026-08-21",
+    "arrival_date": "2026-09-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-04T23:00:00.000Z",
+    "created_at": "2026-09-04T14:48:55.983Z",
     "days_in_stock": 78,
     "is_aging": false
   },
@@ -5633,12 +5633,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000224",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-08-14",
-    "arrival_date": "2025-08-28",
+    "acquisition_date": "2026-06-11",
+    "arrival_date": "2026-06-25",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-28T23:00:00.000Z",
-    "days_in_stock": 176,
+    "created_at": "2026-06-25T14:48:55.983Z",
+    "days_in_stock": 149,
     "is_aging": true
   },
   {
@@ -5648,13 +5648,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000225",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-08-13",
-    "arrival_date": "2025-08-27",
+    "acquisition_date": "2026-11-02",
+    "arrival_date": "2026-11-16",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-27T23:00:00.000Z",
-    "days_in_stock": 177,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-16T14:48:55.983Z",
+    "days_in_stock": 5,
+    "is_aging": false
   },
   {
     "id": "moto-0226",
@@ -5663,11 +5663,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000226",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-31",
-    "arrival_date": "2026-02-14",
+    "acquisition_date": "2026-11-01",
+    "arrival_date": "2026-11-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-14T23:00:00.000Z",
+    "created_at": "2026-11-15T14:48:55.983Z",
     "days_in_stock": 6,
     "is_aging": false
   },
@@ -5678,11 +5678,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000227",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-30",
-    "arrival_date": "2026-02-13",
+    "acquisition_date": "2026-10-31",
+    "arrival_date": "2026-11-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-13T23:00:00.000Z",
+    "created_at": "2026-11-14T14:48:55.983Z",
     "days_in_stock": 7,
     "is_aging": false
   },
@@ -5693,14 +5693,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000228",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-29",
-    "arrival_date": "2026-02-12",
+    "acquisition_date": "2026-06-07",
+    "arrival_date": "2026-06-21",
     "status": "sold",
-    "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-02-12T23:00:00.000Z",
-    "days_in_stock": 8,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-06-21T14:48:55.983Z",
+    "days_in_stock": 153,
+    "is_aging": true
   },
   {
     "id": "moto-0229",
@@ -5709,11 +5709,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000229",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-28",
-    "arrival_date": "2026-02-11",
+    "acquisition_date": "2026-10-29",
+    "arrival_date": "2026-11-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-11T23:00:00.000Z",
+    "created_at": "2026-11-12T14:48:55.983Z",
     "days_in_stock": 9,
     "is_aging": false
   },
@@ -5724,11 +5724,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000230",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-10-28",
+    "arrival_date": "2026-11-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-10T23:00:00.000Z",
+    "created_at": "2026-11-11T14:48:55.983Z",
     "days_in_stock": 10,
     "is_aging": false
   },
@@ -5739,13 +5739,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000231",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-08-07",
-    "arrival_date": "2025-08-21",
+    "acquisition_date": "2026-10-27",
+    "arrival_date": "2026-11-10",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-21T23:00:00.000Z",
-    "days_in_stock": 183,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-10T14:48:55.983Z",
+    "days_in_stock": 11,
+    "is_aging": false
   },
   {
     "id": "moto-0232",
@@ -5754,13 +5754,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000232",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-25",
-    "arrival_date": "2026-02-08",
+    "acquisition_date": "2026-06-03",
+    "arrival_date": "2026-06-17",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-08T23:00:00.000Z",
-    "days_in_stock": 12,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-17T14:48:55.983Z",
+    "days_in_stock": 157,
+    "is_aging": true
   },
   {
     "id": "moto-0233",
@@ -5769,11 +5769,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000233",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-24",
-    "arrival_date": "2026-02-07",
+    "acquisition_date": "2026-10-25",
+    "arrival_date": "2026-11-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-07T23:00:00.000Z",
+    "created_at": "2026-11-08T14:48:55.983Z",
     "days_in_stock": 13,
     "is_aging": false
   },
@@ -5784,13 +5784,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000234",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-08-04",
-    "arrival_date": "2025-08-18",
+    "acquisition_date": "2026-10-24",
+    "arrival_date": "2026-11-07",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-18T23:00:00.000Z",
-    "days_in_stock": 186,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-07T14:48:55.983Z",
+    "days_in_stock": 14,
+    "is_aging": false
   },
   {
     "id": "moto-0235",
@@ -5799,11 +5799,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000235",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-22",
-    "arrival_date": "2026-02-05",
+    "acquisition_date": "2026-10-23",
+    "arrival_date": "2026-11-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-05T23:00:00.000Z",
+    "created_at": "2026-11-06T14:48:55.983Z",
     "days_in_stock": 15,
     "is_aging": false
   },
@@ -5814,13 +5814,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000236",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-21",
-    "arrival_date": "2026-02-04",
+    "acquisition_date": "2026-05-30",
+    "arrival_date": "2026-06-13",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-04T23:00:00.000Z",
-    "days_in_stock": 16,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-13T14:48:55.983Z",
+    "days_in_stock": 161,
+    "is_aging": true
   },
   {
     "id": "moto-0237",
@@ -5829,11 +5829,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000237",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-20",
-    "arrival_date": "2026-02-03",
+    "acquisition_date": "2026-10-21",
+    "arrival_date": "2026-11-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-03T23:00:00.000Z",
+    "created_at": "2026-11-04T14:48:55.983Z",
     "days_in_stock": 17,
     "is_aging": false
   },
@@ -5844,13 +5844,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000238",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-07-31",
-    "arrival_date": "2025-08-14",
+    "acquisition_date": "2026-10-20",
+    "arrival_date": "2026-11-03",
     "status": "in_transfer",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-14T23:00:00.000Z",
-    "days_in_stock": 190,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-03T14:48:55.983Z",
+    "days_in_stock": 18,
+    "is_aging": false
   },
   {
     "id": "moto-0239",
@@ -5859,11 +5859,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000239",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-18",
-    "arrival_date": "2026-02-01",
+    "acquisition_date": "2026-10-19",
+    "arrival_date": "2026-11-02",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-01T23:00:00.000Z",
+    "created_at": "2026-11-02T14:48:55.983Z",
     "days_in_stock": 19,
     "is_aging": false
   },
@@ -5874,13 +5874,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000240",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-17",
-    "arrival_date": "2026-01-31",
+    "acquisition_date": "2026-05-26",
+    "arrival_date": "2026-06-09",
     "status": "reserved",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-31T23:00:00.000Z",
-    "days_in_stock": 20,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-09T14:48:55.983Z",
+    "days_in_stock": 165,
+    "is_aging": true
   },
   {
     "id": "moto-0241",
@@ -5889,11 +5889,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000241",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-16",
-    "arrival_date": "2026-01-30",
+    "acquisition_date": "2026-10-17",
+    "arrival_date": "2026-10-31",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-30T23:00:00.000Z",
+    "created_at": "2026-10-31T14:48:55.983Z",
     "days_in_stock": 21,
     "is_aging": false
   },
@@ -5904,11 +5904,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000242",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-15",
-    "arrival_date": "2026-01-29",
+    "acquisition_date": "2026-10-16",
+    "arrival_date": "2026-10-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-29T23:00:00.000Z",
+    "created_at": "2026-10-30T14:48:55.983Z",
     "days_in_stock": 22,
     "is_aging": false
   },
@@ -5919,13 +5919,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000243",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-07-26",
-    "arrival_date": "2025-08-09",
+    "acquisition_date": "2026-10-15",
+    "arrival_date": "2026-10-29",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-09T23:00:00.000Z",
-    "days_in_stock": 195,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-29T14:48:55.983Z",
+    "days_in_stock": 23,
+    "is_aging": false
   },
   {
     "id": "moto-0244",
@@ -5934,13 +5934,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000244",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-05-22",
+    "arrival_date": "2026-06-05",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-27T23:00:00.000Z",
-    "days_in_stock": 24,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-05T14:48:55.983Z",
+    "days_in_stock": 169,
+    "is_aging": true
   },
   {
     "id": "moto-0245",
@@ -5949,13 +5949,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000245",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-07-24",
-    "arrival_date": "2025-08-07",
+    "acquisition_date": "2026-10-13",
+    "arrival_date": "2026-10-27",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-07T23:00:00.000Z",
-    "days_in_stock": 197,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-27T14:48:55.983Z",
+    "days_in_stock": 25,
+    "is_aging": false
   },
   {
     "id": "moto-0246",
@@ -5964,11 +5964,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000246",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-11",
-    "arrival_date": "2026-01-25",
+    "acquisition_date": "2026-10-12",
+    "arrival_date": "2026-10-26",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-25T23:00:00.000Z",
+    "created_at": "2026-10-26T14:48:55.983Z",
     "days_in_stock": 26,
     "is_aging": false
   },
@@ -5979,12 +5979,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000247",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-10",
-    "arrival_date": "2026-01-24",
+    "acquisition_date": "2026-10-11",
+    "arrival_date": "2026-10-25",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-24T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-25T14:48:55.983Z",
     "days_in_stock": 27,
     "is_aging": false
   },
@@ -5995,13 +5995,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000248",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-09",
-    "arrival_date": "2026-01-23",
+    "acquisition_date": "2026-05-18",
+    "arrival_date": "2026-06-01",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-23T23:00:00.000Z",
-    "days_in_stock": 28,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-01T14:48:55.983Z",
+    "days_in_stock": 173,
+    "is_aging": true
   },
   {
     "id": "moto-0249",
@@ -6010,11 +6010,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000249",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-08",
-    "arrival_date": "2026-01-22",
+    "acquisition_date": "2026-10-09",
+    "arrival_date": "2026-10-23",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-22T23:00:00.000Z",
+    "created_at": "2026-10-23T14:48:55.983Z",
     "days_in_stock": 29,
     "is_aging": false
   },
@@ -6025,11 +6025,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000250",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-07",
-    "arrival_date": "2026-01-21",
+    "acquisition_date": "2026-10-08",
+    "arrival_date": "2026-10-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-21T23:00:00.000Z",
+    "created_at": "2026-10-22T14:48:55.983Z",
     "days_in_stock": 30,
     "is_aging": false
   },
@@ -6040,11 +6040,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000251",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-10-07",
+    "arrival_date": "2026-10-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
+    "created_at": "2026-10-21T14:48:55.983Z",
     "days_in_stock": 31,
     "is_aging": false
   },
@@ -6055,12 +6055,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000252",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-07-17",
-    "arrival_date": "2025-07-31",
+    "acquisition_date": "2026-05-14",
+    "arrival_date": "2026-05-28",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-31T23:00:00.000Z",
-    "days_in_stock": 204,
+    "created_at": "2026-05-28T14:48:55.983Z",
+    "days_in_stock": 177,
     "is_aging": true
   },
   {
@@ -6070,11 +6070,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000253",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-04",
-    "arrival_date": "2026-01-18",
+    "acquisition_date": "2026-10-05",
+    "arrival_date": "2026-10-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-18T23:00:00.000Z",
+    "created_at": "2026-10-19T14:48:55.983Z",
     "days_in_stock": 33,
     "is_aging": false
   },
@@ -6085,11 +6085,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000254",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-03",
-    "arrival_date": "2026-01-17",
+    "acquisition_date": "2026-10-04",
+    "arrival_date": "2026-10-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-17T23:00:00.000Z",
+    "created_at": "2026-10-18T14:48:55.983Z",
     "days_in_stock": 34,
     "is_aging": false
   },
@@ -6100,11 +6100,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000255",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-02",
-    "arrival_date": "2026-01-16",
+    "acquisition_date": "2026-10-03",
+    "arrival_date": "2026-10-17",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-16T23:00:00.000Z",
+    "created_at": "2026-10-17T14:48:55.983Z",
     "days_in_stock": 35,
     "is_aging": false
   },
@@ -6115,13 +6115,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000256",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-01",
-    "arrival_date": "2026-01-15",
+    "acquisition_date": "2026-08-03",
+    "arrival_date": "2026-08-17",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-15T23:00:00.000Z",
-    "days_in_stock": 36,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-17T14:48:55.983Z",
+    "days_in_stock": 96,
+    "is_aging": true
   },
   {
     "id": "moto-0257",
@@ -6130,11 +6130,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000257",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-31",
-    "arrival_date": "2026-01-14",
+    "acquisition_date": "2026-10-01",
+    "arrival_date": "2026-10-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-14T23:00:00.000Z",
+    "created_at": "2026-10-15T14:48:55.983Z",
     "days_in_stock": 37,
     "is_aging": false
   },
@@ -6145,11 +6145,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000258",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-30",
-    "arrival_date": "2026-01-13",
+    "acquisition_date": "2026-09-30",
+    "arrival_date": "2026-10-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-13T23:00:00.000Z",
+    "created_at": "2026-10-14T14:48:55.983Z",
     "days_in_stock": 38,
     "is_aging": false
   },
@@ -6160,13 +6160,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000259",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-07-10",
-    "arrival_date": "2025-07-24",
+    "acquisition_date": "2026-09-29",
+    "arrival_date": "2026-10-13",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-24T23:00:00.000Z",
-    "days_in_stock": 211,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-13T14:48:55.983Z",
+    "days_in_stock": 39,
+    "is_aging": false
   },
   {
     "id": "moto-0260",
@@ -6175,13 +6175,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000260",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-28",
-    "arrival_date": "2026-01-11",
+    "acquisition_date": "2026-07-30",
+    "arrival_date": "2026-08-13",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-11T23:00:00.000Z",
-    "days_in_stock": 40,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-13T14:48:55.983Z",
+    "days_in_stock": 100,
+    "is_aging": true
   },
   {
     "id": "moto-0261",
@@ -6190,13 +6190,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000261",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-07-08",
-    "arrival_date": "2025-07-22",
+    "acquisition_date": "2026-09-27",
+    "arrival_date": "2026-10-11",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-22T23:00:00.000Z",
-    "days_in_stock": 213,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-11T14:48:55.983Z",
+    "days_in_stock": 41,
+    "is_aging": false
   },
   {
     "id": "moto-0262",
@@ -6205,11 +6205,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000262",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-26",
-    "arrival_date": "2026-01-09",
+    "acquisition_date": "2026-09-26",
+    "arrival_date": "2026-10-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-09T23:00:00.000Z",
+    "created_at": "2026-10-10T14:48:55.983Z",
     "days_in_stock": 42,
     "is_aging": false
   },
@@ -6220,11 +6220,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000263",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-25",
-    "arrival_date": "2026-01-08",
+    "acquisition_date": "2026-09-25",
+    "arrival_date": "2026-10-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-08T23:00:00.000Z",
+    "created_at": "2026-10-09T14:48:55.983Z",
     "days_in_stock": 43,
     "is_aging": false
   },
@@ -6235,13 +6235,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000264",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-24",
-    "arrival_date": "2026-01-07",
+    "acquisition_date": "2026-07-26",
+    "arrival_date": "2026-08-09",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-07T23:00:00.000Z",
-    "days_in_stock": 44,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-09T14:48:55.983Z",
+    "days_in_stock": 104,
+    "is_aging": true
   },
   {
     "id": "moto-0265",
@@ -6250,11 +6250,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000265",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-09-23",
+    "arrival_date": "2026-10-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-06T23:00:00.000Z",
+    "created_at": "2026-10-07T14:48:55.983Z",
     "days_in_stock": 45,
     "is_aging": false
   },
@@ -6265,14 +6265,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000266",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-07-03",
-    "arrival_date": "2025-07-17",
+    "acquisition_date": "2026-09-22",
+    "arrival_date": "2026-10-06",
     "status": "sold",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-07-17T23:00:00.000Z",
-    "days_in_stock": 218,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-06T14:48:55.983Z",
+    "days_in_stock": 46,
+    "is_aging": false
   },
   {
     "id": "moto-0267",
@@ -6281,11 +6281,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000267",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-21",
-    "arrival_date": "2026-01-04",
+    "acquisition_date": "2026-09-21",
+    "arrival_date": "2026-10-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-04T23:00:00.000Z",
+    "created_at": "2026-10-05T14:48:55.983Z",
     "days_in_stock": 47,
     "is_aging": false
   },
@@ -6296,13 +6296,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000268",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-20",
-    "arrival_date": "2026-01-03",
+    "acquisition_date": "2026-07-22",
+    "arrival_date": "2026-08-05",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-03T23:00:00.000Z",
-    "days_in_stock": 48,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-05T14:48:55.983Z",
+    "days_in_stock": 108,
+    "is_aging": true
   },
   {
     "id": "moto-0269",
@@ -6311,11 +6311,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000269",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-19",
-    "arrival_date": "2026-01-02",
+    "acquisition_date": "2026-09-19",
+    "arrival_date": "2026-10-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-02T23:00:00.000Z",
+    "created_at": "2026-10-03T14:48:55.983Z",
     "days_in_stock": 49,
     "is_aging": false
   },
@@ -6326,13 +6326,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000270",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-06-29",
-    "arrival_date": "2025-07-13",
+    "acquisition_date": "2026-09-18",
+    "arrival_date": "2026-10-02",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-13T23:00:00.000Z",
-    "days_in_stock": 222,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-02T14:48:55.983Z",
+    "days_in_stock": 50,
+    "is_aging": false
   },
   {
     "id": "moto-0271",
@@ -6341,11 +6341,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000271",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-17",
-    "arrival_date": "2025-12-31",
+    "acquisition_date": "2026-09-17",
+    "arrival_date": "2026-10-01",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-31T23:00:00.000Z",
+    "created_at": "2026-10-01T14:48:55.983Z",
     "days_in_stock": 51,
     "is_aging": false
   },
@@ -6356,13 +6356,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000272",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-16",
-    "arrival_date": "2025-12-30",
+    "acquisition_date": "2026-07-18",
+    "arrival_date": "2026-08-01",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-30T23:00:00.000Z",
-    "days_in_stock": 52,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-01T14:48:55.983Z",
+    "days_in_stock": 112,
+    "is_aging": true
   },
   {
     "id": "moto-0273",
@@ -6371,13 +6371,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000273",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-06-26",
-    "arrival_date": "2025-07-10",
+    "acquisition_date": "2026-09-15",
+    "arrival_date": "2026-09-29",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-10T23:00:00.000Z",
-    "days_in_stock": 225,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-29T14:48:55.983Z",
+    "days_in_stock": 53,
+    "is_aging": false
   },
   {
     "id": "moto-0274",
@@ -6386,11 +6386,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000274",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-14",
-    "arrival_date": "2025-12-28",
+    "acquisition_date": "2026-09-14",
+    "arrival_date": "2026-09-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-28T23:00:00.000Z",
+    "created_at": "2026-09-28T14:48:55.983Z",
     "days_in_stock": 54,
     "is_aging": false
   },
@@ -6401,11 +6401,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000275",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-13",
-    "arrival_date": "2025-12-27",
+    "acquisition_date": "2026-09-13",
+    "arrival_date": "2026-09-27",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-27T23:00:00.000Z",
+    "created_at": "2026-09-27T14:48:55.983Z",
     "days_in_stock": 55,
     "is_aging": false
   },
@@ -6416,13 +6416,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000276",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-12",
-    "arrival_date": "2025-12-26",
+    "acquisition_date": "2026-07-14",
+    "arrival_date": "2026-07-28",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-26T23:00:00.000Z",
-    "days_in_stock": 56,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-28T14:48:55.983Z",
+    "days_in_stock": 116,
+    "is_aging": true
   },
   {
     "id": "moto-0277",
@@ -6431,11 +6431,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000277",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-11",
-    "arrival_date": "2025-12-25",
+    "acquisition_date": "2026-09-11",
+    "arrival_date": "2026-09-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-25T23:00:00.000Z",
+    "created_at": "2026-09-25T14:48:55.983Z",
     "days_in_stock": 57,
     "is_aging": false
   },
@@ -6446,11 +6446,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000278",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-10",
-    "arrival_date": "2025-12-24",
+    "acquisition_date": "2026-09-10",
+    "arrival_date": "2026-09-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-24T23:00:00.000Z",
+    "created_at": "2026-09-24T14:48:55.983Z",
     "days_in_stock": 58,
     "is_aging": false
   },
@@ -6461,13 +6461,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000279",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-06-20",
-    "arrival_date": "2025-07-04",
+    "acquisition_date": "2026-09-09",
+    "arrival_date": "2026-09-23",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-04T23:00:00.000Z",
-    "days_in_stock": 231,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-23T14:48:55.983Z",
+    "days_in_stock": 59,
+    "is_aging": false
   },
   {
     "id": "moto-0280",
@@ -6476,12 +6476,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000280",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-11-06",
-    "arrival_date": "2025-11-20",
+    "acquisition_date": "2026-07-10",
+    "arrival_date": "2026-07-24",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-20T23:00:00.000Z",
-    "days_in_stock": 92,
+    "created_at": "2026-07-24T14:48:55.983Z",
+    "days_in_stock": 120,
     "is_aging": true
   },
   {
@@ -6491,11 +6491,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000281",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-07",
-    "arrival_date": "2025-12-21",
+    "acquisition_date": "2026-09-07",
+    "arrival_date": "2026-09-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-21T23:00:00.000Z",
+    "created_at": "2026-09-21T14:48:55.983Z",
     "days_in_stock": 61,
     "is_aging": false
   },
@@ -6506,11 +6506,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000282",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-06",
-    "arrival_date": "2025-12-20",
+    "acquisition_date": "2026-09-06",
+    "arrival_date": "2026-09-20",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-20T23:00:00.000Z",
+    "created_at": "2026-09-20T14:48:55.983Z",
     "days_in_stock": 62,
     "is_aging": false
   },
@@ -6521,11 +6521,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000283",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-05",
-    "arrival_date": "2025-12-19",
+    "acquisition_date": "2026-09-05",
+    "arrival_date": "2026-09-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-19T23:00:00.000Z",
+    "created_at": "2026-09-19T14:48:55.983Z",
     "days_in_stock": 63,
     "is_aging": false
   },
@@ -6536,13 +6536,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000284",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-04",
-    "arrival_date": "2025-12-18",
+    "acquisition_date": "2026-07-06",
+    "arrival_date": "2026-07-20",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-18T23:00:00.000Z",
-    "days_in_stock": 64,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-20T14:48:55.983Z",
+    "days_in_stock": 124,
+    "is_aging": true
   },
   {
     "id": "moto-0285",
@@ -6551,11 +6551,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000285",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-03",
-    "arrival_date": "2025-12-17",
+    "acquisition_date": "2026-09-03",
+    "arrival_date": "2026-09-17",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-17T23:00:00.000Z",
+    "created_at": "2026-09-17T14:48:55.983Z",
     "days_in_stock": 65,
     "is_aging": false
   },
@@ -6566,11 +6566,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000286",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-02",
-    "arrival_date": "2025-12-16",
+    "acquisition_date": "2026-09-02",
+    "arrival_date": "2026-09-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-16T23:00:00.000Z",
+    "created_at": "2026-09-16T14:48:55.983Z",
     "days_in_stock": 66,
     "is_aging": false
   },
@@ -6581,13 +6581,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000287",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-10-30",
-    "arrival_date": "2025-11-13",
+    "acquisition_date": "2026-09-01",
+    "arrival_date": "2026-09-15",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-13T23:00:00.000Z",
-    "days_in_stock": 99,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-15T14:48:55.983Z",
+    "days_in_stock": 67,
+    "is_aging": false
   },
   {
     "id": "moto-0288",
@@ -6596,12 +6596,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000288",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-10-29",
-    "arrival_date": "2025-11-12",
+    "acquisition_date": "2026-07-02",
+    "arrival_date": "2026-07-16",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-12T23:00:00.000Z",
-    "days_in_stock": 100,
+    "created_at": "2026-07-16T14:48:55.983Z",
+    "days_in_stock": 128,
     "is_aging": true
   },
   {
@@ -6611,11 +6611,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000289",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-11-29",
-    "arrival_date": "2025-12-13",
+    "acquisition_date": "2026-08-30",
+    "arrival_date": "2026-09-13",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-13T23:00:00.000Z",
+    "created_at": "2026-09-13T14:48:55.983Z",
     "days_in_stock": 69,
     "is_aging": false
   },
@@ -6626,11 +6626,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000290",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-28",
-    "arrival_date": "2025-12-12",
+    "acquisition_date": "2026-08-29",
+    "arrival_date": "2026-09-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-12T23:00:00.000Z",
+    "created_at": "2026-09-12T14:48:55.983Z",
     "days_in_stock": 70,
     "is_aging": false
   },
@@ -6641,11 +6641,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000291",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-27",
-    "arrival_date": "2025-12-11",
+    "acquisition_date": "2026-08-28",
+    "arrival_date": "2026-09-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-11T23:00:00.000Z",
+    "created_at": "2026-09-11T14:48:55.983Z",
     "days_in_stock": 71,
     "is_aging": false
   },
@@ -6656,13 +6656,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000292",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-26",
-    "arrival_date": "2025-12-10",
+    "acquisition_date": "2026-06-28",
+    "arrival_date": "2026-07-12",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-10T23:00:00.000Z",
-    "days_in_stock": 72,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-12T14:48:55.983Z",
+    "days_in_stock": 132,
+    "is_aging": true
   },
   {
     "id": "moto-0293",
@@ -6671,11 +6671,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000293",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-25",
-    "arrival_date": "2025-12-09",
+    "acquisition_date": "2026-08-26",
+    "arrival_date": "2026-09-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-09T23:00:00.000Z",
+    "created_at": "2026-09-09T14:48:55.983Z",
     "days_in_stock": 73,
     "is_aging": false
   },
@@ -6686,13 +6686,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000294",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-10-23",
-    "arrival_date": "2025-11-06",
+    "acquisition_date": "2026-08-25",
+    "arrival_date": "2026-09-08",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-06T23:00:00.000Z",
-    "days_in_stock": 106,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-08T14:48:55.983Z",
+    "days_in_stock": 74,
+    "is_aging": false
   },
   {
     "id": "moto-0295",
@@ -6701,11 +6701,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000295",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-23",
-    "arrival_date": "2025-12-07",
+    "acquisition_date": "2026-08-24",
+    "arrival_date": "2026-09-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-07T23:00:00.000Z",
+    "created_at": "2026-09-07T14:48:55.983Z",
     "days_in_stock": 75,
     "is_aging": false
   },
@@ -6716,13 +6716,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000296",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-11-22",
-    "arrival_date": "2025-12-06",
+    "acquisition_date": "2026-06-24",
+    "arrival_date": "2026-07-08",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-06T23:00:00.000Z",
-    "days_in_stock": 76,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-08T14:48:55.983Z",
+    "days_in_stock": 136,
+    "is_aging": true
   },
   {
     "id": "moto-0297",
@@ -6731,13 +6731,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000297",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-10-20",
-    "arrival_date": "2025-11-03",
+    "acquisition_date": "2026-08-22",
+    "arrival_date": "2026-09-05",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-03T23:00:00.000Z",
-    "days_in_stock": 109,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-05T14:48:55.983Z",
+    "days_in_stock": 77,
+    "is_aging": false
   },
   {
     "id": "moto-0298",
@@ -6746,11 +6746,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000298",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-20",
-    "arrival_date": "2025-12-04",
+    "acquisition_date": "2026-08-21",
+    "arrival_date": "2026-09-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-04T23:00:00.000Z",
+    "created_at": "2026-09-04T14:48:55.983Z",
     "days_in_stock": 78,
     "is_aging": false
   },
@@ -6761,11 +6761,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000299",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-19",
-    "arrival_date": "2025-12-03",
+    "acquisition_date": "2026-08-20",
+    "arrival_date": "2026-09-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-03T23:00:00.000Z",
+    "created_at": "2026-09-03T14:48:55.983Z",
     "days_in_stock": 79,
     "is_aging": false
   },
@@ -6776,13 +6776,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000300",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-02-01",
-    "arrival_date": "2026-02-15",
+    "acquisition_date": "2026-06-20",
+    "arrival_date": "2026-07-04",
     "status": "reserved",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-15T23:00:00.000Z",
-    "days_in_stock": 5,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-04T14:48:55.983Z",
+    "days_in_stock": 140,
+    "is_aging": true
   },
   {
     "id": "moto-0301",
@@ -6791,13 +6791,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000301",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-10-16",
-    "arrival_date": "2025-10-30",
+    "acquisition_date": "2026-11-01",
+    "arrival_date": "2026-11-15",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-30T23:00:00.000Z",
-    "days_in_stock": 113,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-15T14:48:55.983Z",
+    "days_in_stock": 6,
+    "is_aging": false
   },
   {
     "id": "moto-0302",
@@ -6806,11 +6806,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000302",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-30",
-    "arrival_date": "2026-02-13",
+    "acquisition_date": "2026-10-31",
+    "arrival_date": "2026-11-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-13T23:00:00.000Z",
+    "created_at": "2026-11-14T14:48:55.983Z",
     "days_in_stock": 7,
     "is_aging": false
   },
@@ -6821,11 +6821,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000303",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-29",
-    "arrival_date": "2026-02-12",
+    "acquisition_date": "2026-10-30",
+    "arrival_date": "2026-11-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-12T23:00:00.000Z",
+    "created_at": "2026-11-13T14:48:55.983Z",
     "days_in_stock": 8,
     "is_aging": false
   },
@@ -6836,14 +6836,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000304",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-28",
-    "arrival_date": "2026-02-11",
+    "acquisition_date": "2026-06-16",
+    "arrival_date": "2026-06-30",
     "status": "sold",
-    "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-02-11T23:00:00.000Z",
-    "days_in_stock": 9,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-06-30T14:48:55.983Z",
+    "days_in_stock": 144,
+    "is_aging": true
   },
   {
     "id": "moto-0305",
@@ -6852,11 +6852,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000305",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-10-28",
+    "arrival_date": "2026-11-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-10T23:00:00.000Z",
+    "created_at": "2026-11-11T14:48:55.983Z",
     "days_in_stock": 10,
     "is_aging": false
   },
@@ -6867,13 +6867,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000306",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-10-11",
-    "arrival_date": "2025-10-25",
+    "acquisition_date": "2026-10-27",
+    "arrival_date": "2026-11-10",
     "status": "in_transfer",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-25T23:00:00.000Z",
-    "days_in_stock": 118,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-10T14:48:55.983Z",
+    "days_in_stock": 11,
+    "is_aging": false
   },
   {
     "id": "moto-0307",
@@ -6882,11 +6882,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000307",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-25",
-    "arrival_date": "2026-02-08",
+    "acquisition_date": "2026-10-26",
+    "arrival_date": "2026-11-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-08T23:00:00.000Z",
+    "created_at": "2026-11-09T14:48:55.983Z",
     "days_in_stock": 12,
     "is_aging": false
   },
@@ -6897,12 +6897,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000308",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-10-09",
-    "arrival_date": "2025-10-23",
+    "acquisition_date": "2026-06-12",
+    "arrival_date": "2026-06-26",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-23T23:00:00.000Z",
-    "days_in_stock": 120,
+    "created_at": "2026-06-26T14:48:55.983Z",
+    "days_in_stock": 148,
     "is_aging": true
   },
   {
@@ -6912,11 +6912,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000309",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-23",
-    "arrival_date": "2026-02-06",
+    "acquisition_date": "2026-10-24",
+    "arrival_date": "2026-11-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-06T23:00:00.000Z",
+    "created_at": "2026-11-07T14:48:55.983Z",
     "days_in_stock": 14,
     "is_aging": false
   },
@@ -6927,11 +6927,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000310",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-22",
-    "arrival_date": "2026-02-05",
+    "acquisition_date": "2026-10-23",
+    "arrival_date": "2026-11-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-05T23:00:00.000Z",
+    "created_at": "2026-11-06T14:48:55.983Z",
     "days_in_stock": 15,
     "is_aging": false
   },
@@ -6942,11 +6942,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000311",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-21",
-    "arrival_date": "2026-02-04",
+    "acquisition_date": "2026-10-22",
+    "arrival_date": "2026-11-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-04T23:00:00.000Z",
+    "created_at": "2026-11-05T14:48:55.983Z",
     "days_in_stock": 16,
     "is_aging": false
   },
@@ -6957,13 +6957,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000312",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-20",
-    "arrival_date": "2026-02-03",
+    "acquisition_date": "2026-06-08",
+    "arrival_date": "2026-06-22",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-03T23:00:00.000Z",
-    "days_in_stock": 17,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-22T14:48:55.983Z",
+    "days_in_stock": 152,
+    "is_aging": true
   },
   {
     "id": "moto-0313",
@@ -6972,11 +6972,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000313",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-19",
-    "arrival_date": "2026-02-02",
+    "acquisition_date": "2026-10-20",
+    "arrival_date": "2026-11-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-02T23:00:00.000Z",
+    "created_at": "2026-11-03T14:48:55.983Z",
     "days_in_stock": 18,
     "is_aging": false
   },
@@ -6987,11 +6987,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000314",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-18",
-    "arrival_date": "2026-02-01",
+    "acquisition_date": "2026-10-19",
+    "arrival_date": "2026-11-02",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-01T23:00:00.000Z",
+    "created_at": "2026-11-02T14:48:55.983Z",
     "days_in_stock": 19,
     "is_aging": false
   },
@@ -7002,13 +7002,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000315",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-10-02",
-    "arrival_date": "2025-10-16",
+    "acquisition_date": "2026-10-18",
+    "arrival_date": "2026-11-01",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-16T23:00:00.000Z",
-    "days_in_stock": 127,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-01T14:48:55.983Z",
+    "days_in_stock": 20,
+    "is_aging": false
   },
   {
     "id": "moto-0316",
@@ -7017,13 +7017,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000316",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-16",
-    "arrival_date": "2026-01-30",
+    "acquisition_date": "2026-06-04",
+    "arrival_date": "2026-06-18",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-30T23:00:00.000Z",
-    "days_in_stock": 21,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-18T14:48:55.983Z",
+    "days_in_stock": 156,
+    "is_aging": true
   },
   {
     "id": "moto-0317",
@@ -7032,11 +7032,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000317",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-15",
-    "arrival_date": "2026-01-29",
+    "acquisition_date": "2026-10-16",
+    "arrival_date": "2026-10-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-29T23:00:00.000Z",
+    "created_at": "2026-10-30T14:48:55.983Z",
     "days_in_stock": 22,
     "is_aging": false
   },
@@ -7047,11 +7047,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000318",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-14",
-    "arrival_date": "2026-01-28",
+    "acquisition_date": "2026-10-15",
+    "arrival_date": "2026-10-29",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-28T23:00:00.000Z",
+    "created_at": "2026-10-29T14:48:55.983Z",
     "days_in_stock": 23,
     "is_aging": false
   },
@@ -7062,11 +7062,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000319",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-10-14",
+    "arrival_date": "2026-10-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-27T23:00:00.000Z",
+    "created_at": "2026-10-28T14:48:55.983Z",
     "days_in_stock": 24,
     "is_aging": false
   },
@@ -7077,13 +7077,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000320",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-12",
-    "arrival_date": "2026-01-26",
+    "acquisition_date": "2026-05-31",
+    "arrival_date": "2026-06-14",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-26T23:00:00.000Z",
-    "days_in_stock": 25,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-14T14:48:55.983Z",
+    "days_in_stock": 160,
+    "is_aging": true
   },
   {
     "id": "moto-0321",
@@ -7092,11 +7092,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000321",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-11",
-    "arrival_date": "2026-01-25",
+    "acquisition_date": "2026-10-12",
+    "arrival_date": "2026-10-26",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-25T23:00:00.000Z",
+    "created_at": "2026-10-26T14:48:55.983Z",
     "days_in_stock": 26,
     "is_aging": false
   },
@@ -7107,13 +7107,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000322",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-09-25",
-    "arrival_date": "2025-10-09",
+    "acquisition_date": "2026-10-11",
+    "arrival_date": "2026-10-25",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-09T23:00:00.000Z",
-    "days_in_stock": 134,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-25T14:48:55.983Z",
+    "days_in_stock": 27,
+    "is_aging": false
   },
   {
     "id": "moto-0323",
@@ -7122,11 +7122,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000323",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-09",
-    "arrival_date": "2026-01-23",
+    "acquisition_date": "2026-10-10",
+    "arrival_date": "2026-10-24",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-23T23:00:00.000Z",
+    "created_at": "2026-10-24T14:48:55.983Z",
     "days_in_stock": 28,
     "is_aging": false
   },
@@ -7137,12 +7137,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000324",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-09-23",
-    "arrival_date": "2025-10-07",
+    "acquisition_date": "2026-05-27",
+    "arrival_date": "2026-06-10",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-07T23:00:00.000Z",
-    "days_in_stock": 136,
+    "created_at": "2026-06-10T14:48:55.983Z",
+    "days_in_stock": 164,
     "is_aging": true
   },
   {
@@ -7152,11 +7152,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000325",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-07",
-    "arrival_date": "2026-01-21",
+    "acquisition_date": "2026-10-08",
+    "arrival_date": "2026-10-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-21T23:00:00.000Z",
+    "created_at": "2026-10-22T14:48:55.983Z",
     "days_in_stock": 30,
     "is_aging": false
   },
@@ -7167,11 +7167,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000326",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-10-07",
+    "arrival_date": "2026-10-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
+    "created_at": "2026-10-21T14:48:55.983Z",
     "days_in_stock": 31,
     "is_aging": false
   },
@@ -7182,11 +7182,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000327",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-05",
-    "arrival_date": "2026-01-19",
+    "acquisition_date": "2026-10-06",
+    "arrival_date": "2026-10-20",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-19T23:00:00.000Z",
+    "created_at": "2026-10-20T14:48:55.983Z",
     "days_in_stock": 32,
     "is_aging": false
   },
@@ -7197,13 +7197,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000328",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-04",
-    "arrival_date": "2026-01-18",
+    "acquisition_date": "2026-05-23",
+    "arrival_date": "2026-06-06",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-18T23:00:00.000Z",
-    "days_in_stock": 33,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-06T14:48:55.983Z",
+    "days_in_stock": 168,
+    "is_aging": true
   },
   {
     "id": "moto-0329",
@@ -7212,13 +7212,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000329",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-09-18",
-    "arrival_date": "2025-10-02",
+    "acquisition_date": "2026-10-04",
+    "arrival_date": "2026-10-18",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-10-02T23:00:00.000Z",
-    "days_in_stock": 141,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-18T14:48:55.983Z",
+    "days_in_stock": 34,
+    "is_aging": false
   },
   {
     "id": "moto-0330",
@@ -7227,11 +7227,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000330",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-02",
-    "arrival_date": "2026-01-16",
+    "acquisition_date": "2026-10-03",
+    "arrival_date": "2026-10-17",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-16T23:00:00.000Z",
+    "created_at": "2026-10-17T14:48:55.983Z",
     "days_in_stock": 35,
     "is_aging": false
   },
@@ -7242,11 +7242,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000331",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-01",
-    "arrival_date": "2026-01-15",
+    "acquisition_date": "2026-10-02",
+    "arrival_date": "2026-10-16",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-15T23:00:00.000Z",
+    "created_at": "2026-10-16T14:48:55.983Z",
     "days_in_stock": 36,
     "is_aging": false
   },
@@ -7257,13 +7257,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000332",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-31",
-    "arrival_date": "2026-01-14",
+    "acquisition_date": "2026-05-19",
+    "arrival_date": "2026-06-02",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-14T23:00:00.000Z",
-    "days_in_stock": 37,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-02T14:48:55.983Z",
+    "days_in_stock": 172,
+    "is_aging": true
   },
   {
     "id": "moto-0333",
@@ -7272,13 +7272,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000333",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-09-14",
-    "arrival_date": "2025-09-28",
+    "acquisition_date": "2026-09-30",
+    "arrival_date": "2026-10-14",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-28T23:00:00.000Z",
-    "days_in_stock": 145,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-14T14:48:55.983Z",
+    "days_in_stock": 38,
+    "is_aging": false
   },
   {
     "id": "moto-0334",
@@ -7287,11 +7287,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000334",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-29",
-    "arrival_date": "2026-01-12",
+    "acquisition_date": "2026-09-29",
+    "arrival_date": "2026-10-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-12T23:00:00.000Z",
+    "created_at": "2026-10-13T14:48:55.983Z",
     "days_in_stock": 39,
     "is_aging": false
   },
@@ -7302,11 +7302,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000335",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-28",
-    "arrival_date": "2026-01-11",
+    "acquisition_date": "2026-09-28",
+    "arrival_date": "2026-10-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-11T23:00:00.000Z",
+    "created_at": "2026-10-12T14:48:55.983Z",
     "days_in_stock": 40,
     "is_aging": false
   },
@@ -7317,12 +7317,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000336",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-09-11",
-    "arrival_date": "2025-09-25",
+    "acquisition_date": "2026-05-15",
+    "arrival_date": "2026-05-29",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-25T23:00:00.000Z",
-    "days_in_stock": 148,
+    "created_at": "2026-05-29T14:48:55.983Z",
+    "days_in_stock": 176,
     "is_aging": true
   },
   {
@@ -7332,11 +7332,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000337",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-26",
-    "arrival_date": "2026-01-09",
+    "acquisition_date": "2026-09-26",
+    "arrival_date": "2026-10-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-09T23:00:00.000Z",
+    "created_at": "2026-10-10T14:48:55.983Z",
     "days_in_stock": 42,
     "is_aging": false
   },
@@ -7347,11 +7347,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000338",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-25",
-    "arrival_date": "2026-01-08",
+    "acquisition_date": "2026-09-25",
+    "arrival_date": "2026-10-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-08T23:00:00.000Z",
+    "created_at": "2026-10-09T14:48:55.983Z",
     "days_in_stock": 43,
     "is_aging": false
   },
@@ -7362,11 +7362,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000339",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-24",
-    "arrival_date": "2026-01-07",
+    "acquisition_date": "2026-09-24",
+    "arrival_date": "2026-10-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-07T23:00:00.000Z",
+    "created_at": "2026-10-08T14:48:55.983Z",
     "days_in_stock": 44,
     "is_aging": false
   },
@@ -7377,13 +7377,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000340",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-08-04",
+    "arrival_date": "2026-08-18",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-06T23:00:00.000Z",
-    "days_in_stock": 45,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-18T14:48:55.983Z",
+    "days_in_stock": 95,
+    "is_aging": true
   },
   {
     "id": "moto-0341",
@@ -7392,11 +7392,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000341",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-22",
-    "arrival_date": "2026-01-05",
+    "acquisition_date": "2026-09-22",
+    "arrival_date": "2026-10-06",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-05T23:00:00.000Z",
+    "created_at": "2026-10-06T14:48:55.983Z",
     "days_in_stock": 46,
     "is_aging": false
   },
@@ -7407,14 +7407,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000342",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-09-05",
-    "arrival_date": "2025-09-19",
+    "acquisition_date": "2026-09-21",
+    "arrival_date": "2026-10-05",
     "status": "sold",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-09-19T23:00:00.000Z",
-    "days_in_stock": 154,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-05T14:48:55.983Z",
+    "days_in_stock": 47,
+    "is_aging": false
   },
   {
     "id": "moto-0343",
@@ -7423,13 +7423,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000343",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-09-04",
-    "arrival_date": "2025-09-18",
+    "acquisition_date": "2026-09-20",
+    "arrival_date": "2026-10-04",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-18T23:00:00.000Z",
-    "days_in_stock": 155,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-04T14:48:55.983Z",
+    "days_in_stock": 48,
+    "is_aging": false
   },
   {
     "id": "moto-0344",
@@ -7438,13 +7438,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000344",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-19",
-    "arrival_date": "2026-01-02",
+    "acquisition_date": "2026-07-31",
+    "arrival_date": "2026-08-14",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-02T23:00:00.000Z",
-    "days_in_stock": 49,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-14T14:48:55.983Z",
+    "days_in_stock": 99,
+    "is_aging": true
   },
   {
     "id": "moto-0345",
@@ -7453,11 +7453,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000345",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-18",
-    "arrival_date": "2026-01-01",
+    "acquisition_date": "2026-09-18",
+    "arrival_date": "2026-10-02",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-01T23:00:00.000Z",
+    "created_at": "2026-10-02T14:48:55.983Z",
     "days_in_stock": 50,
     "is_aging": false
   },
@@ -7468,11 +7468,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000346",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-17",
-    "arrival_date": "2025-12-31",
+    "acquisition_date": "2026-09-17",
+    "arrival_date": "2026-10-01",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-31T23:00:00.000Z",
+    "created_at": "2026-10-01T14:48:55.983Z",
     "days_in_stock": 51,
     "is_aging": false
   },
@@ -7483,11 +7483,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000347",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-16",
-    "arrival_date": "2025-12-30",
+    "acquisition_date": "2026-09-16",
+    "arrival_date": "2026-09-30",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-30T23:00:00.000Z",
+    "created_at": "2026-09-30T14:48:55.983Z",
     "days_in_stock": 52,
     "is_aging": false
   },
@@ -7498,13 +7498,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000348",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-15",
-    "arrival_date": "2025-12-29",
+    "acquisition_date": "2026-07-27",
+    "arrival_date": "2026-08-10",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-29T23:00:00.000Z",
-    "days_in_stock": 53,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-10T14:48:55.983Z",
+    "days_in_stock": 103,
+    "is_aging": true
   },
   {
     "id": "moto-0349",
@@ -7513,11 +7513,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000349",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-12-14",
-    "arrival_date": "2025-12-28",
+    "acquisition_date": "2026-09-14",
+    "arrival_date": "2026-09-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-28T23:00:00.000Z",
+    "created_at": "2026-09-28T14:48:55.983Z",
     "days_in_stock": 54,
     "is_aging": false
   },
@@ -7528,13 +7528,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000350",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-08-28",
-    "arrival_date": "2025-09-11",
+    "acquisition_date": "2026-09-13",
+    "arrival_date": "2026-09-27",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-11T23:00:00.000Z",
-    "days_in_stock": 162,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-27T14:48:55.983Z",
+    "days_in_stock": 55,
+    "is_aging": false
   },
   {
     "id": "moto-0351",
@@ -7543,13 +7543,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000351",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-08-27",
-    "arrival_date": "2025-09-10",
+    "acquisition_date": "2026-09-12",
+    "arrival_date": "2026-09-26",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-10T23:00:00.000Z",
-    "days_in_stock": 163,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-26T14:48:55.983Z",
+    "days_in_stock": 56,
+    "is_aging": false
   },
   {
     "id": "moto-0352",
@@ -7558,13 +7558,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000352",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-11",
-    "arrival_date": "2025-12-25",
+    "acquisition_date": "2026-07-23",
+    "arrival_date": "2026-08-06",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-25T23:00:00.000Z",
-    "days_in_stock": 57,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-06T14:48:55.983Z",
+    "days_in_stock": 107,
+    "is_aging": true
   },
   {
     "id": "moto-0353",
@@ -7573,11 +7573,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000353",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-10",
-    "arrival_date": "2025-12-24",
+    "acquisition_date": "2026-09-10",
+    "arrival_date": "2026-09-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-24T23:00:00.000Z",
+    "created_at": "2026-09-24T14:48:55.983Z",
     "days_in_stock": 58,
     "is_aging": false
   },
@@ -7588,11 +7588,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000354",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-09",
-    "arrival_date": "2025-12-23",
+    "acquisition_date": "2026-09-09",
+    "arrival_date": "2026-09-23",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-23T23:00:00.000Z",
+    "created_at": "2026-09-23T14:48:55.983Z",
     "days_in_stock": 59,
     "is_aging": false
   },
@@ -7603,11 +7603,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000355",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-08",
-    "arrival_date": "2025-12-22",
+    "acquisition_date": "2026-09-08",
+    "arrival_date": "2026-09-22",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-22T23:00:00.000Z",
+    "created_at": "2026-09-22T14:48:55.983Z",
     "days_in_stock": 60,
     "is_aging": false
   },
@@ -7618,13 +7618,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000356",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-07",
-    "arrival_date": "2025-12-21",
+    "acquisition_date": "2026-07-19",
+    "arrival_date": "2026-08-02",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-21T23:00:00.000Z",
-    "days_in_stock": 61,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-08-02T14:48:55.983Z",
+    "days_in_stock": 111,
+    "is_aging": true
   },
   {
     "id": "moto-0357",
@@ -7633,13 +7633,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000357",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-08-21",
-    "arrival_date": "2025-09-04",
+    "acquisition_date": "2026-09-06",
+    "arrival_date": "2026-09-20",
     "status": "in_transfer",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-04T23:00:00.000Z",
-    "days_in_stock": 169,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-20T14:48:55.983Z",
+    "days_in_stock": 62,
+    "is_aging": false
   },
   {
     "id": "moto-0358",
@@ -7648,11 +7648,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000358",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-12-05",
-    "arrival_date": "2025-12-19",
+    "acquisition_date": "2026-09-05",
+    "arrival_date": "2026-09-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-19T23:00:00.000Z",
+    "created_at": "2026-09-19T14:48:55.983Z",
     "days_in_stock": 63,
     "is_aging": false
   },
@@ -7663,11 +7663,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000359",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-04",
-    "arrival_date": "2025-12-18",
+    "acquisition_date": "2026-09-04",
+    "arrival_date": "2026-09-18",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-18T23:00:00.000Z",
+    "created_at": "2026-09-18T14:48:55.983Z",
     "days_in_stock": 64,
     "is_aging": false
   },
@@ -7678,12 +7678,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000360",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-08-18",
-    "arrival_date": "2025-09-01",
+    "acquisition_date": "2026-07-15",
+    "arrival_date": "2026-07-29",
     "status": "reserved",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-09-01T23:00:00.000Z",
-    "days_in_stock": 172,
+    "created_at": "2026-07-29T14:48:55.983Z",
+    "days_in_stock": 115,
     "is_aging": true
   },
   {
@@ -7693,12 +7693,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000361",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-02",
-    "arrival_date": "2025-12-16",
+    "acquisition_date": "2026-09-02",
+    "arrival_date": "2026-09-16",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-12-16T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-09-16T14:48:55.983Z",
     "days_in_stock": 66,
     "is_aging": false
   },
@@ -7709,11 +7709,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000362",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-01",
-    "arrival_date": "2025-12-15",
+    "acquisition_date": "2026-09-01",
+    "arrival_date": "2026-09-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-15T23:00:00.000Z",
+    "created_at": "2026-09-15T14:48:55.983Z",
     "days_in_stock": 67,
     "is_aging": false
   },
@@ -7724,11 +7724,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000363",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-11-30",
-    "arrival_date": "2025-12-14",
+    "acquisition_date": "2026-08-31",
+    "arrival_date": "2026-09-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-14T23:00:00.000Z",
+    "created_at": "2026-09-14T14:48:55.983Z",
     "days_in_stock": 68,
     "is_aging": false
   },
@@ -7739,12 +7739,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000364",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-08-14",
-    "arrival_date": "2025-08-28",
+    "acquisition_date": "2026-07-11",
+    "arrival_date": "2026-07-25",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-28T23:00:00.000Z",
-    "days_in_stock": 176,
+    "created_at": "2026-07-25T14:48:55.983Z",
+    "days_in_stock": 119,
     "is_aging": true
   },
   {
@@ -7754,11 +7754,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000365",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-28",
-    "arrival_date": "2025-12-12",
+    "acquisition_date": "2026-08-29",
+    "arrival_date": "2026-09-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-12T23:00:00.000Z",
+    "created_at": "2026-09-12T14:48:55.983Z",
     "days_in_stock": 70,
     "is_aging": false
   },
@@ -7769,11 +7769,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000366",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-11-27",
-    "arrival_date": "2025-12-11",
+    "acquisition_date": "2026-08-28",
+    "arrival_date": "2026-09-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-11T23:00:00.000Z",
+    "created_at": "2026-09-11T14:48:55.983Z",
     "days_in_stock": 71,
     "is_aging": false
   },
@@ -7784,11 +7784,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000367",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-11-26",
-    "arrival_date": "2025-12-10",
+    "acquisition_date": "2026-08-27",
+    "arrival_date": "2026-09-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-10T23:00:00.000Z",
+    "created_at": "2026-09-10T14:48:55.983Z",
     "days_in_stock": 72,
     "is_aging": false
   },
@@ -7799,13 +7799,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000368",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-11-25",
-    "arrival_date": "2025-12-09",
+    "acquisition_date": "2026-07-07",
+    "arrival_date": "2026-07-21",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-09T23:00:00.000Z",
-    "days_in_stock": 73,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-21T14:48:55.983Z",
+    "days_in_stock": 123,
+    "is_aging": true
   },
   {
     "id": "moto-0369",
@@ -7814,13 +7814,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000369",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-08-09",
-    "arrival_date": "2025-08-23",
+    "acquisition_date": "2026-08-25",
+    "arrival_date": "2026-09-08",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-23T23:00:00.000Z",
-    "days_in_stock": 181,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-08T14:48:55.983Z",
+    "days_in_stock": 74,
+    "is_aging": false
   },
   {
     "id": "moto-0370",
@@ -7829,11 +7829,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000370",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-11-23",
-    "arrival_date": "2025-12-07",
+    "acquisition_date": "2026-08-24",
+    "arrival_date": "2026-09-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-07T23:00:00.000Z",
+    "created_at": "2026-09-07T14:48:55.983Z",
     "days_in_stock": 75,
     "is_aging": false
   },
@@ -7844,13 +7844,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000371",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-08-07",
-    "arrival_date": "2025-08-21",
+    "acquisition_date": "2026-08-23",
+    "arrival_date": "2026-09-06",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-21T23:00:00.000Z",
-    "days_in_stock": 183,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-09-06T14:48:55.983Z",
+    "days_in_stock": 76,
+    "is_aging": false
   },
   {
     "id": "moto-0372",
@@ -7859,13 +7859,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000372",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-21",
-    "arrival_date": "2025-12-05",
+    "acquisition_date": "2026-07-03",
+    "arrival_date": "2026-07-17",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-05T23:00:00.000Z",
-    "days_in_stock": 77,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-17T14:48:55.983Z",
+    "days_in_stock": 127,
+    "is_aging": true
   },
   {
     "id": "moto-0373",
@@ -7874,11 +7874,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000373",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-11-20",
-    "arrival_date": "2025-12-04",
+    "acquisition_date": "2026-08-21",
+    "arrival_date": "2026-09-04",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-04T23:00:00.000Z",
+    "created_at": "2026-09-04T14:48:55.983Z",
     "days_in_stock": 78,
     "is_aging": false
   },
@@ -7889,11 +7889,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000374",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-11-19",
-    "arrival_date": "2025-12-03",
+    "acquisition_date": "2026-08-20",
+    "arrival_date": "2026-09-03",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2025-12-03T23:00:00.000Z",
+    "created_at": "2026-09-03T14:48:55.983Z",
     "days_in_stock": 79,
     "is_aging": false
   },
@@ -7904,11 +7904,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000375",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-02-01",
-    "arrival_date": "2026-02-15",
+    "acquisition_date": "2026-11-02",
+    "arrival_date": "2026-11-16",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-15T23:00:00.000Z",
+    "created_at": "2026-11-16T14:48:55.983Z",
     "days_in_stock": 5,
     "is_aging": false
   },
@@ -7919,13 +7919,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000376",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-31",
-    "arrival_date": "2026-02-14",
+    "acquisition_date": "2026-06-29",
+    "arrival_date": "2026-07-13",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-14T23:00:00.000Z",
-    "days_in_stock": 6,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-13T14:48:55.983Z",
+    "days_in_stock": 131,
+    "is_aging": true
   },
   {
     "id": "moto-0377",
@@ -7934,11 +7934,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000377",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-30",
-    "arrival_date": "2026-02-13",
+    "acquisition_date": "2026-10-31",
+    "arrival_date": "2026-11-14",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-13T23:00:00.000Z",
+    "created_at": "2026-11-14T14:48:55.983Z",
     "days_in_stock": 7,
     "is_aging": false
   },
@@ -7949,13 +7949,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000378",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-07-31",
-    "arrival_date": "2025-08-14",
+    "acquisition_date": "2026-10-30",
+    "arrival_date": "2026-11-13",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-14T23:00:00.000Z",
-    "days_in_stock": 190,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-13T14:48:55.983Z",
+    "days_in_stock": 8,
+    "is_aging": false
   },
   {
     "id": "moto-0379",
@@ -7964,11 +7964,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000379",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-28",
-    "arrival_date": "2026-02-11",
+    "acquisition_date": "2026-10-29",
+    "arrival_date": "2026-11-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-11T23:00:00.000Z",
+    "created_at": "2026-11-12T14:48:55.983Z",
     "days_in_stock": 9,
     "is_aging": false
   },
@@ -7979,14 +7979,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000380",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-27",
-    "arrival_date": "2026-02-10",
+    "acquisition_date": "2026-06-25",
+    "arrival_date": "2026-07-09",
     "status": "sold",
-    "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-02-10T23:00:00.000Z",
-    "days_in_stock": 10,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-07-09T14:48:55.983Z",
+    "days_in_stock": 135,
+    "is_aging": true
   },
   {
     "id": "moto-0381",
@@ -7995,11 +7995,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000381",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-26",
-    "arrival_date": "2026-02-09",
+    "acquisition_date": "2026-10-27",
+    "arrival_date": "2026-11-10",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-09T23:00:00.000Z",
+    "created_at": "2026-11-10T14:48:55.983Z",
     "days_in_stock": 11,
     "is_aging": false
   },
@@ -8010,11 +8010,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000382",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-25",
-    "arrival_date": "2026-02-08",
+    "acquisition_date": "2026-10-26",
+    "arrival_date": "2026-11-09",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-08T23:00:00.000Z",
+    "created_at": "2026-11-09T14:48:55.983Z",
     "days_in_stock": 12,
     "is_aging": false
   },
@@ -8025,11 +8025,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000383",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-24",
-    "arrival_date": "2026-02-07",
+    "acquisition_date": "2026-10-25",
+    "arrival_date": "2026-11-08",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-07T23:00:00.000Z",
+    "created_at": "2026-11-08T14:48:55.983Z",
     "days_in_stock": 13,
     "is_aging": false
   },
@@ -8040,13 +8040,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000384",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-23",
-    "arrival_date": "2026-02-06",
+    "acquisition_date": "2026-06-21",
+    "arrival_date": "2026-07-05",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-06T23:00:00.000Z",
-    "days_in_stock": 14,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-05T14:48:55.983Z",
+    "days_in_stock": 139,
+    "is_aging": true
   },
   {
     "id": "moto-0385",
@@ -8055,13 +8055,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000385",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-07-24",
-    "arrival_date": "2025-08-07",
+    "acquisition_date": "2026-10-23",
+    "arrival_date": "2026-11-06",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-07T23:00:00.000Z",
-    "days_in_stock": 197,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-06T14:48:55.983Z",
+    "days_in_stock": 15,
+    "is_aging": false
   },
   {
     "id": "moto-0386",
@@ -8070,11 +8070,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000386",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-21",
-    "arrival_date": "2026-02-04",
+    "acquisition_date": "2026-10-22",
+    "arrival_date": "2026-11-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-04T23:00:00.000Z",
+    "created_at": "2026-11-05T14:48:55.983Z",
     "days_in_stock": 16,
     "is_aging": false
   },
@@ -8085,13 +8085,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000387",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-07-22",
-    "arrival_date": "2025-08-05",
+    "acquisition_date": "2026-10-21",
+    "arrival_date": "2026-11-04",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-08-05T23:00:00.000Z",
-    "days_in_stock": 199,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-11-04T14:48:55.983Z",
+    "days_in_stock": 17,
+    "is_aging": false
   },
   {
     "id": "moto-0388",
@@ -8100,13 +8100,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000388",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-19",
-    "arrival_date": "2026-02-02",
+    "acquisition_date": "2026-06-17",
+    "arrival_date": "2026-07-01",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-02T23:00:00.000Z",
-    "days_in_stock": 18,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-07-01T14:48:55.983Z",
+    "days_in_stock": 143,
+    "is_aging": true
   },
   {
     "id": "moto-0389",
@@ -8115,11 +8115,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000389",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-18",
-    "arrival_date": "2026-02-01",
+    "acquisition_date": "2026-10-19",
+    "arrival_date": "2026-11-02",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-02-01T23:00:00.000Z",
+    "created_at": "2026-11-02T14:48:55.983Z",
     "days_in_stock": 19,
     "is_aging": false
   },
@@ -8130,11 +8130,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000390",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-17",
-    "arrival_date": "2026-01-31",
+    "acquisition_date": "2026-10-18",
+    "arrival_date": "2026-11-01",
     "status": "reserved",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-31T23:00:00.000Z",
+    "created_at": "2026-11-01T14:48:55.983Z",
     "days_in_stock": 20,
     "is_aging": false
   },
@@ -8145,11 +8145,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000391",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2026-01-16",
-    "arrival_date": "2026-01-30",
+    "acquisition_date": "2026-10-17",
+    "arrival_date": "2026-10-31",
     "status": "in_transfer",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-30T23:00:00.000Z",
+    "created_at": "2026-10-31T14:48:55.983Z",
     "days_in_stock": 21,
     "is_aging": false
   },
@@ -8160,12 +8160,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000392",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-07-17",
-    "arrival_date": "2025-07-31",
+    "acquisition_date": "2026-06-13",
+    "arrival_date": "2026-06-27",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-31T23:00:00.000Z",
-    "days_in_stock": 204,
+    "created_at": "2026-06-27T14:48:55.983Z",
+    "days_in_stock": 147,
     "is_aging": true
   },
   {
@@ -8175,11 +8175,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000393",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-14",
-    "arrival_date": "2026-01-28",
+    "acquisition_date": "2026-10-15",
+    "arrival_date": "2026-10-29",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-28T23:00:00.000Z",
+    "created_at": "2026-10-29T14:48:55.983Z",
     "days_in_stock": 23,
     "is_aging": false
   },
@@ -8190,11 +8190,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000394",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-13",
-    "arrival_date": "2026-01-27",
+    "acquisition_date": "2026-10-14",
+    "arrival_date": "2026-10-28",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-27T23:00:00.000Z",
+    "created_at": "2026-10-28T14:48:55.983Z",
     "days_in_stock": 24,
     "is_aging": false
   },
@@ -8205,11 +8205,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000395",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-12",
-    "arrival_date": "2026-01-26",
+    "acquisition_date": "2026-10-13",
+    "arrival_date": "2026-10-27",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-26T23:00:00.000Z",
+    "created_at": "2026-10-27T14:48:55.983Z",
     "days_in_stock": 25,
     "is_aging": false
   },
@@ -8220,12 +8220,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000396",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-07-13",
-    "arrival_date": "2025-07-27",
+    "acquisition_date": "2026-06-09",
+    "arrival_date": "2026-06-23",
     "status": "available",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-27T23:00:00.000Z",
-    "days_in_stock": 208,
+    "created_at": "2026-06-23T14:48:55.983Z",
+    "days_in_stock": 151,
     "is_aging": true
   },
   {
@@ -8235,11 +8235,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000397",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2026-01-10",
-    "arrival_date": "2026-01-24",
+    "acquisition_date": "2026-10-11",
+    "arrival_date": "2026-10-25",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-24T23:00:00.000Z",
+    "created_at": "2026-10-25T14:48:55.983Z",
     "days_in_stock": 27,
     "is_aging": false
   },
@@ -8250,11 +8250,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000398",
     "color": "Gris Titane",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2026-01-09",
-    "arrival_date": "2026-01-23",
+    "acquisition_date": "2026-10-10",
+    "arrival_date": "2026-10-24",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-23T23:00:00.000Z",
+    "created_at": "2026-10-24T14:48:55.983Z",
     "days_in_stock": 28,
     "is_aging": false
   },
@@ -8265,14 +8265,14 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000399",
     "color": "Bleu Nuit",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-07-10",
-    "arrival_date": "2025-07-24",
+    "acquisition_date": "2026-10-09",
+    "arrival_date": "2026-10-23",
     "status": "sold",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "sale_date": "2026-02-17",
-    "created_at": "2025-07-24T23:00:00.000Z",
-    "days_in_stock": 211,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-23T14:48:55.983Z",
+    "days_in_stock": 29,
+    "is_aging": false
   },
   {
     "id": "moto-0400",
@@ -8281,13 +8281,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000400",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2026-01-07",
-    "arrival_date": "2026-01-21",
+    "acquisition_date": "2026-06-05",
+    "arrival_date": "2026-06-19",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-21T23:00:00.000Z",
-    "days_in_stock": 30,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-19T14:48:55.983Z",
+    "days_in_stock": 155,
+    "is_aging": true
   },
   {
     "id": "moto-0401",
@@ -8296,11 +8296,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000401",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2026-01-06",
-    "arrival_date": "2026-01-20",
+    "acquisition_date": "2026-10-07",
+    "arrival_date": "2026-10-21",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-20T23:00:00.000Z",
+    "created_at": "2026-10-21T14:48:55.983Z",
     "days_in_stock": 31,
     "is_aging": false
   },
@@ -8311,11 +8311,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000402",
     "color": "Noir Mat",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2026-01-05",
-    "arrival_date": "2026-01-19",
+    "acquisition_date": "2026-10-06",
+    "arrival_date": "2026-10-20",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-19T23:00:00.000Z",
+    "created_at": "2026-10-20T14:48:55.983Z",
     "days_in_stock": 32,
     "is_aging": false
   },
@@ -8326,11 +8326,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000403",
     "color": "Blanc Nacre",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2026-01-04",
-    "arrival_date": "2026-01-18",
+    "acquisition_date": "2026-10-05",
+    "arrival_date": "2026-10-19",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-18T23:00:00.000Z",
+    "created_at": "2026-10-19T14:48:55.983Z",
     "days_in_stock": 33,
     "is_aging": false
   },
@@ -8341,13 +8341,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000404",
     "color": "Gris Titane",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2026-01-03",
-    "arrival_date": "2026-01-17",
+    "acquisition_date": "2026-06-01",
+    "arrival_date": "2026-06-15",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-17T23:00:00.000Z",
-    "days_in_stock": 34,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-15T14:48:55.983Z",
+    "days_in_stock": 159,
+    "is_aging": true
   },
   {
     "id": "moto-0405",
@@ -8356,13 +8356,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000405",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-07-04",
-    "arrival_date": "2025-07-18",
+    "acquisition_date": "2026-10-03",
+    "arrival_date": "2026-10-17",
     "status": "reserved",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-18T23:00:00.000Z",
-    "days_in_stock": 217,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-17T14:48:55.983Z",
+    "days_in_stock": 35,
+    "is_aging": false
   },
   {
     "id": "moto-0406",
@@ -8371,13 +8371,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000406",
     "color": "Rouge VMS Racing",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-07-03",
-    "arrival_date": "2025-07-17",
+    "acquisition_date": "2026-10-02",
+    "arrival_date": "2026-10-16",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-17T23:00:00.000Z",
-    "days_in_stock": 218,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-16T14:48:55.983Z",
+    "days_in_stock": 36,
+    "is_aging": false
   },
   {
     "id": "moto-0407",
@@ -8386,11 +8386,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000407",
     "color": "Jaune Sport",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-31",
-    "arrival_date": "2026-01-14",
+    "acquisition_date": "2026-10-01",
+    "arrival_date": "2026-10-15",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-14T23:00:00.000Z",
+    "created_at": "2026-10-15T14:48:55.983Z",
     "days_in_stock": 37,
     "is_aging": false
   },
@@ -8401,13 +8401,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000408",
     "color": "Noir Mat",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-30",
-    "arrival_date": "2026-01-13",
+    "acquisition_date": "2026-05-28",
+    "arrival_date": "2026-06-11",
     "status": "in_transfer",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-13T23:00:00.000Z",
-    "days_in_stock": 38,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-11T14:48:55.983Z",
+    "days_in_stock": 163,
+    "is_aging": true
   },
   {
     "id": "moto-0409",
@@ -8416,11 +8416,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000409",
     "color": "Blanc Nacre",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-29",
-    "arrival_date": "2026-01-12",
+    "acquisition_date": "2026-09-29",
+    "arrival_date": "2026-10-13",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-12T23:00:00.000Z",
+    "created_at": "2026-10-13T14:48:55.983Z",
     "days_in_stock": 39,
     "is_aging": false
   },
@@ -8431,11 +8431,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000410",
     "color": "Gris Titane",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-28",
-    "arrival_date": "2026-01-11",
+    "acquisition_date": "2026-09-28",
+    "arrival_date": "2026-10-12",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-11T23:00:00.000Z",
+    "created_at": "2026-10-12T14:48:55.983Z",
     "days_in_stock": 40,
     "is_aging": false
   },
@@ -8446,11 +8446,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000411",
     "color": "Bleu Nuit",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-27",
-    "arrival_date": "2026-01-10",
+    "acquisition_date": "2026-09-27",
+    "arrival_date": "2026-10-11",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-10T23:00:00.000Z",
+    "created_at": "2026-10-11T14:48:55.983Z",
     "days_in_stock": 41,
     "is_aging": false
   },
@@ -8461,13 +8461,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000412",
     "color": "Rouge VMS Racing",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-12-26",
-    "arrival_date": "2026-01-09",
+    "acquisition_date": "2026-05-24",
+    "arrival_date": "2026-06-07",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-09T23:00:00.000Z",
-    "days_in_stock": 42,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-07T14:48:55.983Z",
+    "days_in_stock": 167,
+    "is_aging": true
   },
   {
     "id": "moto-0413",
@@ -8476,13 +8476,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000413",
     "color": "Jaune Sport",
     "engine_specs": "150cc • Air forcé • EFI",
-    "acquisition_date": "2025-06-26",
-    "arrival_date": "2025-07-10",
+    "acquisition_date": "2026-09-25",
+    "arrival_date": "2026-10-09",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-10T23:00:00.000Z",
-    "days_in_stock": 225,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-09T14:48:55.983Z",
+    "days_in_stock": 43,
+    "is_aging": false
   },
   {
     "id": "moto-0414",
@@ -8491,13 +8491,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000414",
     "color": "Noir Mat",
     "engine_specs": "125cc • Liquide • EFI",
-    "acquisition_date": "2025-06-25",
-    "arrival_date": "2025-07-09",
+    "acquisition_date": "2026-09-24",
+    "arrival_date": "2026-10-08",
     "status": "available",
-    "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-07-09T23:00:00.000Z",
-    "days_in_stock": 226,
-    "is_aging": true
+    "notes": "Contrôle qualité VMS usine validé",
+    "created_at": "2026-10-08T14:48:55.983Z",
+    "days_in_stock": 44,
+    "is_aging": false
   },
   {
     "id": "moto-0415",
@@ -8506,11 +8506,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000415",
     "color": "Blanc Nacre",
     "engine_specs": "500cc • Liquide • EFI Double Papillon",
-    "acquisition_date": "2025-12-23",
-    "arrival_date": "2026-01-06",
+    "acquisition_date": "2026-09-23",
+    "arrival_date": "2026-10-07",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-06T23:00:00.000Z",
+    "created_at": "2026-10-07T14:48:55.983Z",
     "days_in_stock": 45,
     "is_aging": false
   },
@@ -8521,13 +8521,13 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000416",
     "color": "Gris Titane",
     "engine_specs": "125cc • Air • Carburateur optimisé",
-    "acquisition_date": "2025-12-22",
-    "arrival_date": "2026-01-05",
+    "acquisition_date": "2026-05-20",
+    "arrival_date": "2026-06-03",
     "status": "available",
-    "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-05T23:00:00.000Z",
-    "days_in_stock": 46,
-    "is_aging": false
+    "notes": "Stock dormant éligible Compte Global (>90j)",
+    "created_at": "2026-06-03T14:48:55.983Z",
+    "days_in_stock": 171,
+    "is_aging": true
   },
   {
     "id": "moto-0417",
@@ -8536,11 +8536,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000417",
     "color": "Bleu Nuit",
     "engine_specs": "150cc • Liquide • EFI Delphi",
-    "acquisition_date": "2025-12-21",
-    "arrival_date": "2026-01-04",
+    "acquisition_date": "2026-09-21",
+    "arrival_date": "2026-10-05",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-04T23:00:00.000Z",
+    "created_at": "2026-10-05T14:48:55.983Z",
     "days_in_stock": 47,
     "is_aging": false
   },
@@ -8551,12 +8551,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000418",
     "color": "Rouge VMS Racing",
     "engine_specs": "110cc • Air • Carburateur",
-    "acquisition_date": "2025-12-20",
-    "arrival_date": "2026-01-03",
+    "acquisition_date": "2026-09-20",
+    "arrival_date": "2026-10-04",
     "status": "sold",
     "notes": "Contrôle qualité VMS usine validé",
-    "sale_date": "2026-02-17",
-    "created_at": "2026-01-03T23:00:00.000Z",
+    "sale_date": "2026-11-18",
+    "created_at": "2026-10-04T14:48:55.983Z",
     "days_in_stock": 48,
     "is_aging": false
   },
@@ -8567,11 +8567,11 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000419",
     "color": "Jaune Sport",
     "engine_specs": "125cc • Air • Carburateur",
-    "acquisition_date": "2025-12-19",
-    "arrival_date": "2026-01-02",
+    "acquisition_date": "2026-09-19",
+    "arrival_date": "2026-10-03",
     "status": "available",
     "notes": "Contrôle qualité VMS usine validé",
-    "created_at": "2026-01-02T23:00:00.000Z",
+    "created_at": "2026-10-03T14:48:55.983Z",
     "days_in_stock": 49,
     "is_aging": false
   },
@@ -8582,12 +8582,12 @@ export const INITIAL_MOTORCYCLES: Motorcycle[] = [
     "vin": "VMS2026DZ000420",
     "color": "Noir Mat",
     "engine_specs": "175cc • Liquide • EFI Bosch",
-    "acquisition_date": "2025-11-06",
-    "arrival_date": "2025-11-20",
+    "acquisition_date": "2026-05-16",
+    "arrival_date": "2026-05-30",
     "status": "reserved",
     "notes": "Stock dormant éligible Compte Global (>90j)",
-    "created_at": "2025-11-20T23:00:00.000Z",
-    "days_in_stock": 92,
+    "created_at": "2026-05-30T14:48:55.983Z",
+    "days_in_stock": 175,
     "is_aging": true
   }
 ];
@@ -8607,7 +8607,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "02",
     "city": "Ténès",
     "status": "pending",
-    "created_at": "2026-02-07T22:00:00.000Z"
+    "created_at": "2026-11-08T13:48:55.983Z"
   },
   {
     "id": "req-0002",
@@ -8621,7 +8621,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "03",
     "city": "Laghouat Centre",
     "status": "pending",
-    "created_at": "2026-01-25T21:00:00.000Z"
+    "created_at": "2026-10-26T12:48:55.983Z"
   },
   {
     "id": "req-0003",
@@ -8635,7 +8635,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "04",
     "city": "Oum El Bouaghi Ouest",
     "status": "pending",
-    "created_at": "2026-01-12T20:00:00.000Z"
+    "created_at": "2026-10-13T11:48:55.983Z"
   },
   {
     "id": "req-0004",
@@ -8650,8 +8650,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Batna Ville",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-05-32",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-08T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-09T10:48:55.983Z"
   },
   {
     "id": "req-0005",
@@ -8665,7 +8665,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "06",
     "city": "Amizour",
     "status": "pending",
-    "created_at": "2026-01-26T18:00:00.000Z"
+    "created_at": "2026-10-27T09:48:55.983Z"
   },
   {
     "id": "req-0006",
@@ -8680,9 +8680,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Biskra",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-07-50",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-13T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-14T08:48:55.983Z"
   },
   {
     "id": "req-0007",
@@ -8696,7 +8696,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "08",
     "city": "Béni Ounif",
     "status": "pending",
-    "created_at": "2026-02-09T16:00:00.000Z"
+    "created_at": "2026-11-10T07:48:55.983Z"
   },
   {
     "id": "req-0008",
@@ -8711,8 +8711,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mouzaïa",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-09-26",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-27T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-28T06:48:55.983Z"
   },
   {
     "id": "req-0009",
@@ -8726,7 +8726,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "10",
     "city": "Bouira",
     "status": "pending",
-    "created_at": "2026-01-14T14:00:00.000Z"
+    "created_at": "2026-10-15T05:48:55.983Z"
   },
   {
     "id": "req-0010",
@@ -8741,7 +8741,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tamanrasset Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "req-0011",
@@ -8755,7 +8755,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "12",
     "city": "El Aouinet",
     "status": "pending",
-    "created_at": "2026-01-28T12:00:00.000Z"
+    "created_at": "2026-10-29T03:48:55.983Z"
   },
   {
     "id": "req-0012",
@@ -8770,9 +8770,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tlemcen Ville",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-13-36",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-15T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-16T02:48:55.983Z"
   },
   {
     "id": "req-0013",
@@ -8786,7 +8786,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "14",
     "city": "Sougueur",
     "status": "pending",
-    "created_at": "2026-02-11T10:00:00.000Z"
+    "created_at": "2026-11-12T01:48:55.983Z"
   },
   {
     "id": "req-0014",
@@ -8800,7 +8800,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "15",
     "city": "Draa Ben Khedda",
     "status": "pending",
-    "created_at": "2026-01-29T09:00:00.000Z"
+    "created_at": "2026-10-30T00:48:55.983Z"
   },
   {
     "id": "req-0015",
@@ -8814,7 +8814,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "16",
     "city": "Chéraga",
     "status": "pending",
-    "created_at": "2026-01-16T08:00:00.000Z"
+    "created_at": "2026-10-16T23:48:55.983Z"
   },
   {
     "id": "req-0016",
@@ -8829,8 +8829,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Aïn Oussera",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-17-48",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-12T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-12T22:48:55.983Z"
   },
   {
     "id": "req-0017",
@@ -8844,7 +8844,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "18",
     "city": "El Milia",
     "status": "pending",
-    "created_at": "2026-01-30T06:00:00.000Z"
+    "created_at": "2026-10-30T21:48:55.983Z"
   },
   {
     "id": "req-0018",
@@ -8859,9 +8859,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Aïn Arnat",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-19-23",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-17T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-17T20:48:55.983Z"
   },
   {
     "id": "req-0019",
@@ -8875,7 +8875,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "20",
     "city": "Youb",
     "status": "pending",
-    "created_at": "2026-02-13T04:00:00.000Z"
+    "created_at": "2026-11-13T19:48:55.983Z"
   },
   {
     "id": "req-0020",
@@ -8890,7 +8890,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Collo",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   },
   {
     "id": "req-0021",
@@ -8904,7 +8904,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "22",
     "city": "Sidi Bel Abbès",
     "status": "pending",
-    "created_at": "2026-01-18T02:00:00.000Z"
+    "created_at": "2026-10-18T17:48:55.983Z"
   },
   {
     "id": "req-0022",
@@ -8918,7 +8918,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "23",
     "city": "Sidi Amar",
     "status": "pending",
-    "created_at": "2026-02-14T01:00:00.000Z"
+    "created_at": "2026-11-14T16:48:55.983Z"
   },
   {
     "id": "req-0023",
@@ -8932,7 +8932,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "24",
     "city": "Bouchegouf",
     "status": "pending",
-    "created_at": "2026-02-01T00:00:00.000Z"
+    "created_at": "2026-11-01T15:48:55.983Z"
   },
   {
     "id": "req-0024",
@@ -8947,9 +8947,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Didouche Mourad",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-25-20",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-19T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-20T14:48:55.983Z"
   },
   {
     "id": "req-0025",
@@ -8963,7 +8963,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "26",
     "city": "Berrouaghia",
     "status": "pending",
-    "created_at": "2026-02-15T22:00:00.000Z"
+    "created_at": "2026-11-16T13:48:55.983Z"
   },
   {
     "id": "req-0026",
@@ -8977,7 +8977,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "27",
     "city": "Sidi Ali",
     "status": "pending",
-    "created_at": "2026-02-02T21:00:00.000Z"
+    "created_at": "2026-11-03T12:48:55.983Z"
   },
   {
     "id": "req-0027",
@@ -8991,7 +8991,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "28",
     "city": "M'Sila",
     "status": "pending",
-    "created_at": "2026-01-20T20:00:00.000Z"
+    "created_at": "2026-10-21T11:48:55.983Z"
   },
   {
     "id": "req-0028",
@@ -9006,8 +9006,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tighennif",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-29-54",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-16T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-17T10:48:55.983Z"
   },
   {
     "id": "req-0029",
@@ -9021,7 +9021,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "30",
     "city": "Touggourt",
     "status": "pending",
-    "created_at": "2026-02-03T18:00:00.000Z"
+    "created_at": "2026-11-04T09:48:55.983Z"
   },
   {
     "id": "req-0030",
@@ -9036,7 +9036,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Arzew",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T17:00:00.000Z"
+    "created_at": "2026-10-22T08:48:55.983Z"
   },
   {
     "id": "req-0031",
@@ -9050,7 +9050,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "32",
     "city": "El Bayadh Ouest",
     "status": "pending",
-    "created_at": "2026-02-17T16:00:00.000Z"
+    "created_at": "2026-11-18T07:48:55.983Z"
   },
   {
     "id": "req-0032",
@@ -9065,8 +9065,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Illizi Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-04T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-05T06:48:55.983Z"
   },
   {
     "id": "req-0033",
@@ -9080,7 +9080,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "34",
     "city": "Bordj Bou Arréridj",
     "status": "pending",
-    "created_at": "2026-01-22T14:00:00.000Z"
+    "created_at": "2026-10-23T05:48:55.983Z"
   },
   {
     "id": "req-0034",
@@ -9094,7 +9094,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "35",
     "city": "Khemis El Khechna",
     "status": "pending",
-    "created_at": "2026-02-18T13:00:00.000Z"
+    "created_at": "2026-11-19T04:48:55.983Z"
   },
   {
     "id": "req-0035",
@@ -9108,7 +9108,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "36",
     "city": "El Tarf Ouest",
     "status": "pending",
-    "created_at": "2026-02-05T12:00:00.000Z"
+    "created_at": "2026-11-06T03:48:55.983Z"
   },
   {
     "id": "req-0036",
@@ -9123,9 +9123,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tindouf Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-23T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-24T02:48:55.983Z"
   },
   {
     "id": "req-0037",
@@ -9139,7 +9139,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "38",
     "city": "Tissemsilt Ouest",
     "status": "pending",
-    "created_at": "2026-02-19T10:00:00.000Z"
+    "created_at": "2026-11-20T01:48:55.983Z"
   },
   {
     "id": "req-0038",
@@ -9153,7 +9153,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "39",
     "city": "Robbah",
     "status": "pending",
-    "created_at": "2026-02-06T09:00:00.000Z"
+    "created_at": "2026-11-07T00:48:55.983Z"
   },
   {
     "id": "req-0039",
@@ -9167,7 +9167,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "40",
     "city": "Khenchela",
     "status": "pending",
-    "created_at": "2026-01-24T08:00:00.000Z"
+    "created_at": "2026-10-24T23:48:55.983Z"
   },
   {
     "id": "req-0040",
@@ -9182,7 +9182,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Sedrata",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T07:00:00.000Z"
+    "created_at": "2026-11-20T22:48:55.983Z"
   },
   {
     "id": "req-0041",
@@ -9196,7 +9196,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "42",
     "city": "Koléa",
     "status": "pending",
-    "created_at": "2026-02-07T06:00:00.000Z"
+    "created_at": "2026-11-07T21:48:55.983Z"
   },
   {
     "id": "req-0042",
@@ -9211,9 +9211,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mila",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-43-79",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-25T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-25T20:48:55.983Z"
   },
   {
     "id": "req-0043",
@@ -9227,7 +9227,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "44",
     "city": "Khemis Miliana",
     "status": "pending",
-    "created_at": "2026-01-12T04:00:00.000Z"
+    "created_at": "2026-10-12T19:48:55.983Z"
   },
   {
     "id": "req-0044",
@@ -9242,8 +9242,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Naâma Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-08T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-08T18:48:55.983Z"
   },
   {
     "id": "req-0045",
@@ -9257,7 +9257,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "46",
     "city": "Aïn Témouchent",
     "status": "pending",
-    "created_at": "2026-01-26T02:00:00.000Z"
+    "created_at": "2026-10-26T17:48:55.983Z"
   },
   {
     "id": "req-0046",
@@ -9271,7 +9271,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "47",
     "city": "Metlili",
     "status": "pending",
-    "created_at": "2026-01-13T01:00:00.000Z"
+    "created_at": "2026-10-13T16:48:55.983Z"
   },
   {
     "id": "req-0047",
@@ -9285,7 +9285,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "48",
     "city": "Yellel",
     "status": "pending",
-    "created_at": "2026-02-09T00:00:00.000Z"
+    "created_at": "2026-11-09T15:48:55.983Z"
   },
   {
     "id": "req-0048",
@@ -9300,9 +9300,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Timimoun Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-27T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-28T14:48:55.983Z"
   },
   {
     "id": "req-0049",
@@ -9316,7 +9316,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "50",
     "city": "Bordj Badji Mokhtar Ouest",
     "status": "pending",
-    "created_at": "2026-01-14T22:00:00.000Z"
+    "created_at": "2026-10-15T13:48:55.983Z"
   },
   {
     "id": "req-0050",
@@ -9331,7 +9331,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Ouled Djellal Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T21:00:00.000Z"
+    "created_at": "2026-11-11T12:48:55.983Z"
   },
   {
     "id": "req-0051",
@@ -9345,7 +9345,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "52",
     "city": "Béni Abbès Ouest",
     "status": "pending",
-    "created_at": "2026-01-28T20:00:00.000Z"
+    "created_at": "2026-10-29T11:48:55.983Z"
   },
   {
     "id": "req-0052",
@@ -9360,8 +9360,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "In Salah Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-15T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-16T10:48:55.983Z"
   },
   {
     "id": "req-0053",
@@ -9375,7 +9375,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "54",
     "city": "In Guezzam Ouest",
     "status": "pending",
-    "created_at": "2026-02-11T18:00:00.000Z"
+    "created_at": "2026-11-12T09:48:55.983Z"
   },
   {
     "id": "req-0054",
@@ -9390,9 +9390,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Touggourt Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-55-74",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-29T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-30T08:48:55.983Z"
   },
   {
     "id": "req-0055",
@@ -9406,7 +9406,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "56",
     "city": "Djanet Ouest",
     "status": "pending",
-    "created_at": "2026-01-16T16:00:00.000Z"
+    "created_at": "2026-10-17T07:48:55.983Z"
   },
   {
     "id": "req-0056",
@@ -9421,8 +9421,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El M'Ghair Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-12T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-13T06:48:55.983Z"
   },
   {
     "id": "req-0057",
@@ -9436,7 +9436,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "58",
     "city": "El Meniaa Ouest",
     "status": "pending",
-    "created_at": "2026-01-30T14:00:00.000Z"
+    "created_at": "2026-10-31T05:48:55.983Z"
   },
   {
     "id": "req-0058",
@@ -9450,7 +9450,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "01",
     "city": "Reggane",
     "status": "pending",
-    "created_at": "2026-01-17T13:00:00.000Z"
+    "created_at": "2026-10-18T04:48:55.983Z"
   },
   {
     "id": "req-0059",
@@ -9464,7 +9464,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "02",
     "city": "Oued Fodda",
     "status": "pending",
-    "created_at": "2026-02-13T12:00:00.000Z"
+    "created_at": "2026-11-14T03:48:55.983Z"
   },
   {
     "id": "req-0060",
@@ -9479,7 +9479,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Laghouat Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T11:00:00.000Z"
+    "created_at": "2026-11-01T02:48:55.983Z"
   },
   {
     "id": "req-0061",
@@ -9493,7 +9493,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "04",
     "city": "Oum El Bouaghi Ouest",
     "status": "pending",
-    "created_at": "2026-01-18T10:00:00.000Z"
+    "created_at": "2026-10-19T01:48:55.983Z"
   },
   {
     "id": "req-0062",
@@ -9507,7 +9507,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "05",
     "city": "Aïn Touta",
     "status": "pending",
-    "created_at": "2026-02-14T09:00:00.000Z"
+    "created_at": "2026-11-15T00:48:55.983Z"
   },
   {
     "id": "req-0063",
@@ -9521,7 +9521,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "06",
     "city": "Oued Ghir",
     "status": "pending",
-    "created_at": "2026-02-01T08:00:00.000Z"
+    "created_at": "2026-11-01T23:48:55.983Z"
   },
   {
     "id": "req-0064",
@@ -9536,8 +9536,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tolga",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-07-50",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-19T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-19T22:48:55.983Z"
   },
   {
     "id": "req-0065",
@@ -9551,7 +9551,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "08",
     "city": "Taghit",
     "status": "pending",
-    "created_at": "2026-02-15T06:00:00.000Z"
+    "created_at": "2026-11-15T21:48:55.983Z"
   },
   {
     "id": "req-0066",
@@ -9566,9 +9566,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Boufarik",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-09-26",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-02T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-02T20:48:55.983Z"
   },
   {
     "id": "req-0067",
@@ -9582,7 +9582,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "10",
     "city": "Lakhdaria",
     "status": "pending",
-    "created_at": "2026-01-20T04:00:00.000Z"
+    "created_at": "2026-10-20T19:48:55.983Z"
   },
   {
     "id": "req-0068",
@@ -9597,8 +9597,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tamanrasset Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-16T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-16T18:48:55.983Z"
   },
   {
     "id": "req-0069",
@@ -9612,7 +9612,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "12",
     "city": "Tébessa",
     "status": "pending",
-    "created_at": "2026-02-03T02:00:00.000Z"
+    "created_at": "2026-11-03T17:48:55.983Z"
   },
   {
     "id": "req-0070",
@@ -9627,7 +9627,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mansourah",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T01:00:00.000Z"
+    "created_at": "2026-10-21T16:48:55.983Z"
   },
   {
     "id": "req-0071",
@@ -9641,7 +9641,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "14",
     "city": "Frenda",
     "status": "pending",
-    "created_at": "2026-02-17T00:00:00.000Z"
+    "created_at": "2026-11-17T15:48:55.983Z"
   },
   {
     "id": "req-0072",
@@ -9656,9 +9656,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tizi Ouzou",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-15-29",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-04T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-05T14:48:55.983Z"
   },
   {
     "id": "req-0073",
@@ -9672,7 +9672,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "16",
     "city": "Bouzaréah",
     "status": "pending",
-    "created_at": "2026-01-22T22:00:00.000Z"
+    "created_at": "2026-10-23T13:48:55.983Z"
   },
   {
     "id": "req-0074",
@@ -9686,7 +9686,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "17",
     "city": "Hassi Bahbah",
     "status": "pending",
-    "created_at": "2026-02-18T21:00:00.000Z"
+    "created_at": "2026-11-19T12:48:55.983Z"
   },
   {
     "id": "req-0075",
@@ -9700,7 +9700,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "18",
     "city": "Jijel",
     "status": "pending",
-    "created_at": "2026-02-05T20:00:00.000Z"
+    "created_at": "2026-11-06T11:48:55.983Z"
   },
   {
     "id": "req-0076",
@@ -9715,8 +9715,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Eulma",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-19-23",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-23T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-24T10:48:55.983Z"
   },
   {
     "id": "req-0077",
@@ -9730,7 +9730,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "20",
     "city": "Aïn El Hadjar",
     "status": "pending",
-    "created_at": "2026-02-19T18:00:00.000Z"
+    "created_at": "2026-11-20T09:48:55.983Z"
   },
   {
     "id": "req-0078",
@@ -9745,9 +9745,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Skikda",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-21-58",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-06T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-07T08:48:55.983Z"
   },
   {
     "id": "req-0079",
@@ -9761,7 +9761,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "22",
     "city": "Telagh",
     "status": "pending",
-    "created_at": "2026-01-24T16:00:00.000Z"
+    "created_at": "2026-10-25T07:48:55.983Z"
   },
   {
     "id": "req-0080",
@@ -9776,7 +9776,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Annaba Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T15:00:00.000Z"
+    "created_at": "2026-11-21T06:48:55.983Z"
   },
   {
     "id": "req-0081",
@@ -9790,7 +9790,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "24",
     "city": "Guelma",
     "status": "pending",
-    "created_at": "2026-02-07T14:00:00.000Z"
+    "created_at": "2026-11-08T05:48:55.983Z"
   },
   {
     "id": "req-0082",
@@ -9804,7 +9804,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "25",
     "city": "Constantine Centre",
     "status": "pending",
-    "created_at": "2026-01-25T13:00:00.000Z"
+    "created_at": "2026-10-26T04:48:55.983Z"
   },
   {
     "id": "req-0083",
@@ -9818,7 +9818,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "26",
     "city": "Ksar El Boukhari",
     "status": "pending",
-    "created_at": "2026-01-12T12:00:00.000Z"
+    "created_at": "2026-10-13T03:48:55.983Z"
   },
   {
     "id": "req-0084",
@@ -9833,9 +9833,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mostaganem",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-27-62",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-08T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-09T02:48:55.983Z"
   },
   {
     "id": "req-0085",
@@ -9849,7 +9849,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "28",
     "city": "Boussaâda",
     "status": "pending",
-    "created_at": "2026-01-26T10:00:00.000Z"
+    "created_at": "2026-10-27T01:48:55.983Z"
   },
   {
     "id": "req-0086",
@@ -9863,7 +9863,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "29",
     "city": "Sig",
     "status": "pending",
-    "created_at": "2026-01-13T09:00:00.000Z"
+    "created_at": "2026-10-14T00:48:55.983Z"
   },
   {
     "id": "req-0087",
@@ -9877,7 +9877,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "30",
     "city": "Ouargla",
     "status": "pending",
-    "created_at": "2026-02-09T08:00:00.000Z"
+    "created_at": "2026-11-09T23:48:55.983Z"
   },
   {
     "id": "req-0088",
@@ -9892,8 +9892,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Oran Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-31-16",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-27T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-27T22:48:55.983Z"
   },
   {
     "id": "req-0089",
@@ -9907,7 +9907,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "32",
     "city": "El Bayadh Ouest",
     "status": "pending",
-    "created_at": "2026-01-14T06:00:00.000Z"
+    "created_at": "2026-10-14T21:48:55.983Z"
   },
   {
     "id": "req-0090",
@@ -9922,7 +9922,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Illizi Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T05:00:00.000Z"
+    "created_at": "2026-11-10T20:48:55.983Z"
   },
   {
     "id": "req-0091",
@@ -9936,7 +9936,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "34",
     "city": "Ras El Oued",
     "status": "pending",
-    "created_at": "2026-01-28T04:00:00.000Z"
+    "created_at": "2026-10-28T19:48:55.983Z"
   },
   {
     "id": "req-0092",
@@ -9951,8 +9951,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Boudouaou",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-35-40",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-15T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-15T18:48:55.983Z"
   },
   {
     "id": "req-0093",
@@ -9966,7 +9966,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "36",
     "city": "El Tarf Ouest",
     "status": "pending",
-    "created_at": "2026-02-11T02:00:00.000Z"
+    "created_at": "2026-11-11T17:48:55.983Z"
   },
   {
     "id": "req-0094",
@@ -9980,7 +9980,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "37",
     "city": "Tindouf Centre",
     "status": "pending",
-    "created_at": "2026-01-29T01:00:00.000Z"
+    "created_at": "2026-10-29T16:48:55.983Z"
   },
   {
     "id": "req-0095",
@@ -9994,7 +9994,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "38",
     "city": "Tissemsilt Ouest",
     "status": "pending",
-    "created_at": "2026-01-16T00:00:00.000Z"
+    "created_at": "2026-10-16T15:48:55.983Z"
   },
   {
     "id": "req-0096",
@@ -10009,9 +10009,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Oued",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-39-73",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-12T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-13T14:48:55.983Z"
   },
   {
     "id": "req-0097",
@@ -10025,7 +10025,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "40",
     "city": "Chechar",
     "status": "pending",
-    "created_at": "2026-01-30T22:00:00.000Z"
+    "created_at": "2026-10-31T13:48:55.983Z"
   },
   {
     "id": "req-0098",
@@ -10039,7 +10039,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "41",
     "city": "M'Daourouch",
     "status": "pending",
-    "created_at": "2026-01-17T21:00:00.000Z"
+    "created_at": "2026-10-18T12:48:55.983Z"
   },
   {
     "id": "req-0099",
@@ -10053,7 +10053,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "42",
     "city": "Bou Ismaïl",
     "status": "pending",
-    "created_at": "2026-02-13T20:00:00.000Z"
+    "created_at": "2026-11-14T11:48:55.983Z"
   },
   {
     "id": "req-0100",
@@ -10068,7 +10068,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Chelghoum Laïd",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T19:00:00.000Z"
+    "created_at": "2026-11-01T10:48:55.983Z"
   },
   {
     "id": "req-0101",
@@ -10082,7 +10082,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "44",
     "city": "El Attaf",
     "status": "pending",
-    "created_at": "2026-01-18T18:00:00.000Z"
+    "created_at": "2026-10-19T09:48:55.983Z"
   },
   {
     "id": "req-0102",
@@ -10097,9 +10097,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Naâma Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-14T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-15T08:48:55.983Z"
   },
   {
     "id": "req-0103",
@@ -10113,7 +10113,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "46",
     "city": "Béni Saf",
     "status": "pending",
-    "created_at": "2026-02-01T16:00:00.000Z"
+    "created_at": "2026-11-02T07:48:55.983Z"
   },
   {
     "id": "req-0104",
@@ -10128,8 +10128,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Guerrara",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-47-72",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-19T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-20T06:48:55.983Z"
   },
   {
     "id": "req-0105",
@@ -10143,7 +10143,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "48",
     "city": "Relizane",
     "status": "pending",
-    "created_at": "2026-02-15T14:00:00.000Z"
+    "created_at": "2026-11-16T05:48:55.983Z"
   },
   {
     "id": "req-0106",
@@ -10157,7 +10157,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "49",
     "city": "Timimoun Centre",
     "status": "pending",
-    "created_at": "2026-02-02T13:00:00.000Z"
+    "created_at": "2026-11-03T04:48:55.983Z"
   },
   {
     "id": "req-0107",
@@ -10171,7 +10171,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "50",
     "city": "Bordj Badji Mokhtar Ouest",
     "status": "pending",
-    "created_at": "2026-01-20T12:00:00.000Z"
+    "created_at": "2026-10-21T03:48:55.983Z"
   },
   {
     "id": "req-0108",
@@ -10186,9 +10186,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Ouled Djellal Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-16T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-17T02:48:55.983Z"
   },
   {
     "id": "req-0109",
@@ -10202,7 +10202,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "52",
     "city": "Béni Abbès Ouest",
     "status": "pending",
-    "created_at": "2026-02-03T10:00:00.000Z"
+    "created_at": "2026-11-04T01:48:55.983Z"
   },
   {
     "id": "req-0110",
@@ -10217,7 +10217,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "In Salah Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T09:00:00.000Z"
+    "created_at": "2026-10-22T00:48:55.983Z"
   },
   {
     "id": "req-0111",
@@ -10231,7 +10231,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "54",
     "city": "In Guezzam Ouest",
     "status": "pending",
-    "created_at": "2026-02-17T08:00:00.000Z"
+    "created_at": "2026-11-17T23:48:55.983Z"
   },
   {
     "id": "req-0112",
@@ -10246,8 +10246,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Touggourt Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-55-74",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-04T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-04T22:48:55.983Z"
   },
   {
     "id": "req-0113",
@@ -10261,7 +10261,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "56",
     "city": "Djanet Ouest",
     "status": "pending",
-    "created_at": "2026-01-22T06:00:00.000Z"
+    "created_at": "2026-10-22T21:48:55.983Z"
   },
   {
     "id": "req-0114",
@@ -10276,9 +10276,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El M'Ghair Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-18T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-18T20:48:55.983Z"
   },
   {
     "id": "req-0115",
@@ -10292,7 +10292,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "58",
     "city": "El Meniaa Ouest",
     "status": "pending",
-    "created_at": "2026-02-05T04:00:00.000Z"
+    "created_at": "2026-11-05T19:48:55.983Z"
   },
   {
     "id": "req-0116",
@@ -10307,8 +10307,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Timimoun",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-23T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-23T18:48:55.983Z"
   },
   {
     "id": "req-0117",
@@ -10322,7 +10322,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "02",
     "city": "Chlef Ville",
     "status": "pending",
-    "created_at": "2026-02-19T02:00:00.000Z"
+    "created_at": "2026-11-19T17:48:55.983Z"
   },
   {
     "id": "req-0118",
@@ -10336,7 +10336,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "03",
     "city": "Laghouat Centre",
     "status": "pending",
-    "created_at": "2026-02-06T01:00:00.000Z"
+    "created_at": "2026-11-06T16:48:55.983Z"
   },
   {
     "id": "req-0119",
@@ -10350,7 +10350,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "04",
     "city": "Oum El Bouaghi Ouest",
     "status": "pending",
-    "created_at": "2026-01-24T00:00:00.000Z"
+    "created_at": "2026-10-24T15:48:55.983Z"
   },
   {
     "id": "req-0120",
@@ -10365,7 +10365,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Batna Ville",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "req-0121",
@@ -10379,7 +10379,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "06",
     "city": "Tazmalt",
     "status": "pending",
-    "created_at": "2026-02-07T22:00:00.000Z"
+    "created_at": "2026-11-08T13:48:55.983Z"
   },
   {
     "id": "req-0122",
@@ -10393,7 +10393,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "07",
     "city": "Sidi Okba",
     "status": "pending",
-    "created_at": "2026-01-25T21:00:00.000Z"
+    "created_at": "2026-10-26T12:48:55.983Z"
   },
   {
     "id": "req-0123",
@@ -10407,7 +10407,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "08",
     "city": "Béchar",
     "status": "pending",
-    "created_at": "2026-01-12T20:00:00.000Z"
+    "created_at": "2026-10-13T11:48:55.983Z"
   },
   {
     "id": "req-0124",
@@ -10422,8 +10422,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Affroun",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-09-26",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-08T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-09T10:48:55.983Z"
   },
   {
     "id": "req-0125",
@@ -10437,7 +10437,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "10",
     "city": "Sour El Ghozlane",
     "status": "pending",
-    "created_at": "2026-01-26T18:00:00.000Z"
+    "created_at": "2026-10-27T09:48:55.983Z"
   },
   {
     "id": "req-0126",
@@ -10452,9 +10452,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tamanrasset Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-13T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-14T08:48:55.983Z"
   },
   {
     "id": "req-0127",
@@ -10468,7 +10468,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "12",
     "city": "Cheria",
     "status": "pending",
-    "created_at": "2026-02-09T16:00:00.000Z"
+    "created_at": "2026-11-10T07:48:55.983Z"
   },
   {
     "id": "req-0128",
@@ -10483,8 +10483,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tlemcen Ville",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-13-36",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-27T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-28T06:48:55.983Z"
   },
   {
     "id": "req-0129",
@@ -10498,7 +10498,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "14",
     "city": "Tiaret",
     "status": "pending",
-    "created_at": "2026-01-14T14:00:00.000Z"
+    "created_at": "2026-10-15T05:48:55.983Z"
   },
   {
     "id": "req-0130",
@@ -10513,7 +10513,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Draa Ben Khedda",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "req-0131",
@@ -10527,7 +10527,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "16",
     "city": "El Harrach",
     "status": "pending",
-    "created_at": "2026-01-28T12:00:00.000Z"
+    "created_at": "2026-10-29T03:48:55.983Z"
   },
   {
     "id": "req-0132",
@@ -10542,9 +10542,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Djelfa",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-17-48",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-15T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-16T02:48:55.983Z"
   },
   {
     "id": "req-0133",
@@ -10558,7 +10558,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "18",
     "city": "Taher",
     "status": "pending",
-    "created_at": "2026-02-11T10:00:00.000Z"
+    "created_at": "2026-11-12T01:48:55.983Z"
   },
   {
     "id": "req-0134",
@@ -10572,7 +10572,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "19",
     "city": "Bougaa",
     "status": "pending",
-    "created_at": "2026-01-29T09:00:00.000Z"
+    "created_at": "2026-10-30T00:48:55.983Z"
   },
   {
     "id": "req-0135",
@@ -10586,7 +10586,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "20",
     "city": "Saïda",
     "status": "pending",
-    "created_at": "2026-01-16T08:00:00.000Z"
+    "created_at": "2026-10-16T23:48:55.983Z"
   },
   {
     "id": "req-0136",
@@ -10601,8 +10601,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Harrouch",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-21-58",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-12T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-12T22:48:55.983Z"
   },
   {
     "id": "req-0137",
@@ -10616,7 +10616,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "22",
     "city": "Ben Badis",
     "status": "pending",
-    "created_at": "2026-01-30T06:00:00.000Z"
+    "created_at": "2026-10-30T21:48:55.983Z"
   },
   {
     "id": "req-0138",
@@ -10631,9 +10631,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Sidi Amar",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-23-34",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-17T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-17T20:48:55.983Z"
   },
   {
     "id": "req-0139",
@@ -10647,7 +10647,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "24",
     "city": "Oued Zenati",
     "status": "pending",
-    "created_at": "2026-02-13T04:00:00.000Z"
+    "created_at": "2026-11-13T19:48:55.983Z"
   },
   {
     "id": "req-0140",
@@ -10662,7 +10662,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Ali Mendjeli",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   },
   {
     "id": "req-0141",
@@ -10676,7 +10676,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "26",
     "city": "Médéa",
     "status": "pending",
-    "created_at": "2026-01-18T02:00:00.000Z"
+    "created_at": "2026-10-18T17:48:55.983Z"
   },
   {
     "id": "req-0142",
@@ -10690,7 +10690,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "27",
     "city": "Aïn Tedeles",
     "status": "pending",
-    "created_at": "2026-02-14T01:00:00.000Z"
+    "created_at": "2026-11-14T16:48:55.983Z"
   },
   {
     "id": "req-0143",
@@ -10704,7 +10704,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "28",
     "city": "Sidi Aïssa",
     "status": "pending",
-    "created_at": "2026-02-01T00:00:00.000Z"
+    "created_at": "2026-11-01T15:48:55.983Z"
   },
   {
     "id": "req-0144",
@@ -10719,9 +10719,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mascara",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-29-54",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-19T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-20T14:48:55.983Z"
   },
   {
     "id": "req-0145",
@@ -10735,7 +10735,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "30",
     "city": "Hassi Messaoud",
     "status": "pending",
-    "created_at": "2026-02-15T22:00:00.000Z"
+    "created_at": "2026-11-16T13:48:55.983Z"
   },
   {
     "id": "req-0146",
@@ -10749,7 +10749,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "31",
     "city": "Bethioua",
     "status": "pending",
-    "created_at": "2026-02-02T21:00:00.000Z"
+    "created_at": "2026-11-03T12:48:55.983Z"
   },
   {
     "id": "req-0147",
@@ -10763,7 +10763,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "32",
     "city": "El Bayadh Ouest",
     "status": "pending",
-    "created_at": "2026-01-20T20:00:00.000Z"
+    "created_at": "2026-10-21T11:48:55.983Z"
   },
   {
     "id": "req-0148",
@@ -10778,8 +10778,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Illizi Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-16T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-17T10:48:55.983Z"
   },
   {
     "id": "req-0149",
@@ -10793,7 +10793,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "34",
     "city": "Mansoura",
     "status": "pending",
-    "created_at": "2026-02-03T18:00:00.000Z"
+    "created_at": "2026-11-04T09:48:55.983Z"
   },
   {
     "id": "req-0150",
@@ -10808,7 +10808,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Boumerdès",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T17:00:00.000Z"
+    "created_at": "2026-10-22T08:48:55.983Z"
   },
   {
     "id": "req-0151",
@@ -10822,7 +10822,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "36",
     "city": "El Tarf Ouest",
     "status": "pending",
-    "created_at": "2026-02-17T16:00:00.000Z"
+    "created_at": "2026-11-18T07:48:55.983Z"
   },
   {
     "id": "req-0152",
@@ -10837,8 +10837,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tindouf Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-04T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-05T06:48:55.983Z"
   },
   {
     "id": "req-0153",
@@ -10852,7 +10852,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "38",
     "city": "Tissemsilt Ouest",
     "status": "pending",
-    "created_at": "2026-01-22T14:00:00.000Z"
+    "created_at": "2026-10-23T05:48:55.983Z"
   },
   {
     "id": "req-0154",
@@ -10866,7 +10866,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "39",
     "city": "Guemar",
     "status": "pending",
-    "created_at": "2026-02-18T13:00:00.000Z"
+    "created_at": "2026-11-19T04:48:55.983Z"
   },
   {
     "id": "req-0155",
@@ -10880,7 +10880,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "40",
     "city": "Kaïs",
     "status": "pending",
-    "created_at": "2026-02-05T12:00:00.000Z"
+    "created_at": "2026-11-06T03:48:55.983Z"
   },
   {
     "id": "req-0156",
@@ -10895,9 +10895,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Souk Ahras",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-41-78",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-23T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-24T02:48:55.983Z"
   },
   {
     "id": "req-0157",
@@ -10911,7 +10911,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "42",
     "city": "Koléa",
     "status": "pending",
-    "created_at": "2026-02-19T10:00:00.000Z"
+    "created_at": "2026-11-20T01:48:55.983Z"
   },
   {
     "id": "req-0158",
@@ -10925,7 +10925,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "43",
     "city": "Tadjenanet",
     "status": "pending",
-    "created_at": "2026-02-06T09:00:00.000Z"
+    "created_at": "2026-11-07T00:48:55.983Z"
   },
   {
     "id": "req-0159",
@@ -10939,7 +10939,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "44",
     "city": "Aïn Defla",
     "status": "pending",
-    "created_at": "2026-01-24T08:00:00.000Z"
+    "created_at": "2026-10-24T23:48:55.983Z"
   },
   {
     "id": "req-0160",
@@ -10954,7 +10954,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Naâma Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T07:00:00.000Z"
+    "created_at": "2026-11-20T22:48:55.983Z"
   },
   {
     "id": "req-0161",
@@ -10968,7 +10968,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "46",
     "city": "Hammam Bouhadjar",
     "status": "pending",
-    "created_at": "2026-02-07T06:00:00.000Z"
+    "created_at": "2026-11-07T21:48:55.983Z"
   },
   {
     "id": "req-0162",
@@ -10983,9 +10983,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Ghardaïa",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-47-72",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-25T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-25T20:48:55.983Z"
   },
   {
     "id": "req-0163",
@@ -10999,7 +10999,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "48",
     "city": "Oued Rhiou",
     "status": "pending",
-    "created_at": "2026-01-12T04:00:00.000Z"
+    "created_at": "2026-10-12T19:48:55.983Z"
   },
   {
     "id": "req-0164",
@@ -11014,8 +11014,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Timimoun Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-08T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-08T18:48:55.983Z"
   },
   {
     "id": "req-0165",
@@ -11029,7 +11029,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "50",
     "city": "Bordj Badji Mokhtar Ouest",
     "status": "pending",
-    "created_at": "2026-01-26T02:00:00.000Z"
+    "created_at": "2026-10-26T17:48:55.983Z"
   },
   {
     "id": "req-0166",
@@ -11043,7 +11043,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "51",
     "city": "Ouled Djellal Centre",
     "status": "pending",
-    "created_at": "2026-01-13T01:00:00.000Z"
+    "created_at": "2026-10-13T16:48:55.983Z"
   },
   {
     "id": "req-0167",
@@ -11057,7 +11057,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "52",
     "city": "Béni Abbès Ouest",
     "status": "pending",
-    "created_at": "2026-02-09T00:00:00.000Z"
+    "created_at": "2026-11-09T15:48:55.983Z"
   },
   {
     "id": "req-0168",
@@ -11072,9 +11072,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "In Salah Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-27T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-28T14:48:55.983Z"
   },
   {
     "id": "req-0169",
@@ -11088,7 +11088,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "54",
     "city": "In Guezzam Ouest",
     "status": "pending",
-    "created_at": "2026-01-14T22:00:00.000Z"
+    "created_at": "2026-10-15T13:48:55.983Z"
   },
   {
     "id": "req-0170",
@@ -11103,7 +11103,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Touggourt Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T21:00:00.000Z"
+    "created_at": "2026-11-11T12:48:55.983Z"
   },
   {
     "id": "req-0171",
@@ -11117,7 +11117,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "56",
     "city": "Djanet Ouest",
     "status": "pending",
-    "created_at": "2026-01-28T20:00:00.000Z"
+    "created_at": "2026-10-29T11:48:55.983Z"
   },
   {
     "id": "req-0172",
@@ -11132,8 +11132,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El M'Ghair Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-15T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-16T10:48:55.983Z"
   },
   {
     "id": "req-0173",
@@ -11147,7 +11147,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "58",
     "city": "El Meniaa Ouest",
     "status": "pending",
-    "created_at": "2026-02-11T18:00:00.000Z"
+    "created_at": "2026-11-12T09:48:55.983Z"
   },
   {
     "id": "req-0174",
@@ -11162,9 +11162,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Adrar",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-29T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-30T08:48:55.983Z"
   },
   {
     "id": "req-0175",
@@ -11178,7 +11178,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "02",
     "city": "Ténès",
     "status": "pending",
-    "created_at": "2026-01-16T16:00:00.000Z"
+    "created_at": "2026-10-17T07:48:55.983Z"
   },
   {
     "id": "req-0176",
@@ -11193,8 +11193,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Laghouat Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-12T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-13T06:48:55.983Z"
   },
   {
     "id": "req-0177",
@@ -11208,7 +11208,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "04",
     "city": "Oum El Bouaghi Ouest",
     "status": "pending",
-    "created_at": "2026-01-30T14:00:00.000Z"
+    "created_at": "2026-10-31T05:48:55.983Z"
   },
   {
     "id": "req-0178",
@@ -11222,7 +11222,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "05",
     "city": "Aïn Touta",
     "status": "pending",
-    "created_at": "2026-01-17T13:00:00.000Z"
+    "created_at": "2026-10-18T04:48:55.983Z"
   },
   {
     "id": "req-0179",
@@ -11236,7 +11236,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "06",
     "city": "El Kseur",
     "status": "pending",
-    "created_at": "2026-02-13T12:00:00.000Z"
+    "created_at": "2026-11-14T03:48:55.983Z"
   },
   {
     "id": "req-0180",
@@ -11251,7 +11251,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Biskra",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T11:00:00.000Z"
+    "created_at": "2026-11-01T02:48:55.983Z"
   },
   {
     "id": "req-0181",
@@ -11265,7 +11265,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "08",
     "city": "Béni Ounif",
     "status": "pending",
-    "created_at": "2026-01-18T10:00:00.000Z"
+    "created_at": "2026-10-19T01:48:55.983Z"
   },
   {
     "id": "req-0182",
@@ -11279,7 +11279,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "09",
     "city": "Ouled Yaïch",
     "status": "pending",
-    "created_at": "2026-02-14T09:00:00.000Z"
+    "created_at": "2026-11-15T00:48:55.983Z"
   },
   {
     "id": "req-0183",
@@ -11293,7 +11293,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "10",
     "city": "Bouira",
     "status": "pending",
-    "created_at": "2026-02-01T08:00:00.000Z"
+    "created_at": "2026-11-01T23:48:55.983Z"
   },
   {
     "id": "req-0184",
@@ -11308,8 +11308,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tamanrasset Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-19T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-19T22:48:55.983Z"
   },
   {
     "id": "req-0185",
@@ -11323,7 +11323,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "12",
     "city": "El Aouinet",
     "status": "pending",
-    "created_at": "2026-02-15T06:00:00.000Z"
+    "created_at": "2026-11-15T21:48:55.983Z"
   },
   {
     "id": "req-0186",
@@ -11338,9 +11338,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mansourah",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-13-36",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-02T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-02T20:48:55.983Z"
   },
   {
     "id": "req-0187",
@@ -11354,7 +11354,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "14",
     "city": "Sougueur",
     "status": "pending",
-    "created_at": "2026-01-20T04:00:00.000Z"
+    "created_at": "2026-10-20T19:48:55.983Z"
   },
   {
     "id": "req-0188",
@@ -11369,8 +11369,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tizi Ouzou",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-15-29",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-16T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-16T18:48:55.983Z"
   },
   {
     "id": "req-0189",
@@ -11384,7 +11384,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "16",
     "city": "Zéralda",
     "status": "pending",
-    "created_at": "2026-02-03T02:00:00.000Z"
+    "created_at": "2026-11-03T17:48:55.983Z"
   },
   {
     "id": "req-0190",
@@ -11399,7 +11399,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Aïn Oussera",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T01:00:00.000Z"
+    "created_at": "2026-10-21T16:48:55.983Z"
   },
   {
     "id": "req-0191",
@@ -11413,7 +11413,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "18",
     "city": "El Milia",
     "status": "pending",
-    "created_at": "2026-02-17T00:00:00.000Z"
+    "created_at": "2026-11-17T15:48:55.983Z"
   },
   {
     "id": "req-0192",
@@ -11428,9 +11428,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Aïn Oulmene",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-19-23",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-04T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-05T14:48:55.983Z"
   },
   {
     "id": "req-0193",
@@ -11444,7 +11444,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "20",
     "city": "Youb",
     "status": "pending",
-    "created_at": "2026-01-22T22:00:00.000Z"
+    "created_at": "2026-10-23T13:48:55.983Z"
   },
   {
     "id": "req-0194",
@@ -11458,7 +11458,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "21",
     "city": "Collo",
     "status": "pending",
-    "created_at": "2026-02-18T21:00:00.000Z"
+    "created_at": "2026-11-19T12:48:55.983Z"
   },
   {
     "id": "req-0195",
@@ -11472,7 +11472,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "22",
     "city": "Sidi Bel Abbès",
     "status": "pending",
-    "created_at": "2026-02-05T20:00:00.000Z"
+    "created_at": "2026-11-06T11:48:55.983Z"
   },
   {
     "id": "req-0196",
@@ -11487,8 +11487,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Annaba Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-23-34",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-23T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-24T10:48:55.983Z"
   },
   {
     "id": "req-0197",
@@ -11502,7 +11502,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "24",
     "city": "Bouchegouf",
     "status": "pending",
-    "created_at": "2026-02-19T18:00:00.000Z"
+    "created_at": "2026-11-20T09:48:55.983Z"
   },
   {
     "id": "req-0198",
@@ -11517,9 +11517,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Hamma Bouziane",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-25-20",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-06T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-07T08:48:55.983Z"
   },
   {
     "id": "req-0199",
@@ -11533,7 +11533,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "26",
     "city": "Berrouaghia",
     "status": "pending",
-    "created_at": "2026-01-24T16:00:00.000Z"
+    "created_at": "2026-10-25T07:48:55.983Z"
   },
   {
     "id": "req-0200",
@@ -11548,7 +11548,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Sidi Ali",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T15:00:00.000Z"
+    "created_at": "2026-11-21T06:48:55.983Z"
   },
   {
     "id": "req-0201",
@@ -11562,7 +11562,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "28",
     "city": "M'Sila",
     "status": "pending",
-    "created_at": "2026-02-07T14:00:00.000Z"
+    "created_at": "2026-11-08T05:48:55.983Z"
   },
   {
     "id": "req-0202",
@@ -11576,7 +11576,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "29",
     "city": "Tighennif",
     "status": "pending",
-    "created_at": "2026-01-25T13:00:00.000Z"
+    "created_at": "2026-10-26T04:48:55.983Z"
   },
   {
     "id": "req-0203",
@@ -11590,7 +11590,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "30",
     "city": "Touggourt",
     "status": "pending",
-    "created_at": "2026-01-12T12:00:00.000Z"
+    "created_at": "2026-10-13T03:48:55.983Z"
   },
   {
     "id": "req-0204",
@@ -11605,9 +11605,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Bir El Djir",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-31-16",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-08T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-09T02:48:55.983Z"
   },
   {
     "id": "req-0205",
@@ -11621,7 +11621,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "32",
     "city": "El Bayadh Ouest",
     "status": "pending",
-    "created_at": "2026-01-26T10:00:00.000Z"
+    "created_at": "2026-10-27T01:48:55.983Z"
   },
   {
     "id": "req-0206",
@@ -11635,7 +11635,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "33",
     "city": "Illizi Centre",
     "status": "pending",
-    "created_at": "2026-01-13T09:00:00.000Z"
+    "created_at": "2026-10-14T00:48:55.983Z"
   },
   {
     "id": "req-0207",
@@ -11649,7 +11649,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "34",
     "city": "Bordj Bou Arréridj",
     "status": "pending",
-    "created_at": "2026-02-09T08:00:00.000Z"
+    "created_at": "2026-11-09T23:48:55.983Z"
   },
   {
     "id": "req-0208",
@@ -11664,8 +11664,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Khemis El Khechna",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-35-40",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-27T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-27T22:48:55.983Z"
   },
   {
     "id": "req-0209",
@@ -11679,7 +11679,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "36",
     "city": "El Tarf Ouest",
     "status": "pending",
-    "created_at": "2026-01-14T06:00:00.000Z"
+    "created_at": "2026-10-14T21:48:55.983Z"
   },
   {
     "id": "req-0210",
@@ -11694,7 +11694,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tindouf Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T05:00:00.000Z"
+    "created_at": "2026-11-10T20:48:55.983Z"
   },
   {
     "id": "req-0211",
@@ -11708,7 +11708,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "38",
     "city": "Tissemsilt Ouest",
     "status": "pending",
-    "created_at": "2026-01-28T04:00:00.000Z"
+    "created_at": "2026-10-28T19:48:55.983Z"
   },
   {
     "id": "req-0212",
@@ -11723,8 +11723,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Robbah",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-39-73",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-15T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-15T18:48:55.983Z"
   },
   {
     "id": "req-0213",
@@ -11738,7 +11738,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "40",
     "city": "Khenchela",
     "status": "pending",
-    "created_at": "2026-02-11T02:00:00.000Z"
+    "created_at": "2026-11-11T17:48:55.983Z"
   },
   {
     "id": "req-0214",
@@ -11752,7 +11752,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "41",
     "city": "Sedrata",
     "status": "pending",
-    "created_at": "2026-01-29T01:00:00.000Z"
+    "created_at": "2026-10-29T16:48:55.983Z"
   },
   {
     "id": "req-0215",
@@ -11766,7 +11766,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "42",
     "city": "Bou Ismaïl",
     "status": "pending",
-    "created_at": "2026-01-16T00:00:00.000Z"
+    "created_at": "2026-10-16T15:48:55.983Z"
   },
   {
     "id": "req-0216",
@@ -11781,9 +11781,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mila",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-43-79",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-12T23:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-13T14:48:55.983Z"
   },
   {
     "id": "req-0217",
@@ -11797,7 +11797,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "44",
     "city": "Khemis Miliana",
     "status": "pending",
-    "created_at": "2026-01-30T22:00:00.000Z"
+    "created_at": "2026-10-31T13:48:55.983Z"
   },
   {
     "id": "req-0218",
@@ -11811,7 +11811,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "45",
     "city": "Naâma Centre",
     "status": "pending",
-    "created_at": "2026-01-17T21:00:00.000Z"
+    "created_at": "2026-10-18T12:48:55.983Z"
   },
   {
     "id": "req-0219",
@@ -11825,7 +11825,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "46",
     "city": "Aïn Témouchent",
     "status": "pending",
-    "created_at": "2026-02-13T20:00:00.000Z"
+    "created_at": "2026-11-14T11:48:55.983Z"
   },
   {
     "id": "req-0220",
@@ -11840,7 +11840,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Metlili",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T19:00:00.000Z"
+    "created_at": "2026-11-01T10:48:55.983Z"
   },
   {
     "id": "req-0221",
@@ -11854,7 +11854,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "48",
     "city": "Yellel",
     "status": "pending",
-    "created_at": "2026-01-18T18:00:00.000Z"
+    "created_at": "2026-10-19T09:48:55.983Z"
   },
   {
     "id": "req-0222",
@@ -11869,9 +11869,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Timimoun Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-14T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-15T08:48:55.983Z"
   },
   {
     "id": "req-0223",
@@ -11885,7 +11885,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "50",
     "city": "Bordj Badji Mokhtar Ouest",
     "status": "pending",
-    "created_at": "2026-02-01T16:00:00.000Z"
+    "created_at": "2026-11-02T07:48:55.983Z"
   },
   {
     "id": "req-0224",
@@ -11900,8 +11900,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Ouled Djellal Centre",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-19T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-20T06:48:55.983Z"
   },
   {
     "id": "req-0225",
@@ -11915,7 +11915,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "52",
     "city": "Béni Abbès Ouest",
     "status": "pending",
-    "created_at": "2026-02-15T14:00:00.000Z"
+    "created_at": "2026-11-16T05:48:55.983Z"
   },
   {
     "id": "req-0226",
@@ -11929,7 +11929,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "53",
     "city": "In Salah Centre",
     "status": "pending",
-    "created_at": "2026-02-02T13:00:00.000Z"
+    "created_at": "2026-11-03T04:48:55.983Z"
   },
   {
     "id": "req-0227",
@@ -11943,7 +11943,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "54",
     "city": "In Guezzam Ouest",
     "status": "pending",
-    "created_at": "2026-01-20T12:00:00.000Z"
+    "created_at": "2026-10-21T03:48:55.983Z"
   },
   {
     "id": "req-0228",
@@ -11958,9 +11958,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Touggourt Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-55-74",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-16T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-17T02:48:55.983Z"
   },
   {
     "id": "req-0229",
@@ -11974,7 +11974,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "56",
     "city": "Djanet Ouest",
     "status": "pending",
-    "created_at": "2026-02-03T10:00:00.000Z"
+    "created_at": "2026-11-04T01:48:55.983Z"
   },
   {
     "id": "req-0230",
@@ -11989,7 +11989,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El M'Ghair Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-21T09:00:00.000Z"
+    "created_at": "2026-10-22T00:48:55.983Z"
   },
   {
     "id": "req-0231",
@@ -12003,7 +12003,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "58",
     "city": "El Meniaa Ouest",
     "status": "pending",
-    "created_at": "2026-02-17T08:00:00.000Z"
+    "created_at": "2026-11-17T23:48:55.983Z"
   },
   {
     "id": "req-0232",
@@ -12018,8 +12018,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Reggane",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-04T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-04T22:48:55.983Z"
   },
   {
     "id": "req-0233",
@@ -12033,7 +12033,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "02",
     "city": "Oued Fodda",
     "status": "pending",
-    "created_at": "2026-01-22T06:00:00.000Z"
+    "created_at": "2026-10-22T21:48:55.983Z"
   },
   {
     "id": "req-0234",
@@ -12048,9 +12048,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Laghouat Centre",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-06-01",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-18T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-18T20:48:55.983Z"
   },
   {
     "id": "req-0235",
@@ -12064,7 +12064,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "04",
     "city": "Oum El Bouaghi Ouest",
     "status": "pending",
-    "created_at": "2026-02-05T04:00:00.000Z"
+    "created_at": "2026-11-05T19:48:55.983Z"
   },
   {
     "id": "req-0236",
@@ -12079,8 +12079,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Batna Ville",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-05-32",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-23T03:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-23T18:48:55.983Z"
   },
   {
     "id": "req-0237",
@@ -12094,7 +12094,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "06",
     "city": "Sidi Aïch",
     "status": "pending",
-    "created_at": "2026-02-19T02:00:00.000Z"
+    "created_at": "2026-11-19T17:48:55.983Z"
   },
   {
     "id": "req-0238",
@@ -12108,7 +12108,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "07",
     "city": "Tolga",
     "status": "pending",
-    "created_at": "2026-02-06T01:00:00.000Z"
+    "created_at": "2026-11-06T16:48:55.983Z"
   },
   {
     "id": "req-0239",
@@ -12122,7 +12122,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "08",
     "city": "Taghit",
     "status": "pending",
-    "created_at": "2026-01-24T00:00:00.000Z"
+    "created_at": "2026-10-24T15:48:55.983Z"
   },
   {
     "id": "req-0240",
@@ -12137,7 +12137,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Blida Centre",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "req-0241",
@@ -12151,7 +12151,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "10",
     "city": "Lakhdaria",
     "status": "pending",
-    "created_at": "2026-02-07T22:00:00.000Z"
+    "created_at": "2026-11-08T13:48:55.983Z"
   },
   {
     "id": "req-0242",
@@ -12165,7 +12165,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "11",
     "city": "Tamanrasset Centre",
     "status": "pending",
-    "created_at": "2026-01-25T21:00:00.000Z"
+    "created_at": "2026-10-26T12:48:55.983Z"
   },
   {
     "id": "req-0243",
@@ -12179,7 +12179,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "12",
     "city": "Tébessa",
     "status": "pending",
-    "created_at": "2026-01-12T20:00:00.000Z"
+    "created_at": "2026-10-13T11:48:55.983Z"
   },
   {
     "id": "req-0244",
@@ -12194,8 +12194,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Tlemcen Ville",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-13-36",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-08T19:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-09T10:48:55.983Z"
   },
   {
     "id": "req-0245",
@@ -12209,7 +12209,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "14",
     "city": "Frenda",
     "status": "pending",
-    "created_at": "2026-01-26T18:00:00.000Z"
+    "created_at": "2026-10-27T09:48:55.983Z"
   },
   {
     "id": "req-0246",
@@ -12224,9 +12224,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Draa Ben Khedda",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-15-29",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-13T17:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-14T08:48:55.983Z"
   },
   {
     "id": "req-0247",
@@ -12240,7 +12240,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "16",
     "city": "Bab El Oued",
     "status": "pending",
-    "created_at": "2026-02-09T16:00:00.000Z"
+    "created_at": "2026-11-10T07:48:55.983Z"
   },
   {
     "id": "req-0248",
@@ -12255,8 +12255,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Hassi Bahbah",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-17-48",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-01-27T15:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-10-28T06:48:55.983Z"
   },
   {
     "id": "req-0249",
@@ -12270,7 +12270,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "18",
     "city": "Jijel",
     "status": "pending",
-    "created_at": "2026-01-14T14:00:00.000Z"
+    "created_at": "2026-10-15T05:48:55.983Z"
   },
   {
     "id": "req-0250",
@@ -12285,7 +12285,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Sétif Ville",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "req-0251",
@@ -12299,7 +12299,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "20",
     "city": "Aïn El Hadjar",
     "status": "pending",
-    "created_at": "2026-01-28T12:00:00.000Z"
+    "created_at": "2026-10-29T03:48:55.983Z"
   },
   {
     "id": "req-0252",
@@ -12314,9 +12314,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Skikda",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-21-58",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-15T11:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-16T02:48:55.983Z"
   },
   {
     "id": "req-0253",
@@ -12330,7 +12330,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "22",
     "city": "Telagh",
     "status": "pending",
-    "created_at": "2026-02-11T10:00:00.000Z"
+    "created_at": "2026-11-12T01:48:55.983Z"
   },
   {
     "id": "req-0254",
@@ -12344,7 +12344,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "23",
     "city": "Sidi Amar",
     "status": "pending",
-    "created_at": "2026-01-29T09:00:00.000Z"
+    "created_at": "2026-10-30T00:48:55.983Z"
   },
   {
     "id": "req-0255",
@@ -12358,7 +12358,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "24",
     "city": "Guelma",
     "status": "pending",
-    "created_at": "2026-01-16T08:00:00.000Z"
+    "created_at": "2026-10-16T23:48:55.983Z"
   },
   {
     "id": "req-0256",
@@ -12373,8 +12373,8 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "El Khroub",
     "status": "available_notified",
     "matched_showroom_id": "shw-vms-25-20",
-    "notified_at": "2026-02-17T23:00:00.000Z",
-    "created_at": "2026-02-12T07:00:00.000Z"
+    "notified_at": "2026-11-18T14:48:55.983Z",
+    "created_at": "2026-11-12T22:48:55.983Z"
   },
   {
     "id": "req-0257",
@@ -12388,7 +12388,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "26",
     "city": "Ksar El Boukhari",
     "status": "pending",
-    "created_at": "2026-01-30T06:00:00.000Z"
+    "created_at": "2026-10-30T21:48:55.983Z"
   },
   {
     "id": "req-0258",
@@ -12403,9 +12403,9 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Mostaganem",
     "status": "fulfilled",
     "matched_showroom_id": "shw-vms-27-62",
-    "notified_at": "2026-02-10T23:00:00.000Z",
-    "fulfilled_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-01-17T05:00:00.000Z"
+    "notified_at": "2026-11-11T14:48:55.983Z",
+    "fulfilled_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-10-17T20:48:55.983Z"
   },
   {
     "id": "req-0259",
@@ -12419,7 +12419,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "wilaya_code": "28",
     "city": "Boussaâda",
     "status": "pending",
-    "created_at": "2026-02-13T04:00:00.000Z"
+    "created_at": "2026-11-13T19:48:55.983Z"
   },
   {
     "id": "req-0260",
@@ -12434,7 +12434,7 @@ export const INITIAL_REQUESTS: CustomerRequest[] = [
     "city": "Sig",
     "status": "preorder_redirected",
     "notes": "Redirigé vers motobladi.dz pour précommande",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   }
 ];
 
@@ -12442,86 +12442,86 @@ export const INITIAL_TRANSFERS: Transfer[] = [
   {
     "id": "trf-0001",
     "reference": "TRF-2026-0001",
-    "motorcycle_id": "moto-0007",
-    "source_showroom_id": "shw-vms-16-08",
-    "destination_showroom_id": "shw-vms-16-11",
-    "requested_by": "usr-owner-16-11",
+    "motorcycle_id": "moto-0004",
+    "source_showroom_id": "shw-vms-48-05",
+    "destination_showroom_id": "shw-vms-16-08",
+    "requested_by": "usr-owner-16-08",
     "status": "approved",
-    "reason": "Compte Global: Demande forte à Birtouta pour stock dormant (99j à Dar El Beïda)",
+    "reason": "Compte Global: Demande forte à Dar El Beïda pour stock dormant (99j à Oued Rhiou)",
     "stock_age_at_request": 99,
-    "approved_by": "usr-owner-16-08",
-    "approved_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-17T23:00:00.000Z"
+    "approved_by": "usr-owner-48-05",
+    "approved_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-18T14:48:55.983Z"
   },
   {
     "id": "trf-0002",
     "reference": "TRF-2026-0002",
-    "motorcycle_id": "moto-0009",
-    "source_showroom_id": "shw-vms-16-10",
-    "destination_showroom_id": "shw-vms-16-13",
-    "requested_by": "usr-owner-16-13",
+    "motorcycle_id": "moto-0008",
+    "source_showroom_id": "shw-vms-16-09",
+    "destination_showroom_id": "shw-vms-16-12",
+    "requested_by": "usr-owner-16-12",
     "status": "in_transit",
-    "reason": "Compte Global: Demande forte à Bab El Oued pour stock dormant (101j à Kouba)",
-    "stock_age_at_request": 101,
-    "approved_by": "usr-owner-16-10",
-    "approved_at": "2026-02-15T23:00:00.000Z",
-    "created_at": "2026-02-14T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Rouïba pour stock dormant (103j à Chéraga)",
+    "stock_age_at_request": 103,
+    "approved_by": "usr-owner-16-09",
+    "approved_at": "2026-11-16T14:48:55.983Z",
+    "created_at": "2026-11-15T14:48:55.983Z"
   },
   {
     "id": "trf-0003",
     "reference": "TRF-2026-0003",
-    "motorcycle_id": "moto-0014",
-    "source_showroom_id": "shw-vms-16-15",
-    "destination_showroom_id": "shw-vms-31-18",
-    "requested_by": "usr-owner-31-18",
+    "motorcycle_id": "moto-0012",
+    "source_showroom_id": "shw-vms-16-13",
+    "destination_showroom_id": "shw-vms-31-16",
+    "requested_by": "usr-owner-31-16",
     "status": "received",
-    "reason": "Compte Global: Demande forte à Arzew pour stock dormant (106j à Zéralda)",
-    "stock_age_at_request": 106,
-    "approved_by": "usr-owner-16-15",
-    "approved_at": "2026-02-12T23:00:00.000Z",
-    "received_by": "usr-owner-31-18",
-    "received_at": "2026-02-14T23:00:00.000Z",
-    "created_at": "2026-02-11T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Es-Senia pour stock dormant (107j à Bab El Oued)",
+    "stock_age_at_request": 107,
+    "approved_by": "usr-owner-16-13",
+    "approved_at": "2026-11-13T14:48:55.983Z",
+    "received_by": "usr-owner-31-16",
+    "received_at": "2026-11-15T14:48:55.983Z",
+    "created_at": "2026-11-12T14:48:55.983Z"
   },
   {
     "id": "trf-0004",
     "reference": "TRF-2026-0004",
-    "motorcycle_id": "moto-0018",
-    "source_showroom_id": "shw-vms-31-19",
-    "destination_showroom_id": "shw-vms-25-22",
-    "requested_by": "usr-owner-25-22",
+    "motorcycle_id": "moto-0016",
+    "source_showroom_id": "shw-vms-31-17",
+    "destination_showroom_id": "shw-vms-25-20",
+    "requested_by": "usr-owner-25-20",
     "status": "rejected",
-    "reason": "Compte Global: Demande forte à Constantine Centre pour stock dormant (110j à Aïn El Turk)",
-    "stock_age_at_request": 110,
-    "approved_by": "usr-owner-31-19",
-    "approved_at": "2026-02-09T23:00:00.000Z",
-    "created_at": "2026-02-08T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Ali Mendjeli pour stock dormant (111j à Bir El Djir)",
+    "stock_age_at_request": 111,
+    "approved_by": "usr-owner-31-17",
+    "approved_at": "2026-11-10T14:48:55.983Z",
+    "created_at": "2026-11-09T14:48:55.983Z"
   },
   {
     "id": "trf-0005",
     "reference": "TRF-2026-0005",
-    "motorcycle_id": "moto-0021",
-    "source_showroom_id": "shw-vms-25-22",
-    "destination_showroom_id": "shw-vms-19-25",
-    "requested_by": "usr-owner-19-25",
+    "motorcycle_id": "moto-0020",
+    "source_showroom_id": "shw-vms-25-21",
+    "destination_showroom_id": "shw-vms-19-24",
+    "requested_by": "usr-owner-19-24",
     "status": "pending",
-    "reason": "Compte Global: Demande forte à Aïn Oulmene pour stock dormant (113j à Constantine Centre)",
-    "stock_age_at_request": 113,
-    "created_at": "2026-02-05T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à El Eulma pour stock dormant (115j à El Khroub)",
+    "stock_age_at_request": 115,
+    "created_at": "2026-11-06T14:48:55.983Z"
   },
   {
     "id": "trf-0006",
     "reference": "TRF-2026-0006",
-    "motorcycle_id": "moto-0027",
-    "source_showroom_id": "shw-vms-09-28",
-    "destination_showroom_id": "shw-vms-15-31",
-    "requested_by": "usr-owner-15-31",
+    "motorcycle_id": "moto-0024",
+    "source_showroom_id": "shw-vms-19-25",
+    "destination_showroom_id": "shw-vms-09-28",
+    "requested_by": "usr-owner-09-28",
     "status": "approved",
-    "reason": "Compte Global: Demande forte à Draa Ben Khedda pour stock dormant (119j à Ouled Yaïch)",
+    "reason": "Compte Global: Demande forte à Ouled Yaïch pour stock dormant (119j à Aïn Oulmene)",
     "stock_age_at_request": 119,
-    "approved_by": "usr-owner-09-28",
-    "approved_at": "2026-02-03T23:00:00.000Z",
-    "created_at": "2026-02-02T23:00:00.000Z"
+    "approved_by": "usr-owner-19-25",
+    "approved_at": "2026-11-04T14:48:55.983Z",
+    "created_at": "2026-11-03T14:48:55.983Z"
   },
   {
     "id": "trf-0007",
@@ -12531,27 +12531,27 @@ export const INITIAL_TRANSFERS: Transfer[] = [
     "destination_showroom_id": "shw-vms-05-32",
     "requested_by": "usr-owner-05-32",
     "status": "in_transit",
-    "reason": "Compte Global: Demande forte à Batna Ville pour stock dormant (120j à Tizi Ouzou)",
-    "stock_age_at_request": 120,
+    "reason": "Compte Global: Demande forte à Batna Ville pour stock dormant (123j à Tizi Ouzou)",
+    "stock_age_at_request": 123,
     "approved_by": "usr-owner-15-29",
-    "approved_at": "2026-02-20T23:00:00.000Z",
-    "created_at": "2026-02-19T23:00:00.000Z"
+    "approved_at": "2026-11-21T14:48:55.983Z",
+    "created_at": "2026-11-20T14:48:55.983Z"
   },
   {
     "id": "trf-0008",
     "reference": "TRF-2026-0008",
-    "motorcycle_id": "moto-0035",
-    "source_showroom_id": "shw-vms-13-36",
-    "destination_showroom_id": "shw-vms-02-39",
-    "requested_by": "usr-owner-02-39",
+    "motorcycle_id": "moto-0032",
+    "source_showroom_id": "shw-vms-05-33",
+    "destination_showroom_id": "shw-vms-13-36",
+    "requested_by": "usr-owner-13-36",
     "status": "received",
-    "reason": "Compte Global: Demande forte à Ténès pour stock dormant (127j à Tlemcen Ville)",
+    "reason": "Compte Global: Demande forte à Tlemcen Ville pour stock dormant (127j à Barika)",
     "stock_age_at_request": 127,
-    "approved_by": "usr-owner-13-36",
-    "approved_at": "2026-02-17T23:00:00.000Z",
-    "received_by": "usr-owner-02-39",
-    "received_at": "2026-02-19T23:00:00.000Z",
-    "created_at": "2026-02-16T23:00:00.000Z"
+    "approved_by": "usr-owner-05-33",
+    "approved_at": "2026-11-18T14:48:55.983Z",
+    "received_by": "usr-owner-13-36",
+    "received_at": "2026-11-20T14:48:55.983Z",
+    "created_at": "2026-11-17T14:48:55.983Z"
   },
   {
     "id": "trf-0009",
@@ -12561,67 +12561,67 @@ export const INITIAL_TRANSFERS: Transfer[] = [
     "destination_showroom_id": "shw-vms-35-40",
     "requested_by": "usr-owner-35-40",
     "status": "rejected",
-    "reason": "Compte Global: Demande forte à Boumerdès pour stock dormant (128j à Maghnia)",
-    "stock_age_at_request": 128,
+    "reason": "Compte Global: Demande forte à Boumerdès pour stock dormant (131j à Maghnia)",
+    "stock_age_at_request": 131,
     "approved_by": "usr-owner-13-37",
-    "approved_at": "2026-02-14T23:00:00.000Z",
-    "created_at": "2026-02-13T23:00:00.000Z"
+    "approved_at": "2026-11-15T14:48:55.983Z",
+    "created_at": "2026-11-14T14:48:55.983Z"
   },
   {
     "id": "trf-0010",
     "reference": "TRF-2026-0010",
-    "motorcycle_id": "moto-0042",
-    "source_showroom_id": "shw-vms-42-43",
-    "destination_showroom_id": "shw-vms-34-46",
-    "requested_by": "usr-owner-34-46",
+    "motorcycle_id": "moto-0040",
+    "source_showroom_id": "shw-vms-35-41",
+    "destination_showroom_id": "shw-vms-10-44",
+    "requested_by": "usr-owner-10-44",
     "status": "pending",
-    "reason": "Compte Global: Demande forte à Bordj Bou Arréridj pour stock dormant (134j à Koléa)",
-    "stock_age_at_request": 134,
-    "created_at": "2026-02-10T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Bouira pour stock dormant (135j à Khemis El Khechna)",
+    "stock_age_at_request": 135,
+    "created_at": "2026-11-11T14:48:55.983Z"
   },
   {
     "id": "trf-0011",
     "reference": "TRF-2026-0011",
-    "motorcycle_id": "moto-0045",
-    "source_showroom_id": "shw-vms-34-46",
-    "destination_showroom_id": "shw-vms-17-49",
-    "requested_by": "usr-owner-17-49",
+    "motorcycle_id": "moto-0044",
+    "source_showroom_id": "shw-vms-10-45",
+    "destination_showroom_id": "shw-vms-17-48",
+    "requested_by": "usr-owner-17-48",
     "status": "approved",
-    "reason": "Compte Global: Demande forte à Aïn Oussera pour stock dormant (137j à Bordj Bou Arréridj)",
-    "stock_age_at_request": 137,
-    "approved_by": "usr-owner-34-46",
-    "approved_at": "2026-02-08T23:00:00.000Z",
-    "created_at": "2026-02-07T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Djelfa pour stock dormant (139j à Lakhdaria)",
+    "stock_age_at_request": 139,
+    "approved_by": "usr-owner-10-45",
+    "approved_at": "2026-11-09T14:48:55.983Z",
+    "created_at": "2026-11-08T14:48:55.983Z"
   },
   {
     "id": "trf-0012",
     "reference": "TRF-2026-0012",
-    "motorcycle_id": "moto-0049",
-    "source_showroom_id": "shw-vms-07-50",
-    "destination_showroom_id": "shw-vms-28-53",
-    "requested_by": "usr-owner-28-53",
+    "motorcycle_id": "moto-0048",
+    "source_showroom_id": "shw-vms-17-49",
+    "destination_showroom_id": "shw-vms-28-52",
+    "requested_by": "usr-owner-28-52",
     "status": "in_transit",
-    "reason": "Compte Global: Demande forte à Boussaâda pour stock dormant (141j à Biskra)",
-    "stock_age_at_request": 141,
-    "approved_by": "usr-owner-07-50",
-    "approved_at": "2026-02-05T23:00:00.000Z",
-    "created_at": "2026-02-04T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à M'Sila pour stock dormant (143j à Aïn Oussera)",
+    "stock_age_at_request": 143,
+    "approved_by": "usr-owner-17-49",
+    "approved_at": "2026-11-06T14:48:55.983Z",
+    "created_at": "2026-11-05T14:48:55.983Z"
   },
   {
     "id": "trf-0013",
     "reference": "TRF-2026-0013",
-    "motorcycle_id": "moto-0054",
-    "source_showroom_id": "shw-vms-29-55",
-    "destination_showroom_id": "shw-vms-21-58",
-    "requested_by": "usr-owner-21-58",
+    "motorcycle_id": "moto-0052",
+    "source_showroom_id": "shw-vms-28-53",
+    "destination_showroom_id": "shw-vms-18-56",
+    "requested_by": "usr-owner-18-56",
     "status": "received",
-    "reason": "Compte Global: Demande forte à Skikda pour stock dormant (146j à Tighennif)",
-    "stock_age_at_request": 146,
-    "approved_by": "usr-owner-29-55",
-    "approved_at": "2026-02-02T23:00:00.000Z",
-    "received_by": "usr-owner-21-58",
-    "received_at": "2026-02-04T23:00:00.000Z",
-    "created_at": "2026-02-01T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Jijel pour stock dormant (147j à Boussaâda)",
+    "stock_age_at_request": 147,
+    "approved_by": "usr-owner-28-53",
+    "approved_at": "2026-11-03T14:48:55.983Z",
+    "received_by": "usr-owner-18-56",
+    "received_at": "2026-11-05T14:48:55.983Z",
+    "created_at": "2026-11-02T14:48:55.983Z"
   },
   {
     "id": "trf-0014",
@@ -12631,151 +12631,151 @@ export const INITIAL_TRANSFERS: Transfer[] = [
     "destination_showroom_id": "shw-vms-26-60",
     "requested_by": "usr-owner-26-60",
     "status": "rejected",
-    "reason": "Compte Global: Demande forte à Médéa pour stock dormant (148j à Taher)",
-    "stock_age_at_request": 148,
+    "reason": "Compte Global: Demande forte à Médéa pour stock dormant (151j à Taher)",
+    "stock_age_at_request": 151,
     "approved_by": "usr-owner-18-57",
-    "approved_at": "2026-02-19T23:00:00.000Z",
-    "created_at": "2026-02-18T23:00:00.000Z"
+    "approved_at": "2026-11-20T14:48:55.983Z",
+    "created_at": "2026-11-19T14:48:55.983Z"
   },
   {
     "id": "trf-0015",
     "reference": "TRF-2026-0015",
-    "motorcycle_id": "moto-0063",
-    "source_showroom_id": "shw-vms-30-64",
-    "destination_showroom_id": "shw-vms-44-67",
-    "requested_by": "usr-owner-44-67",
+    "motorcycle_id": "moto-0060",
+    "source_showroom_id": "shw-vms-26-61",
+    "destination_showroom_id": "shw-vms-30-64",
+    "requested_by": "usr-owner-30-64",
     "status": "pending",
-    "reason": "Compte Global: Demande forte à Khemis Miliana pour stock dormant (155j à Ouargla)",
+    "reason": "Compte Global: Demande forte à Ouargla pour stock dormant (155j à Berrouaghia)",
     "stock_age_at_request": 155,
-    "created_at": "2026-02-15T23:00:00.000Z"
+    "created_at": "2026-11-16T14:48:55.983Z"
   },
   {
     "id": "trf-0016",
     "reference": "TRF-2026-0016",
-    "motorcycle_id": "moto-0070",
-    "source_showroom_id": "shw-vms-46-71",
-    "destination_showroom_id": "shw-vms-55-74",
-    "requested_by": "usr-owner-55-74",
+    "motorcycle_id": "moto-0064",
+    "source_showroom_id": "shw-vms-30-65",
+    "destination_showroom_id": "shw-vms-22-68",
+    "requested_by": "usr-owner-22-68",
     "status": "approved",
-    "reason": "Compte Global: Demande forte à Touggourt pour stock dormant (162j à Aïn Témouchent)",
-    "stock_age_at_request": 162,
-    "approved_by": "usr-owner-46-71",
-    "approved_at": "2026-02-13T23:00:00.000Z",
-    "created_at": "2026-02-12T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Sidi Bel Abbès pour stock dormant (159j à Hassi Messaoud)",
+    "stock_age_at_request": 159,
+    "approved_by": "usr-owner-30-65",
+    "approved_at": "2026-11-14T14:48:55.983Z",
+    "created_at": "2026-11-13T14:48:55.983Z"
   },
   {
     "id": "trf-0017",
     "reference": "TRF-2026-0017",
-    "motorcycle_id": "moto-0072",
-    "source_showroom_id": "shw-vms-39-73",
-    "destination_showroom_id": "shw-vms-24-76",
-    "requested_by": "usr-owner-24-76",
+    "motorcycle_id": "moto-0068",
+    "source_showroom_id": "shw-vms-14-69",
+    "destination_showroom_id": "shw-vms-47-72",
+    "requested_by": "usr-owner-47-72",
     "status": "in_transit",
-    "reason": "Compte Global: Demande forte à Guelma pour stock dormant (164j à El Oued)",
-    "stock_age_at_request": 164,
-    "approved_by": "usr-owner-39-73",
-    "approved_at": "2026-02-10T23:00:00.000Z",
-    "created_at": "2026-02-09T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Ghardaïa pour stock dormant (163j à Tiaret)",
+    "stock_age_at_request": 163,
+    "approved_by": "usr-owner-14-69",
+    "approved_at": "2026-11-11T14:48:55.983Z",
+    "created_at": "2026-11-10T14:48:55.983Z"
   },
   {
     "id": "trf-0018",
     "reference": "TRF-2026-0018",
-    "motorcycle_id": "moto-0077",
-    "source_showroom_id": "shw-vms-41-78",
-    "destination_showroom_id": "shw-vms-06-01",
-    "requested_by": "usr-owner-06-01",
+    "motorcycle_id": "moto-0072",
+    "source_showroom_id": "shw-vms-39-73",
+    "destination_showroom_id": "shw-vms-24-76",
+    "requested_by": "usr-owner-24-76",
     "status": "received",
-    "reason": "Compte Global: Demande forte à Oued Ghir pour stock dormant (169j à Souk Ahras)",
-    "stock_age_at_request": 169,
-    "approved_by": "usr-owner-41-78",
-    "approved_at": "2026-02-07T23:00:00.000Z",
-    "received_by": "usr-owner-06-01",
-    "received_at": "2026-02-09T23:00:00.000Z",
-    "created_at": "2026-02-06T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Guelma pour stock dormant (167j à El Oued)",
+    "stock_age_at_request": 167,
+    "approved_by": "usr-owner-39-73",
+    "approved_at": "2026-11-08T14:48:55.983Z",
+    "received_by": "usr-owner-24-76",
+    "received_at": "2026-11-10T14:48:55.983Z",
+    "created_at": "2026-11-07T14:48:55.983Z"
   },
   {
     "id": "trf-0019",
     "reference": "TRF-2026-0019",
-    "motorcycle_id": "moto-0081",
-    "source_showroom_id": "shw-vms-06-02",
-    "destination_showroom_id": "shw-vms-48-05",
-    "requested_by": "usr-owner-48-05",
+    "motorcycle_id": "moto-0076",
+    "source_showroom_id": "shw-vms-40-77",
+    "destination_showroom_id": "shw-vms-04-80",
+    "requested_by": "usr-owner-04-80",
     "status": "rejected",
-    "reason": "Compte Global: Demande forte à Oued Rhiou pour stock dormant (173j à Akbou)",
-    "stock_age_at_request": 173,
-    "approved_by": "usr-owner-06-02",
-    "approved_at": "2026-02-04T23:00:00.000Z",
-    "created_at": "2026-02-03T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Oum El Bouaghi pour stock dormant (171j à Khenchela)",
+    "stock_age_at_request": 171,
+    "approved_by": "usr-owner-40-77",
+    "approved_at": "2026-11-05T14:48:55.983Z",
+    "created_at": "2026-11-04T14:48:55.983Z"
   },
   {
     "id": "trf-0020",
     "reference": "TRF-2026-0020",
-    "motorcycle_id": "moto-0084",
-    "source_showroom_id": "shw-vms-48-05",
-    "destination_showroom_id": "shw-vms-16-08",
-    "requested_by": "usr-owner-16-08",
+    "motorcycle_id": "moto-0080",
+    "source_showroom_id": "shw-vms-06-01",
+    "destination_showroom_id": "shw-vms-48-04",
+    "requested_by": "usr-owner-48-04",
     "status": "pending",
-    "reason": "Compte Global: Demande forte à Dar El Beïda pour stock dormant (176j à Oued Rhiou)",
-    "stock_age_at_request": 176,
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Relizane pour stock dormant (175j à Oued Ghir)",
+    "stock_age_at_request": 175,
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "trf-0021",
     "reference": "TRF-2026-0021",
-    "motorcycle_id": "moto-0090",
-    "source_showroom_id": "shw-vms-16-11",
-    "destination_showroom_id": "shw-vms-16-14",
-    "requested_by": "usr-owner-16-14",
+    "motorcycle_id": "moto-0084",
+    "source_showroom_id": "shw-vms-48-05",
+    "destination_showroom_id": "shw-vms-16-08",
+    "requested_by": "usr-owner-16-08",
     "status": "approved",
-    "reason": "Compte Global: Demande forte à Draria pour stock dormant (182j à Birtouta)",
-    "stock_age_at_request": 182,
-    "approved_by": "usr-owner-16-11",
-    "approved_at": "2026-02-18T23:00:00.000Z",
-    "created_at": "2026-02-17T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Dar El Beïda pour stock dormant (179j à Oued Rhiou)",
+    "stock_age_at_request": 179,
+    "approved_by": "usr-owner-48-05",
+    "approved_at": "2026-11-19T14:48:55.983Z",
+    "created_at": "2026-11-18T14:48:55.983Z"
   },
   {
     "id": "trf-0022",
     "reference": "TRF-2026-0022",
-    "motorcycle_id": "moto-0091",
-    "source_showroom_id": "shw-vms-16-12",
-    "destination_showroom_id": "shw-vms-16-15",
-    "requested_by": "usr-owner-16-15",
+    "motorcycle_id": "moto-0088",
+    "source_showroom_id": "shw-vms-16-09",
+    "destination_showroom_id": "shw-vms-16-12",
+    "requested_by": "usr-owner-16-12",
     "status": "in_transit",
-    "reason": "Compte Global: Demande forte à Zéralda pour stock dormant (183j à Rouïba)",
-    "stock_age_at_request": 183,
-    "approved_by": "usr-owner-16-12",
-    "approved_at": "2026-02-15T23:00:00.000Z",
-    "created_at": "2026-02-14T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Rouïba pour stock dormant (98j à Chéraga)",
+    "stock_age_at_request": 98,
+    "approved_by": "usr-owner-16-09",
+    "approved_at": "2026-11-16T14:48:55.983Z",
+    "created_at": "2026-11-15T14:48:55.983Z"
   },
   {
     "id": "trf-0023",
     "reference": "TRF-2026-0023",
-    "motorcycle_id": "moto-0098",
-    "source_showroom_id": "shw-vms-31-19",
-    "destination_showroom_id": "shw-vms-25-22",
-    "requested_by": "usr-owner-25-22",
+    "motorcycle_id": "moto-0092",
+    "source_showroom_id": "shw-vms-16-13",
+    "destination_showroom_id": "shw-vms-31-16",
+    "requested_by": "usr-owner-31-16",
     "status": "received",
-    "reason": "Compte Global: Demande forte à Constantine Centre pour stock dormant (190j à Aïn El Turk)",
-    "stock_age_at_request": 190,
-    "approved_by": "usr-owner-31-19",
-    "approved_at": "2026-02-12T23:00:00.000Z",
-    "received_by": "usr-owner-25-22",
-    "received_at": "2026-02-14T23:00:00.000Z",
-    "created_at": "2026-02-11T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Es-Senia pour stock dormant (102j à Bab El Oued)",
+    "stock_age_at_request": 102,
+    "approved_by": "usr-owner-16-13",
+    "approved_at": "2026-11-13T14:48:55.983Z",
+    "received_by": "usr-owner-31-16",
+    "received_at": "2026-11-15T14:48:55.983Z",
+    "created_at": "2026-11-12T14:48:55.983Z"
   },
   {
     "id": "trf-0024",
     "reference": "TRF-2026-0024",
-    "motorcycle_id": "moto-0099",
-    "source_showroom_id": "shw-vms-25-20",
-    "destination_showroom_id": "shw-vms-19-23",
-    "requested_by": "usr-owner-19-23",
+    "motorcycle_id": "moto-0096",
+    "source_showroom_id": "shw-vms-31-17",
+    "destination_showroom_id": "shw-vms-25-20",
+    "requested_by": "usr-owner-25-20",
     "status": "rejected",
-    "reason": "Compte Global: Demande forte à Sétif Ville pour stock dormant (191j à Ali Mendjeli)",
-    "stock_age_at_request": 191,
-    "approved_by": "usr-owner-25-20",
-    "approved_at": "2026-02-09T23:00:00.000Z",
-    "created_at": "2026-02-08T23:00:00.000Z"
+    "reason": "Compte Global: Demande forte à Ali Mendjeli pour stock dormant (106j à Bir El Djir)",
+    "stock_age_at_request": 106,
+    "approved_by": "usr-owner-31-17",
+    "approved_at": "2026-11-10T14:48:55.983Z",
+    "created_at": "2026-11-09T14:48:55.983Z"
   }
 ];
 
@@ -12814,10 +12814,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200111",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-13",
+    "sale_date": "2026-11-14",
     "sold_by": "usr-owner-16-06",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-13T23:00:00.000Z"
+    "created_at": "2026-11-14T14:48:55.983Z"
   },
   {
     "id": "sale-0002",
@@ -12828,10 +12828,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200222",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-06",
+    "sale_date": "2026-11-07",
     "sold_by": "usr-owner-16-10",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-06T23:00:00.000Z"
+    "created_at": "2026-11-07T14:48:55.983Z"
   },
   {
     "id": "sale-0003",
@@ -12842,10 +12842,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200333",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-30",
+    "sale_date": "2026-10-31",
     "sold_by": "usr-owner-16-14",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-30T23:00:00.000Z"
+    "created_at": "2026-10-31T14:48:55.983Z"
   },
   {
     "id": "sale-0004",
@@ -12856,10 +12856,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200444",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-23",
+    "sale_date": "2026-10-24",
     "sold_by": "usr-owner-31-18",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-23T23:00:00.000Z"
+    "created_at": "2026-10-24T14:48:55.983Z"
   },
   {
     "id": "sale-0005",
@@ -12870,10 +12870,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200555",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-16",
+    "sale_date": "2026-10-17",
     "sold_by": "usr-owner-25-22",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-16T23:00:00.000Z"
+    "created_at": "2026-10-17T14:48:55.983Z"
   },
   {
     "id": "sale-0006",
@@ -12884,10 +12884,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200666",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-09",
+    "sale_date": "2026-10-10",
     "sold_by": "usr-owner-09-26",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-09T23:00:00.000Z"
+    "created_at": "2026-10-10T14:48:55.983Z"
   },
   {
     "id": "sale-0007",
@@ -12898,10 +12898,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200777",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-02",
+    "sale_date": "2026-10-03",
     "sold_by": "usr-owner-15-30",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-02T23:00:00.000Z"
+    "created_at": "2026-10-03T14:48:55.983Z"
   },
   {
     "id": "sale-0008",
@@ -12912,10 +12912,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200888",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2025-12-26",
+    "sale_date": "2026-09-26",
     "sold_by": "usr-owner-23-34",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-26T23:00:00.000Z"
+    "created_at": "2026-09-26T14:48:55.983Z"
   },
   {
     "id": "sale-0009",
@@ -12926,10 +12926,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550200999",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-17",
+    "sale_date": "2026-11-18",
     "sold_by": "usr-owner-02-38",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-17T23:00:00.000Z"
+    "created_at": "2026-11-18T14:48:55.983Z"
   },
   {
     "id": "sale-0010",
@@ -12940,10 +12940,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201110",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-10",
+    "sale_date": "2026-11-11",
     "sold_by": "usr-owner-42-42",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-10T23:00:00.000Z"
+    "created_at": "2026-11-11T14:48:55.983Z"
   },
   {
     "id": "sale-0011",
@@ -12954,10 +12954,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201221",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-03",
+    "sale_date": "2026-11-04",
     "sold_by": "usr-owner-34-46",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-03T23:00:00.000Z"
+    "created_at": "2026-11-04T14:48:55.983Z"
   },
   {
     "id": "sale-0012",
@@ -12968,10 +12968,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201332",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-27",
+    "sale_date": "2026-10-28",
     "sold_by": "usr-owner-07-50",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-27T23:00:00.000Z"
+    "created_at": "2026-10-28T14:48:55.983Z"
   },
   {
     "id": "sale-0013",
@@ -12982,10 +12982,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201443",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-20",
+    "sale_date": "2026-10-21",
     "sold_by": "usr-owner-29-54",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-20T23:00:00.000Z"
+    "created_at": "2026-10-21T14:48:55.983Z"
   },
   {
     "id": "sale-0014",
@@ -12996,10 +12996,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201554",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-13",
+    "sale_date": "2026-10-14",
     "sold_by": "usr-owner-21-58",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-13T23:00:00.000Z"
+    "created_at": "2026-10-14T14:48:55.983Z"
   },
   {
     "id": "sale-0015",
@@ -13010,10 +13010,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201665",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-06",
+    "sale_date": "2026-10-07",
     "sold_by": "usr-owner-27-62",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-06T23:00:00.000Z"
+    "created_at": "2026-10-07T14:48:55.983Z"
   },
   {
     "id": "sale-0016",
@@ -13024,10 +13024,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201776",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2025-12-30",
+    "sale_date": "2026-09-30",
     "sold_by": "usr-owner-44-66",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-30T23:00:00.000Z"
+    "created_at": "2026-09-30T14:48:55.983Z"
   },
   {
     "id": "sale-0017",
@@ -13038,10 +13038,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201887",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2025-12-23",
+    "sale_date": "2026-09-23",
     "sold_by": "usr-owner-20-70",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-23T23:00:00.000Z"
+    "created_at": "2026-09-23T14:48:55.983Z"
   },
   {
     "id": "sale-0018",
@@ -13052,10 +13052,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550201998",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-14",
+    "sale_date": "2026-11-15",
     "sold_by": "usr-owner-55-74",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-14T23:00:00.000Z"
+    "created_at": "2026-11-15T14:48:55.983Z"
   },
   {
     "id": "sale-0019",
@@ -13066,10 +13066,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202109",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-07",
+    "sale_date": "2026-11-08",
     "sold_by": "usr-owner-41-78",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-07T23:00:00.000Z"
+    "created_at": "2026-11-08T14:48:55.983Z"
   },
   {
     "id": "sale-0020",
@@ -13080,10 +13080,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202220",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-31",
+    "sale_date": "2026-11-01",
     "sold_by": "usr-owner-06-02",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-31T23:00:00.000Z"
+    "created_at": "2026-11-01T14:48:55.983Z"
   },
   {
     "id": "sale-0021",
@@ -13094,10 +13094,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202331",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-24",
+    "sale_date": "2026-10-25",
     "sold_by": "usr-owner-16-06",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-24T23:00:00.000Z"
+    "created_at": "2026-10-25T14:48:55.983Z"
   },
   {
     "id": "sale-0022",
@@ -13108,10 +13108,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202442",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-17",
+    "sale_date": "2026-10-18",
     "sold_by": "usr-owner-16-10",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-17T23:00:00.000Z"
+    "created_at": "2026-10-18T14:48:55.983Z"
   },
   {
     "id": "sale-0023",
@@ -13122,10 +13122,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202553",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-10",
+    "sale_date": "2026-10-11",
     "sold_by": "usr-owner-16-14",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-10T23:00:00.000Z"
+    "created_at": "2026-10-11T14:48:55.983Z"
   },
   {
     "id": "sale-0024",
@@ -13136,10 +13136,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202664",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-03",
+    "sale_date": "2026-10-04",
     "sold_by": "usr-owner-31-18",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-03T23:00:00.000Z"
+    "created_at": "2026-10-04T14:48:55.983Z"
   },
   {
     "id": "sale-0025",
@@ -13150,10 +13150,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202775",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2025-12-27",
+    "sale_date": "2026-09-27",
     "sold_by": "usr-owner-25-22",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-27T23:00:00.000Z"
+    "created_at": "2026-09-27T14:48:55.983Z"
   },
   {
     "id": "sale-0026",
@@ -13164,10 +13164,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202886",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-18",
+    "sale_date": "2026-11-19",
     "sold_by": "usr-owner-09-26",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-18T23:00:00.000Z"
+    "created_at": "2026-11-19T14:48:55.983Z"
   },
   {
     "id": "sale-0027",
@@ -13178,10 +13178,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550202997",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-11",
+    "sale_date": "2026-11-12",
     "sold_by": "usr-owner-15-30",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-11T23:00:00.000Z"
+    "created_at": "2026-11-12T14:48:55.983Z"
   },
   {
     "id": "sale-0028",
@@ -13192,10 +13192,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203108",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-02-04",
+    "sale_date": "2026-11-05",
     "sold_by": "usr-owner-23-34",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-04T23:00:00.000Z"
+    "created_at": "2026-11-05T14:48:55.983Z"
   },
   {
     "id": "sale-0029",
@@ -13206,10 +13206,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203219",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-28",
+    "sale_date": "2026-10-29",
     "sold_by": "usr-owner-02-38",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-28T23:00:00.000Z"
+    "created_at": "2026-10-29T14:48:55.983Z"
   },
   {
     "id": "sale-0030",
@@ -13220,10 +13220,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203330",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-21",
+    "sale_date": "2026-10-22",
     "sold_by": "usr-owner-42-42",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-21T23:00:00.000Z"
+    "created_at": "2026-10-22T14:48:55.983Z"
   },
   {
     "id": "sale-0031",
@@ -13234,10 +13234,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203441",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-14",
+    "sale_date": "2026-10-15",
     "sold_by": "usr-owner-34-46",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-14T23:00:00.000Z"
+    "created_at": "2026-10-15T14:48:55.983Z"
   },
   {
     "id": "sale-0032",
@@ -13248,10 +13248,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203552",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-07",
+    "sale_date": "2026-10-08",
     "sold_by": "usr-owner-07-50",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-07T23:00:00.000Z"
+    "created_at": "2026-10-08T14:48:55.983Z"
   },
   {
     "id": "sale-0033",
@@ -13262,10 +13262,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203663",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2025-12-31",
+    "sale_date": "2026-10-01",
     "sold_by": "usr-owner-29-54",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-31T23:00:00.000Z"
+    "created_at": "2026-10-01T14:48:55.983Z"
   },
   {
     "id": "sale-0034",
@@ -13276,10 +13276,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203774",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2025-12-24",
+    "sale_date": "2026-09-24",
     "sold_by": "usr-owner-21-58",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-24T23:00:00.000Z"
+    "created_at": "2026-09-24T14:48:55.983Z"
   },
   {
     "id": "sale-0035",
@@ -13290,10 +13290,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203885",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-15",
+    "sale_date": "2026-11-16",
     "sold_by": "usr-owner-27-62",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-15T23:00:00.000Z"
+    "created_at": "2026-11-16T14:48:55.983Z"
   },
   {
     "id": "sale-0036",
@@ -13304,10 +13304,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550203996",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-02-08",
+    "sale_date": "2026-11-09",
     "sold_by": "usr-owner-44-66",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-08T23:00:00.000Z"
+    "created_at": "2026-11-09T14:48:55.983Z"
   },
   {
     "id": "sale-0037",
@@ -13318,10 +13318,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204107",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-01",
+    "sale_date": "2026-11-02",
     "sold_by": "usr-owner-20-70",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-01T23:00:00.000Z"
+    "created_at": "2026-11-02T14:48:55.983Z"
   },
   {
     "id": "sale-0038",
@@ -13332,10 +13332,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204218",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-25",
+    "sale_date": "2026-10-26",
     "sold_by": "usr-owner-55-74",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-25T23:00:00.000Z"
+    "created_at": "2026-10-26T14:48:55.983Z"
   },
   {
     "id": "sale-0039",
@@ -13346,10 +13346,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204329",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-18",
+    "sale_date": "2026-10-19",
     "sold_by": "usr-owner-41-78",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-18T23:00:00.000Z"
+    "created_at": "2026-10-19T14:48:55.983Z"
   },
   {
     "id": "sale-0040",
@@ -13360,10 +13360,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204440",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-11",
+    "sale_date": "2026-10-12",
     "sold_by": "usr-owner-06-02",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-11T23:00:00.000Z"
+    "created_at": "2026-10-12T14:48:55.983Z"
   },
   {
     "id": "sale-0041",
@@ -13374,10 +13374,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204551",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-04",
+    "sale_date": "2026-10-05",
     "sold_by": "usr-owner-16-06",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-04T23:00:00.000Z"
+    "created_at": "2026-10-05T14:48:55.983Z"
   },
   {
     "id": "sale-0042",
@@ -13388,10 +13388,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204662",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2025-12-28",
+    "sale_date": "2026-09-28",
     "sold_by": "usr-owner-16-10",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-28T23:00:00.000Z"
+    "created_at": "2026-09-28T14:48:55.983Z"
   },
   {
     "id": "sale-0043",
@@ -13402,10 +13402,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204773",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-19",
+    "sale_date": "2026-11-20",
     "sold_by": "usr-owner-16-14",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-19T23:00:00.000Z"
+    "created_at": "2026-11-20T14:48:55.983Z"
   },
   {
     "id": "sale-0044",
@@ -13416,10 +13416,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204884",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-02-12",
+    "sale_date": "2026-11-13",
     "sold_by": "usr-owner-31-18",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-12T23:00:00.000Z"
+    "created_at": "2026-11-13T14:48:55.983Z"
   },
   {
     "id": "sale-0045",
@@ -13430,10 +13430,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550204995",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-05",
+    "sale_date": "2026-11-06",
     "sold_by": "usr-owner-25-22",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-05T23:00:00.000Z"
+    "created_at": "2026-11-06T14:48:55.983Z"
   },
   {
     "id": "sale-0046",
@@ -13444,10 +13444,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205106",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-29",
+    "sale_date": "2026-10-30",
     "sold_by": "usr-owner-09-26",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-29T23:00:00.000Z"
+    "created_at": "2026-10-30T14:48:55.983Z"
   },
   {
     "id": "sale-0047",
@@ -13458,10 +13458,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205217",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-22",
+    "sale_date": "2026-10-23",
     "sold_by": "usr-owner-15-30",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-22T23:00:00.000Z"
+    "created_at": "2026-10-23T14:48:55.983Z"
   },
   {
     "id": "sale-0048",
@@ -13472,10 +13472,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205328",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-15",
+    "sale_date": "2026-10-16",
     "sold_by": "usr-owner-23-34",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-15T23:00:00.000Z"
+    "created_at": "2026-10-16T14:48:55.983Z"
   },
   {
     "id": "sale-0049",
@@ -13486,10 +13486,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205439",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-08",
+    "sale_date": "2026-10-09",
     "sold_by": "usr-owner-02-38",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-08T23:00:00.000Z"
+    "created_at": "2026-10-09T14:48:55.983Z"
   },
   {
     "id": "sale-0050",
@@ -13500,10 +13500,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205550",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-01",
+    "sale_date": "2026-10-02",
     "sold_by": "usr-owner-42-42",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-01T23:00:00.000Z"
+    "created_at": "2026-10-02T14:48:55.983Z"
   },
   {
     "id": "sale-0051",
@@ -13514,10 +13514,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205661",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2025-12-25",
+    "sale_date": "2026-09-25",
     "sold_by": "usr-owner-34-46",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-25T23:00:00.000Z"
+    "created_at": "2026-09-25T14:48:55.983Z"
   },
   {
     "id": "sale-0052",
@@ -13528,10 +13528,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205772",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-02-16",
+    "sale_date": "2026-11-17",
     "sold_by": "usr-owner-07-50",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-16T23:00:00.000Z"
+    "created_at": "2026-11-17T14:48:55.983Z"
   },
   {
     "id": "sale-0053",
@@ -13542,10 +13542,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205883",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-09",
+    "sale_date": "2026-11-10",
     "sold_by": "usr-owner-29-54",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-09T23:00:00.000Z"
+    "created_at": "2026-11-10T14:48:55.983Z"
   },
   {
     "id": "sale-0054",
@@ -13556,10 +13556,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550205994",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-02",
+    "sale_date": "2026-11-03",
     "sold_by": "usr-owner-21-58",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-02T23:00:00.000Z"
+    "created_at": "2026-11-03T14:48:55.983Z"
   },
   {
     "id": "sale-0055",
@@ -13570,10 +13570,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206105",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-26",
+    "sale_date": "2026-10-27",
     "sold_by": "usr-owner-27-62",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-26T23:00:00.000Z"
+    "created_at": "2026-10-27T14:48:55.983Z"
   },
   {
     "id": "sale-0056",
@@ -13584,10 +13584,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206216",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-19",
+    "sale_date": "2026-10-20",
     "sold_by": "usr-owner-44-66",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-19T23:00:00.000Z"
+    "created_at": "2026-10-20T14:48:55.983Z"
   },
   {
     "id": "sale-0057",
@@ -13598,10 +13598,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206327",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-12",
+    "sale_date": "2026-10-13",
     "sold_by": "usr-owner-20-70",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-12T23:00:00.000Z"
+    "created_at": "2026-10-13T14:48:55.983Z"
   },
   {
     "id": "sale-0058",
@@ -13612,10 +13612,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206438",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-05",
+    "sale_date": "2026-10-06",
     "sold_by": "usr-owner-55-74",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-05T23:00:00.000Z"
+    "created_at": "2026-10-06T14:48:55.983Z"
   },
   {
     "id": "sale-0059",
@@ -13626,10 +13626,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206549",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2025-12-29",
+    "sale_date": "2026-09-29",
     "sold_by": "usr-owner-41-78",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-29T23:00:00.000Z"
+    "created_at": "2026-09-29T14:48:55.983Z"
   },
   {
     "id": "sale-0060",
@@ -13640,10 +13640,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206660",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-02-20",
+    "sale_date": "2026-11-21",
     "sold_by": "usr-owner-06-02",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "sale-0061",
@@ -13654,10 +13654,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206771",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-13",
+    "sale_date": "2026-11-14",
     "sold_by": "usr-owner-16-06",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-13T23:00:00.000Z"
+    "created_at": "2026-11-14T14:48:55.983Z"
   },
   {
     "id": "sale-0062",
@@ -13668,10 +13668,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206882",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-06",
+    "sale_date": "2026-11-07",
     "sold_by": "usr-owner-16-10",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-06T23:00:00.000Z"
+    "created_at": "2026-11-07T14:48:55.983Z"
   },
   {
     "id": "sale-0063",
@@ -13682,10 +13682,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550206993",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-30",
+    "sale_date": "2026-10-31",
     "sold_by": "usr-owner-16-14",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-30T23:00:00.000Z"
+    "created_at": "2026-10-31T14:48:55.983Z"
   },
   {
     "id": "sale-0064",
@@ -13696,10 +13696,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207104",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-23",
+    "sale_date": "2026-10-24",
     "sold_by": "usr-owner-31-18",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-23T23:00:00.000Z"
+    "created_at": "2026-10-24T14:48:55.983Z"
   },
   {
     "id": "sale-0065",
@@ -13710,10 +13710,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207215",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-16",
+    "sale_date": "2026-10-17",
     "sold_by": "usr-owner-25-22",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-16T23:00:00.000Z"
+    "created_at": "2026-10-17T14:48:55.983Z"
   },
   {
     "id": "sale-0066",
@@ -13724,10 +13724,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207326",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-09",
+    "sale_date": "2026-10-10",
     "sold_by": "usr-owner-09-26",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-09T23:00:00.000Z"
+    "created_at": "2026-10-10T14:48:55.983Z"
   },
   {
     "id": "sale-0067",
@@ -13738,10 +13738,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207437",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-02",
+    "sale_date": "2026-10-03",
     "sold_by": "usr-owner-15-30",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-02T23:00:00.000Z"
+    "created_at": "2026-10-03T14:48:55.983Z"
   },
   {
     "id": "sale-0068",
@@ -13752,10 +13752,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207548",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2025-12-26",
+    "sale_date": "2026-09-26",
     "sold_by": "usr-owner-23-34",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-26T23:00:00.000Z"
+    "created_at": "2026-09-26T14:48:55.983Z"
   },
   {
     "id": "sale-0069",
@@ -13766,10 +13766,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207659",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-02-17",
+    "sale_date": "2026-11-18",
     "sold_by": "usr-owner-02-38",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-17T23:00:00.000Z"
+    "created_at": "2026-11-18T14:48:55.983Z"
   },
   {
     "id": "sale-0070",
@@ -13780,10 +13780,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207770",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-10",
+    "sale_date": "2026-11-11",
     "sold_by": "usr-owner-42-42",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-10T23:00:00.000Z"
+    "created_at": "2026-11-11T14:48:55.983Z"
   },
   {
     "id": "sale-0071",
@@ -13794,10 +13794,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207881",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-03",
+    "sale_date": "2026-11-04",
     "sold_by": "usr-owner-34-46",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-03T23:00:00.000Z"
+    "created_at": "2026-11-04T14:48:55.983Z"
   },
   {
     "id": "sale-0072",
@@ -13808,10 +13808,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550207992",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-27",
+    "sale_date": "2026-10-28",
     "sold_by": "usr-owner-07-50",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-27T23:00:00.000Z"
+    "created_at": "2026-10-28T14:48:55.983Z"
   },
   {
     "id": "sale-0073",
@@ -13822,10 +13822,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208103",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-20",
+    "sale_date": "2026-10-21",
     "sold_by": "usr-owner-29-54",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-20T23:00:00.000Z"
+    "created_at": "2026-10-21T14:48:55.983Z"
   },
   {
     "id": "sale-0074",
@@ -13836,10 +13836,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208214",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-13",
+    "sale_date": "2026-10-14",
     "sold_by": "usr-owner-21-58",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-13T23:00:00.000Z"
+    "created_at": "2026-10-14T14:48:55.983Z"
   },
   {
     "id": "sale-0075",
@@ -13850,10 +13850,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208325",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-06",
+    "sale_date": "2026-10-07",
     "sold_by": "usr-owner-27-62",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-06T23:00:00.000Z"
+    "created_at": "2026-10-07T14:48:55.983Z"
   },
   {
     "id": "sale-0076",
@@ -13864,10 +13864,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208436",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2025-12-30",
+    "sale_date": "2026-09-30",
     "sold_by": "usr-owner-44-66",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-30T23:00:00.000Z"
+    "created_at": "2026-09-30T14:48:55.983Z"
   },
   {
     "id": "sale-0077",
@@ -13878,10 +13878,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208547",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2025-12-23",
+    "sale_date": "2026-09-23",
     "sold_by": "usr-owner-20-70",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-23T23:00:00.000Z"
+    "created_at": "2026-09-23T14:48:55.983Z"
   },
   {
     "id": "sale-0078",
@@ -13892,10 +13892,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208658",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-02-14",
+    "sale_date": "2026-11-15",
     "sold_by": "usr-owner-55-74",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-14T23:00:00.000Z"
+    "created_at": "2026-11-15T14:48:55.983Z"
   },
   {
     "id": "sale-0079",
@@ -13906,10 +13906,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208769",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-02-07",
+    "sale_date": "2026-11-08",
     "sold_by": "usr-owner-41-78",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-02-07T23:00:00.000Z"
+    "created_at": "2026-11-08T14:48:55.983Z"
   },
   {
     "id": "sale-0080",
@@ -13920,10 +13920,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208880",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-31",
+    "sale_date": "2026-11-01",
     "sold_by": "usr-owner-06-02",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-31T23:00:00.000Z"
+    "created_at": "2026-11-01T14:48:55.983Z"
   },
   {
     "id": "sale-0081",
@@ -13934,10 +13934,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550208991",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2026-01-24",
+    "sale_date": "2026-10-25",
     "sold_by": "usr-owner-16-06",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-24T23:00:00.000Z"
+    "created_at": "2026-10-25T14:48:55.983Z"
   },
   {
     "id": "sale-0082",
@@ -13948,10 +13948,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550209102",
     "sale_price": 365000,
     "payment_method": "VIREMENT",
-    "sale_date": "2026-01-17",
+    "sale_date": "2026-10-18",
     "sold_by": "usr-owner-16-10",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-17T23:00:00.000Z"
+    "created_at": "2026-10-18T14:48:55.983Z"
   },
   {
     "id": "sale-0083",
@@ -13962,10 +13962,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550209213",
     "sale_price": 335000,
     "payment_method": "FACILITE",
-    "sale_date": "2026-01-10",
+    "sale_date": "2026-10-11",
     "sold_by": "usr-owner-16-14",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-10T23:00:00.000Z"
+    "created_at": "2026-10-11T14:48:55.983Z"
   },
   {
     "id": "sale-0084",
@@ -13976,10 +13976,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550209324",
     "sale_price": 365000,
     "payment_method": "CASH",
-    "sale_date": "2026-01-03",
+    "sale_date": "2026-10-04",
     "sold_by": "usr-owner-31-18",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2026-01-03T23:00:00.000Z"
+    "created_at": "2026-10-04T14:48:55.983Z"
   },
   {
     "id": "sale-0085",
@@ -13990,10 +13990,10 @@ export const INITIAL_SALES: Sale[] = [
     "customer_phone": "0550209435",
     "sale_price": 335000,
     "payment_method": "CHEQUE",
-    "sale_date": "2025-12-27",
+    "sale_date": "2026-09-27",
     "sold_by": "usr-owner-25-22",
     "notes": "Vente showroom avec carte grise VMS et garantie 2 ans",
-    "created_at": "2025-12-27T23:00:00.000Z"
+    "created_at": "2026-09-27T14:48:55.983Z"
   }
 ];
 
@@ -14005,7 +14005,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Tamanrasset Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "pre-req-0020",
@@ -14014,7 +14014,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Collo",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   },
   {
     "id": "pre-req-0030",
@@ -14023,7 +14023,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Arzew",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T17:00:00.000Z"
+    "created_at": "2026-10-22T08:48:55.983Z"
   },
   {
     "id": "pre-req-0040",
@@ -14032,7 +14032,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Sedrata",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T07:00:00.000Z"
+    "created_at": "2026-11-20T22:48:55.983Z"
   },
   {
     "id": "pre-req-0050",
@@ -14041,7 +14041,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Ouled Djellal Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T21:00:00.000Z"
+    "created_at": "2026-11-11T12:48:55.983Z"
   },
   {
     "id": "pre-req-0060",
@@ -14050,7 +14050,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Laghouat Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T11:00:00.000Z"
+    "created_at": "2026-11-01T02:48:55.983Z"
   },
   {
     "id": "pre-req-0070",
@@ -14059,7 +14059,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Mansourah",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T01:00:00.000Z"
+    "created_at": "2026-10-21T16:48:55.983Z"
   },
   {
     "id": "pre-req-0080",
@@ -14068,7 +14068,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Annaba Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T15:00:00.000Z"
+    "created_at": "2026-11-21T06:48:55.983Z"
   },
   {
     "id": "pre-req-0090",
@@ -14077,7 +14077,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Illizi Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T05:00:00.000Z"
+    "created_at": "2026-11-10T20:48:55.983Z"
   },
   {
     "id": "pre-req-0100",
@@ -14086,7 +14086,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Chelghoum Laïd",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T19:00:00.000Z"
+    "created_at": "2026-11-01T10:48:55.983Z"
   },
   {
     "id": "pre-req-0110",
@@ -14095,7 +14095,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "In Salah Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T09:00:00.000Z"
+    "created_at": "2026-10-22T00:48:55.983Z"
   },
   {
     "id": "pre-req-0120",
@@ -14104,7 +14104,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Batna Ville",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "pre-req-0130",
@@ -14113,7 +14113,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Draa Ben Khedda",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "pre-req-0140",
@@ -14122,7 +14122,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Ali Mendjeli",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   },
   {
     "id": "pre-req-0150",
@@ -14131,7 +14131,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Boumerdès",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T17:00:00.000Z"
+    "created_at": "2026-10-22T08:48:55.983Z"
   },
   {
     "id": "pre-req-0160",
@@ -14140,7 +14140,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Naâma Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T07:00:00.000Z"
+    "created_at": "2026-11-20T22:48:55.983Z"
   },
   {
     "id": "pre-req-0170",
@@ -14149,7 +14149,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Touggourt Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T21:00:00.000Z"
+    "created_at": "2026-11-11T12:48:55.983Z"
   },
   {
     "id": "pre-req-0180",
@@ -14158,7 +14158,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Biskra",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T11:00:00.000Z"
+    "created_at": "2026-11-01T02:48:55.983Z"
   },
   {
     "id": "pre-req-0190",
@@ -14167,7 +14167,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Aïn Oussera",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T01:00:00.000Z"
+    "created_at": "2026-10-21T16:48:55.983Z"
   },
   {
     "id": "pre-req-0200",
@@ -14176,7 +14176,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Sidi Ali",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T15:00:00.000Z"
+    "created_at": "2026-11-21T06:48:55.983Z"
   },
   {
     "id": "pre-req-0210",
@@ -14185,7 +14185,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Tindouf Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T05:00:00.000Z"
+    "created_at": "2026-11-10T20:48:55.983Z"
   },
   {
     "id": "pre-req-0220",
@@ -14194,7 +14194,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Metlili",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T19:00:00.000Z"
+    "created_at": "2026-11-01T10:48:55.983Z"
   },
   {
     "id": "pre-req-0230",
@@ -14203,7 +14203,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "El M'Ghair Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-21T09:00:00.000Z"
+    "created_at": "2026-10-22T00:48:55.983Z"
   },
   {
     "id": "pre-req-0240",
@@ -14212,7 +14212,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Blida Centre",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-20T23:00:00.000Z"
+    "created_at": "2026-11-21T14:48:55.983Z"
   },
   {
     "id": "pre-req-0250",
@@ -14221,7 +14221,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Sétif Ville",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-02-10T13:00:00.000Z"
+    "created_at": "2026-11-11T04:48:55.983Z"
   },
   {
     "id": "pre-req-0260",
@@ -14230,7 +14230,7 @@ export const INITIAL_PREORDERS: PreorderRedirect[] = [
     "city": "Sig",
     "target_url": "https://motobladi.dz/",
     "referrer": "QUICK by VMS Platform",
-    "created_at": "2026-01-31T03:00:00.000Z"
+    "created_at": "2026-10-31T18:48:55.983Z"
   }
 ];
 

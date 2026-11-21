@@ -30,17 +30,17 @@ import {
 import { WILAYAS } from '../data/wilayas';
 
 const STORAGE_KEYS = {
-  PROFILES: 'vms_quick_profiles_v2',
-  CURRENT_USER: 'vms_quick_current_user_v2',
-  SHOWROOMS: 'vms_quick_showrooms_v2',
-  MODELS: 'vms_quick_models_v2',
-  MOTORCYCLES: 'vms_quick_motorcycles_v2',
-  REQUESTS: 'vms_quick_requests_v2',
-  TRANSFERS: 'vms_quick_transfers_v2',
-  NOTIFICATIONS: 'vms_quick_notifications_v2',
-  SALES: 'vms_quick_sales_v2',
-  PREORDERS: 'vms_quick_preorders_v2',
-  AUDIT_LOGS: 'vms_quick_audit_logs_v2',
+  PROFILES: 'vms_quick_profiles_v3',
+  CURRENT_USER: 'vms_quick_current_user_v3',
+  SHOWROOMS: 'vms_quick_showrooms_v3',
+  MODELS: 'vms_quick_models_v3',
+  MOTORCYCLES: 'vms_quick_motorcycles_v3',
+  REQUESTS: 'vms_quick_requests_v3',
+  TRANSFERS: 'vms_quick_transfers_v3',
+  NOTIFICATIONS: 'vms_quick_notifications_v3',
+  SALES: 'vms_quick_sales_v3',
+  PREORDERS: 'vms_quick_preorders_v3',
+  AUDIT_LOGS: 'vms_quick_audit_logs_v3',
 };
 
 // Helper: load from localStorage with initial fallback and auto-upgrade for large datasets

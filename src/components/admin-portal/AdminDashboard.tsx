@@ -498,28 +498,28 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           </Card>
 
           {/* =============================================================== */}
-          {/* SCHÉMA OPÉRATIONNEL : MOTEUR COMPTE GLOBAL & FLUX DÉCISIONNEL   */}
+          {/* SCHÉMA DÉCISIONNEL : QUICK & COMPTE GLOBAL (IDENTITÉ VMS)       */}
           {/* =============================================================== */}
-          <Card className="p-6 border-slate-200 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950 text-white shadow-xl overflow-hidden relative">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
-              <div>
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/30 mb-2">
-                  <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+          <Card className="p-6 border-slate-200 bg-white shadow-xs rounded-2xl overflow-hidden relative">
+            {/* Header matching QUICK by VMS brand style */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-red-50 text-red-700 text-xs font-extrabold border border-red-200">
+                  <Sparkles className="h-3.5 w-3.5 text-red-600" />
                   <span>Schéma Décisionnel QUICK & Compte Global</span>
                 </div>
-                <h2 className="text-xl font-black text-white">
+                <h2 className="text-xl font-black text-slate-900 tracking-tight">
                   Cycle de Vie d'une Demande & Rééquilibrage Intelligent des Stocks
                 </h2>
-                <p className="text-xs text-slate-400 mt-0.5">
+                <p className="text-xs text-slate-500">
                   Visualisation du cheminement algorithmique entre les clients, les 80 showrooms et les transferts automatiques
                 </p>
               </div>
 
               <Button
-                variant="outline"
                 size="sm"
                 onClick={onNavigateToCompteGlobal}
-                className="bg-blue-600/30 hover:bg-blue-600 text-white border-blue-500/40 text-xs font-bold gap-2 shrink-0 self-start md:self-auto"
+                className="bg-red-600 hover:bg-red-700 text-white font-bold text-xs gap-1.5 shadow-sm shadow-red-600/20 shrink-0 self-start md:self-auto"
               >
                 <Layers className="h-4 w-4" />
                 <span>Compte Global ({kpis.agingStockCount} dormantes)</span>
@@ -527,101 +527,192 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </Button>
             </div>
 
-            {/* Interactive Flow Nodes */}
+            {/* Workflow Pipeline Grid (5 steps) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 pt-6">
-              {/* Étape 1 */}
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-blue-500/50 transition-all flex flex-col justify-between space-y-3">
+              {/* Étape 1 : Collecte Client */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-                    1. Collecte Client
-                  </span>
-                  <Users className="h-4 w-4 text-blue-400" />
+                  <div className="flex items-center gap-2">
+                    <span className="h-5 w-5 rounded-full bg-slate-900 text-white text-[10px] font-black flex items-center justify-center shrink-0">
+                      1
+                    </span>
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                      Collecte Client
+                    </span>
+                  </div>
+                  <Users className="h-4 w-4 text-slate-500" />
                 </div>
+
                 <div>
-                  <p className="text-lg font-black text-white">{kpis.totalRequests} Demandes</p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">58 Wilayas couvertes</p>
-                  <p className="text-[10px] text-slate-400 mt-1">Anti-abus 2 req/7j actif</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-900">{kpis.totalRequests}</span>
+                    <span className="text-xs font-semibold text-slate-500">Demandes</span>
+                  </div>
+                  <div className="flex flex-col gap-1 mt-2 text-[11px] text-slate-600">
+                    <span className="inline-flex items-center gap-1.5 font-medium">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                      58 Wilayas couvertes
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+                      Anti-abus 2 req/7j actif
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-2 border-t border-slate-700/60 text-[10px] text-slate-400 flex items-center justify-between">
-                  <span>En attente :</span>
-                  <span className="font-bold text-amber-400">{kpis.pendingRequests}</span>
+
+                <div className="p-2 rounded-lg bg-white border border-slate-200/80 text-xs flex items-center justify-between">
+                  <span className="text-slate-500 font-medium">En attente :</span>
+                  <span className="font-extrabold text-amber-600">{kpis.pendingRequests}</span>
                 </div>
               </div>
 
-              {/* Étape 2 */}
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-blue-500/50 transition-all flex flex-col justify-between space-y-3">
+              {/* Étape 2 : Check Stock Local */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    2. Check Stock Local
-                  </span>
-                  <Store className="h-4 w-4 text-emerald-400" />
+                  <div className="flex items-center gap-2">
+                    <span className="h-5 w-5 rounded-full bg-blue-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">
+                      2
+                    </span>
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                      Check Stock Local
+                    </span>
+                  </div>
+                  <Store className="h-4 w-4 text-blue-600" />
                 </div>
+
                 <div>
-                  <p className="text-lg font-black text-white">{kpis.totalShowrooms} Showrooms</p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">{kpis.availableMotorcycles} dispo locales</p>
-                  <p className="text-[10px] text-slate-400 mt-1">Vérification temps réel</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-900">{kpis.totalShowrooms}</span>
+                    <span className="text-xs font-semibold text-slate-500">Showrooms</span>
+                  </div>
+                  <div className="flex flex-col gap-1 mt-2 text-[11px] text-slate-600">
+                    <span className="inline-flex items-center gap-1.5 font-medium">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                      {kpis.availableMotorcycles} dispo locales
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+                      Vérification temps réel
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-2 border-t border-slate-700/60 text-[10px] text-slate-400 flex items-center justify-between">
-                  <span>Notifiés :</span>
-                  <span className="font-bold text-emerald-400">{requests.filter(r => r.status === 'available_notified').length}</span>
+
+                <div className="p-2 rounded-lg bg-white border border-slate-200/80 text-xs flex items-center justify-between">
+                  <span className="text-slate-500 font-medium">Notifiés :</span>
+                  <span className="font-extrabold text-blue-600">{requests.filter(r => r.status === 'available_notified').length}</span>
                 </div>
               </div>
 
-              {/* Étape 3 */}
-              <div className="p-4 rounded-xl bg-amber-950/40 border border-amber-600/40 hover:border-amber-500 transition-all flex flex-col justify-between space-y-3 relative overflow-hidden">
-                <div className="absolute top-0 right-0 h-16 w-16 bg-amber-500/10 rounded-full blur-xl pointer-events-none" />
-                <div className="flex items-center justify-between relative z-10">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/30">
-                    3. Moteur Compte Global
-                  </span>
-                  <AlertTriangle className="h-4 w-4 text-amber-400" />
+              {/* Étape 3 : Moteur Compte Global (Élément central rouge VMS) */}
+              <div className="p-4 rounded-xl border-2 border-red-500 bg-red-50/30 hover:bg-red-50/50 shadow-xs transition-all flex flex-col justify-between space-y-3 relative overflow-hidden">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="h-5 w-5 rounded-full bg-red-600 text-white text-[10px] font-black flex items-center justify-center shrink-0 shadow-xs shadow-red-600/40">
+                      3
+                    </span>
+                    <span className="text-xs font-black text-red-900 uppercase tracking-wider">
+                      Moteur Compte Global
+                    </span>
+                  </div>
+                  <AlertTriangle className="h-4 w-4 text-red-600" />
                 </div>
-                <div className="relative z-10">
-                  <p className="text-lg font-black text-amber-300">{kpis.agingStockCount} Dormantes</p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">&gt; 90 jours en rayon</p>
-                  <p className="text-[10px] text-amber-400/90 mt-1">Éligibles aux transferts</p>
+
+                <div>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-red-600">{kpis.agingStockCount}</span>
+                    <span className="text-xs font-bold text-red-700">Dormantes</span>
+                  </div>
+                  <div className="flex flex-col gap-1 mt-2 text-[11px] text-red-950 font-medium">
+                    <span className="inline-flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
+                      &gt; 90 jours en rayon
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-red-800">
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
+                      Éligibles aux transferts
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-2 border-t border-amber-800/60 text-[10px] text-slate-300 flex items-center justify-between relative z-10">
-                  <span>Part du stock :</span>
-                  <span className="font-bold text-amber-400">{kpis.agingPercentage}%</span>
+
+                <div className="p-2 rounded-lg bg-white border border-red-200 text-xs flex items-center justify-between">
+                  <span className="text-red-800 font-medium">Part du stock :</span>
+                  <span className="font-extrabold text-red-600">{kpis.agingPercentage}%</span>
                 </div>
               </div>
 
-              {/* Étape 4 */}
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-blue-500/50 transition-all flex flex-col justify-between space-y-3">
+              {/* Étape 4 : Régulation Réseau */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
-                    4. Régulation Réseau
-                  </span>
-                  <ArrowRightLeft className="h-4 w-4 text-blue-400" />
+                  <div className="flex items-center gap-2">
+                    <span className="h-5 w-5 rounded-full bg-indigo-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">
+                      4
+                    </span>
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                      Régulation Réseau
+                    </span>
+                  </div>
+                  <ArrowRightLeft className="h-4 w-4 text-indigo-600" />
                 </div>
+
                 <div>
-                  <p className="text-lg font-black text-white">{kpis.activeTransfers} Transferts</p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">Inter-showrooms en cours</p>
-                  <p className="text-[10px] text-slate-400 mt-1">Validation & expédition</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-900">{kpis.activeTransfers}</span>
+                    <span className="text-xs font-semibold text-slate-500">Transferts</span>
+                  </div>
+                  <div className="flex flex-col gap-1 mt-2 text-[11px] text-slate-600">
+                    <span className="inline-flex items-center gap-1.5 font-medium">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
+                      Inter-showrooms en cours
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+                      Validation & expédition
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-2 border-t border-slate-700/60 text-[10px] text-slate-400 flex items-center justify-between">
-                  <span>Achevés :</span>
-                  <span className="font-bold text-blue-400">{kpis.completedTransfers}</span>
+
+                <div className="p-2 rounded-lg bg-white border border-slate-200/80 text-xs flex items-center justify-between">
+                  <span className="text-slate-500 font-medium">Achevés :</span>
+                  <span className="font-extrabold text-indigo-600">{kpis.completedTransfers}</span>
                 </div>
               </div>
 
-              {/* Étape 5 */}
-              <div className="p-4 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-blue-500/50 transition-all flex flex-col justify-between space-y-3">
+              {/* Étape 5 : Vente & Facturation */}
+              <div className="p-4 rounded-xl border border-slate-200 bg-slate-50/70 hover:bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                    5. Vente & Facturation
-                  </span>
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <div className="flex items-center gap-2">
+                    <span className="h-5 w-5 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">
+                      5
+                    </span>
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                      Vente & Facturation
+                    </span>
+                  </div>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
+
                 <div>
-                  <p className="text-lg font-black text-emerald-300">{kpis.fulfilledRequests} Servies</p>
-                  <p className="text-[11px] text-slate-300 mt-0.5">{kpis.totalSalesVolume} ventes totales</p>
-                  <p className="text-[10px] text-slate-400 mt-1">Garantie VMS activée</p>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-slate-900">{kpis.fulfilledRequests}</span>
+                    <span className="text-xs font-semibold text-slate-500">Servies</span>
+                  </div>
+                  <div className="flex flex-col gap-1 mt-2 text-[11px] text-slate-600">
+                    <span className="inline-flex items-center gap-1.5 font-medium">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
+                      {kpis.totalSalesVolume} ventes totales
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+                      Garantie VMS activée
+                    </span>
+                  </div>
                 </div>
-                <div className="pt-2 border-t border-slate-700/60 text-[10px] text-slate-400 flex items-center justify-between">
-                  <span>Chiffre d'Affaires :</span>
-                  <span className="font-bold text-emerald-400">{formatPrice(kpis.totalSalesValue)}</span>
+
+                <div className="p-2 rounded-lg bg-white border border-slate-200/80 text-xs flex items-center justify-between">
+                  <span className="text-slate-500 font-medium">Chiffre d'Affaires :</span>
+                  <span className="font-extrabold text-emerald-700 truncate max-w-[130px]" title={formatPrice(kpis.totalSalesValue)}>
+                    {formatPrice(kpis.totalSalesValue)}
+                  </span>
                 </div>
               </div>
             </div>

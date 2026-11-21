@@ -548,16 +548,16 @@ showrooms.forEach(s => {
 const COLORS = ['Noir Mat', 'Blanc Nacre', 'Gris Titane', 'Bleu Nuit', 'Rouge VMS Racing', 'Jaune Sport'];
 const motorcycles = [];
 
-const NOW = new Date(2026, 1, 21); // 21 Feb 2026
+const NOW = new Date(); // Dynamic real-time date (relative to current date)
 
 for (let i = 1; i <= 420; i++) {
   const model = MODELS[i % MODELS.length];
   const showroom = showrooms[i % showrooms.length];
   const color = COLORS[i % COLORS.length];
 
-  // Distribute stock age: ~28% aging > 90 days (between 92 and 240 days) for Compte Global
-  const isAging = (i % 7 === 0) || (i % 9 === 0);
-  const daysInStock = isAging ? 92 + (i % 140) : 5 + (i % 75);
+  // Distribute stock age: ~24% aging > 90 days (between 95 and 180 days) for Compte Global
+  const isAging = (i % 4 === 0);
+  const daysInStock = isAging ? 95 + (i % 85) : 5 + (i % 75);
 
   const arrivalDate = new Date(NOW.getTime() - daysInStock * 24 * 60 * 60 * 1000);
   const acquisitionDate = new Date(arrivalDate.getTime() - 14 * 24 * 60 * 60 * 1000);
@@ -584,7 +584,7 @@ for (let i = 1; i <= 420; i++) {
     sale_date: status === 'sold' ? new Date(NOW.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] : undefined,
     created_at: arrivalDate.toISOString(),
     days_in_stock: daysInStock,
-    is_aging: daysInStock > 90
+    is_aging: daysInStock >= 90
   });
 }
 
