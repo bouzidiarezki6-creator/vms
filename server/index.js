@@ -1604,9 +1604,26 @@ app.get('/api/warehouse/reports/export', (req, res) => {
       res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
       res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.xls"`);
       return res.send(xml);
-    } else if (format === 'pdf') {
-      const pdfData = executiveReportingService.exportReport('pdf', req.query);
-      return res.json(pdfData);
+    } else if (format === 'pdf' || format === 'pdf-binary') {
+      const pdfBuffer = executiveReportingService.exportReport('pdf', req.query);
+      if (format === 'pdf-binary' || req.query.binary === 'true' || req.headers['accept'] === 'application/pdf') {
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.pdf"`);
+        res.setHeader('Content-Length', pdfBuffer.length);
+        return res.end(pdfBuffer);
+      }
+      const report = executiveReportingService.generateExecutiveReport(req.query);
+      return res.json({
+        format: 'pdf',
+        contentType: 'application/json',
+        data: report,
+        pdfBase64: pdfBuffer.toString('base64'),
+        pdfByteLength: pdfBuffer.length,
+        renderTemplate: 'executive-summary-v3'
+      });
+    } else if (format === 'json') {
+      const report = executiveReportingService.generateExecutiveReport(req.query);
+      return res.json(report);
     } else {
       return res.status(400).json({ error: `Format non supporté: ${format}` });
     }

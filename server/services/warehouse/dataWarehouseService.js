@@ -272,7 +272,7 @@ export class DataWarehouseService {
         model_name: m.name,
         category: m.category || (m.displacement > 200 ? 'Trail' : 'Scooter'),
         displacement_cc: m.displacement || 125,
-        default_price_dzd: m.base_price || 380000,
+        default_price_dzd: m.price_dzd || m.base_price || 380000,
         margin_standard_pct: 8.00,
         status: m.status || 'active',
         valid_from: '2026-01-01T00:00:00Z',
@@ -437,8 +437,8 @@ export class DataWarehouseService {
           bucket.in_transit_units += 1;
         }
 
-        // Age calculation
-        if (m.arrival_date) {
+        // Age calculation strictly for available units
+        if (m.status === 'available' && m.arrival_date) {
           const ageDays = (new Date('2026-11-21') - new Date(m.arrival_date)) / (1000 * 3600 * 24);
           if (ageDays >= 90) {
             bucket.dormant_units_over_90d += 1;
