@@ -30,20 +30,20 @@ import {
 import { WILAYAS } from '../data/wilayas';
 
 const STORAGE_KEYS = {
-  PROFILES: 'vms_quick_profiles_v1',
-  CURRENT_USER: 'vms_quick_current_user_v1',
-  SHOWROOMS: 'vms_quick_showrooms_v1',
-  MODELS: 'vms_quick_models_v1',
-  MOTORCYCLES: 'vms_quick_motorcycles_v1',
-  REQUESTS: 'vms_quick_requests_v1',
-  TRANSFERS: 'vms_quick_transfers_v1',
-  NOTIFICATIONS: 'vms_quick_notifications_v1',
-  SALES: 'vms_quick_sales_v1',
-  PREORDERS: 'vms_quick_preorders_v1',
-  AUDIT_LOGS: 'vms_quick_audit_logs_v1',
+  PROFILES: 'vms_quick_profiles_v2',
+  CURRENT_USER: 'vms_quick_current_user_v2',
+  SHOWROOMS: 'vms_quick_showrooms_v2',
+  MODELS: 'vms_quick_models_v2',
+  MOTORCYCLES: 'vms_quick_motorcycles_v2',
+  REQUESTS: 'vms_quick_requests_v2',
+  TRANSFERS: 'vms_quick_transfers_v2',
+  NOTIFICATIONS: 'vms_quick_notifications_v2',
+  SALES: 'vms_quick_sales_v2',
+  PREORDERS: 'vms_quick_preorders_v2',
+  AUDIT_LOGS: 'vms_quick_audit_logs_v2',
 };
 
-// Helper: load from localStorage with initial fallback
+// Helper: load from localStorage with initial fallback and auto-upgrade for large datasets
 function loadData<T>(key: string, initial: T): T {
   try {
     const raw = localStorage.getItem(key);
@@ -51,7 +51,13 @@ function loadData<T>(key: string, initial: T): T {
       localStorage.setItem(key, JSON.stringify(initial));
       return initial;
     }
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    // If parsed is a smaller older array and initial is rich mock data, refresh
+    if (Array.isArray(initial) && Array.isArray(parsed) && initial.length >= 50 && parsed.length < 50) {
+      localStorage.setItem(key, JSON.stringify(initial));
+      return initial;
+    }
+    return parsed;
   } catch (e) {
     console.error(`Error loading key ${key}`, e);
     return initial;
