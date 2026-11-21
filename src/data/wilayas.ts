@@ -1,0 +1,91 @@
+import { Region, City } from '../types';
+
+export const WILAYAS: Region[] = [
+  { code: '01', name: 'Adrar', name_ar: 'أدرار' },
+  { code: '02', name: 'Chlef', name_ar: 'الشلف' },
+  { code: '03', name: 'Laghouat', name_ar: 'الأغواط' },
+  { code: '04', name: 'Oum El Bouaghi', name_ar: 'أم البواقي' },
+  { code: '05', name: 'Batna', name_ar: 'باتنة' },
+  { code: '06', name: 'Béjaïa', name_ar: 'بجاية' },
+  { code: '07', name: 'Biskra', name_ar: 'بسكرة' },
+  { code: '08', name: 'Béchar', name_ar: 'بشار' },
+  { code: '09', name: 'Blida', name_ar: 'البليدة' },
+  { code: '10', name: 'Bouira', name_ar: 'البويرة' },
+  { code: '11', name: 'Tamanrasset', name_ar: 'تمنراست' },
+  { code: '12', name: 'Tébessa', name_ar: 'تبسة' },
+  { code: '13', name: 'Tlemcen', name_ar: 'تلمسان' },
+  { code: '14', name: 'Tiaret', name_ar: 'تيارت' },
+  { code: '15', name: 'Tizi Ouzou', name_ar: 'تيزي وزو' },
+  { code: '16', name: 'Alger', name_ar: 'الجزائر' },
+  { code: '17', name: 'Djelfa', name_ar: 'الجلفة' },
+  { code: '18', name: 'Jijel', name_ar: 'جيجل' },
+  { code: '19', name: 'Sétif', name_ar: 'سطيف' },
+  { code: '20', name: 'Saïda', name_ar: 'سعيدة' },
+  { code: '21', name: 'Skikda', name_ar: 'سكيكدة' },
+  { code: '22', name: 'Sidi Bel Abbès', name_ar: 'سيدي بلعباس' },
+  { code: '23', name: 'Annaba', name_ar: 'عنابة' },
+  { code: '24', name: 'Guelma', name_ar: 'قالمة' },
+  { code: '25', name: 'Constantine', name_ar: 'قسنطينة' },
+  { code: '26', name: 'Médéa', name_ar: 'المدية' },
+  { code: '27', name: 'Mostaganem', name_ar: 'مستغانم' },
+  { code: '28', name: 'M\'Sila', name_ar: 'المسيلة' },
+  { code: '29', name: 'Mascara', name_ar: 'معسكر' },
+  { code: '30', name: 'Ouargla', name_ar: 'ورقلة' },
+  { code: '31', name: 'Oran', name_ar: 'وهران' },
+  { code: '32', name: 'El Bayadh', name_ar: 'البيض' },
+  { code: '33', name: 'Illizi', name_ar: 'إليزي' },
+  { code: '34', name: 'Bordj Bou Arréridj', name_ar: 'برج بوعريريج' },
+  { code: '35', name: 'Boumerdès', name_ar: 'بومرداس' },
+  { code: '36', name: 'El Tarf', name_ar: 'الطارف' },
+  { code: '37', name: 'Tindouf', name_ar: 'تندوف' },
+  { code: '38', name: 'Tissemsilt', name_ar: 'تيسمسيلت' },
+  { code: '39', name: 'El Oued', name_ar: 'الوادي' },
+  { code: '40', name: 'Khenchela', name_ar: 'خنشلة' },
+  { code: '41', name: 'Souk Ahras', name_ar: 'سوق أهراس' },
+  { code: '42', name: 'Tipaza', name_ar: 'تيبازة' },
+  { code: '43', name: 'Mila', name_ar: 'ميلة' },
+  { code: '44', name: 'Aïn Defla', name_ar: 'عين الدفلى' },
+  { code: '45', name: 'Naâma', name_ar: 'النعامة' },
+  { code: '46', name: 'Aïn Témouchent', name_ar: 'عين تموشنت' },
+  { code: '47', name: 'Ghardaïa', name_ar: 'غرداية' },
+  { code: '48', name: 'Relizane', name_ar: 'غليزان' },
+  { code: '49', name: 'Timimoun', name_ar: 'تيميمون' },
+  { code: '50', name: 'Bordj Badji Mokhtar', name_ar: 'برج باجي مختار' },
+  { code: '51', name: 'Ouled Djellal', name_ar: 'أولاد جلال' },
+  { code: '52', name: 'Béni Abbès', name_ar: 'بني عباس' },
+  { code: '53', name: 'In Salah', name_ar: 'عين صالح' },
+  { code: '54', name: 'In Guezzam', name_ar: 'عين قزام' },
+  { code: '55', name: 'Touggourt', name_ar: 'تقرت' },
+  { code: '56', name: 'Djanet', name_ar: 'جانت' },
+  { code: '57', name: 'El M\'Ghair', name_ar: 'المغير' },
+  { code: '58', name: 'El Meniaa', name_ar: 'المنيعة' }
+];
+
+export const WILAYA_CITIES: Record<string, string[]> = {
+  '16': ['Alger Centre', 'Bab El Oued', 'Hussein Dey', 'Kouba', 'El Harrach', 'Hydra', 'Dar El Beïda', 'Chéraga', 'Zéralda', 'Draria', 'Birtouta', 'Rouïba'],
+  '31': ['Oran Centre', 'Es-Senia', 'Bir El Djir', 'Arzew', 'Aïn El Turk', 'Gdyel', 'Bethioua', 'Boutlélis', 'Misserghin'],
+  '25': ['Constantine Centre', 'El Khroub', 'Ali Mendjeli', 'Hamma Bouziane', 'Didouche Mourad', 'Zighoud Youcef', 'Aïn Smara'],
+  '06': ['Béjaïa Ville', 'Akbou', 'Amizour', 'El Kseur', 'Sidi Aïch', 'Tichy', 'Aokas', 'Kherrata', 'Tazmalt'],
+  '19': ['Sétif Ville', 'El Eulma', 'Aïn Oulmene', 'Aïn Arnat', 'Bougaa', 'Amoucha', 'Béni Aziz'],
+  '09': ['Blida Centre', 'Boufarik', 'Ouled Yaïch', 'Beni Mered', 'Mouzaïa', 'El Affroun', 'Meftah', 'Larbaâ'],
+  '23': ['Annaba Centre', 'El Bouni', 'Sidi Amar', 'Berrahal', 'El Hadjar', 'Aïn Berda'],
+  '05': ['Batna Ville', 'Barika', 'Aïn Touta', 'Merouana', 'Arris', 'Tazoult'],
+  '15': ['Tizi Ouzou', 'Azazga', 'Draa Ben Khedda', 'Boghni', 'Larbaa Nath Irathen', 'Tigzirt'],
+  '13': ['Tlemcen Ville', 'Mansourah', 'Maghnia', 'Ghazaouet', 'Chetouane', 'Remchi'],
+  '02': ['Chlef Ville', 'Ténès', 'Oued Fodda', 'Boukadir', 'El Karimia'],
+  '10': ['Bouira', 'Lakhdaria', 'Sour El Ghozlane', 'M\'Chedallah', 'Aïn Bessem'],
+  '34': ['Bordj Bou Arréridj', 'Ras El Oued', 'Mansoura', 'Medjana'],
+  '35': ['Boumerdès', 'Khemis El Khechna', 'Boudouaou', 'Dellys', 'Baghlia'],
+  '42': ['Tipaza', 'Cherchell', 'Koléa', 'Bou Ismaïl', 'Hadout'],
+  '17': ['Djelfa', 'Aïn Oussera', 'Messaad', 'Hassi Bahbah'],
+  '07': ['Biskra', 'Tolga', 'Sidi Okba', 'Ouled Djellal'],
+  '18': ['Jijel', 'Taher', 'El Milia', 'Ziama Mansouriah']
+};
+
+export function getCitiesForWilaya(wilayaCode: string): string[] {
+  if (WILAYA_CITIES[wilayaCode]) {
+    return WILAYA_CITIES[wilayaCode];
+  }
+  const wilaya = WILAYAS.find(w => w.code === wilayaCode);
+  return wilaya ? [`${wilaya.name} Centre`, `${wilaya.name} Nord`, `${wilaya.name} Sud`] : ['Centre-Ville'];
+}
