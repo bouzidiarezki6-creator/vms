@@ -1079,6 +1079,55 @@ app.post('/api/reset-factory', (req, res) => {
   res.json({ message: 'Données réinitialisées avec succès aux valeurs de démonstration VMS.' });
 });
 
+// -----------------------------------------------------------------------------
+// BI, Odoo & Supabase PostgreSQL Data Exports
+// -----------------------------------------------------------------------------
+app.get('/api/export/postgres', (req, res) => {
+  const esc = (val) => val === null || val === undefined ? 'NULL' : `'${String(val).replace(/'/g, "''")}'`;
+
+  let sql = `-- ====================================================================\n`;
+  sql += `-- QUICK by VMS — PostgreSQL / Supabase Data Export\n`;
+  sql += `-- Target: Supabase BAAS (postgres)\n`;
+  sql += `-- ====================================================================\n\nBEGIN;\n\n`;
+
+  db.requests.forEach(r => {
+    sql += `INSERT INTO customer_requests (id, reference, first_name, last_name, phone, phone_normalized, email, wilaya_code, city, status, notes, created_at)\n`;
+    sql += `VALUES (gen_random_uuid(), ${esc(r.reference)}, ${esc(r.first_name)}, ${esc(r.last_name)}, ${esc(r.phone)}, ${esc(r.phone_normalized || r.phone)}, ${esc(r.email)}, ${esc(r.wilaya_code)}, ${esc(r.city)}, ${esc(r.status)}, ${esc(r.notes || '')}, ${esc(r.created_at)})\n`;
+    sql += `ON CONFLICT (reference) DO UPDATE SET status = EXCLUDED.status;\n`;
+  });
+
+  sql += `\nCOMMIT;\n`;
+
+  res.setHeader('Content-Type', 'application/sql');
+  res.setHeader('Content-Disposition', `attachment; filename="vms_supabase_dump_${Date.now()}.sql"`);
+  res.send(sql);
+});
+
+app.get('/api/export/odoo', (req, res) => {
+  const headers = ['name', 'contact_name', 'partner_name', 'phone', 'email_from', 'city', 'state_code', 'description', 'expected_revenue', 'stage_name'];
+  const rows = db.requests.map(r => {
+    const model = db.models.find(m => m.id === r.motorcycle_model_id);
+    const stage = r.status === 'available_notified' ? 'Proposition' : r.status === 'fulfilled' ? 'Gagné' : 'Nouveau';
+    return [
+      `"Demande Moto ${r.reference} - ${model?.name || 'VMS'}"`,
+      `"${r.first_name} ${r.last_name}"`,
+      `"${r.first_name} ${r.last_name}"`,
+      `"${r.phone}"`,
+      `"${r.email}"`,
+      `"${r.city}"`,
+      `"${r.wilaya_code}"`,
+      `"Modèle: ${model?.name || 'VMS'} | Wilaya: ${r.wilaya_code}"`,
+      model?.price_dzd || 250000,
+      `"${stage}"`
+    ].join(',');
+  });
+
+  const csv = [headers.join(','), ...rows].join('\n');
+  res.setHeader('Content-Type', 'text/csv');
+  res.setHeader('Content-Disposition', `attachment; filename="vms_odoo_crm_${Date.now()}.csv"`);
+  res.send(csv);
+});
+
 // Preorder tracking
 app.post('/api/preorder-redirect', (req, res) => {
   const { user_id, model_id, wilaya_code } = req.body;

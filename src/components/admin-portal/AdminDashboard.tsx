@@ -17,7 +17,8 @@ import {
   MapPin,
   Building,
   Layers,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Database
 } from 'lucide-react';
 import { dbStore } from '../../services/dbStore';
 import {
@@ -30,6 +31,7 @@ import {
 } from '../../types';
 import { CreateShowroomModal } from './CreateShowroomModal';
 import { CreateUserModal } from './CreateUserModal';
+import { DataHubModal } from './DataHubModal';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
@@ -51,7 +53,7 @@ import {
 } from 'recharts';
 
 interface AdminDashboardProps {
-  initialSubTab?: 'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit';
+  initialSubTab?: 'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub';
   onNavigateToCompteGlobal?: () => void;
 }
 
@@ -61,7 +63,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 }) => {
   const toast = useToast();
   const currentUser = dbStore.getCurrentUser();
-  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit'>(initialSubTab);
+  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub'>(initialSubTab);
 
   useEffect(() => {
     if (initialSubTab) {
@@ -79,6 +81,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   // Modals
   const [isCreateShowroomOpen, setIsCreateShowroomOpen] = useState(false);
   const [isCreateUserOpen, setIsCreateUserOpen] = useState(false);
+  const [isDataHubOpen, setIsDataHubOpen] = useState(false);
 
   // Filters for Global Inventory
   const [invShowroomFilter, setInvShowroomFilter] = useState('ALL');
@@ -220,6 +223,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         <div className="flex flex-wrap items-center gap-2.5">
           <Button
             size="sm"
+            onClick={() => setIsDataHubOpen(true)}
+            className="bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold gap-1.5 shadow-md shadow-purple-900/30"
+          >
+            <Database className="h-4 w-4" />
+            <span>Data Hub : Supabase & Odoo & BI</span>
+          </Button>
+          <Button
+            size="sm"
             onClick={() => setIsCreateShowroomOpen(true)}
             className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold gap-1.5"
           >
@@ -307,6 +318,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         >
           <Clock className="h-4 w-4" />
           <span>Audit Logs ({auditLogs.length})</span>
+        </button>
+
+        <button
+          onClick={() => setIsDataHubOpen(true)}
+          className="px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200"
+        >
+          <Database className="h-4 w-4 text-purple-600" />
+          <span>Data Hub : SQL & Odoo & Power BI</span>
         </button>
       </div>
 
@@ -720,6 +739,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 <option value="fulfilled">Finalisé</option>
                 <option value="preorder_redirected">Précommande</option>
               </select>
+
+              <Button
+                size="sm"
+                onClick={() => setIsDataHubOpen(true)}
+                className="text-xs gap-1 bg-purple-600 hover:bg-purple-700 text-white font-bold"
+              >
+                <Database className="h-3.5 w-3.5" />
+                <span>Export Supabase / Odoo</span>
+              </Button>
             </div>
           </CardHeader>
 
@@ -857,6 +885,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         isOpen={isCreateUserOpen}
         onClose={() => setIsCreateUserOpen(false)}
         onSuccess={refreshData}
+      />
+
+      <DataHubModal
+        isOpen={isDataHubOpen}
+        onClose={() => setIsDataHubOpen(false)}
       />
     </div>
   );
