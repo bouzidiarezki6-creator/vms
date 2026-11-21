@@ -3,6 +3,21 @@ import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { signToken, verifyToken, redactEmail, redactPhone, createRateLimiter } from './utils/auth.js';
+import { mutex } from './utils/mutex.js';
+import {
+  computeTransferOpportunities,
+  getStockoutRisks,
+  getDormantInventorySummary,
+  globalAccountConfig,
+  updateAlgorithmConfig
+} from './services/globalAccountEngine.js';
+import { OdooSyncService } from './services/odoo/odooSyncService.js';
+import { BiAnalyticsService } from './services/bi/biAnalyticsService.js';
+import { PredictiveAnalyticsService } from './services/predictive/predictiveAnalyticsService.js';
+import { DataWarehouseService } from './services/warehouse/dataWarehouseService.js';
+import { ExecutiveReportingService } from './services/warehouse/executiveReportingService.js';
+import { dataQualityService } from './services/warehouse/dataQualityService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,11 +28,51 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Request logger
+// Enterprise Security Rate Limiters
+const authLimiter = createRateLimiter({ windowMs: 60000, max: 20, message: 'Trop de tentatives d\'authentification. Veuillez patienter 1 minute.' });
+const requestLimiter = createRateLimiter({ windowMs: 60000, max: 15, message: 'Fréquence de requêtes trop élevée. Veuillez patienter.' });
+
+// Authentication & Session Extraction Middleware
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (!token) {
+    req.user = null;
+    return next();
+  }
+  const payload = verifyToken(token);
+  if (!payload) {
+    return res.status(401).json({ error: 'Session invalide ou expirée.' });
+  }
+  if (payload.isLegacy) {
+    const user = db?.profiles?.find(p => p.id === payload.id);
+    req.user = user || { id: payload.id, role: 'customer' };
+  } else {
+    req.user = payload;
+  }
+  next();
+}
+
+// Role Enforcement Guard Middleware
+function requireRole(roles) {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ error: 'Authentification requise pour cette opération.' });
+    }
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({ error: 'Accès non autorisé pour ce profil.' });
+    }
+    next();
+  };
+}
+
+// Request logger with PII masking
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+app.use(authenticateToken);
 
 // Path to persistent data
 const DATA_DIR = path.join(__dirname, 'data');
@@ -435,16 +490,40 @@ function saveStore() {
 // Initialize database
 loadStore();
 
-// Helper to log audit
+// Ensure Phase 3 Odoo collections exist
+if (!db.odoo_sync_history) db.odoo_sync_history = [];
+if (!db.odoo_external_mappings) db.odoo_external_mappings = [];
+if (!db.odoo_sync_conflicts) db.odoo_sync_conflicts = [];
+
+// Phase 3: Odoo ERP Integration Service
+export const odooSyncService = new OdooSyncService(db);
+
+// Phase 4: Business Intelligence & Analytics Engine
+export const biAnalyticsService = new BiAnalyticsService(db);
+
+// Phase 5: Predictive Analytics & Demand Forecasting Engine
+export const predictiveAnalyticsService = new PredictiveAnalyticsService(db);
+
+// Phase 6: Enterprise Data Warehouse & Executive Reporting Engine
+export const dataWarehouseService = new DataWarehouseService(db);
+export const executiveReportingService = new ExecutiveReportingService(dataWarehouseService);
+
+// Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
+  // Sanitize details to prevent logging raw PII
+  const sanitizedDetails = { ...details };
+  if (sanitizedDetails.phone) sanitizedDetails.phone = redactPhone(sanitizedDetails.phone);
+  if (sanitizedDetails.customer_phone) sanitizedDetails.customer_phone = redactPhone(sanitizedDetails.customer_phone);
+  if (sanitizedDetails.password) delete sanitizedDetails.password;
+
   const log = {
     id: `aud-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
     user_id: userId || 'anonymous',
-    user_email: userEmail || 'system',
+    user_email: redactEmail(userEmail || 'system'),
     action_type: actionType,
     entity_type: entityType,
     entity_id: entityId,
-    details: details || {},
+    details: sanitizedDetails || {},
     created_at: new Date().toISOString()
   };
   db.audit_logs.unshift(log);
@@ -461,7 +540,8 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
     platform: 'QUICK by VMS',
-    version: '2.0.0',
+    version: '2.1.0',
+    phase: 'Phase 1 - Enterprise Secured & Concurrent Protected',
     timestamp: new Date().toISOString(),
     stats: {
       models: db.models.length,
@@ -473,37 +553,55 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Authentication routes
-app.post('/api/auth/login', (req, res) => {
+// Authentication routes (Hardened with rate limiter & cryptographic JWT)
+app.post('/api/auth/login', authLimiter, (req, res) => {
   const { email } = req.body;
-  if (!email) {
-    return res.status(400).json({ error: 'Email obligatoire' });
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({ error: 'Adresse email obligatoire et valide requise.' });
   }
-  const user = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  const cleanEmail = email.trim().toLowerCase();
+  const user = db.profiles.find(p => p.email.toLowerCase() === cleanEmail);
   if (!user) {
-    return res.status(404).json({ error: 'Utilisateur introuvable' });
+    return res.status(404).json({ error: 'Identifiants introuvables. Vérifiez votre adresse email.' });
   }
-  logAudit(user.id, user.email, 'AUTH_LOGIN', 'profiles', user.id, { role: user.role });
-  res.json({ user, token: `vms-jwt-token-${user.id}` });
+
+  // Generate cryptographically signed JWT token
+  const token = signToken({
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    wilaya_code: user.wilaya_code
+  });
+
+  logAudit(user.id, user.email, 'AUTH_LOGIN_SECURE', 'profiles', user.id, { role: user.role });
+
+  // Return both signed token and legacy compatibility
+  res.json({
+    user,
+    token,
+    tokenType: 'Bearer',
+    expiresIn: 86400
+  });
 });
 
-app.post('/api/auth/register', (req, res) => {
+app.post('/api/auth/register', authLimiter, (req, res) => {
   const { first_name, last_name, phone, email, wilaya_code } = req.body;
   if (!first_name || !last_name || !phone || !email) {
     return res.status(400).json({ error: 'Tous les champs requis doivent être remplis' });
   }
-  const existing = db.profiles.find(p => p.email.toLowerCase() === email.toLowerCase());
+  const cleanEmail = email.trim().toLowerCase();
+  const existing = db.profiles.find(p => p.email.toLowerCase() === cleanEmail);
   if (existing) {
     return res.status(409).json({ error: 'Un compte avec cette adresse email existe déjà' });
   }
 
   const newUser = {
     id: `usr-cust-${Date.now()}`,
-    email,
+    email: cleanEmail,
     role: 'customer',
-    first_name,
-    last_name,
-    phone,
+    first_name: first_name.trim(),
+    last_name: last_name.trim(),
+    phone: phone.trim(),
     wilaya_code: wilaya_code || '16',
     is_active: true,
     created_at: new Date().toISOString()
@@ -511,8 +609,16 @@ app.post('/api/auth/register', (req, res) => {
 
   db.profiles.push(newUser);
   saveStore();
-  logAudit(newUser.id, newUser.email, 'AUTH_REGISTER', 'profiles', newUser.id, { role: 'customer' });
-  res.status(201).json({ user: newUser, token: `vms-jwt-token-${newUser.id}` });
+
+  const token = signToken({
+    id: newUser.id,
+    email: newUser.email,
+    role: newUser.role,
+    wilaya_code: newUser.wilaya_code
+  });
+
+  logAudit(newUser.id, newUser.email, 'AUTH_REGISTER_SECURE', 'profiles', newUser.id, { role: 'customer' });
+  res.status(201).json({ user: newUser, token, tokenType: 'Bearer' });
 });
 
 app.get('/api/auth/users', (req, res) => {
@@ -603,38 +709,47 @@ app.get('/api/motorcycles', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/motorcycles', (req, res) => {
+app.post('/api/motorcycles', async (req, res) => {
   const { model_id, showroom_id, vin, color, arrival_date, notes } = req.body;
   if (!model_id || !showroom_id || !vin || !color) {
     return res.status(400).json({ error: 'Modèle, Showroom, VIN et Couleur sont requis' });
   }
 
   const cleanVin = vin.trim().toUpperCase();
-  if (db.motorcycles.some(m => m.vin.toUpperCase() === cleanVin)) {
-    return res.status(409).json({ error: `Le numéro de châssis / VIN "${cleanVin}" existe déjà` });
+
+  try {
+    const newMoto = await mutex.runExclusive(`vin:${cleanVin}`, async () => {
+      if (db.motorcycles.some(m => m.vin.toUpperCase() === cleanVin)) {
+        throw new Error(`Le numéro de châssis / VIN "${cleanVin}" existe déjà`);
+      }
+
+      const moto = {
+        id: `moto-${Date.now()}`,
+        model_id,
+        showroom_id,
+        vin: cleanVin,
+        color,
+        acquisition_date: arrival_date || new Date().toISOString().split('T')[0],
+        arrival_date: arrival_date || new Date().toISOString().split('T')[0],
+        status: 'available',
+        notes: notes || '',
+        created_at: new Date().toISOString()
+      };
+
+      db.motorcycles.push(moto);
+      saveStore();
+
+      // Check if this stock arrival matches any pending customer request!
+      matchPendingRequestsForStock(moto);
+
+      logAudit(req.body.user_id || req.user?.id || 'staff', 'Showroom Staff', 'STOCK_CREATE_SECURE', 'motorcycles', moto.id, { vin: cleanVin });
+      return moto;
+    });
+
+    res.status(201).json(newMoto);
+  } catch (err) {
+    res.status(409).json({ error: err.message });
   }
-
-  const newMoto = {
-    id: `moto-${Date.now()}`,
-    model_id,
-    showroom_id,
-    vin: cleanVin,
-    color,
-    acquisition_date: arrival_date || new Date().toISOString().split('T')[0],
-    arrival_date: arrival_date || new Date().toISOString().split('T')[0],
-    status: 'available',
-    notes: notes || '',
-    created_at: new Date().toISOString()
-  };
-
-  db.motorcycles.push(newMoto);
-  saveStore();
-
-  // Check if this stock arrival matches any pending customer request!
-  matchPendingRequestsForStock(newMoto);
-
-  logAudit(req.body.user_id || 'staff', 'Showroom Staff', 'STOCK_CREATE', 'motorcycles', newMoto.id, { vin: cleanVin });
-  res.status(201).json(newMoto);
 });
 
 app.put('/api/motorcycles/:id', (req, res) => {
@@ -735,7 +850,7 @@ app.get('/api/requests', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/requests', (req, res) => {
+app.post('/api/requests', requestLimiter, (req, res) => {
   const { first_name, last_name, phone, email, motorcycle_model_id, wilaya_code, city, user_id } = req.body;
 
   if (!first_name || !last_name || !phone || !email || !motorcycle_model_id || !wilaya_code) {
@@ -851,54 +966,31 @@ app.get('/api/compte-global/aging', (req, res) => {
   res.json(aging);
 });
 
+// Advanced Global Account Intelligent Decision Engine (Phase 2)
 app.get('/api/compte-global/opportunities', (req, res) => {
-  const now = Date.now();
-  const opportunities = [];
+  const { target_showroom_id } = req.query;
+  const recommendations = computeTransferOpportunities(db, target_showroom_id || null);
+  res.json(recommendations);
+});
 
-  const agingMotos = db.motorcycles
-    .filter(m => m.status === 'available')
-    .map(m => {
-      const arrival = new Date(m.arrival_date).getTime();
-      const days = Math.max(0, Math.floor((now - arrival) / (1000 * 60 * 60 * 24)));
-      return { ...m, days_in_stock: days, is_aging: days >= 90 };
-    })
-    .filter(m => m.is_aging);
+app.get('/api/compte-global/config', (req, res) => {
+  res.json(globalAccountConfig);
+});
 
-  const pendingRequests = db.requests.filter(r => r.status === 'pending');
+app.put('/api/compte-global/config', (req, res) => {
+  const updated = updateAlgorithmConfig(req.body);
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'COMPTE_GLOBAL_CONFIG_UPDATE', 'system', null, updated);
+  res.json(updated);
+});
 
-  agingMotos.forEach(moto => {
-    const model = db.models.find(m => m.id === moto.model_id);
-    const sourceShowroom = db.showrooms.find(s => s.id === moto.showroom_id);
+app.get('/api/compte-global/stockout-risks', (req, res) => {
+  const risks = getStockoutRisks(db);
+  res.json(risks);
+});
 
-    db.showrooms.forEach(targetShowroom => {
-      if (targetShowroom.id === moto.showroom_id) return;
-
-      const demand = pendingRequests.filter(
-        r => r.motorcycle_model_id === moto.model_id && r.wilaya_code === targetShowroom.wilaya_code
-      ).length;
-
-      const localStock = db.motorcycles.filter(
-        m => m.showroom_id === targetShowroom.id && m.model_id === moto.model_id && m.status === 'available'
-      ).length;
-
-      if (demand > 0 || localStock === 0) {
-        opportunities.push({
-          model,
-          sourceShowroom,
-          destinationShowroom: targetShowroom,
-          motorcycle: moto,
-          daysInStock: moto.days_in_stock,
-          priority: demand > 0 ? 'Haute' : 'Moyenne',
-          pendingDemandCount: demand,
-          reason: demand > 0
-            ? `${demand} client(s) en attente à ${targetShowroom.city}; stock dormant de ${moto.days_in_stock}j à ${sourceShowroom?.city}.`
-            : `Rupture de stock à ${targetShowroom.city} et sur-stockage (${moto.days_in_stock}j) à ${sourceShowroom?.city}.`
-        });
-      }
-    });
-  });
-
-  res.json(opportunities.sort((a, b) => b.daysInStock - a.daysInStock));
+app.get('/api/compte-global/dormant-summary', (req, res) => {
+  const summary = getDormantInventorySummary(db);
+  res.json(summary);
 });
 
 // Transfers
@@ -918,84 +1010,111 @@ app.get('/api/transfers', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/transfers', (req, res) => {
+app.post('/api/transfers', async (req, res) => {
   const { motorcycle_id, source_showroom_id, destination_showroom_id, reason, user_id } = req.body;
   if (!motorcycle_id || !source_showroom_id || !destination_showroom_id) {
     return res.status(400).json({ error: 'Paramètres de transfert incomplets.' });
   }
 
-  const moto = db.motorcycles.find(m => m.id === motorcycle_id);
-  if (!moto || moto.status !== 'available') {
-    return res.status(400).json({ error: 'La moto n\'est pas disponible pour un transfert.' });
-  }
-
-  const ref = `TRF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  const newTransfer = {
-    id: `trf-${Date.now()}`,
-    reference: ref,
-    motorcycle_id,
-    source_showroom_id,
-    destination_showroom_id,
-    requested_by: user_id || 'operator',
-    status: 'pending',
-    reason: reason || 'Rééquilibrage Compte Global',
-    created_at: new Date().toISOString(),
-    history: [
-      {
-        id: `th-${Date.now()}`,
-        to_status: 'pending',
-        changed_by: user_id || 'operator',
-        comment: reason || 'Initiation de la demande de transfert',
-        created_at: new Date().toISOString()
+  try {
+    const result = await mutex.runExclusive(`moto:${motorcycle_id}`, async () => {
+      const moto = db.motorcycles.find(m => m.id === motorcycle_id);
+      if (!moto) {
+        throw new Error('Moto introuvable.');
       }
-    ]
-  };
+      if (moto.status !== 'available') {
+        throw new Error(`La moto n'est pas disponible pour un transfert (statut actuel: ${moto.status}).`);
+      }
 
-  db.transfers.unshift(newTransfer);
-  saveStore();
-  logAudit(user_id || 'operator', 'Compte Global', 'TRANSFER_REQUEST', 'transfers', newTransfer.id, { ref });
-  res.status(201).json(newTransfer);
+      // Check if motorcycle is already in an active transfer
+      const activeTransfer = db.transfers.find(
+        t => t.motorcycle_id === motorcycle_id && ['pending', 'approved', 'in_preparation', 'in_transit'].includes(t.status)
+      );
+      if (activeTransfer) {
+        throw new Error(`Cette moto fait déjà l'objet du transfert actif ${activeTransfer.reference}.`);
+      }
+
+      const ref = `TRF-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      const newTransfer = {
+        id: `trf-${Date.now()}`,
+        reference: ref,
+        motorcycle_id,
+        source_showroom_id,
+        destination_showroom_id,
+        requested_by: user_id || req.user?.id || 'operator',
+        status: 'pending',
+        reason: reason || 'Rééquilibrage Compte Global',
+        created_at: new Date().toISOString(),
+        history: [
+          {
+            id: `th-${Date.now()}`,
+            to_status: 'pending',
+            changed_by: user_id || req.user?.id || 'operator',
+            comment: reason || 'Initiation de la demande de transfert atomique',
+            created_at: new Date().toISOString()
+          }
+        ]
+      };
+
+      db.transfers.unshift(newTransfer);
+      saveStore();
+      logAudit(user_id || req.user?.id || 'operator', 'Compte Global', 'TRANSFER_REQUEST_SECURE', 'transfers', newTransfer.id, { ref, vin: moto.vin });
+      return newTransfer;
+    });
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
-app.put('/api/transfers/:id/status', (req, res) => {
+app.put('/api/transfers/:id/status', async (req, res) => {
   const { status, user_id, comment } = req.body;
   const trf = db.transfers.find(t => t.id === req.params.id);
   if (!trf) return res.status(404).json({ error: 'Transfert introuvable' });
 
-  const motoIdx = db.motorcycles.findIndex(m => m.id === trf.motorcycle_id);
-  const oldStatus = trf.status;
+  try {
+    const updated = await mutex.runExclusive(`moto:${trf.motorcycle_id}`, async () => {
+      const motoIdx = db.motorcycles.findIndex(m => m.id === trf.motorcycle_id);
+      const oldStatus = trf.status;
 
-  if (status === 'approved' || status === 'in_transit') {
-    if (motoIdx !== -1) db.motorcycles[motoIdx].status = 'in_transfer';
-  } else if (status === 'received') {
-    // Atomic reception: assign new showroom, reset arrival date to today, set available
-    if (motoIdx !== -1) {
-      db.motorcycles[motoIdx].showroom_id = trf.destination_showroom_id;
-      db.motorcycles[motoIdx].status = 'available';
-      db.motorcycles[motoIdx].arrival_date = new Date().toISOString().split('T')[0];
-      db.motorcycles[motoIdx].notes = `Transféré via ${trf.reference} le ${new Date().toLocaleDateString('fr-FR')}.`;
-      matchPendingRequestsForStock(db.motorcycles[motoIdx]);
-    }
-  } else if (status === 'rejected' || status === 'cancelled') {
-    if (motoIdx !== -1 && db.motorcycles[motoIdx].status === 'in_transfer') {
-      db.motorcycles[motoIdx].status = 'available';
-    }
+      if (status === 'approved' || status === 'in_transit') {
+        if (motoIdx !== -1) db.motorcycles[motoIdx].status = 'in_transfer';
+      } else if (status === 'received') {
+        // Atomic reception: assign new showroom, reset arrival date to today, set available
+        if (motoIdx !== -1) {
+          db.motorcycles[motoIdx].showroom_id = trf.destination_showroom_id;
+          db.motorcycles[motoIdx].status = 'available';
+          db.motorcycles[motoIdx].arrival_date = new Date().toISOString().split('T')[0];
+          db.motorcycles[motoIdx].notes = `Transféré via ${trf.reference} le ${new Date().toLocaleDateString('fr-FR')}.`;
+          matchPendingRequestsForStock(db.motorcycles[motoIdx]);
+        }
+      } else if (status === 'rejected' || status === 'cancelled') {
+        if (motoIdx !== -1 && db.motorcycles[motoIdx].status === 'in_transfer') {
+          db.motorcycles[motoIdx].status = 'available';
+        }
+      }
+
+      trf.status = status;
+      if (!trf.history) trf.history = [];
+      trf.history.push({
+        id: `th-${Date.now()}`,
+        from_status: oldStatus,
+        to_status: status,
+        changed_by: user_id || req.user?.id || 'operator',
+        comment: comment || `Statut passé à ${status}`,
+        created_at: new Date().toISOString()
+      });
+
+      saveStore();
+      logAudit(user_id || req.user?.id || 'operator', 'Operator', `TRANSFER_${status.toUpperCase()}_SECURE`, 'transfers', trf.id, { ref: trf.reference });
+      return trf;
+    });
+
+    res.json(updated);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
-
-  trf.status = status;
-  if (!trf.history) trf.history = [];
-  trf.history.push({
-    id: `th-${Date.now()}`,
-    from_status: oldStatus,
-    to_status: status,
-    changed_by: user_id || 'operator',
-    comment: comment || `Statut passé à ${status}`,
-    created_at: new Date().toISOString()
-  });
-
-  saveStore();
-  logAudit(user_id || 'operator', 'Operator', `TRANSFER_${status.toUpperCase()}`, 'transfers', trf.id, { ref: trf.reference });
-  res.json(trf);
 });
 
 // Sales
@@ -1010,33 +1129,59 @@ app.get('/api/sales', (req, res) => {
   res.json(list);
 });
 
-app.post('/api/sales', (req, res) => {
-  const { motorcycle_id, showroom_id, customer_name, customer_phone, sale_price, payment_method, user_id } = req.body;
-  const motoIdx = db.motorcycles.findIndex(m => m.id === motorcycle_id);
-  if (motoIdx === -1) return res.status(404).json({ error: 'Moto introuvable' });
+app.post('/api/sales', async (req, res) => {
+  const { motorcycle_id, showroom_id, customer_name, customer_phone, sale_price, payment_method, user_id, notes } = req.body;
+  if (!motorcycle_id || !showroom_id || !customer_name || !customer_phone || !sale_price) {
+    return res.status(400).json({ error: 'Champs obligatoires manquants pour l\'enregistrement de la vente.' });
+  }
 
-  const ref = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
-  db.motorcycles[motoIdx].status = 'sold';
-  db.motorcycles[motoIdx].sale_date = new Date().toISOString().split('T')[0];
+  try {
+    const sale = await mutex.runExclusive(`moto:${motorcycle_id}`, async () => {
+      const motoIdx = db.motorcycles.findIndex(m => m.id === motorcycle_id);
+      if (motoIdx === -1) throw new Error('Moto introuvable.');
 
-  const newSale = {
-    id: `sal-${Date.now()}`,
-    reference: ref,
-    motorcycle_id,
-    showroom_id,
-    customer_name,
-    customer_phone,
-    sale_price: Number(sale_price),
-    payment_method: payment_method || 'CASH',
-    sale_date: new Date().toISOString().split('T')[0],
-    sold_by: user_id || 'seller',
-    created_at: new Date().toISOString()
-  };
+      const moto = db.motorcycles[motoIdx];
+      if (moto.status !== 'available' && moto.status !== 'reserved') {
+        throw new Error(`La moto n'est pas disponible pour la vente (statut actuel: ${moto.status}).`);
+      }
 
-  db.sales.unshift(newSale);
-  saveStore();
-  logAudit(user_id || 'seller', 'Showroom Seller', 'SALE_CREATE', 'sales', newSale.id, { ref, vin: db.motorcycles[motoIdx].vin });
-  res.status(201).json(newSale);
+      const ref = `FAC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+      db.motorcycles[motoIdx].status = 'sold';
+      db.motorcycles[motoIdx].sale_date = new Date().toISOString().split('T')[0];
+
+      const newSale = {
+        id: `sal-${Date.now()}`,
+        reference: ref,
+        motorcycle_id,
+        showroom_id,
+        customer_name,
+        customer_phone,
+        sale_price: Number(sale_price),
+        payment_method: payment_method || 'CASH',
+        sale_date: new Date().toISOString().split('T')[0],
+        sold_by: user_id || req.user?.id || 'seller',
+        notes: notes || 'Vente showroom enregistrée avec garantie VMS 2 ans',
+        created_at: new Date().toISOString()
+      };
+
+      db.sales.unshift(newSale);
+      saveStore();
+
+      // Log with sanitized PII
+      logAudit(user_id || req.user?.id || 'seller', 'Showroom Seller', 'SALE_CREATE_SECURE', 'sales', newSale.id, {
+        ref,
+        vin: db.motorcycles[motoIdx].vin,
+        sale_price: Number(sale_price),
+        customer_phone_redacted: redactPhone(customer_phone)
+      });
+
+      return newSale;
+    });
+
+    res.status(201).json(sale);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 // KPIs
@@ -1128,6 +1273,106 @@ app.get('/api/export/odoo', (req, res) => {
   res.send(csv);
 });
 
+// -----------------------------------------------------------------------------
+// Odoo ERP Integration API (Phase 3)
+// -----------------------------------------------------------------------------
+app.get('/api/odoo/status', async (req, res) => {
+  const status = await odooSyncService.getStatus();
+  res.json(status);
+});
+
+app.post('/api/odoo/test-connection', async (req, res) => {
+  const result = await odooSyncService.testConnection();
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_TEST_CONNECTION', 'system', null, { connected: result.connected, mode: result.mode });
+  res.json(result);
+});
+
+app.post('/api/odoo/sync', async (req, res) => {
+  const { dryRun, entities } = req.body;
+  try {
+    const summary = await odooSyncService.synchronizeAll({
+      dryRun: Boolean(dryRun),
+      entities: Array.isArray(entities) ? entities : null,
+      triggeredBy: req.user?.email || 'admin'
+    });
+    saveStore();
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', dryRun ? 'ODOO_SYNC_DRY_RUN' : 'ODOO_SYNC_EXECUTE', 'odoo', null, {
+      dryRun,
+      totalSuccess: summary.totalSuccess,
+      totalFailed: summary.totalFailed,
+      conflictsCount: summary.conflictsCount
+    });
+    res.json(summary);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/history', (req, res) => {
+  const { limit, offset, entity_type, status } = req.query;
+  const history = odooSyncService.logger.getHistory({
+    limit: parseInt(limit || '50', 10),
+    offset: parseInt(offset || '0', 10),
+    entityType: entity_type || null,
+    status: status || null
+  });
+  res.json(history);
+});
+
+app.post('/api/odoo/history/:id/retry', async (req, res) => {
+  try {
+    const result = await odooSyncService.retryOperation(req.params.id);
+    saveStore();
+    res.json(result);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/conflicts', (req, res) => {
+  res.json(db.odoo_sync_conflicts || []);
+});
+
+app.post('/api/odoo/conflicts/:id/resolve', (req, res) => {
+  const { resolution, notes } = req.body;
+  try {
+    const resolved = odooSyncService.logger.resolveConflict(
+      req.params.id,
+      resolution,
+      notes,
+      req.user?.id || 'admin'
+    );
+    saveStore();
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_CONFLICT_RESOLVED', 'conflict', req.params.id, { resolution });
+    res.json(resolved);
+  } catch (err) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+app.get('/api/odoo/config', (req, res) => {
+  res.json({
+    client: odooSyncService.apiClient.getStatus(),
+    scheduler: odooSyncService.scheduler.getConfig()
+  });
+});
+
+app.put('/api/odoo/config', (req, res) => {
+  const { client, scheduler } = req.body;
+  if (client) {
+    odooSyncService.apiClient.updateConfig(client);
+  }
+  if (scheduler) {
+    odooSyncService.scheduler.updateConfig(scheduler);
+  }
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ODOO_CONFIG_UPDATED', 'system', null, { hasClientUpdates: Boolean(client), hasSchedulerUpdates: Boolean(scheduler) });
+  res.json({
+    success: true,
+    client: odooSyncService.apiClient.getStatus(),
+    scheduler: odooSyncService.scheduler.getConfig()
+  });
+});
+
 // Preorder tracking
 app.post('/api/preorder-redirect', (req, res) => {
   const { user_id, model_id, wilaya_code } = req.body;
@@ -1143,6 +1388,248 @@ app.post('/api/preorder-redirect', (req, res) => {
   saveStore();
   logAudit(user_id || 'guest', 'Customer', 'PREORDER_REDIRECT', 'preorders', record.id, { target: 'https://motobladi.dz/' });
   res.status(201).json(record);
+});
+
+// -----------------------------------------------------------------------------
+// Business Intelligence & Advanced Analytics (Phase 4)
+// -----------------------------------------------------------------------------
+app.get('/api/bi/overview', async (req, res) => {
+  try {
+    const { startDate, endDate, region } = req.query;
+    const overview = await biAnalyticsService.getExecutiveOverview({ startDate, endDate, region });
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/sales-trends', async (req, res) => {
+  try {
+    const { granularity = 'monthly', range = '12m' } = req.query;
+    const trends = await biAnalyticsService.getSalesTrends(granularity, range);
+    res.json(trends);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/showroom-performance', async (req, res) => {
+  try {
+    const { region } = req.query;
+    const rankings = await biAnalyticsService.getShowroomRankings({ region });
+    res.json(rankings);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/demand-intelligence', async (req, res) => {
+  try {
+    const intelligence = await biAnalyticsService.getDemandIntelligence();
+    res.json(intelligence);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/bi/reports/export', async (req, res) => {
+  try {
+    const { format = 'csv' } = req.query;
+    const overview = await biAnalyticsService.getExecutiveOverview({});
+    const rankings = await biAnalyticsService.getShowroomRankings({});
+    const demand = await biAnalyticsService.getDemandIntelligence();
+
+    if (format === 'json') {
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_bi_executive_report_${Date.now()}.json"`);
+      return res.json({
+        overview,
+        rankings,
+        demand,
+        showroomRankings: rankings,
+        demandIntelligence: demand
+      });
+    }
+
+    // Default CSV report
+    let csv = `RAPPORT EXECUTIF DE BUSINESS INTELLIGENCE — QUICK BY VMS\n`;
+    csv += `Généré le: ${new Date().toISOString()}\n\n`;
+
+    csv += `1. INDICATEURS CLÉS DE PERFORMANCE (KPIS)\n`;
+    csv += `Métrique,Valeur\n`;
+    csv += `Chiffre d'Affaires Réalisé (DZD),${overview.financials.totalSalesRevenue}\n`;
+    csv += `Volume de Ventes (Motos),${overview.financials.totalSalesVolume}\n`;
+    csv += `Ticket Moyen par Moto (DZD),${overview.financials.averageTicketDzd}\n`;
+    csv += `Taux de Conversion Demandes (%),${overview.demand.conversionRatePercent}%\n`;
+    csv += `Rotation des Stocks (Turnover Ratio),${overview.inventory.inventoryTurnoverRatio}\n`;
+    csv += `Délai Moyen d'Écoulement (DSI Jours),${overview.inventory.daysSalesOfInventoryDsi}\n`;
+    csv += `Stock Dormant >90j (Unités),${overview.inventory.agingPyramid.dormantOver90d}\n`;
+    csv += `Capital Immobilisé en Stock Dormant (DZD),${overview.financials.dormantCapitalTiedUpDzd}\n`;
+    csv += `Taux de Disponibilité Réseau (%),${overview.inventory.networkAvailabilityRatePercent}%\n\n`;
+
+    csv += `2. BENCHMARKING DES SHOWROOMS (TOP 20)\n`;
+    csv += `Showroom,Ville,Wilaya,Ventes (Volume),Stock Dispo,Stock Dormant,Demande En Attente,Score Efficience Normalisé,Catégorie\n`;
+    rankings.rankings.slice(0, 20).forEach(r => {
+      csv += `"${r.showroomName}","${r.city}","${r.wilayaCode}",${r.salesVolume},${r.availableStock},${r.dormantStock},${r.pendingDemand},${r.normalizedScore}/100,"${r.tier}"\n`;
+    });
+    csv += `\n`;
+
+    csv += `3. ANALYSE DE LA DEMANDE PAR MODÈLE\n`;
+    csv += `Modèle,Catégorie,Prix Catalogue (DZD),Demandes Clients,Demandes En Attente,Ventes,Stock Dispo,Indice de Tension\n`;
+    demand.modelStats.forEach(m => {
+      csv += `"${m.name}","${m.category}",${m.priceDzd},${m.totalRequests},${m.pendingDemand},${m.salesVolume},${m.availableStock},${m.tensionIndex}\n`;
+    });
+
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="vms_bi_executive_report_${Date.now()}.csv"`);
+    res.send(csv);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// =============================================================================
+// PREDICTIVE ANALYTICS & DEMAND FORECASTING (PHASE 5)
+// =============================================================================
+app.get('/api/predictive/overview', async (req, res) => {
+  try {
+    const overview = await predictiveAnalyticsService.getExecutiveOverview();
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/sales-forecasts', async (req, res) => {
+  try {
+    const forecasts = await predictiveAnalyticsService.getSalesForecasts(req.query);
+    res.json(forecasts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/models', async (req, res) => {
+  try {
+    const models = await predictiveAnalyticsService.getModelForecasts();
+    res.json(models);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/showrooms', async (req, res) => {
+  try {
+    const showrooms = await predictiveAnalyticsService.getShowroomProjections(req.query);
+    res.json(showrooms);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/predictive/seasonality', (req, res) => {
+  res.json(predictiveAnalyticsService.getAlgerianSeasonality());
+});
+
+app.get('/api/predictive/backtest', (req, res) => {
+  try {
+    const series = predictiveAnalyticsService.extractDailySeries();
+    const backtest = predictiveAnalyticsService.evaluateModelsBacktest(series, 14);
+    res.json(backtest);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// =============================================================================
+// ENTERPRISE DATA WAREHOUSE & EXECUTIVE REPORTING (PHASE 6)
+// =============================================================================
+app.get('/api/warehouse/overview', (req, res) => {
+  try {
+    const overview = dataWarehouseService.getWarehouseOverview();
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/warehouse/etl/run', (req, res) => {
+  try {
+    const { runType = 'INCREMENTAL' } = req.body || {};
+    const run = dataWarehouseService.runEtlPipeline(runType);
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ETL_PIPELINE_EXECUTED', 'warehouse', run.run_id, { runType, status: run.status });
+    res.json(run);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/quality', (req, res) => {
+  try {
+    const audit = dataQualityService.assessWarehouseQuality(dataWarehouseService);
+    res.json(audit);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reconciliation', (req, res) => {
+  try {
+    const reconciliation = dataWarehouseService.reconcileWithSource();
+    res.json(reconciliation);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reports/executive', (req, res) => {
+  try {
+    const report = executiveReportingService.generateExecutiveReport(req.query);
+    res.json(report);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reports/export', (req, res) => {
+  try {
+    const { format = 'csv' } = req.query;
+    if (format === 'csv') {
+      const csv = executiveReportingService.exportReport('csv', req.query);
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.csv"`);
+      return res.send(csv);
+    } else if (format === 'excel') {
+      const xml = executiveReportingService.exportReport('excel', req.query);
+      res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.xls"`);
+      return res.send(xml);
+    } else if (format === 'pdf' || format === 'pdf-binary') {
+      const pdfBuffer = executiveReportingService.exportReport('pdf', req.query);
+      if (format === 'pdf-binary' || req.query.binary === 'true' || req.headers['accept'] === 'application/pdf') {
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.pdf"`);
+        res.setHeader('Content-Length', pdfBuffer.length);
+        return res.end(pdfBuffer);
+      }
+      const report = executiveReportingService.generateExecutiveReport(req.query);
+      return res.json({
+        format: 'pdf',
+        contentType: 'application/json',
+        data: report,
+        pdfBase64: pdfBuffer.toString('base64'),
+        pdfByteLength: pdfBuffer.length,
+        renderTemplate: 'executive-summary-v3'
+      });
+    } else if (format === 'json') {
+      const report = executiveReportingService.generateExecutiveReport(req.query);
+      return res.json(report);
+    } else {
+      return res.status(400).json({ error: `Format non supporté: ${format}` });
+    }
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Start Express server

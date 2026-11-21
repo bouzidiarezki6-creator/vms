@@ -13,33 +13,69 @@ import {
   Info,
   ChevronRight,
   ShieldCheck,
-  Bike
+  Bike,
+  Sliders,
+  DollarSign,
+  TrendingUp,
+  MapPin,
+  Gauge,
+  PackageX,
+  ChevronDown,
+  ChevronUp,
+  ArrowRight,
+  ShieldAlert,
+  Zap
 } from 'lucide-react';
 import { dbStore } from '../../services/dbStore';
-import { Motorcycle, Transfer, Showroom, TransferStatus } from '../../types';
+import {
+  Motorcycle,
+  Transfer,
+  Showroom,
+  TransferStatus,
+  TransferOpportunity,
+  StockoutRisk,
+  DormantInventorySummary
+} from '../../types';
 import { CreateTransferModal } from './CreateTransferModal';
+import { AlgorithmConfigModal } from './AlgorithmConfigModal';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/Card';
-import { formatDate, formatDateTime } from '../../lib/utils';
+import { formatDate, formatDateTime, formatPrice } from '../../lib/utils';
 import { useToast } from '../ui/Toast';
 
 export const CompteGlobalView: React.FC = () => {
   const toast = useToast();
   const currentUser = dbStore.getCurrentUser();
-  const [agingMotos, setAgingMotos] = useState<Motorcycle[]>([]);
-  const [opportunities, setOpportunities] = useState<any[]>([]);
-  const [transfers, setTransfers] = useState<Transfer[]>([]);
-  const [selectedTransferForHistory, setSelectedTransferForHistory] = useState<Transfer | null>(null);
 
-  // Modal State
+  // Data states
+  const [agingMotos, setAgingMotos] = useState<Motorcycle[]>([]);
+  const [opportunities, setOpportunities] = useState<TransferOpportunity[]>([]);
+  const [transfers, setTransfers] = useState<Transfer[]>([]);
+  const [dormantSummary, setDormantSummary] = useState<DormantInventorySummary | null>(null);
+  const [stockoutRisks, setStockoutRisks] = useState<StockoutRisk[]>([]);
+  const [showrooms, setShowrooms] = useState<Showroom[]>([]);
+
+  // Filter states
+  const [priorityFilter, setPriorityFilter] = useState<'all' | 'Haute' | 'Moyenne' | 'Standard'>('all');
+  const [modelFilter, setModelFilter] = useState<string>('all');
+  const [targetShowroomFilter, setTargetShowroomFilter] = useState<string>('all');
+  const [expandedScores, setExpandedScores] = useState<Record<string, boolean>>({});
+  const [showStockoutRisks, setShowStockoutRisks] = useState<boolean>(true);
+
+  // Modals
   const [isTransferModalOpen, setIsTransferModalOpen] = useState(false);
+  const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
   const [selectedOpp, setSelectedOpp] = useState<any>(null);
+  const [selectedTransferForHistory, setSelectedTransferForHistory] = useState<Transfer | null>(null);
 
   const refreshData = () => {
     setAgingMotos(dbStore.getAgingMotorcycles(90));
     setOpportunities(dbStore.getTransferOpportunities());
     setTransfers(dbStore.getTransfers());
+    setDormantSummary(dbStore.getDormantInventorySummary());
+    setStockoutRisks(dbStore.getStockoutRisks());
+    setShowrooms(dbStore.getShowrooms());
   };
 
   useEffect(() => {
@@ -47,9 +83,16 @@ export const CompteGlobalView: React.FC = () => {
     return dbStore.subscribe(refreshData);
   }, []);
 
-  const handleOpenTransferForOpportunity = (opp: any) => {
+  const handleOpenTransferForOpportunity = (opp: TransferOpportunity) => {
     setSelectedOpp(opp);
     setIsTransferModalOpen(true);
+  };
+
+  const toggleScoreExpand = (vin: string) => {
+    setExpandedScores(prev => ({
+      ...prev,
+      [vin]: !prev[vin]
+    }));
   };
 
   const handleUpdateStatus = (transferId: string, newStatus: TransferStatus) => {
@@ -79,6 +122,17 @@ export const CompteGlobalView: React.FC = () => {
     }
   };
 
+  // Filtered opportunities
+  const filteredOpportunities = opportunities.filter(opp => {
+    if (priorityFilter !== 'all' && opp.priority !== priorityFilter) return false;
+    if (modelFilter !== 'all' && opp.model.id !== modelFilter) return false;
+    if (targetShowroomFilter !== 'all' && opp.destinationShowroom?.id !== targetShowroomFilter) return false;
+    return true;
+  });
+
+  const highPriorityCount = opportunities.filter(o => o.priority === 'Haute').length;
+  const mediumPriorityCount = opportunities.filter(o => o.priority === 'Moyenne').length;
+
   return (
     <div className="space-y-8 pb-16">
       {/* Header Banner */}
@@ -88,18 +142,27 @@ export const CompteGlobalView: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/30">
-              <Layers className="h-4 w-4" />
-              <span>Système Intelligent de Centralisation du Stock</span>
+              <Sparkles className="h-4 w-4" />
+              <span>Moteur Décisionnel Intelligent & Transparent V2.0</span>
             </div>
             <h1 className="text-3xl font-black tracking-tight text-white">
               COMPTE GLOBAL VMS
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Moteur algorithmique d'optimisation de la répartition des motos entre showrooms. Détection temps réel des stocks dormants (&gt;90 jours), matching automatique avec la demande client et régulation des transferts inter-showrooms.
+              Rééquilibrage algorithmique national des stocks par scoring multicritère transparent (0–100). Détection des stocks dormants (&gt;90 jours), anticipation des ruptures locales et aide à la décision pour les transferts inter-showrooms sous validation humaine stricte.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3">
+            <Button
+              variant="outline"
+              onClick={() => setIsConfigModalOpen(true)}
+              className="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 text-white border-slate-700 font-semibold gap-2 text-xs"
+            >
+              <Sliders className="h-4 w-4 text-blue-400" />
+              <span>Paramétrage Algorithme</span>
+            </Button>
+
             <Button
               onClick={() => {
                 setSelectedOpp(null);
@@ -114,71 +177,375 @@ export const CompteGlobalView: React.FC = () => {
         </div>
       </div>
 
-      {/* Section 5.2: Intelligent Showroom Matching Opportunities */}
+      {/* KPI Cards — Executive Overview */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="p-5 border-l-4 border-l-amber-500 bg-white">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Capital Stock Dormant
+            </span>
+            <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
+              <DollarSign className="h-5 w-5" />
+            </div>
+          </div>
+          <div className="mt-2 text-2xl font-black text-slate-900">
+            {formatPrice(dormantSummary?.totalCapitalTiedUpDzd || 0)}
+          </div>
+          <p className="mt-1 text-[11px] text-slate-500">
+            {dormantSummary?.totalDormantUnits || 0} motos &gt;90j ({dormantSummary?.highRiskUnits || 0} à risque critique &gt;130j)
+          </p>
+        </Card>
+
+        <Card className="p-5 border-l-4 border-l-blue-600 bg-white">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Recommandations Actives
+            </span>
+            <div className="p-2 rounded-xl bg-blue-50 text-blue-600">
+              <Sparkles className="h-5 w-5" />
+            </div>
+          </div>
+          <div className="mt-2 text-2xl font-black text-slate-900">
+            {opportunities.length}
+          </div>
+          <p className="mt-1 text-[11px] text-slate-500">
+            <span className="font-bold text-emerald-600">{highPriorityCount} haute priorité</span> • {mediumPriorityCount} moyenne
+          </p>
+        </Card>
+
+        <Card className="p-5 border-l-4 border-l-red-500 bg-white">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Risques Rupture Cibles
+            </span>
+            <div className="p-2 rounded-xl bg-red-50 text-red-600">
+              <AlertTriangle className="h-5 w-5" />
+            </div>
+          </div>
+          <div className="mt-2 text-2xl font-black text-slate-900">
+            {stockoutRisks.length} Showrooms
+          </div>
+          <p className="mt-1 text-[11px] text-red-600 font-semibold">
+            Demandes clients bloquées par stock local = 0
+          </p>
+        </Card>
+
+        <Card className="p-5 border-l-4 border-l-emerald-500 bg-white">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Transferts en Cours
+            </span>
+            <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
+              <Truck className="h-5 w-5" />
+            </div>
+          </div>
+          <div className="mt-2 text-2xl font-black text-slate-900">
+            {transfers.filter(t => t.status === 'in_transit' || t.status === 'approved').length}
+          </div>
+          <p className="mt-1 text-[11px] text-slate-500">
+            {transfers.filter(t => t.status === 'received').length} achevé(s) avec succès
+          </p>
+        </Card>
+      </div>
+
+      {/* Stockout Risks Alert Banner */}
+      {stockoutRisks.length > 0 && (
+        <div className="rounded-2xl border border-red-200 bg-red-50/70 p-5 space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <ShieldAlert className="h-5 w-5 text-red-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-red-950 text-sm">
+                  {stockoutRisks.length} Showroom(s) en Risque Critique de Rupture Immédiate
+                </h3>
+                <p className="text-[11px] text-red-800">
+                  Clients en attente dans la wilaya alors que le showroom dispose de 0 unité de ce modèle en stock physique.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => setShowStockoutRisks(!showStockoutRisks)}
+              className="text-xs font-bold text-red-700 hover:text-red-900 flex items-center gap-1"
+            >
+              <span>{showStockoutRisks ? 'Masquer' : 'Afficher le détail'}</span>
+              {showStockoutRisks ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </button>
+          </div>
+
+          {showStockoutRisks && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+              {stockoutRisks.slice(0, 6).map((risk, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl bg-white p-3 border border-red-200 shadow-sm flex items-center justify-between gap-3 text-xs"
+                >
+                  <div className="space-y-0.5">
+                    <strong className="text-slate-900 block font-bold">{risk.showroomName}</strong>
+                    <span className="text-[11px] text-slate-500">{risk.city} ({risk.wilayaCode})</span>
+                    <div className="text-[11px] font-semibold text-blue-700">{risk.modelName}</div>
+                  </div>
+                  <div className="text-right">
+                    <span className="px-2 py-0.5 rounded-full bg-red-100 text-red-800 font-extrabold text-[11px] inline-block">
+                      {risk.pendingDemand} en attente
+                    </span>
+                    <button
+                      onClick={() => {
+                        setTargetShowroomFilter(risk.showroomId);
+                        setModelFilter(risk.modelId);
+                      }}
+                      className="text-[10px] text-blue-600 hover:underline block mt-1 font-semibold"
+                    >
+                      Voir solutions →
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Section: Intelligent Showroom Matching Opportunities */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Sparkles className="h-5 w-5 text-blue-600" />
-            <h2 className="text-lg font-bold text-slate-900">
-              Opportunités de Transfert Intelligentes (Recommandations Algorithmiques)
-            </h2>
+            <div>
+              <h2 className="text-lg font-bold text-slate-900">
+                Recommandations de Réallocation Algorithmique
+              </h2>
+              <p className="text-xs text-slate-500">
+                Classement par Score Multicritère (0–100) • Validation humaine obligatoire
+              </p>
+            </div>
           </div>
-          <Badge variant="info">{opportunities.length} proposition(s)</Badge>
+
+          {/* Filters Bar */}
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            {/* Priority Pills */}
+            <div className="flex rounded-xl bg-slate-100 p-1 border border-slate-200">
+              <button
+                onClick={() => setPriorityFilter('all')}
+                className={`px-2.5 py-1 rounded-lg font-semibold text-xs transition-colors ${
+                  priorityFilter === 'all' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Toutes ({opportunities.length})
+              </button>
+              <button
+                onClick={() => setPriorityFilter('Haute')}
+                className={`px-2.5 py-1 rounded-lg font-semibold text-xs transition-colors ${
+                  priorityFilter === 'Haute' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Haute ({highPriorityCount})
+              </button>
+              <button
+                onClick={() => setPriorityFilter('Moyenne')}
+                className={`px-2.5 py-1 rounded-lg font-semibold text-xs transition-colors ${
+                  priorityFilter === 'Moyenne' ? 'bg-amber-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                Moyenne ({mediumPriorityCount})
+              </button>
+            </div>
+
+            {/* Target Showroom Filter */}
+            {targetShowroomFilter !== 'all' && (
+              <button
+                onClick={() => {
+                  setTargetShowroomFilter('all');
+                  setModelFilter('all');
+                }}
+                className="px-2 py-1 bg-blue-100 text-blue-800 rounded-lg text-xs font-semibold hover:bg-blue-200"
+              >
+                Réinitialiser filtre showroom ✕
+              </button>
+            )}
+          </div>
         </div>
 
-        {opportunities.length === 0 ? (
+        {/* Opportunities List */}
+        {filteredOpportunities.length === 0 ? (
           <Card className="p-8 text-center text-xs text-slate-500">
             <CheckCircle2 className="h-8 w-8 text-emerald-500 mx-auto mb-2" />
-            <p className="font-bold text-slate-800">Le stock réseau est parfaitement équilibré.</p>
-            <p className="mt-0.5">Aucune rupture de stock ou demande client non couverte nécessitant un transfert.</p>
+            <p className="font-bold text-slate-800 text-sm">Aucune opportunité ne correspond aux filtres.</p>
+            <p className="mt-0.5">Le stock réseau est équilibré pour ces critères ou les filtres sont trop restrictifs.</p>
           </Card>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {opportunities.map((opp, idx) => (
-              <Card key={idx} className="border-l-4 border-l-amber-500 hover:shadow-md transition-shadow">
-                <CardContent className="p-5 space-y-4">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={opp.model.image_url}
-                        alt={opp.model.name}
-                        className="h-12 w-12 rounded-lg object-cover bg-slate-100 flex-shrink-0"
-                      />
-                      <div>
-                        <h4 className="font-bold text-slate-900 text-sm">{opp.model.name}</h4>
-                        <p className="text-[11px] font-mono text-slate-500">VIN: {opp.motorcycle.vin}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filteredOpportunities.map((opp, idx) => {
+              const isScoresOpen = !!expandedScores[opp.motorcycle.vin];
+              const scoreColor =
+                opp.score >= 75
+                  ? 'text-emerald-700 bg-emerald-50 border-emerald-300'
+                  : opp.score >= 50
+                  ? 'text-amber-700 bg-amber-50 border-amber-300'
+                  : 'text-slate-700 bg-slate-50 border-slate-300';
+
+              const barColor =
+                opp.score >= 75
+                  ? 'bg-emerald-500'
+                  : opp.score >= 50
+                  ? 'bg-amber-500'
+                  : 'bg-slate-400';
+
+              return (
+                <Card
+                  key={idx}
+                  className={`border-t-4 hover:shadow-lg transition-all duration-200 flex flex-col justify-between ${
+                    opp.priority === 'Haute'
+                      ? 'border-t-emerald-500'
+                      : opp.priority === 'Moyenne'
+                      ? 'border-t-amber-500'
+                      : 'border-t-slate-400'
+                  }`}
+                >
+                  <CardContent className="p-5 space-y-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Top Row: Model info and Score */}
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={opp.model.image_url}
+                            alt={opp.model.name}
+                            className="h-12 w-12 rounded-xl object-cover bg-slate-100 flex-shrink-0 border border-slate-200"
+                          />
+                          <div>
+                            <h4 className="font-bold text-slate-900 text-sm leading-tight">{opp.model.name}</h4>
+                            <p className="text-[11px] font-mono text-slate-500 mt-0.5">VIN: {opp.motorcycle.vin}</p>
+                            <span className="text-[10px] text-slate-400">{formatPrice(opp.model.price_dzd)}</span>
+                          </div>
+                        </div>
+
+                        <div className="text-right flex-shrink-0">
+                          <div className={`px-2.5 py-1 rounded-xl border font-black text-xs inline-flex items-center gap-1 ${scoreColor}`}>
+                            <Zap className="h-3 w-3" />
+                            <span>{opp.score}/100</span>
+                          </div>
+                          <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mt-1">
+                            Priorité {opp.priority}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Score Bar */}
+                      <div className="mt-3">
+                        <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all duration-500 ${barColor}`}
+                            style={{ width: `${Math.min(100, opp.score)}%` }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Route Block */}
+                      <div className="mt-4 p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-2.5">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="space-y-0.5">
+                            <span className="text-[10px] uppercase font-bold text-slate-400 block">Source (Dormant)</span>
+                            <strong className="text-slate-900 font-bold block">{opp.sourceShowroom.city}</strong>
+                            <span className="text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded font-semibold inline-block">
+                              {opp.daysInStock}j en stock
+                            </span>
+                          </div>
+
+                          <div className="flex flex-col items-center px-2">
+                            <ArrowRight className="h-4 w-4 text-blue-600" />
+                            <span className="text-[9px] font-mono text-slate-500 mt-0.5">
+                              {opp.distanceKm} km
+                            </span>
+                          </div>
+
+                          <div className="space-y-0.5 text-right">
+                            <span className="text-[10px] uppercase font-bold text-slate-400 block">Cible (Demande)</span>
+                            <strong className="text-blue-700 font-bold block">{opp.destinationShowroom?.city || 'Showroom Cible'}</strong>
+                            <span className="text-[10px] text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded font-semibold inline-block">
+                              {opp.subScores.demandScore > 0 ? `${Math.round(opp.subScores.demandScore / 25)} client(s)` : '0 stock'}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Logistics & Cost info */}
+                        <div className="flex items-center justify-between text-[11px] pt-2 border-t border-slate-200/60 text-slate-600">
+                          <span className="flex items-center gap-1">
+                            <Truck className="h-3.5 w-3.5 text-slate-400" />
+                            <span>Coût transport estimé :</span>
+                          </span>
+                          <strong className="font-mono text-slate-900 font-bold">
+                            {formatPrice(opp.logisticsCostDzd)}
+                          </strong>
+                        </div>
+
+                        {/* Rationale explanation */}
+                        <div className="text-[11px] text-slate-700 bg-white p-2.5 rounded-xl border border-slate-200/80 leading-relaxed">
+                          💡 {opp.reason}
+                        </div>
+
+                        {opp.estimatedDaysToSell && (
+                          <div className="flex items-center justify-between text-[10px] text-emerald-700 font-semibold px-1">
+                            <span>Vente locale anticipée :</span>
+                            <span>~{opp.estimatedDaysToSell} jours après réception</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Sub-scores details expandable */}
+                      <div className="mt-3">
+                        <button
+                          type="button"
+                          onClick={() => toggleScoreExpand(opp.motorcycle.vin)}
+                          className="w-full text-[11px] text-slate-500 hover:text-slate-800 flex items-center justify-between p-1"
+                        >
+                          <span>Décomposition transparente des sous-scores</span>
+                          {isScoresOpen ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+                        </button>
+
+                        {isScoresOpen && (
+                          <div className="mt-2 p-3 rounded-xl bg-slate-100/70 border border-slate-200 text-[11px] space-y-1.5">
+                            <div className="flex justify-between items-center">
+                              <span className="text-slate-600">Âge du stock (25%) :</span>
+                              <strong className="font-mono text-slate-900">{opp.subScores.stockAgeScore}/100</strong>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-slate-600">Demande en attente (25%) :</span>
+                              <strong className="font-mono text-slate-900">{opp.subScores.demandScore}/100</strong>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-slate-600">Rupture showroom cible (20%) :</span>
+                              <strong className="font-mono text-slate-900">{opp.subScores.stockoutScore}/100</strong>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-slate-600">Vélocité commerciale (15%) :</span>
+                              <strong className="font-mono text-slate-900">{opp.subScores.velocityScore}/100</strong>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-slate-600">Proximité logistique (15%) :</span>
+                              <strong className="font-mono text-slate-900">{opp.subScores.logisticsScore}/100</strong>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
-                    <Badge variant="aging">
-                      {opp.daysInStock} jours
-                    </Badge>
-                  </div>
 
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500">Showroom Source :</span>
-                      <strong className="text-slate-800">{opp.sourceShowroom.city}</strong>
+                    {/* Action Button: Human Approval Required */}
+                    <div className="pt-3">
+                      <Button
+                        size="sm"
+                        onClick={() => handleOpenTransferForOpportunity(opp)}
+                        className="w-full text-xs font-bold gap-1.5 bg-blue-600 hover:bg-blue-500 shadow-sm"
+                      >
+                        <span>Initier le Transfert Recommandé</span>
+                        <ChevronRight className="h-4 w-4" />
+                      </Button>
+                      <span className="block text-center text-[10px] text-slate-400 mt-1.5">
+                        Validation humaine requise avant expédition
+                      </span>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500">Showroom Cible :</span>
-                      <strong className="text-blue-700">{opp.destinationShowroom?.city || 'Showroom en rupture'}</strong>
-                    </div>
-                    <p className="text-[11px] text-amber-800 bg-amber-50 p-2 rounded-lg border border-amber-100">
-                      💡 {opp.reason}
-                    </p>
-                  </div>
-
-                  <Button
-                    size="sm"
-                    onClick={() => handleOpenTransferForOpportunity(opp)}
-                    className="w-full text-xs font-bold gap-1.5"
-                  >
-                    <span>Initier le Transfert Recommandé</span>
-                    <ChevronRight className="h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         )}
       </div>
@@ -190,7 +557,7 @@ export const CompteGlobalView: React.FC = () => {
             <AlertTriangle className="h-5 w-5 text-orange-500" />
             <div>
               <CardTitle>Motos en Stock Dormant (&gt; 90 Jours dans le Réseau)</CardTitle>
-              <p className="text-xs text-slate-500">Calcul automatique d'ancienneté d'après la date d'arrivée showroom</p>
+              <p className="text-xs text-slate-500">Calcul automatique d'ancienneté d'après la date d'arrivée physique showroom</p>
             </div>
           </div>
           <Badge variant="aging">{agingMotos.length} unité(s) &gt;90 jours</Badge>
@@ -205,6 +572,7 @@ export const CompteGlobalView: React.FC = () => {
                 <th className="px-5 py-3">Showroom Actuel</th>
                 <th className="px-5 py-3">Arrivée Showroom</th>
                 <th className="px-5 py-3">Âge en Stock</th>
+                <th className="px-5 py-3">Valeur Immobilisée</th>
                 <th className="px-5 py-3">Statut Éligibilité</th>
                 <th className="px-5 py-3 text-right">Action</th>
               </tr>
@@ -212,7 +580,7 @@ export const CompteGlobalView: React.FC = () => {
             <tbody className="divide-y divide-slate-100">
               {agingMotos.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="text-center py-6 text-slate-400">
+                  <td colSpan={8} className="text-center py-6 text-slate-400">
                     Aucun stock dormant de plus de 90 jours dans le réseau VMS.
                   </td>
                 </tr>
@@ -237,8 +605,11 @@ export const CompteGlobalView: React.FC = () => {
                         {moto.days_in_stock} jours
                       </span>
                     </td>
+                    <td className="px-5 py-3.5 font-mono font-semibold text-slate-800">
+                      {formatPrice(moto.model?.price_dzd || 0)}
+                    </td>
                     <td className="px-5 py-3.5">
-                      <Badge variant="success">Éligible Transfert Immédiat</Badge>
+                      <Badge variant="success">Éligible Compte Global</Badge>
                     </td>
                     <td className="px-5 py-3.5 text-right">
                       <Button
@@ -458,6 +829,13 @@ export const CompteGlobalView: React.FC = () => {
         preselectedDestinationShowroomId={selectedOpp?.destinationShowroom?.id}
         preselectedReason={selectedOpp?.reason}
         onSuccess={refreshData}
+      />
+
+      {/* Algorithm Config & Transparency Modal */}
+      <AlgorithmConfigModal
+        isOpen={isConfigModalOpen}
+        onClose={() => setIsConfigModalOpen(false)}
+        onSave={refreshData}
       />
     </div>
   );

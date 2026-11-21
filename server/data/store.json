@@ -12419,6 +12419,34 @@
   ],
   "transfers": [
     {
+      "id": "trf-1795278733113",
+      "reference": "TRF-2026-2578",
+      "motorcycle_id": "moto-0002",
+      "source_showroom_id": "shw-vms-06-01",
+      "destination_showroom_id": "shw-vms-16-06",
+      "requested_by": "operator",
+      "status": "cancelled",
+      "reason": "Test de concurrence atomique Phase 1",
+      "created_at": "2026-11-21T16:32:13.113Z",
+      "history": [
+        {
+          "id": "th-1795278733113",
+          "to_status": "pending",
+          "changed_by": "operator",
+          "comment": "Test de concurrence atomique Phase 1",
+          "created_at": "2026-11-21T16:32:13.113Z"
+        },
+        {
+          "id": "th-1795278733124",
+          "from_status": "pending",
+          "to_status": "cancelled",
+          "changed_by": "operator",
+          "comment": "Nettoyage test Phase 1",
+          "created_at": "2026-11-21T16:32:13.124Z"
+        }
+      ]
+    },
+    {
       "id": "trf-0001",
       "reference": "TRF-2026-0001",
       "motorcycle_id": "moto-0001",
@@ -14210,6 +14238,43 @@
     }
   ],
   "audit_logs": [
+    {
+      "id": "aud-1795278733127-805",
+      "user_id": "operator",
+      "user_email": "******",
+      "action_type": "TRANSFER_CANCELLED_SECURE",
+      "entity_type": "transfers",
+      "entity_id": "trf-1795278733113",
+      "details": {
+        "ref": "TRF-2026-2578"
+      },
+      "created_at": "2026-11-21T16:32:13.127Z"
+    },
+    {
+      "id": "aud-1795278733116-204",
+      "user_id": "operator",
+      "user_email": "******",
+      "action_type": "TRANSFER_REQUEST_SECURE",
+      "entity_type": "transfers",
+      "entity_id": "trf-1795278733113",
+      "details": {
+        "ref": "TRF-2026-2578",
+        "vin": "VMS2026DZ000002"
+      },
+      "created_at": "2026-11-21T16:32:13.116Z"
+    },
+    {
+      "id": "aud-1795278733094-747",
+      "user_id": "usr-super-admin-01",
+      "user_email": "a***n@vms.dz",
+      "action_type": "AUTH_LOGIN_SECURE",
+      "entity_type": "profiles",
+      "entity_id": "usr-super-admin-01",
+      "details": {
+        "role": "super_admin"
+      },
+      "created_at": "2026-11-21T16:32:13.094Z"
+    },
     {
       "id": "log-001",
       "user_id": "usr-super-admin-01",

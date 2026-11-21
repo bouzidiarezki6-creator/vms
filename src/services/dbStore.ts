@@ -13,7 +13,11 @@ import {
   ShowroomKPIs,
   GlobalKPIs,
   TransferStatus,
-  MotorcycleStatus
+  MotorcycleStatus,
+  TransferOpportunity,
+  GlobalAccountConfig,
+  StockoutRisk,
+  DormantInventorySummary
 } from '../types';
 import {
   INITIAL_PROFILES,
@@ -28,6 +32,8 @@ import {
   INITIAL_AUDIT_LOGS
 } from '../data/mockData';
 import { WILAYAS } from '../data/wilayas';
+import { redactEmail, redactPhone } from '../lib/utils';
+import { calculateWilayaDistanceKm, estimateLogisticsCostDzd } from '../data/wilayaCoordinates';
 
 const STORAGE_KEYS = {
   PROFILES: 'vms_quick_profiles_v4',
@@ -647,66 +653,225 @@ class DatabaseStore {
   }
 
   // ====================================================================
-  // COMPTE GLOBAL — INTELLIGENT MATCHING & TRANSFERS
+  // ADVANCED COMPTE GLOBAL — INTELLIGENT DECISION ENGINE (PHASE 2)
   // ====================================================================
 
-  public getAgingMotorcycles(thresholdDays = 90): Motorcycle[] {
-    const all = this.getMotorcycles();
-    return all.filter(m => (m.days_in_stock || 0) >= thresholdDays && m.status === 'available');
+  private algorithmConfig: GlobalAccountConfig = {
+    weightAge: 0.25,        // 25%: Urgence de déstockage de l'unité dormante (>90j)
+    weightDemand: 0.25,     // 25%: Pression de la demande locale clients
+    weightStockout: 0.20,   // 20%: Gravité de la rupture dans le showroom cible
+    weightVelocity: 0.15,   // 15%: Vitesse d'absorption historique du modèle
+    weightLogistics: 0.15,  // 15%: Proximité géographique et coût kilométrique
+    thresholdDays: 90,      // Seuil d'éligibilité Compte Global (jours)
+    logisticsBaseFeeDzd: 4000,
+    logisticsRatePerKmDzd: 35
+  };
+
+  public getAlgorithmConfig(): GlobalAccountConfig {
+    return { ...this.algorithmConfig };
   }
 
-  public getTransferOpportunities(targetShowroomId?: string): Array<{
-    model: MotorcycleModel;
-    sourceShowroom: Showroom;
-    motorcycle: Motorcycle;
-    destinationShowroom?: Showroom;
-    daysInStock: number;
-    priority: 'Haute' | 'Moyenne' | 'Standard';
-    reason: string;
-    pendingDemandCount: number;
-  }> {
+  public updateAlgorithmConfig(newConfig: Partial<GlobalAccountConfig>): GlobalAccountConfig {
+    this.algorithmConfig = { ...this.algorithmConfig, ...newConfig };
+    this.notify();
+    return { ...this.algorithmConfig };
+  }
+
+  public getAgingMotorcycles(thresholdDays?: number): Motorcycle[] {
+    const threshold = thresholdDays !== undefined ? thresholdDays : this.algorithmConfig.thresholdDays;
+    const all = this.getMotorcycles();
+    return all.filter(m => (m.days_in_stock || 0) >= threshold && m.status === 'available');
+  }
+
+  public getTransferOpportunities(targetShowroomId?: string): TransferOpportunity[] {
     const allMotos = this.getMotorcycles();
     const requests = this.getCustomerRequests().filter(r => r.status === 'pending');
     const showrooms = this.getShowrooms();
-    const opportunities: any[] = [];
+    const sales = this.getSales();
+    const config = this.algorithmConfig;
+    const opportunities: TransferOpportunity[] = [];
 
-    // Find aging motorcycles (>90 days) that could be transferred to satisfy demand
-    const agingUnits = allMotos.filter(m => m.is_aging && m.status === 'available' && m.showroom && m.model);
+    // Find aging motorcycles (>= thresholdDays) that could be transferred
+    const agingUnits = allMotos.filter(
+      m => (m.days_in_stock || 0) >= config.thresholdDays && m.status === 'available' && m.showroom && m.model
+    );
 
     agingUnits.forEach(moto => {
-      // Find demand in other showrooms
+      const model = moto.model!;
+      const sourceShowroom = moto.showroom!;
       const pendingForModel = requests.filter(r => r.motorcycle_model_id === moto.model_id);
-      
-      showrooms.forEach(shw => {
-        if (shw.id === moto.showroom_id) return;
-        if (targetShowroomId && shw.id !== targetShowroomId) return;
 
-        // Count pending customer requests in this destination showroom's wilaya
-        const demandInWilaya = pendingForModel.filter(r => r.wilaya_code === shw.wilaya_code).length;
-        
-        // Count existing stock in destination showroom
-        const localStockCount = allMotos.filter(m => m.showroom_id === shw.id && m.model_id === moto.model_id && m.status === 'available').length;
+      showrooms.forEach(destShowroom => {
+        if (destShowroom.id === moto.showroom_id) return;
+        if (targetShowroomId && destShowroom.id !== targetShowroomId) return;
 
-        if (demandInWilaya > 0 || localStockCount === 0) {
-          const priority = moto.days_in_stock && moto.days_in_stock >= 110 ? 'Haute' : (demandInWilaya > 0 ? 'Haute' : 'Moyenne');
-          opportunities.push({
-            model: moto.model!,
-            sourceShowroom: moto.showroom!,
-            destinationShowroom: shw,
-            motorcycle: moto,
-            daysInStock: moto.days_in_stock || 0,
-            priority,
-            pendingDemandCount: demandInWilaya,
-            reason: demandInWilaya > 0
-              ? `${demandInWilaya} client(s) en attente à ${shw.city} pour ce modèle; stock dormant de ${moto.days_in_stock}j à ${moto.showroom?.city}.`
-              : `Rupture de stock à ${shw.city} et sur-stockage (${moto.days_in_stock} jours) à ${moto.showroom?.city}.`
+        // 1. Demand in destination showroom wilaya
+        const demandInWilaya = pendingForModel.filter(r => r.wilaya_code === destShowroom.wilaya_code).length;
+
+        // 2. Local stock in destination showroom
+        const localStockCount = allMotos.filter(
+          m => m.showroom_id === destShowroom.id && m.model_id === moto.model_id && m.status === 'available'
+        ).length;
+
+        // 3. Sales velocity in destination showroom
+        const recentSalesCount = sales.filter(
+          s => s.showroom_id === destShowroom.id && s.motorcycle?.model_id === moto.model_id
+        ).length;
+
+        // Candidate qualification: must have demand, stockout, or historical velocity
+        if (demandInWilaya === 0 && localStockCount > 0 && recentSalesCount === 0) {
+          return;
+        }
+
+        // Sub-scores computation (0 - 100)
+        const daysInStock = moto.days_in_stock || 0;
+        const excessDays = Math.max(0, daysInStock - config.thresholdDays);
+        const stockAgeScore = Math.min(100, Math.round(50 + (excessDays / 90) * 50));
+        const demandScore = Math.min(100, demandInWilaya * 25);
+        const stockoutScore = localStockCount === 0 ? 100 : (localStockCount === 1 ? 50 : 15);
+        const velocityScore = Math.min(100, Math.max(25, recentSalesCount * 30));
+
+        const distanceKm = calculateWilayaDistanceKm(sourceShowroom.wilaya_code, destShowroom.wilaya_code);
+        const logisticsCostDzd = estimateLogisticsCostDzd(distanceKm, config.logisticsBaseFeeDzd, config.logisticsRatePerKmDzd);
+        const logisticsScore = Math.max(10, Math.min(100, Math.round(100 - (distanceKm / 12))));
+
+        // Overall Weighted Score
+        const score = Math.min(100, Math.max(0, Math.round(
+          (stockAgeScore * config.weightAge) +
+          (demandScore * config.weightDemand) +
+          (stockoutScore * config.weightStockout) +
+          (velocityScore * config.weightVelocity) +
+          (logisticsScore * config.weightLogistics)
+        )));
+
+        let priority: 'Haute' | 'Moyenne' | 'Standard' = 'Standard';
+        if (score >= 75) priority = 'Haute';
+        else if (score >= 50) priority = 'Moyenne';
+
+        let estimatedDaysToSell = 21;
+        if (demandInWilaya >= 2) estimatedDaysToSell = 3;
+        else if (demandInWilaya === 1) estimatedDaysToSell = 7;
+        else if (localStockCount === 0 && recentSalesCount > 0) estimatedDaysToSell = 12;
+
+        const bikeValue = model.price_dzd || 250000;
+        const commercialBenefitDzd = Math.max(0, Math.round((bikeValue * 0.08) - logisticsCostDzd));
+
+        const explanation = `Score global ${score}/100 (${priority} priorité). Unité ${model.name} immobilisée depuis ${daysInStock} jours à ${sourceShowroom.city}. ` +
+          (demandInWilaya > 0 ? `Forte tension locale: ${demandInWilaya} client(s) en attente active à ${destShowroom.city}. ` : `Rupture totale constatée à ${destShowroom.city} (0 disponible). `) +
+          `Distance: ${distanceKm} km (coût estimé: ${new Intl.NumberFormat('fr-DZ').format(logisticsCostDzd)} DZD). Vente estimée sous ${estimatedDaysToSell} jours.`;
+
+        opportunities.push({
+          id: `opp-${moto.id}-${destShowroom.id}`,
+          model,
+          sourceShowroom,
+          destinationShowroom: destShowroom,
+          motorcycle: moto,
+          daysInStock,
+          score,
+          priority,
+          subScores: {
+            stockAgeScore,
+            demandScore,
+            stockoutScore,
+            velocityScore,
+            logisticsScore
+          },
+          distanceKm,
+          logisticsCostDzd,
+          estimatedDaysToSell,
+          commercialBenefitDzd,
+          pendingDemandCount: demandInWilaya,
+          destinationStockCount: localStockCount,
+          reason: demandInWilaya > 0
+            ? `${demandInWilaya} client(s) en attente à ${destShowroom.city}; stock dormant de ${daysInStock}j à ${sourceShowroom.city}.`
+            : `Rupture de stock à ${destShowroom.city} (0 dispo) et sur-stockage (${daysInStock}j) à ${sourceShowroom.city}.`,
+          explanation
+        });
+      });
+    });
+
+    // Deduplicate: Keep the best ranked target per dormant motorcycle
+    const bestByMoto = new Map<string, TransferOpportunity>();
+    opportunities.sort((a, b) => b.score - a.score).forEach(opp => {
+      if (!bestByMoto.has(opp.motorcycle.id)) {
+        bestByMoto.set(opp.motorcycle.id, opp);
+      }
+    });
+
+    return Array.from(bestByMoto.values()).sort((a, b) => b.score - a.score);
+  }
+
+  public getStockoutRisks(): StockoutRisk[] {
+    const motorcycles = this.getMotorcycles();
+    const showrooms = this.getShowrooms();
+    const requests = this.getCustomerRequests().filter(r => r.status === 'pending');
+    const models = this.getModels();
+    const risks: StockoutRisk[] = [];
+
+    showrooms.forEach(shw => {
+      models.forEach(mod => {
+        const localStock = motorcycles.filter(
+          m => m.showroom_id === shw.id && m.model_id === mod.id && m.status === 'available'
+        ).length;
+
+        const demand = requests.filter(
+          r => r.motorcycle_model_id === mod.id && r.wilaya_code === shw.wilaya_code
+        ).length;
+
+        if (localStock === 0 && demand > 0) {
+          risks.push({
+            showroomId: shw.id,
+            showroomName: shw.name,
+            city: shw.city,
+            wilayaCode: shw.wilaya_code,
+            modelId: mod.id,
+            modelName: mod.name,
+            category: mod.category,
+            pendingDemand: demand,
+            currentStock: 0,
+            severity: demand >= 2 ? 'critical' : 'warning'
           });
         }
       });
     });
 
-    // Sort by priority and stock age descending
-    return opportunities.sort((a, b) => b.daysInStock - a.daysInStock);
+    return risks.sort((a, b) => b.pendingDemand - a.pendingDemand);
+  }
+
+  public getDormantInventorySummary(): DormantInventorySummary {
+    const motorcycles = this.getMotorcycles();
+    const showrooms = this.getShowrooms();
+    const dormantMotos = motorcycles.filter(
+      m => (m.days_in_stock || 0) >= this.algorithmConfig.thresholdDays && m.status === 'available'
+    );
+
+    const highRisk = dormantMotos.filter(m => (m.days_in_stock || 0) >= 130);
+    const moderateRisk = dormantMotos.filter(m => (m.days_in_stock || 0) < 130);
+    const totalCapital = dormantMotos.reduce((sum, m) => sum + (m.model?.price_dzd || 250000), 0);
+
+    const byShw: Record<string, { count: number; totalValueDzd: number }> = {};
+    dormantMotos.forEach(m => {
+      if (!byShw[m.showroom_id]) byShw[m.showroom_id] = { count: 0, totalValueDzd: 0 };
+      byShw[m.showroom_id].count++;
+      byShw[m.showroom_id].totalValueDzd += (m.model?.price_dzd || 250000);
+    });
+
+    const topShowrooms = Object.keys(byShw)
+      .map(id => ({
+        showroom: showrooms.find(s => s.id === id) || { id, name: id, city: 'Inconnu' } as Showroom,
+        count: byShw[id].count,
+        totalValueDzd: byShw[id].totalValueDzd
+      }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    return {
+      totalDormantUnits: dormantMotos.length,
+      highRiskUnits: highRisk.length,
+      moderateRiskUnits: moderateRisk.length,
+      totalCapitalTiedUpDzd: totalCapital,
+      topDormantShowrooms: topShowrooms
+    };
   }
 
   public getTransfers(): Transfer[] {
@@ -1058,14 +1223,20 @@ class DatabaseStore {
     details?: Record<string, any>
   ): void {
     const logs = this.cachedLoad<AuditLog[]>(STORAGE_KEYS.AUDIT_LOGS, INITIAL_AUDIT_LOGS);
+    
+    // Redact sensitive customer PII before saving to audit storage
+    const sanitizedDetails = details ? { ...details } : {};
+    if (sanitizedDetails.phone) sanitizedDetails.phone = redactPhone(sanitizedDetails.phone);
+    if (sanitizedDetails.customer_phone) sanitizedDetails.customer_phone = redactPhone(sanitizedDetails.customer_phone);
+
     const entry: AuditLog = {
       id: `aud-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
       user_id: userId,
-      user_email: userEmail,
+      user_email: redactEmail(userEmail),
       action_type: actionType,
       entity_type: entityType,
       entity_id: entityId,
-      details,
+      details: sanitizedDetails,
       created_at: new Date().toISOString()
     };
     logs.unshift(entry);

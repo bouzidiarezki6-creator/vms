@@ -266,3 +266,557 @@ export interface GlobalKPIs {
   totalSalesVolume: number;
   totalSalesValue: number;
 }
+
+// -----------------------------------------------------------------------------
+// ADVANCED GLOBAL ACCOUNT ENGINE (PHASE 2)
+// -----------------------------------------------------------------------------
+export interface TransferSubScores {
+  stockAgeScore: number;     // 0-100: Urgency of dormant unit
+  demandScore: number;       // 0-100: Local customer demand pressure
+  stockoutScore: number;     // 0-100: Absence of local equivalent inventory
+  velocityScore: number;     // 0-100: Historical absorption & sales speed
+  logisticsScore: number;    // 0-100: Geographic proximity & cost efficiency
+}
+
+export interface TransferOpportunity {
+  id?: string;
+  model: MotorcycleModel;
+  sourceShowroom: Showroom;
+  destinationShowroom: Showroom;
+  motorcycle: Motorcycle;
+  daysInStock: number;
+  score: number;             // Overall 0-100 multi-criteria score
+  priority: 'Haute' | 'Moyenne' | 'Standard';
+  subScores: TransferSubScores;
+  distanceKm: number;
+  logisticsCostDzd: number;
+  estimatedDaysToSell: number;
+  commercialBenefitDzd: number;
+  pendingDemandCount: number;
+  destinationStockCount: number;
+  reason: string;
+  explanation: string;
+}
+
+export interface GlobalAccountConfig {
+  weightAge: number;         // default: 0.25
+  weightDemand: number;      // default: 0.25
+  weightStockout: number;    // default: 0.20
+  weightVelocity: number;    // default: 0.15
+  weightLogistics: number;   // default: 0.15
+  thresholdDays: number;     // default: 90
+  logisticsBaseFeeDzd: number; // default: 4000
+  logisticsRatePerKmDzd: number; // default: 35
+}
+
+export interface StockoutRisk {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  modelId: string;
+  modelName: string;
+  category: string;
+  pendingDemand: number;
+  currentStock: number;
+  severity: 'critical' | 'warning';
+}
+
+export interface DormantInventorySummary {
+  totalDormantUnits: number;
+  highRiskUnits: number;     // > 130 days
+  moderateRiskUnits: number; // 90 - 130 days
+  totalCapitalTiedUpDzd: number;
+  topDormantShowrooms: Array<{ showroom: Showroom; count: number; totalValueDzd: number }>;
+}
+
+// -----------------------------------------------------------------------------
+// ODOO ERP INTEGRATION & SYNCHRONIZATION (PHASE 3)
+// -----------------------------------------------------------------------------
+export interface OdooConnectionStatus {
+  configured: boolean;
+  mode: 'SANDBOX_SIMULATION' | 'LIVE_PRODUCTION';
+  url: string;
+  db: string;
+  username: string;
+  authenticated: boolean;
+  timeoutMs: number;
+}
+
+export interface OdooSyncStats {
+  totalOperations: number;
+  successCount: number;
+  failedCount: number;
+  dryRunCount: number;
+  pendingCount: number;
+  unresolvedConflictsCount: number;
+  totalMappings: number;
+  lastSyncAt: string | null;
+}
+
+export interface OdooSyncSchedulerConfig {
+  enabled: boolean;
+  intervalMinutes: number;
+  entities: string[];
+  dryRunDefault: boolean;
+  lastRunAt: string | null;
+  nextRunAt: string | null;
+  isCurrentlyRunning: boolean;
+}
+
+export interface OdooSyncHistoryItem {
+  id: string;
+  entity_type: string;
+  quick_record_id: string;
+  odoo_record_id: number | null;
+  operation: 'EXPORT_CREATE' | 'EXPORT_UPDATE' | 'IMPORT_CREATE' | 'IMPORT_UPDATE' | 'DRY_RUN';
+  sync_status: 'SUCCESS' | 'FAILED' | 'PENDING' | 'DRY_RUN' | 'CONFLICT';
+  details?: Record<string, any>;
+  error_details?: string | null;
+  retry_count: number;
+  checksum?: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface OdooConflictItem {
+  id: string;
+  entity_type: string;
+  quick_id: string;
+  odoo_id?: number | null;
+  field_name: string;
+  quick_value: string;
+  odoo_value: string;
+  status: 'UNRESOLVED' | 'RESOLVED_QUICK' | 'RESOLVED_ODOO' | 'IGNORED';
+  resolution_notes?: string;
+  resolved_by?: string;
+  resolved_at?: string;
+  created_at: string;
+}
+
+export interface OdooSyncSummary {
+  dryRun: boolean;
+  triggeredBy: string;
+  startedAt: string;
+  completedAt: string;
+  entities: Record<string, {
+    processed: number;
+    success: number;
+    failed: number;
+    skipped: number;
+    conflicts: number;
+    items?: any[];
+  }>;
+  totalProcessed: number;
+  totalSuccess: number;
+  totalFailed: number;
+  totalSkipped: number;
+  conflictsCount: number;
+}
+
+export interface OdooIntegrationState {
+  connection: OdooConnectionStatus;
+  stats: OdooSyncStats;
+  scheduler: OdooSyncSchedulerConfig;
+  dataOwnership: Record<string, {
+    sourceOfTruth: string;
+    conflictStrategy: string;
+  }>;
+}
+
+// -----------------------------------------------------------------------------
+// BUSINESS INTELLIGENCE & ANALYTICS (PHASE 4)
+// -----------------------------------------------------------------------------
+export interface BiExecutiveOverview {
+  financials: {
+    totalSalesRevenue: number;
+    totalSalesVolume: number;
+    averageTicketDzd: number;
+    dormantCapitalTiedUpDzd: number;
+    estimatedUnblockedMarginDzd: number;
+  };
+  inventory: {
+    totalStock: number;
+    availableStock: number;
+    inventoryTurnoverRatio: number;
+    daysSalesOfInventoryDsi: number;
+    networkAvailabilityRatePercent: number;
+    dormantSharePercent: number;
+    agingPyramid: {
+      freshUnder30d: number;
+      normal30to60d: number;
+      warning60to90d: number;
+      dormantOver90d: number;
+      criticalOver130d: number;
+    };
+  };
+  demand: {
+    totalRequests: number;
+    pendingRequests: number;
+    availableNotifiedRequests: number;
+    fulfilledRequests: number;
+    conversionRatePercent: number;
+  };
+  transfers: {
+    activeTransfers: number;
+    completedTransfers: number;
+  };
+  dataProvenance: {
+    primarySource: string;
+    isSandboxActive: boolean;
+    odooMappingsCount: number;
+    confidenceLevel: string;
+    provenanceNotice: string;
+  };
+  generatedAt: string;
+}
+
+export interface BiTemporalSalesPoint {
+  period: string;
+  salesVolume: number;
+  salesRevenue: number;
+  requestsCount: number;
+  averageTicketDzd: number;
+}
+
+export interface BiSalesTrendsResponse {
+  granularity: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+  points: BiTemporalSalesPoint[];
+  paymentSplit: Record<string, number>;
+  totalPeriods: number;
+}
+
+export interface BiShowroomRanking {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  region?: string;
+  rank?: number;
+  availableStock: number;
+  dormantStock: number;
+  salesVolume: number;
+  salesRevenue: number;
+  pendingDemand: number;
+  absorptionRatio: number;
+  normalizedScore: number;
+  tier: 'Top Performer' | 'Équilibré' | 'Rupture Critique' | 'Sur-Stock Dormant' | 'Standard';
+}
+
+export interface BiShowroomRankingsResponse {
+  totalShowrooms: number;
+  rankings: BiShowroomRanking[];
+  topPerformersCount: number;
+  stockoutRiskCount: number;
+  dormantRiskCount: number;
+}
+
+export interface BiModelDemandPerformance {
+  modelId: string;
+  name: string;
+  brand: string;
+  category: string;
+  priceDzd: number;
+  totalRequests: number;
+  pendingDemand: number;
+  salesVolume: number;
+  salesRevenue: number;
+  availableStock: number;
+  tensionIndex: number;
+  tensionStatus: 'TENSION_RUPTURE' | 'SUR_STOCK' | 'EQUILIBRE';
+}
+
+export interface BiDemandIntelligenceResponse {
+  modelStats: BiModelDemandPerformance[];
+  funnel: {
+    stage1_collected: number;
+    stage2_availableNotified: number;
+    stage3_salesFulfilled: number;
+    stage4_pendingAwaitingStock: number;
+  };
+  mostPopularModel: string;
+  highestTensionModel: string;
+}
+
+export interface BiFilterOptions {
+  startDate?: string;
+  endDate?: string;
+  period?: '7d' | '30d' | '90d' | 'ytd' | '12m' | 'all';
+  region?: 'ALL' | 'CENTRE' | 'EST' | 'OUEST' | 'SUD';
+  granularity?: 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'yearly';
+}
+
+// -----------------------------------------------------------------------------
+// PREDICTIVE ANALYTICS & DEMAND FORECASTING (PHASE 5)
+// -----------------------------------------------------------------------------
+export interface ForecastHorizon {
+  horizonDays: number;
+  horizonLabel: string;
+  projectedVolume: number;
+  projectedRevenueDzd: number;
+  lowerBoundVolume80: number;
+  upperBoundVolume80: number;
+  confidencePct: number;
+}
+
+export interface ModelComparisonResult {
+  name: string;
+  mae: number;
+  rmse: number;
+  smape: number;
+}
+
+export interface BacktestAccuracyScorecard {
+  bestModel: string;
+  mae: number;
+  rmse: number;
+  smape: number;
+  confidenceScore: number;
+  modelsComparison: ModelComparisonResult[];
+}
+
+export interface DailyProjectionPoint {
+  day: number;
+  date: string;
+  predictedSales: number;
+  lowerBound80: number;
+  upperBound80: number;
+  lowerBound95: number;
+  upperBound95: number;
+}
+
+export interface SalesForecastResponse {
+  baselineDays: number;
+  totalHistoricalSales: number;
+  averageDailySalesRate: number;
+  averageTicketDzd: number;
+  seasonalityMultiplierApplied: number;
+  backtestAccuracy: BacktestAccuracyScorecard;
+  horizons: ForecastHorizon[];
+  dailyProjections: DailyProjectionPoint[];
+}
+
+export interface ModelSalesForecast {
+  modelId: string;
+  modelName: string;
+  brand: string;
+  category: string;
+  priceDzd: number;
+  availableStock: number;
+  dormantStock: number;
+  historicalSales: number;
+  pendingDemand: number;
+  projectedDailyVelocity: number;
+  projectedSales30d: number;
+  projectedSales60d: number;
+  projectedSales90d: number;
+  daysUntilDepletion: number;
+  riskLevel: 'OUT_OF_STOCK' | 'CRITICAL' | 'WARNING' | 'SUFFICIENT';
+  recommendedReorderQty: number;
+}
+
+export interface ModelForecastsResponse {
+  totalModels: number;
+  models: ModelSalesForecast[];
+  criticalModelsCount: number;
+  totalRecommendedReorderQty: number;
+}
+
+export interface ShowroomDepletionRisk {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  availableStock: number;
+  dormantStock: number;
+  recentSalesVolume: number;
+  pendingDemand: number;
+  dailyRate: number;
+  daysToDepletion: number;
+  status: 'DEPLETED_STOCKOUT' | 'CRITICAL_STOCKOUT' | 'REPLENISHMENT_NEEDED' | 'BALANCED' | 'EXCESS_DORMANT';
+  recommendedStockAddition: number;
+}
+
+export interface ShowroomProjectionsResponse {
+  totalShowrooms: number;
+  showrooms: ShowroomDepletionRisk[];
+  urgentReplenishmentCount: number;
+  dormantExcessCount: number;
+}
+
+export interface AlgerianSeasonalityFactor {
+  id: string;
+  name: string;
+  period: string;
+  multiplier: number;
+  nature: 'EMPIRICAL_OBSERVED' | 'ASSUMPTION_VMS_MARKET';
+  notes: string;
+}
+
+export interface PredictiveExecutiveOverview {
+  generatedAt: string;
+  forecastHorizon30d: ForecastHorizon;
+  forecastHorizon60d: ForecastHorizon;
+  forecastHorizon90d: ForecastHorizon;
+  accuracyScorecard: BacktestAccuracyScorecard;
+  inventoryAlerts: {
+    criticalModelsCount: number;
+    urgentShowroomsCount: number;
+    totalRecommendedReplenishmentUnits: number;
+  };
+  seasonalityActive?: AlgerianSeasonalityFactor;
+  dataValidationNotice: {
+    historicalBaselineDays: number;
+    historicalSalesSample: number;
+    isSampleSufficientForNationalSeries: boolean;
+    modelSparsityProtection: string;
+    actualVsEstimatedMarginNotice: string;
+  };
+}
+
+// -----------------------------------------------------------------------------
+// ENTERPRISE DATA WAREHOUSE & ADVANCED REPORTING (PHASE 6)
+// -----------------------------------------------------------------------------
+export interface DataQualityDimension {
+  dimension: string;
+  score: number;
+  status: 'PASSED' | 'WARNING' | 'CRITICAL';
+  checkedItems: number;
+  failedItems: number;
+  description: string;
+}
+
+export interface DataQualityScorecard {
+  auditId?: string;
+  timestamp?: string;
+  overallScore: number;
+  status: 'EXCELLENT' | 'GOOD' | 'WARNING' | 'CRITICAL';
+  dimensions: DataQualityDimension[];
+  dataProvenanceSummary?: {
+    certifiedQuickRecords: number;
+    odooSyncRecords: number;
+    predictiveRecords: number;
+    businessAssumptionsCount: number;
+  };
+}
+
+export interface EtlPipelineRun {
+  run_id: string;
+  pipeline_name: string;
+  run_type: 'FULL_BACKFILL' | 'INCREMENTAL';
+  started_at: string;
+  completed_at: string;
+  status: 'COMPLETED' | 'FAILED' | 'RUNNING';
+  records_extracted: number;
+  records_transformed: number;
+  records_loaded: number;
+  records_rejected: number;
+  checksum_sha256?: string;
+  execution_duration_ms: number;
+  error_message?: string;
+}
+
+export interface SchemaInventoryItem {
+  name: string;
+  rowCount: number;
+  grain: string;
+}
+
+export interface DataWarehouseOverview {
+  warehouseVersion: string;
+  architecture: string;
+  lastEtlRun: EtlPipelineRun | null;
+  qualityScorecard: DataQualityScorecard;
+  reconciliationStatus: 'RECONCILED_EXACT' | 'DISCREPANCY_DETECTED';
+  schemaInventory: {
+    dimensions: SchemaInventoryItem[];
+    facts: SchemaInventoryItem[];
+  };
+  dataClassification: {
+    certifiedQuickOperational: string;
+    estimatedAssumptions: string;
+    predictiveAi: string;
+    odooSyncStatus: string;
+  };
+}
+
+export interface ReconciliationMetric {
+  entity: string;
+  sourceCount: number;
+  warehouseCount: number;
+  variance: number;
+  isReconciled: boolean;
+}
+
+export interface ReconciliationReport {
+  reconciliationTimestamp: string;
+  status: 'RECONCILED_EXACT' | 'DISCREPANCY_DETECTED';
+  allPassed: boolean;
+  metrics: ReconciliationMetric[];
+}
+
+export interface ExecutiveReportRegionalItem {
+  regionCode: string;
+  regionName: string;
+  hub: string;
+  showroomsCount: number;
+  salesVolume: number;
+  revenueDzd: number;
+  revenueSharePct: number;
+}
+
+export interface ExecutiveReportProductItem {
+  modelId: string;
+  modelName: string;
+  category: string;
+  displacementCc: number;
+  salesVolume: number;
+  revenueDzd: number;
+  revenueSharePct: number;
+  averageDaysToSell: number;
+}
+
+export interface ExecutiveReportShowroomItem {
+  showroomKey: number;
+  showroomName: string;
+  city: string;
+  regionCode: string;
+  salesVolume: number;
+  revenueDzd: number;
+  conversionRatePct: number;
+  compositeEfficiencyScore: number;
+  tier: string;
+}
+
+export interface ExecutiveReport {
+  reportMetadata: {
+    reportTitle: string;
+    generatedAt: string;
+    reportingPeriod: string;
+    regionFilterApplied: string;
+    dataSources: string[];
+    dataLineageClassification: {
+      certifiedOperational: string;
+      simulatedOdooSync: string;
+      predictiveAi: string;
+      estimatedAssumption: string;
+    };
+  };
+  kpiSummary: {
+    totalSalesVolume: number;
+    totalRevenueDzd: number;
+    averageTicketDzd: number;
+    estimatedStandardMarginDzd: number;
+    totalStockUnitsOnHand: number;
+    dormantStockUnitsOver90d: number;
+    totalInventoryValuationDzd: number;
+    dormantCapitalTiedUpDzd: number;
+    networkEfficiencyScore: number;
+  };
+  regionalBreakdown: ExecutiveReportRegionalItem[];
+  productPerformance: ExecutiveReportProductItem[];
+  topShowrooms: ExecutiveReportShowroomItem[];
+  bottomShowrooms: ExecutiveReportShowroomItem[];
+  forecastSummary: Array<{ horizon: string; projectedVolume: number; confidencePct: number; status: string }>;
+  dataQualityAudit: DataQualityScorecard;
+}
