@@ -9,7 +9,11 @@ import {
   Sale,
   RequestLimitCheck,
   GlobalKPIs,
-  ShowroomKPIs
+  ShowroomKPIs,
+  TransferOpportunity,
+  StockoutRisk,
+  DormantInventorySummary,
+  GlobalAccountConfig
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -181,12 +185,15 @@ class ApiService {
   }
 
   // ---------------------------------------------------------------------------
-  // Compte Global & Aging
+  // Compte Global & Aging (Advanced Decision Engine - Phase 2)
   // ---------------------------------------------------------------------------
-  public async getOpportunities(targetShowroomId?: string): Promise<any[]> {
+  public async getOpportunities(targetShowroomId?: string): Promise<TransferOpportunity[]> {
     if (this.isOnline) {
       try {
-        const res = await fetch(`${API_BASE_URL}/compte-global/opportunities`);
+        const url = targetShowroomId
+          ? `${API_BASE_URL}/compte-global/opportunities?target_showroom_id=${encodeURIComponent(targetShowroomId)}`
+          : `${API_BASE_URL}/compte-global/opportunities`;
+        const res = await fetch(url);
         if (res.ok) return await res.json();
       } catch (err) {
         console.warn('Express API unavailable, fallback to dbStore:', err);
@@ -195,16 +202,68 @@ class ApiService {
     return dbStore.getTransferOpportunities(targetShowroomId);
   }
 
-  public async getAgingStock(): Promise<Motorcycle[]> {
+  public async getAgingStock(minDays: number = 90): Promise<Motorcycle[]> {
     if (this.isOnline) {
       try {
-        const res = await fetch(`${API_BASE_URL}/compte-global/aging`);
+        const res = await fetch(`${API_BASE_URL}/compte-global/aging?min_days=${minDays}`);
         if (res.ok) return await res.json();
       } catch (err) {
         console.warn('Express API unavailable, fallback to dbStore:', err);
       }
     }
-    return dbStore.getAgingMotorcycles();
+    return dbStore.getAgingMotorcycles(minDays);
+  }
+
+  public async getStockoutRisks(): Promise<StockoutRisk[]> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/compte-global/stockout-risks`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Express API unavailable, fallback to dbStore:', err);
+      }
+    }
+    return dbStore.getStockoutRisks();
+  }
+
+  public async getDormantSummary(): Promise<DormantInventorySummary> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/compte-global/dormant-summary`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Express API unavailable, fallback to dbStore:', err);
+      }
+    }
+    return dbStore.getDormantInventorySummary();
+  }
+
+  public async getAlgorithmConfig(): Promise<GlobalAccountConfig> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/compte-global/config`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Express API unavailable, fallback to dbStore:', err);
+      }
+    }
+    return dbStore.getAlgorithmConfig();
+  }
+
+  public async updateAlgorithmConfig(config: Partial<GlobalAccountConfig>): Promise<GlobalAccountConfig> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/compte-global/config`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(config)
+        });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Express API unavailable, fallback to dbStore:', err);
+      }
+    }
+    return dbStore.updateAlgorithmConfig(config);
   }
 
   // ---------------------------------------------------------------------------

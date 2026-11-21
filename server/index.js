@@ -5,6 +5,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { signToken, verifyToken, redactEmail, redactPhone, createRateLimiter } from './utils/auth.js';
 import { mutex } from './utils/mutex.js';
+import {
+  computeTransferOpportunities,
+  getStockoutRisks,
+  getDormantInventorySummary,
+  globalAccountConfig,
+  updateAlgorithmConfig
+} from './services/globalAccountEngine.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -935,54 +942,31 @@ app.get('/api/compte-global/aging', (req, res) => {
   res.json(aging);
 });
 
+// Advanced Global Account Intelligent Decision Engine (Phase 2)
 app.get('/api/compte-global/opportunities', (req, res) => {
-  const now = Date.now();
-  const opportunities = [];
+  const { target_showroom_id } = req.query;
+  const recommendations = computeTransferOpportunities(db, target_showroom_id || null);
+  res.json(recommendations);
+});
 
-  const agingMotos = db.motorcycles
-    .filter(m => m.status === 'available')
-    .map(m => {
-      const arrival = new Date(m.arrival_date).getTime();
-      const days = Math.max(0, Math.floor((now - arrival) / (1000 * 60 * 60 * 24)));
-      return { ...m, days_in_stock: days, is_aging: days >= 90 };
-    })
-    .filter(m => m.is_aging);
+app.get('/api/compte-global/config', (req, res) => {
+  res.json(globalAccountConfig);
+});
 
-  const pendingRequests = db.requests.filter(r => r.status === 'pending');
+app.put('/api/compte-global/config', (req, res) => {
+  const updated = updateAlgorithmConfig(req.body);
+  logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'COMPTE_GLOBAL_CONFIG_UPDATE', 'system', null, updated);
+  res.json(updated);
+});
 
-  agingMotos.forEach(moto => {
-    const model = db.models.find(m => m.id === moto.model_id);
-    const sourceShowroom = db.showrooms.find(s => s.id === moto.showroom_id);
+app.get('/api/compte-global/stockout-risks', (req, res) => {
+  const risks = getStockoutRisks(db);
+  res.json(risks);
+});
 
-    db.showrooms.forEach(targetShowroom => {
-      if (targetShowroom.id === moto.showroom_id) return;
-
-      const demand = pendingRequests.filter(
-        r => r.motorcycle_model_id === moto.model_id && r.wilaya_code === targetShowroom.wilaya_code
-      ).length;
-
-      const localStock = db.motorcycles.filter(
-        m => m.showroom_id === targetShowroom.id && m.model_id === moto.model_id && m.status === 'available'
-      ).length;
-
-      if (demand > 0 || localStock === 0) {
-        opportunities.push({
-          model,
-          sourceShowroom,
-          destinationShowroom: targetShowroom,
-          motorcycle: moto,
-          daysInStock: moto.days_in_stock,
-          priority: demand > 0 ? 'Haute' : 'Moyenne',
-          pendingDemandCount: demand,
-          reason: demand > 0
-            ? `${demand} client(s) en attente à ${targetShowroom.city}; stock dormant de ${moto.days_in_stock}j à ${sourceShowroom?.city}.`
-            : `Rupture de stock à ${targetShowroom.city} et sur-stockage (${moto.days_in_stock}j) à ${sourceShowroom?.city}.`
-        });
-      }
-    });
-  });
-
-  res.json(opportunities.sort((a, b) => b.daysInStock - a.daysInStock));
+app.get('/api/compte-global/dormant-summary', (req, res) => {
+  const summary = getDormantInventorySummary(db);
+  res.json(summary);
 });
 
 // Transfers

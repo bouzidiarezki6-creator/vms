@@ -266,3 +266,66 @@ export interface GlobalKPIs {
   totalSalesVolume: number;
   totalSalesValue: number;
 }
+
+// -----------------------------------------------------------------------------
+// ADVANCED GLOBAL ACCOUNT ENGINE (PHASE 2)
+// -----------------------------------------------------------------------------
+export interface TransferSubScores {
+  stockAgeScore: number;     // 0-100: Urgency of dormant unit
+  demandScore: number;       // 0-100: Local customer demand pressure
+  stockoutScore: number;     // 0-100: Absence of local equivalent inventory
+  velocityScore: number;     // 0-100: Historical absorption & sales speed
+  logisticsScore: number;    // 0-100: Geographic proximity & cost efficiency
+}
+
+export interface TransferOpportunity {
+  id?: string;
+  model: MotorcycleModel;
+  sourceShowroom: Showroom;
+  destinationShowroom: Showroom;
+  motorcycle: Motorcycle;
+  daysInStock: number;
+  score: number;             // Overall 0-100 multi-criteria score
+  priority: 'Haute' | 'Moyenne' | 'Standard';
+  subScores: TransferSubScores;
+  distanceKm: number;
+  logisticsCostDzd: number;
+  estimatedDaysToSell: number;
+  commercialBenefitDzd: number;
+  pendingDemandCount: number;
+  destinationStockCount: number;
+  reason: string;
+  explanation: string;
+}
+
+export interface GlobalAccountConfig {
+  weightAge: number;         // default: 0.25
+  weightDemand: number;      // default: 0.25
+  weightStockout: number;    // default: 0.20
+  weightVelocity: number;    // default: 0.15
+  weightLogistics: number;   // default: 0.15
+  thresholdDays: number;     // default: 90
+  logisticsBaseFeeDzd: number; // default: 4000
+  logisticsRatePerKmDzd: number; // default: 35
+}
+
+export interface StockoutRisk {
+  showroomId: string;
+  showroomName: string;
+  city: string;
+  wilayaCode: string;
+  modelId: string;
+  modelName: string;
+  category: string;
+  pendingDemand: number;
+  currentStock: number;
+  severity: 'critical' | 'warning';
+}
+
+export interface DormantInventorySummary {
+  totalDormantUnits: number;
+  highRiskUnits: number;     // > 130 days
+  moderateRiskUnits: number; // 90 - 130 days
+  totalCapitalTiedUpDzd: number;
+  topDormantShowrooms: Array<{ showroom: Showroom; count: number; totalValueDzd: number }>;
+}
