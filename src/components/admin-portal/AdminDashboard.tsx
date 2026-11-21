@@ -33,6 +33,7 @@ import {
 import { OdooIntegrationView } from './OdooIntegrationView';
 import { AdvancedBiDashboard } from './AdvancedBiDashboard';
 import { PredictiveDashboard } from './PredictiveDashboard';
+import { DataWarehouseDashboard } from './DataWarehouseDashboard';
 import { dbStore } from '../../services/dbStore';
 import {
   GlobalKPIs,
@@ -70,7 +71,7 @@ import {
 } from 'recharts';
 
 interface AdminDashboardProps {
-  initialSubTab?: 'bi' | 'predictive' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo';
+  initialSubTab?: 'bi' | 'predictive' | 'warehouse' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo';
   onNavigateToCompteGlobal?: () => void;
 }
 
@@ -80,7 +81,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 }) => {
   const toast = useToast();
   const currentUser = dbStore.getCurrentUser();
-  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'predictive' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo'>(initialSubTab);
+  const [activeSubTab, setActiveSubTab] = useState<'bi' | 'predictive' | 'warehouse' | 'showrooms' | 'inventory' | 'requests' | 'audit' | 'datahub' | 'odoo'>(initialSubTab);
 
   useEffect(() => {
     if (initialSubTab) {
@@ -388,6 +389,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </button>
 
         <button
+          onClick={() => setActiveSubTab('warehouse')}
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+            activeSubTab === 'warehouse'
+              ? 'bg-blue-700 text-white shadow-md shadow-blue-700/30'
+              : 'text-blue-700 bg-blue-50/80 hover:bg-blue-100 border border-blue-200'
+          }`}
+        >
+          <Database className="h-4 w-4" />
+          <span>Data Warehouse & Reporting</span>
+        </button>
+
+        <button
           onClick={() => setActiveSubTab('showrooms')}
           className={`px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 ${
             activeSubTab === 'showrooms'
@@ -477,6 +490,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
           onNavigateToShowrooms={() => setActiveSubTab('showrooms')}
           onNavigateToInventory={() => setActiveSubTab('inventory')}
         />
+      )}
+
+      {/* ==================================================================== */}
+      {/* ENTERPRISE DATA WAREHOUSE & EXECUTIVE REPORTING (Phase 6 Suite)     */}
+      {/* ==================================================================== */}
+      {activeSubTab === 'warehouse' && (
+        <DataWarehouseDashboard />
       )}
 
       {/* ==================================================================== */}

@@ -31,7 +31,12 @@ import {
   ModelForecastsResponse,
   ShowroomProjectionsResponse,
   AlgerianSeasonalityFactor,
-  BacktestAccuracyScorecard
+  BacktestAccuracyScorecard,
+  DataWarehouseOverview,
+  DataQualityScorecard,
+  EtlPipelineRun,
+  ReconciliationReport,
+  ExecutiveReport
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -571,6 +576,83 @@ class ApiService {
       }
     }
     return null;
+  }
+
+  // ---------------------------------------------------------------------------
+  // ENTERPRISE DATA WAREHOUSE & EXECUTIVE REPORTING (PHASE 6)
+  // ---------------------------------------------------------------------------
+  public async getWarehouseOverview(): Promise<DataWarehouseOverview | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/warehouse/overview`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Warehouse overview fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async triggerEtlPipeline(runType: 'FULL_BACKFILL' | 'INCREMENTAL' = 'INCREMENTAL'): Promise<EtlPipelineRun | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/warehouse/etl/run`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ runType })
+        });
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('ETL run error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getWarehouseQuality(): Promise<DataQualityScorecard | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/warehouse/quality`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Warehouse quality fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getWarehouseReconciliation(): Promise<ReconciliationReport | null> {
+    if (this.isOnline) {
+      try {
+        const res = await fetch(`${API_BASE_URL}/warehouse/reconciliation`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Warehouse reconciliation fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public async getExecutiveReport(params: { regionCode?: string; dateRange?: string } = {}): Promise<ExecutiveReport | null> {
+    if (this.isOnline) {
+      try {
+        const q = new URLSearchParams();
+        if (params.regionCode && params.regionCode !== 'ALL') q.set('regionCode', params.regionCode);
+        if (params.dateRange) q.set('dateRange', params.dateRange);
+        const res = await fetch(`${API_BASE_URL}/warehouse/reports/executive?${q.toString()}`);
+        if (res.ok) return await res.json();
+      } catch (err) {
+        console.warn('Executive report fetch error:', err);
+      }
+    }
+    return null;
+  }
+
+  public getExportReportUrl(format: 'csv' | 'excel' | 'pdf', params: { regionCode?: string; dateRange?: string } = {}): string {
+    const q = new URLSearchParams({ format });
+    if (params.regionCode && params.regionCode !== 'ALL') q.set('regionCode', params.regionCode);
+    if (params.dateRange) q.set('dateRange', params.dateRange);
+    return `${API_BASE_URL}/warehouse/reports/export?${q.toString()}`;
   }
 }
 

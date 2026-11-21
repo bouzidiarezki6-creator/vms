@@ -15,6 +15,9 @@ import {
 import { OdooSyncService } from './services/odoo/odooSyncService.js';
 import { BiAnalyticsService } from './services/bi/biAnalyticsService.js';
 import { PredictiveAnalyticsService } from './services/predictive/predictiveAnalyticsService.js';
+import { DataWarehouseService } from './services/warehouse/dataWarehouseService.js';
+import { ExecutiveReportingService } from './services/warehouse/executiveReportingService.js';
+import { dataQualityService } from './services/warehouse/dataQualityService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -500,6 +503,10 @@ export const biAnalyticsService = new BiAnalyticsService(db);
 
 // Phase 5: Predictive Analytics & Demand Forecasting Engine
 export const predictiveAnalyticsService = new PredictiveAnalyticsService(db);
+
+// Phase 6: Enterprise Data Warehouse & Executive Reporting Engine
+export const dataWarehouseService = new DataWarehouseService(db);
+export const executiveReportingService = new ExecutiveReportingService(dataWarehouseService);
 
 // Helper to log audit with sensitive PII redaction
 function logAudit(userId, userEmail, actionType, entityType, entityId, details) {
@@ -1529,6 +1536,80 @@ app.get('/api/predictive/backtest', (req, res) => {
     const series = predictiveAnalyticsService.extractDailySeries();
     const backtest = predictiveAnalyticsService.evaluateModelsBacktest(series, 14);
     res.json(backtest);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// =============================================================================
+// ENTERPRISE DATA WAREHOUSE & EXECUTIVE REPORTING (PHASE 6)
+// =============================================================================
+app.get('/api/warehouse/overview', (req, res) => {
+  try {
+    const overview = dataWarehouseService.getWarehouseOverview();
+    res.json(overview);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/warehouse/etl/run', (req, res) => {
+  try {
+    const { runType = 'INCREMENTAL' } = req.body || {};
+    const run = dataWarehouseService.runEtlPipeline(runType);
+    logAudit(req.user?.id || 'admin', req.user?.email || 'admin@vms.dz', 'ETL_PIPELINE_EXECUTED', 'warehouse', run.run_id, { runType, status: run.status });
+    res.json(run);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/quality', (req, res) => {
+  try {
+    const audit = dataQualityService.assessWarehouseQuality(dataWarehouseService);
+    res.json(audit);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reconciliation', (req, res) => {
+  try {
+    const reconciliation = dataWarehouseService.reconcileWithSource();
+    res.json(reconciliation);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reports/executive', (req, res) => {
+  try {
+    const report = executiveReportingService.generateExecutiveReport(req.query);
+    res.json(report);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/warehouse/reports/export', (req, res) => {
+  try {
+    const { format = 'csv' } = req.query;
+    if (format === 'csv') {
+      const csv = executiveReportingService.exportReport('csv', req.query);
+      res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.csv"`);
+      return res.send(csv);
+    } else if (format === 'excel') {
+      const xml = executiveReportingService.exportReport('excel', req.query);
+      res.setHeader('Content-Type', 'application/vnd.ms-excel; charset=utf-8');
+      res.setHeader('Content-Disposition', `attachment; filename="vms_rapport_executif_${Date.now()}.xls"`);
+      return res.send(xml);
+    } else if (format === 'pdf') {
+      const pdfData = executiveReportingService.exportReport('pdf', req.query);
+      return res.json(pdfData);
+    } else {
+      return res.status(400).json({ error: `Format non supporté: ${format}` });
+    }
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

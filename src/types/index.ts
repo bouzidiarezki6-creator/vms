@@ -673,3 +673,150 @@ export interface PredictiveExecutiveOverview {
     actualVsEstimatedMarginNotice: string;
   };
 }
+
+// -----------------------------------------------------------------------------
+// ENTERPRISE DATA WAREHOUSE & ADVANCED REPORTING (PHASE 6)
+// -----------------------------------------------------------------------------
+export interface DataQualityDimension {
+  dimension: string;
+  score: number;
+  status: 'PASSED' | 'WARNING' | 'CRITICAL';
+  checkedItems: number;
+  failedItems: number;
+  description: string;
+}
+
+export interface DataQualityScorecard {
+  auditId?: string;
+  timestamp?: string;
+  overallScore: number;
+  status: 'EXCELLENT' | 'GOOD' | 'WARNING' | 'CRITICAL';
+  dimensions: DataQualityDimension[];
+  dataProvenanceSummary?: {
+    certifiedQuickRecords: number;
+    odooSyncRecords: number;
+    predictiveRecords: number;
+    businessAssumptionsCount: number;
+  };
+}
+
+export interface EtlPipelineRun {
+  run_id: string;
+  pipeline_name: string;
+  run_type: 'FULL_BACKFILL' | 'INCREMENTAL';
+  started_at: string;
+  completed_at: string;
+  status: 'COMPLETED' | 'FAILED' | 'RUNNING';
+  records_extracted: number;
+  records_transformed: number;
+  records_loaded: number;
+  records_rejected: number;
+  checksum_sha256?: string;
+  execution_duration_ms: number;
+  error_message?: string;
+}
+
+export interface SchemaInventoryItem {
+  name: string;
+  rowCount: number;
+  grain: string;
+}
+
+export interface DataWarehouseOverview {
+  warehouseVersion: string;
+  architecture: string;
+  lastEtlRun: EtlPipelineRun | null;
+  qualityScorecard: DataQualityScorecard;
+  reconciliationStatus: 'RECONCILED_EXACT' | 'DISCREPANCY_DETECTED';
+  schemaInventory: {
+    dimensions: SchemaInventoryItem[];
+    facts: SchemaInventoryItem[];
+  };
+  dataClassification: {
+    certifiedQuickOperational: string;
+    estimatedAssumptions: string;
+    predictiveAi: string;
+    odooSyncStatus: string;
+  };
+}
+
+export interface ReconciliationMetric {
+  entity: string;
+  sourceCount: number;
+  warehouseCount: number;
+  variance: number;
+  isReconciled: boolean;
+}
+
+export interface ReconciliationReport {
+  reconciliationTimestamp: string;
+  status: 'RECONCILED_EXACT' | 'DISCREPANCY_DETECTED';
+  allPassed: boolean;
+  metrics: ReconciliationMetric[];
+}
+
+export interface ExecutiveReportRegionalItem {
+  regionCode: string;
+  regionName: string;
+  hub: string;
+  showroomsCount: number;
+  salesVolume: number;
+  revenueDzd: number;
+  revenueSharePct: number;
+}
+
+export interface ExecutiveReportProductItem {
+  modelId: string;
+  modelName: string;
+  category: string;
+  displacementCc: number;
+  salesVolume: number;
+  revenueDzd: number;
+  revenueSharePct: number;
+  averageDaysToSell: number;
+}
+
+export interface ExecutiveReportShowroomItem {
+  showroomKey: number;
+  showroomName: string;
+  city: string;
+  regionCode: string;
+  salesVolume: number;
+  revenueDzd: number;
+  conversionRatePct: number;
+  compositeEfficiencyScore: number;
+  tier: string;
+}
+
+export interface ExecutiveReport {
+  reportMetadata: {
+    reportTitle: string;
+    generatedAt: string;
+    reportingPeriod: string;
+    regionFilterApplied: string;
+    dataSources: string[];
+    dataLineageClassification: {
+      certifiedOperational: string;
+      simulatedOdooSync: string;
+      predictiveAi: string;
+      estimatedAssumption: string;
+    };
+  };
+  kpiSummary: {
+    totalSalesVolume: number;
+    totalRevenueDzd: number;
+    averageTicketDzd: number;
+    estimatedStandardMarginDzd: number;
+    totalStockUnitsOnHand: number;
+    dormantStockUnitsOver90d: number;
+    totalInventoryValuationDzd: number;
+    dormantCapitalTiedUpDzd: number;
+    networkEfficiencyScore: number;
+  };
+  regionalBreakdown: ExecutiveReportRegionalItem[];
+  productPerformance: ExecutiveReportProductItem[];
+  topShowrooms: ExecutiveReportShowroomItem[];
+  bottomShowrooms: ExecutiveReportShowroomItem[];
+  forecastSummary: Array<{ horizon: string; projectedVolume: number; confidencePct: number; status: string }>;
+  dataQualityAudit: DataQualityScorecard;
+}
